@@ -1,0 +1,27 @@
+{
+  "name": "memly",
+  "version": "1.0.0",
+  "description": "HR47 2016-07 Green-Field Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwongka/memly.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mwongka/memly/issues"
+  },
+  "homepage": "https://github.com/mwongka/memly#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.0",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2"
+  }
+}
