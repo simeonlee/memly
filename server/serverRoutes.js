@@ -5,8 +5,13 @@ module.exports = {
     res.sendStatus(200);
   },
 
-  getTest: function(req, res) { 
+  getTest: function(req, res) {
+    console.log('here'); 
     res.sendStatus(200);
+  },
+
+  auth: function(req, res) {
+    console.log('fb auth success!');
   }
 
 }

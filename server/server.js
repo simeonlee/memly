@@ -5,20 +5,42 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var routes = require('./serverRoutes.js');
 var path = require('path');
+var keys = require('./config/config.js');
+// make sure you require express-session 
 var port = process.env.PORT || 3000
 var auth = require('../db/auth/auth.js');
 var authConfig = require('../db/auth/authConfig.js');
 
+//----- authentication -----//
+var passport = require('passport');
+var FacebookStrategy = require('passport-facebook');
+
+passport.use(new FacebookStrategy({
+  clientID: keys.FACEBOOK_CLIENT_ID,
+  clientSecret: keys.FACEBOOK_CLIENT_SECRET,
+  callbackURL: 'http://localhost:3000/auth/facebook/callback'
+},
+function(accesssToken, refreshToken, profile, cb){
+  console.log(profile.id, 'facebook profile ID');
+  return cb(null, profile);
+}))
+
+
+
+//------ instantiate app. connect middleware. -----//
 var app = express();
 app.use(cors());
 app.use(express.static(path.join(__dirname, './testFile')));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use(passport.initialize());
+
 
 // Configure our server with the passport middleware
 auth(app);
 
 //--- route config ----- //
+
 app.get('/getTest', routes.getTest);
 app.post('/postTest', routes.postTest);
 
