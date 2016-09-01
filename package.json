@@ -30,12 +30,9 @@
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
-<<<<<<< efdba5586584dc09e87e93613fe4f6e5dcc534df
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
-    "webpack": "^1.13.2"
-=======
+    "webpack": "^1.13.2",
     "passport-github": "^1.1.0"
->>>>>>> api keys moved to .gitignore. Dummy routes/files for testing server complete.
   }
 }
