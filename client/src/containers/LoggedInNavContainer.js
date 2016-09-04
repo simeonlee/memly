@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import LoggedInNav from '../components/Home'
+import LoggedInNav from '../components/LoggedInNav'
 import { Router, Route, hashHistory, IndexRoute, Link } from 'react-router'
 class LoggedInNavContainer extends React.Component {
 
@@ -12,18 +12,8 @@ class LoggedInNavContainer extends React.Component {
 
   render() {
     return(
-      <div>
-        <div id="navBar">
-          <ul>
-          <li><Link to ="/logout">Logout</Link></li>
-          <li><Link to ="/user/profile">Profile</Link></li>
-          <li><Link to ="/">Home</Link></li>
-          </ul>
-        </div>
-        <div id = "wrapper">
-        <Home/>
-        {this.props.children}
-        </div>
+      <div className = 'NavContainer'>
+        <LoggedInNav/>
       </div>
       )
   }
