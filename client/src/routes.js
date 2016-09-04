@@ -7,6 +7,7 @@ import LikedMemlysContainer from './containers/LikedMemlysContainer'
 import ProfileContainer from './containers/ProfileContainer'
 import ImageUploadContainer from './containers/ImageUploadContainer'
 import GoogleMapContainer from './containers/GoogleMapContainer';
+import ImageUploadContainer from './containers/ImageUploadContainer'
 
 
 var routes = (
