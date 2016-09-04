@@ -1,8 +1,15 @@
+var express = require('express');
 var passport = require('passport');
+var util = require('util');
+var session = require('express-session');
+var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var authConfig = require('./authConfig.js');
 var User = require('../users/userModel.js');
 var keys = require('./keys.js');
+
+
+var app = express();
 
 module.exports = function(app) {
   
@@ -18,15 +25,17 @@ module.exports = function(app) {
     User.findOrCreate(profile, function(err, user) {
       if (err) { return done(err); }
       done(null, user);
-    })
+    });
   }));
 
   passport.serializeUser(function(user, done) {
     done(null, user);
   });
 
-  passport.deserializeUser(function(user, done) {
-    done(null, user);
+  passport.deserializeUser(function(id, done) {
+    User.findById(id, function(err, user) {
+      done(err, user);
+    });
   });
 
 };
