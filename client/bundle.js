@@ -27821,7 +27821,7 @@
 	            onRightclick: function onRightclick() {
 	              return props.onMarkerRightClick(index);
 	            },
-	            icon: "../../styles/dot.png",
+	            icon: "../../styles/dot.gif",
 	            zoom: 1
 	          }));
 	        })
