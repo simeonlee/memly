@@ -9,7 +9,6 @@ var User = require('../users/userModel.js');
 var keys = require('./keys.js');
 
 
-
 module.exports = function(app) {
   
   app.use(session({ 
