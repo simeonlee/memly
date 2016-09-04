@@ -1,13 +1,12 @@
 import React, { PropTypes } from 'react'
-import Home from '../components/Home'
+import LoggedInNav from '../components/Home'
 import { Router, Route, hashHistory, IndexRoute, Link } from 'react-router'
-class HomeContainer extends React.Component {
+class LoggedInNavContainer extends React.Component {
 
   constructor(props){
     super(props);
     this.state = {
-      test: '',
-      isLoggedIn: true
+
     }
   }
 
@@ -31,4 +30,4 @@ class HomeContainer extends React.Component {
 
 }
 
-export default HomeContainer
+export default LoggedInNavContainer

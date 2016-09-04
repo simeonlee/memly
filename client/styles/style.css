@@ -1,0 +1,194 @@
+*{
+  margin: 0;
+  padding: 0;
+
+}
+
+#navBar {
+  position: fixed;
+  color: white;
+  width: 100%;
+  height: 8%;
+  background-color: #002e66;
+  top: 0;
+}
+
+#wrapper {
+  margin: 8% auto 0;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background-color: #f0eff1;
+  font-family: Lucida Grande;
+}
+
+h1 {
+ font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+ font-weight: 300;
+}
+
+#navBar li a {
+  float: right;
+  width: 8%;
+  height: 5%;
+  line-height: 180%;
+  padding: 1%;
+  display: block;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+
+}
+
+
+#profilePhoto {
+  border-radius: 1%;
+  display: block;
+  margin-top: 2%;
+  margin-bottom: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+}
+
+#ProfileName {
+  text-align: center;
+  padding-top: 3%;
+  padding-bottom: 1%;
+}
+
+#MemlyFeedSelect {
+  width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+
+}
+a:hover {
+  background-color: #00224d
+}
+
+#Home {
+  margin-top: 10%;
+  text-align: center;
+
+}
+
+
+.ProfileBoxes {
+  border-radius: 3px;
+  background-color: white;
+  margin-top: 2%;
+  margin-right: 2%;
+  margin-left: 2%; 
+  padding-bottom: 2%;
+}
+
+.PhotoTitleBox {
+  max-width: 30%;
+}
+
+
+#ProfileMemlys {
+
+  padding: 10px;
+}
+
+/*#MemlySelect {
+  padding-right: 10px;
+  padding-left: 10px;
+}*/
+
+#FeedSelectList {
+  padding-top: 2%;
+  width: 80%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.MemlySelector {
+  float:left;
+  color: #002e66;
+  width: 40%;
+}
+
+
+#Bio {
+  margin-top: 2%;
+  padding: 1%;
+  float: left;
+
+  font-size: 0.8em;
+}
+
+#City {
+  margin-top: 2%;
+  padding: 1%;
+  float: left;
+
+  font-size: 0.8em;
+}
+
+.borderlist {
+    list-style-position:inside;
+    border: 1px solid black;
+}
+
+
+#FeedSelectList li a{
+/*  padding-right: 1%;
+  padding-top: 1%;*/
+  color: #002e66;
+  line-height: 178%;
+}
+
+#FeedSelectList li a:hover{
+  color: black;
+  background-color: #f0eff1;
+}
+
+#UserInfo {
+  padding: 10%;
+  float: right;
+  width:45%;
+
+  margin: 0 auto;
+}
+
+
+.oneMemly {
+  border-radius: 3px;
+  background-color: #f0eff1;
+  margin: 1%;
+
+}
+
+
+.memlyPhoto {
+  border-radius: 2px;
+  margin: 2%;
+  max-width: 33%;
+}
+
+h3 {
+  font-family: Helvetica Neue;
+  padding: 20px;
+  margin: 20px;
+}
+
+.memlyInfo {
+  display: block;
+  margin-left: 2%;
+  padding-bottom: 1%;
+}
+
