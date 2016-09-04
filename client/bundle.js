@@ -21533,8 +21533,13 @@
 
 	var _GoogleMapContainer2 = _interopRequireDefault(_GoogleMapContainer);
 
+	var _ImageUploadContainer = __webpack_require__(310);
+
+	var _ImageUploadContainer2 = _interopRequireDefault(_ImageUploadContainer);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	//File contains the route setup to be exported to be used by App.js
 	var routes = _react2.default.createElement(
 	  _reactRouter.Router,
 	  { history: _reactRouter.hashHistory },
@@ -21547,9 +21552,12 @@
 	      { path: 'user/profile', component: _ProfileContainer2.default },
 	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _MyMemlysContainer2.default }),
 	      _react2.default.createElement(_reactRouter.Route, { path: '/likedmemlys', component: _LikedMemlysContainer2.default })
-	    )
+	    ),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/photo', component: _ImageUploadContainer2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'test', component: TestContainer })
 	  )
-	); //File contains the route setup to be exported to be used by App.js
+	);
+
 	exports.default = routes;
 
 /***/ },
@@ -27677,8 +27685,17 @@
 	        null,
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: 'user/profile/' },
+	          { to: '/user/profile' },
 	          'Profile'
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        null,
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/photo' },
+	          'Upload a Photo'
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -35334,6 +35351,176 @@
 
 	module.exports = update;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ },
+/* 309 */,
+/* 310 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _ImageUpload = __webpack_require__(311);
+
+	var _ImageUpload2 = _interopRequireDefault(_ImageUpload);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ImageUploadContainer = function (_React$Component) {
+		_inherits(ImageUploadContainer, _React$Component);
+
+		function ImageUploadContainer(props) {
+			_classCallCheck(this, ImageUploadContainer);
+
+			var _this = _possibleConstructorReturn(this, (ImageUploadContainer.__proto__ || Object.getPrototypeOf(ImageUploadContainer)).call(this, props));
+
+			_this.state = {
+				file: '',
+				imagePreviewUrl: ''
+			};
+			return _this;
+		}
+
+		// Once we have previewed a photo, we can do operations here
+		// to submit to the server for database storage
+
+
+		_createClass(ImageUploadContainer, [{
+			key: '_handleSubmit',
+			value: function _handleSubmit(e) {
+				e.preventDefault();
+				// TODO: do something with this.state.file
+
+
+				console.log('Handle uploading ', this.state.file);
+			}
+
+			// this allows us to preview images before file post
+			// please refer to this magic:
+			// https://codepen.io/hartzis/pen/VvNGZP
+			// https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
+
+		}, {
+			key: '_handleImageChange',
+			value: function _handleImageChange(e) {
+				var _this2 = this;
+
+				e.preventDefault();
+
+				var reader = new FileReader();
+				var file = e.target.files[0];
+				console.log(file);
+
+				reader.onloadend = function () {
+					_this2.setState({
+						file: file,
+						imagePreviewUrl: reader.result
+					});
+				};
+
+				reader.readAsDataURL(file);
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(_ImageUpload2.default, {
+						imagePreviewUrl: this.state.imagePreviewUrl,
+						handleSubmit: this._handleSubmit.bind(this),
+						handleImageChange: this._handleImageChange.bind(this)
+					})
+				);
+			}
+		}]);
+
+		return ImageUploadContainer;
+	}(_react2.default.Component);
+
+	exports.default = ImageUploadContainer;
+
+/***/ },
+/* 311 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ImageUpload = function ImageUpload(_ref) {
+	  var imagePreviewUrl = _ref.imagePreviewUrl;
+	  var handleSubmit = _ref.handleSubmit;
+	  var handleImageChange = _ref.handleImageChange;
+
+	  // let {imagePreviewUrl} = this.state;
+	  var $imagePreview = null;
+	  if (imagePreviewUrl) {
+	    $imagePreview = _react2.default.createElement("img", { src: imagePreviewUrl });
+	  } else {
+	    $imagePreview = _react2.default.createElement(
+	      "div",
+	      { className: "previewText" },
+	      "Preview image"
+	    );
+	  }
+
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "previewComponent" },
+	    _react2.default.createElement(
+	      "form",
+	      { onSubmit: function onSubmit(e) {
+	          return handleSubmit(e);
+	        } },
+	      _react2.default.createElement("input", { className: "fileInput", type: "file", onChange: function onChange(e) {
+	          return handleImageChange(e);
+	        } }),
+	      _react2.default.createElement(
+	        "button",
+	        { className: "submitButton", type: "submit", onClick: function onClick(e) {
+	            return handleSubmit(e);
+	          } },
+	        "Upload Image"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "imagePreview" },
+	      $imagePreview
+	    )
+	  );
+	  // <form method="post" action="/api/photo" enctype="multipart/form-data">
+	  //   <p>Title: <input type="text" name="title" /></p>
+	  //   <p>Image: <input type="file" name="image" /></p>
+	  //   <p><input type="submit" value="Upload" /></p>
+	  // </form>
+	};
+
+	exports.default = ImageUpload;
 
 /***/ }
 /******/ ]);
