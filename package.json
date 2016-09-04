@@ -26,6 +26,7 @@
     "cors": "^2.8.0",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
+    "google-map-react": "^0.19.0",
     "mongodb": "^2.2.9",
     "mongoose": "^4.5.10",
     "morgan": "^1.7.0",
@@ -33,7 +34,9 @@
     "passport-facebook": "^2.1.1",
     "passport-github": "^1.1.0",
     "react": "^15.3.1",
+    "react-addons-update": "^15.3.1",
     "react-dom": "^15.3.1",
+    "react-google-maps": "^4.11.0",
     "react-router": "^2.7.0",
     "webpack": "^1.13.2"
   }

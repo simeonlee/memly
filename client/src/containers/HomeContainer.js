@@ -3,6 +3,7 @@ import Home from '../components/Home'
 import LoggedInNavContainer from './LoggedInNavContainer'
 import LoggedOutNavContainer from './LoggedOutNavContainer'
 import { Router, Route, hashHistory, IndexRoute, Link } from 'react-router'
+
 class HomeContainer extends React.Component {
 
   constructor(props){
