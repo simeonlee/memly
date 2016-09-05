@@ -24,6 +24,10 @@ app.use(bodyParser.json());
 // Configure our server with the passport middleware
 auth(app);
 
+// This runs our app through some middleware that allows saving to our database
+// CURRENTLY JUST IMAGES ARE CONFIGURED TO BE SAVED
+require('./../db/database')(app);
+
 //--- route config ----- //
 
 app.get('/getTest', routes.getTest);
