@@ -1,5 +1,6 @@
 //node dependencies for server
 var express = require('express');
+var session = require('express-session');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var cors = require('cors');
@@ -24,10 +25,6 @@ app.use(express.static(path.join(__dirname, '../client')));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
-<<<<<<< ef9d182e47a5e579eceab12be5e3ff605a0dde23
-=======
-//need to import session 
->>>>>>> styling updates for infoWindow
 // Configure our server with the passport middleware
 auth(app);
 
@@ -74,6 +71,7 @@ app.get('/auth/facebook/callback',
   });
 
 
+<<<<<<< 6f0066818a78acbaba3f6394d72f8a375ffb0987
 //helper function to check if a user session has been created.
 // var isLoggedIn = function(req, res, next) {
 //   console.log('I am hitting isLoggedIn helper function');
@@ -130,5 +128,14 @@ app.get('/logout', function(req, res) {
 });
 
 app.listen(port, function() {
+=======
+//Log out of session
+app.get('/logout', function(req, res) {
+  console.log('am I hitting the GET for LogOut?');
+  res.status(200).send('destroy session');
+});
+
+app.listen(port, function(){
+>>>>>>> commit before rebase
   console.log('server listening on ' + port);
 });
