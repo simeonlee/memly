@@ -11,9 +11,9 @@ const ImageUpload = ({imagePreviewUrl, handleSubmit, handleImageChange}) => {
 
   return (
     <div className="previewComponent">
-      <form onSubmit={(e)=>handleSubmit(e)}>
-        <input className="fileInput" type="file" onChange={(e)=>handleImageChange(e)} />
-        <button className="submitButton" type="submit" onClick={(e)=>handleSubmit(e)}>Upload Image</button>
+      <form method="post" action="/api/photo" encType="multipart/form-data">
+        <input className="fileInput" type="file" name="photo" onChange={(e)=>handleImageChange(e)} />
+        <button className="submitButton" type="submit">Upload Image</button>
       </form>
       <div className="imagePreview">
         {$imagePreview}
@@ -28,3 +28,7 @@ const ImageUpload = ({imagePreviewUrl, handleSubmit, handleImageChange}) => {
 }
 
 export default ImageUpload
+
+
+// <form onSubmit={(e)=>handleSubmit(e)}>
+// <button className="submitButton" type="submit" onClick={(e)=>handleSubmit(e)}>Upload Image</button>
