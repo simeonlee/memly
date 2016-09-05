@@ -48,7 +48,8 @@ module.exports = function(app) {
 		newMemly.image.contentType = 'image/png';
 		// Save Memly to database
 		newMemly.save();
-		res.send('We\'ve successfully made our post request!');
+		// res.send('We\'ve successfully made our post request!');
+		res.redirect('back');
 	});
 
 };
