@@ -18,7 +18,6 @@ var routes = (
           <Route path='/likedmemlys' component = {LikedMemlysContainer} />
         </Route>
         <Route path='/photo' component={ImageUploadContainer} />
-        <Route path='test' component={TestContainer}/>
       </Route>
     </Router>
   )
