@@ -24,6 +24,10 @@ app.use(express.static(path.join(__dirname, '../client')));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
+<<<<<<< ef9d182e47a5e579eceab12be5e3ff605a0dde23
+=======
+//need to import session 
+>>>>>>> styling updates for infoWindow
 // Configure our server with the passport middleware
 auth(app);
 
