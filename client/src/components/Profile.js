@@ -16,8 +16,8 @@ const Profile = (props) => {
         <img id = "profilePhoto" src = {props.user.photo}/>
         <div id = "MemlyFeedSelect">
           <ul id = "FeedSelectList">
-          <li className = "MemlySelector"><Link to ="/user/profile/mymemlys">My Memlys</Link></li>
-          <li className = "MemlySelector"><Link to ="/user/profile/likedmemlys">Memlys I Like</Link></li>
+          <li className = "MemlySelector"><Link to ="user/profile">My Memlys</Link></li>
+          <li className = "MemlySelector"><Link to ="likedmemlys">Memlys I Like</Link></li>
           </ul>
         </div>
       </div>

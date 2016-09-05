@@ -21544,9 +21544,9 @@
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _GoogleMapContainer2.default }),
 	    _react2.default.createElement(
 	      _reactRouter.Route,
-	      { path: '/user/profile', component: _ProfileContainer2.default },
-	      _react2.default.createElement(_reactRouter.Route, { path: '/user/profile/mymemlys', component: _MyMemlysContainer2.default }),
-	      _react2.default.createElement(_reactRouter.Route, { path: '/user/profile/likedmemlys', component: _LikedMemlysContainer2.default })
+	      { path: 'user/profile', component: _ProfileContainer2.default },
+	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _MyMemlysContainer2.default }),
+	      _react2.default.createElement(_reactRouter.Route, { path: '/likedmemlys', component: _LikedMemlysContainer2.default })
 	    )
 	  )
 	); //File contains the route setup to be exported to be used by App.js
@@ -27677,7 +27677,7 @@
 	        null,
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: '/user/profile' },
+	          { to: 'user/profile/' },
 	          'Profile'
 	        )
 	      ),
@@ -28142,7 +28142,7 @@
 	              { className: 'MemlySelector' },
 	              _react2.default.createElement(
 	                _reactRouter.Link,
-	                { to: '/user/profile/mymemlys' },
+	                { to: 'user/profile' },
 	                'My Memlys'
 	              )
 	            ),
@@ -28151,7 +28151,7 @@
 	              { className: 'MemlySelector' },
 	              _react2.default.createElement(
 	                _reactRouter.Link,
-	                { to: '/user/profile/likedmemlys' },
+	                { to: 'likedmemlys' },
 	                'Memlys I Like'
 	              )
 	            )
