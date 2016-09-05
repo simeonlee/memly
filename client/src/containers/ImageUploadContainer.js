@@ -61,10 +61,11 @@ export default class ImageUploadContainer extends React.Component {
 			<div>
 				<ImageUpload 
 					imagePreviewUrl={this.state.imagePreviewUrl}
-					handleSubmit={this._handleSubmit.bind(this)}
 					handleImageChange={this._handleImageChange.bind(this)}
 				/>
 			</div>
 		)
 	}
 }
+
+// handleSubmit={this._handleSubmit.bind(this)}
