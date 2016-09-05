@@ -22,7 +22,7 @@ module.exports = function(app) {
     callbackURL: "http://localhost:3000/auth/facebook/callback", // TODO: put website url here
     profileFields: authConfig.profileFields
   }, function(accessToken, refreshToken, profile, done) {
-    User.findOrCreate(profile, function(err, user) {
+    User.findOrCreate({_id: profile.id}, function(err, user) {
       if (err) { return done(err); }
       done(null, user);
     });

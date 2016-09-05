@@ -21547,14 +21547,14 @@
 	    _reactRouter.Route,
 	    { path: '/', component: _HomeContainer2.default },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _GoogleMapContainer2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/logout', component: MapContainer }),
 	    _react2.default.createElement(
 	      _reactRouter.Route,
 	      { path: 'user/profile', component: _ProfileContainer2.default },
 	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _MyMemlysContainer2.default }),
 	      _react2.default.createElement(_reactRouter.Route, { path: '/likedmemlys', component: _LikedMemlysContainer2.default })
 	    ),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/photo', component: _ImageUploadContainer2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'test', component: TestContainer })
+	    _react2.default.createElement(_reactRouter.Route, { path: '/photo', component: _ImageUploadContainer2.default })
 	  )
 	);
 
@@ -27528,24 +27528,40 @@
 	    var _this = _possibleConstructorReturn(this, (HomeContainer.__proto__ || Object.getPrototypeOf(HomeContainer)).call(this, props));
 
 	    _this.state = {
-	      isLoggedIn: true
+	      isLoggedIn: false
 
 	    };
 	    return _this;
 	  }
 
 	  _createClass(HomeContainer, [{
+	    key: 'toggleLogIn',
+	    value: function toggleLogIn() {
+	      var changeLogInState = !this.state.isLoggedIn;
+
+	      this.setState({
+	        isLoggedIn: changeLogInState
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var childToggleLogIn = this.toggleLogIn.bind(this);
+	      var childrenWithProps = _react2.default.Children.map(this.props.children, function (child) {
+	        return _react2.default.cloneElement(child, {
+	          toggleLogIn: childToggleLogIn
+	        });
+	      });
+
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        this.state.isLoggedIn ? _react2.default.createElement(_LoggedInNavContainer2.default, null) : _react2.default.createElement(_LoggedOutNavContainer2.default, null),
+	        this.state.isLoggedIn ? _react2.default.createElement(_LoggedInNavContainer2.default, { toggleLogIn: this.toggleLogIn.bind(this) }) : _react2.default.createElement(_LoggedOutNavContainer2.default, { toggleLogIn: this.toggleLogIn.bind(this) }),
 	        _react2.default.createElement(
 	          'div',
 	          { id: 'wrapper' },
 	          _react2.default.createElement(_Home2.default, null),
-	          this.props.children
+	          childrenWithProps
 	        )
 	      );
 	    }
@@ -27604,9 +27620,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _LoggedInNav = __webpack_require__(240);
+	var _LoggedInNav = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../components/LoggedInNav\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _LoggedInNav2 = _interopRequireDefault(_LoggedInNav);
+
+	var _axios = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"axios\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _axios2 = _interopRequireDefault(_axios);
 
 	var _reactRouter = __webpack_require__(174);
 
@@ -27631,12 +27651,19 @@
 	  }
 
 	  _createClass(LoggedInNavContainer, [{
+	    key: 'LogMeOut',
+	    value: function LogMeOut() {
+	      _axios2.default.get('/logout').then(function (res) {
+	        console.log('I made it to logout button', res);
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'NavContainer' },
-	        _react2.default.createElement(_LoggedInNav2.default, null)
+	        _react2.default.createElement(_LoggedInNav2.default, { LogMeOut: this.LogMeOut.bind(this), toggleLogIn: this.props.toggleLogIn })
 	      );
 	    }
 	  }]);
@@ -27647,73 +27674,7 @@
 	exports.default = LoggedInNavContainer;
 
 /***/ },
-/* 240 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(174);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var LoggedInNav = function LoggedInNav(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { id: 'navBar' },
-	    _react2.default.createElement(
-	      'ul',
-	      null,
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/logout' },
-	          'Logout'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/user/profile' },
-	          'Profile'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/photo' },
-	          'Upload a Photo'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/' },
-	          'Home'
-	        )
-	      )
-	    )
-	  );
-	};
-
-	exports.default = LoggedInNav;
-
-/***/ },
+/* 240 */,
 /* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -27732,6 +27693,10 @@
 	var _LoggedOutNav = __webpack_require__(242);
 
 	var _LoggedOutNav2 = _interopRequireDefault(_LoggedOutNav);
+
+	var _axios = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"axios\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _axios2 = _interopRequireDefault(_axios);
 
 	var _reactRouter = __webpack_require__(174);
 
@@ -27761,7 +27726,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_LoggedOutNav2.default, null)
+	        _react2.default.createElement(_LoggedOutNav2.default, { toggleLogIn: this.props.toggleLogIn })
 	      );
 	    }
 	  }]);
@@ -27798,10 +27763,12 @@
 	      null,
 	      _react2.default.createElement(
 	        'li',
-	        null,
+	        { onClick: function onClick() {
+	            props.toggleLogIn();
+	          } },
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: '/Login' },
+	          { to: '/' },
 	          'Login'
 	        )
 	      ),
@@ -35369,6 +35336,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _axios = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"axios\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _axios2 = _interopRequireDefault(_axios);
+
 	var _ImageUpload = __webpack_require__(311);
 
 	var _ImageUpload2 = _interopRequireDefault(_ImageUpload);
@@ -35391,49 +35362,107 @@
 
 			_this.state = {
 				file: '',
-				imagePreviewUrl: ''
+				imagePreviewUrl: '',
+				location: {
+					lat: 0.0,
+					lng: 0.0
+				},
+				place: '',
+				comment: ''
 			};
+			_this.geolocate();
 			return _this;
 		}
 
-		// Once we have previewed a photo, we can do operations here
-		// to submit to the server for database storage
-
-
 		_createClass(ImageUploadContainer, [{
-			key: '_handleSubmit',
-			value: function _handleSubmit(e) {
-				e.preventDefault();
-				// TODO: do something with this.state.file
+			key: 'geolocate',
+			value: function geolocate() {
+				var _this2 = this;
 
-
-				console.log('Handle uploading ', this.state.file);
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(function (position) {
+						_this2.setState({
+							location: {
+								lat: position.coords.latitude,
+								lng: position.coords.longitude
+							}
+						});
+					}, function () {
+						alert('Geolocation failed');
+					});
+				} else {
+					alert('Your browser doesn\'t support geolocation');
+				}
+			}
+		}, {
+			key: 'handlePlaceChange',
+			value: function handlePlaceChange(e) {
+				this.setState({
+					place: e.target.value
+				});
+			}
+		}, {
+			key: 'handleCommentChange',
+			value: function handleCommentChange(e) {
+				this.setState({
+					comment: e.target.value
+				});
 			}
 
-			// this allows us to preview images before file post
-			// please refer to this magic:
+			// This allows us to preview images before file post
+			// Please refer to this magic:
 			// https://codepen.io/hartzis/pen/VvNGZP
 			// https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
 
 		}, {
-			key: '_handleImageChange',
-			value: function _handleImageChange(e) {
-				var _this2 = this;
+			key: 'handleImageChange',
+			value: function handleImageChange(e) {
+				var _this3 = this;
 
 				e.preventDefault();
 
 				var reader = new FileReader();
 				var file = e.target.files[0];
-				console.log(file);
 
 				reader.onloadend = function () {
-					_this2.setState({
+					_this3.setState({
 						file: file,
 						imagePreviewUrl: reader.result
 					});
 				};
 
 				reader.readAsDataURL(file);
+			}
+
+			// Once we have previewed a photo, we can do operations here
+			// to submit to the server for database storage
+
+		}, {
+			key: 'handleSubmit',
+			value: function handleSubmit(e) {
+				e.preventDefault();
+
+				// Geolocate one more time just in case location changed since last established
+				this.geolocate();
+
+				// Create virtual form to send multipart form data with image file
+				// https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects
+				var formData = new FormData();
+
+				formData.append('place', this.state.place);
+				formData.append('comment', this.state.comment);
+				formData.append('lat', this.state.location.lat);
+				formData.append('lng', this.state.location.lng);
+
+				var userPhoto = new Blob([this.state.file], { type: 'image/png' });
+				formData.append('photo', userPhoto);
+
+				// Use axios to send formData to server
+				_axios2.default.post('/api/photo', formData).then(function (response) {
+					console.log(response);
+				}).catch(function (error) {
+					console.log(error);
+				});
 			}
 		}, {
 			key: 'render',
@@ -35443,8 +35472,10 @@
 					null,
 					_react2.default.createElement(_ImageUpload2.default, {
 						imagePreviewUrl: this.state.imagePreviewUrl,
-						handleSubmit: this._handleSubmit.bind(this),
-						handleImageChange: this._handleImageChange.bind(this)
+						handleSubmit: this.handleSubmit.bind(this),
+						handleImageChange: this.handleImageChange.bind(this),
+						handlePlaceChange: this.handlePlaceChange.bind(this),
+						handleCommentChange: this.handleCommentChange.bind(this)
 					})
 				);
 			}
@@ -35452,6 +35483,9 @@
 
 		return ImageUploadContainer;
 	}(_react2.default.Component);
+
+	// handleSubmit={this.handleSubmit.bind(this)}
+
 
 	exports.default = ImageUploadContainer;
 
@@ -35475,6 +35509,8 @@
 	  var imagePreviewUrl = _ref.imagePreviewUrl;
 	  var handleSubmit = _ref.handleSubmit;
 	  var handleImageChange = _ref.handleImageChange;
+	  var handlePlaceChange = _ref.handlePlaceChange;
+	  var handleCommentChange = _ref.handleCommentChange;
 
 	  // let {imagePreviewUrl} = this.state;
 	  var $imagePreview = null;
@@ -35496,15 +35532,39 @@
 	      { onSubmit: function onSubmit(e) {
 	          return handleSubmit(e);
 	        } },
-	      _react2.default.createElement("input", { className: "fileInput", type: "file", onChange: function onChange(e) {
-	          return handleImageChange(e);
-	        } }),
 	      _react2.default.createElement(
-	        "button",
-	        { className: "submitButton", type: "submit", onClick: function onClick(e) {
-	            return handleSubmit(e);
-	          } },
-	        "Upload Image"
+	        "div",
+	        null,
+	        _react2.default.createElement("input", { className: "fileInput", type: "file", name: "photo", onChange: function onChange(e) {
+	            return handleImageChange(e);
+	          } })
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        null,
+	        "Tag place: ",
+	        _react2.default.createElement("input", { className: "placeInput", type: "text", name: "place", onChange: function onChange(e) {
+	            return handlePlaceChange(e);
+	          } })
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        null,
+	        "Your comment: ",
+	        _react2.default.createElement("input", { className: "commentInput", type: "text", name: "comment", onChange: function onChange(e) {
+	            return handleCommentChange(e);
+	          } })
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        null,
+	        _react2.default.createElement(
+	          "button",
+	          { className: "submitButton", type: "submit", onClick: function onClick(e) {
+	              return handleSubmit(e);
+	            } },
+	          "Upload Image"
+	        )
 	      )
 	    ),
 	    _react2.default.createElement(
@@ -35513,14 +35573,18 @@
 	      $imagePreview
 	    )
 	  );
-	  // <form method="post" action="/api/photo" enctype="multipart/form-data">
-	  //   <p>Title: <input type="text" name="title" /></p>
-	  //   <p>Image: <input type="file" name="image" /></p>
-	  //   <p><input type="submit" value="Upload" /></p>
-	  // </form>
 	};
 
 	exports.default = ImageUpload;
+
+	// <form method="post" action="/api/photo" enctype="multipart/form-data">
+	//   <p>Title: <input type="text" name="title" /></p>
+	//   <p>Image: <input type="file" name="image" /></p>
+	//   <p><input type="submit" value="Upload" /></p>
+	// </form>
+
+	// <form method="post" action="/api/photo" encType="multipart/form-data">
+	// <div><button className="submitButton" type="submit">Upload Image</button></div>
 
 /***/ }
 /******/ ]);

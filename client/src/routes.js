@@ -13,6 +13,7 @@ var routes = (
     <Router history={hashHistory}>
       <Route path='/' component={HomeContainer}>
         <IndexRoute component={GoogleMapContainer}/>
+        <Route path = '/logout' component= {MapContainer}/>
         <Route path='user/profile' component = {ProfileContainer}>
           <IndexRoute component = {MyMemlysContainer} />
           <Route path='/likedmemlys' component = {LikedMemlysContainer} />
