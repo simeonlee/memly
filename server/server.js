@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
-
+//need to import session 
 // Configure our server with the passport middleware
 auth(app);
 

@@ -21517,15 +21517,15 @@
 
 	var _HomeContainer2 = _interopRequireDefault(_HomeContainer);
 
-	var _MyMemlysContainer = __webpack_require__(290);
+	var _MyMemlysContainer = __webpack_require__(294);
 
 	var _MyMemlysContainer2 = _interopRequireDefault(_MyMemlysContainer);
 
-	var _LikedMemlysContainer = __webpack_require__(292);
+	var _LikedMemlysContainer = __webpack_require__(296);
 
 	var _LikedMemlysContainer2 = _interopRequireDefault(_LikedMemlysContainer);
 
-	var _ProfileContainer = __webpack_require__(294);
+	var _ProfileContainer = __webpack_require__(298);
 
 	var _ProfileContainer2 = _interopRequireDefault(_ProfileContainer);
 
@@ -27493,11 +27493,11 @@
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _LoggedInNavContainer = __webpack_require__(296);
+	var _LoggedInNavContainer = __webpack_require__(290);
 
 	var _LoggedInNavContainer2 = _interopRequireDefault(_LoggedInNavContainer);
 
-	var _LoggedOutNavContainer = __webpack_require__(298);
+	var _LoggedOutNavContainer = __webpack_require__(292);
 
 	var _LoggedOutNavContainer2 = _interopRequireDefault(_LoggedOutNavContainer);
 
@@ -27576,8 +27576,7 @@
 	      'h1',
 	      null,
 	      ' Memly '
-	    ),
-	    _react2.default.createElement(_MapContainer2.default, null)
+	    )
 	  );
 	};
 
@@ -27609,15 +27608,16 @@
 
 	var _reactAddonsUpdate2 = _interopRequireDefault(_reactAddonsUpdate);
 
+	var _reactGoogleMaps = __webpack_require__(241);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } //this will allow us to change/mutate state without mutating the original state. (won't be necessary once we use Redux)
 
-	//this will allow us to change/mutate state without mutating the original state. (won't be necessary once we use Redux)
 
 	//in order for the map container to render and show on the screen, we MUST give it a height/width relative to parent container
 	var style = {
@@ -27638,24 +27638,68 @@
 	        lat: 37.745005,
 	        lng: -122.430505
 	      },
+
 	      markers: [{
 	        position: {
 	          lat: 0,
 	          lng: 0
 	        },
 	        key: 'currentPosition',
-	        defaultAnimation: 2
+	        defaultAnimation: 2,
+	        showInfo: false
 	      }, {
 	        position: {
 	          lat: 37.7836966,
 	          lng: -122.4089664
 	        },
 	        key: 'Hack Reactor',
-	        defaultAnimation: 2
+	        defaultAnimation: 2,
+	        showInfo: false,
+	        photo: "../../styles/hackreactor.jpg"
+	      }, {
+	        position: {
+	          lat: 51.507351,
+	          lng: -0.125758
+	        },
+	        username: "Michael Wong",
+	        userAvatar: "../../styles/userAvatar.jpg",
+	        key: 'timestamp1',
+	        defaultAnimation: 2,
+	        showInfo: false,
+	        photo: "../../styles/shutterstock_276995975.jpg"
+	      }, {
+	        position: {
+	          lat: 51.507351,
+	          lng: -0.12958
+	        },
+	        key: 'timestamp2',
+	        defaultAnimation: 2,
+	        showInfo: false,
+	        photo: "../../styles/M9071-PARENT-2.jpg"
+	      }, {
+	        position: {
+	          lat: 51.509351,
+	          lng: -0.12958
+	        },
+	        key: 'timestamp3',
+	        defaultAnimation: 2,
+	        showInfo: false,
+	        photo: "../../styles/15759420184_f34af1b4a8.jpg"
+	      }, {
+	        position: {
+	          lat: 51.506351,
+	          lng: -0.12958
+	        },
+	        key: 'timestamp4',
+	        defaultAnimation: 2,
+	        showInfo: false,
+	        photo: "../../styles/londonstreet.jpeg"
 	      }]
 	    };
+	    _this.renderInfoWindow = _this.renderInfoWindow.bind(_this);
 	    _this.handleMapClick = _this.handleMapClick.bind(_this);
 	    _this.handleMarkerRightClick = _this.handleMarkerRightClick.bind(_this);
+
 	    //initially set the current location state of application before render
 	    //ideally the user's map will show user location upon running application 
 	    navigator.geolocation.getCurrentPosition(function (position) {
@@ -27683,7 +27727,7 @@
 	          markers = (0, _reactAddonsUpdate2.default)(markers, { 0: { position: { $set: { lat: position.coords.latitude, lng: position.coords.longitude } } } });
 	          this.setState({ markers: markers }); // equivalent of this.setState({markers: markers})
 	        }.bind(_this2));
-	      }, 3000);
+	      }, 100000);
 	    }
 
 	    //constantly update current user location with geolocate method
@@ -27691,52 +27735,35 @@
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this3 = this;
-
 	      this.geolocate();
-
-	      setTimeout(function () {
-	        var markers = _this3.state.markers;
-
-	        markers = (0, _reactAddonsUpdate2.default)(markers, {
-	          $push: [{
-	            position: {
-	              lat: 25.99,
-	              lng: 122.9
-	            },
-	            defaultAnimation: 2,
-	            key: Date.now()
-	          }]
-	        });
-	        _this3.setState({ markers: markers });
-	      }, 2000);
 	    }
 	    //Not yet working correctly. Need to clear interval when component unmounts
 
 	  }, {
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
-	      console.log(geolocator);
 	      window.clearInterval(geolocator);
 	    }
 	  }, {
 	    key: 'handleMapClick',
 	    value: function handleMapClick(e) {
 	      //not exactly sure how e.latLng works... its magic. Documentation unhelpful 
-	      console.log(e.latLng);
 	      var markers = this.state.markers;
 
 	      markers = (0, _reactAddonsUpdate2.default)(markers, {
 	        $push: [{
 	          position: e.latLng,
 	          defaultAnimation: 2,
-	          key: Date.now() }]
+	          key: Date.now(), // Add a key property for: http://fb.me/react-warning-keys
+	          showInfo: false
+	        }]
 	      });
 	      this.setState({ markers: markers });
 	    }
 	  }, {
 	    key: 'handleMarkerRightClick',
 	    value: function handleMarkerRightClick(index, e) {
+	      console.log('handleMarkerRightClick');
 	      var markers = this.state.markers;
 
 	      markers = (0, _reactAddonsUpdate2.default)(markers, {
@@ -27745,13 +27772,58 @@
 	      this.setState({ markers: markers });
 	    }
 	  }, {
+	    key: 'handleMarkerClick',
+	    value: function handleMarkerClick(marker) {
+	      console.log('handleMarkerClick', marker);
+	      marker.showInfo = true;
+	      this.setState(this.state);
+	    }
+	  }, {
+	    key: 'handleMarkerClose',
+	    value: function handleMarkerClose(marker) {
+	      marker.showInfo = false;
+	      this.setState(this.state);
+	    }
+	    // pass this down to pesentational component to allow each marker to have InfoWindows
+
+	  }, {
+	    key: 'renderInfoWindow',
+	    value: function renderInfoWindow(ref, marker) {
+	      return (
+	        //You can nest components inside of InfoWindow!
+	        _react2.default.createElement(
+	          _reactGoogleMaps.InfoWindow,
+	          {
+	            key: ref + '_info_window',
+	            onCloseclick: this.handleMarkerClose.bind(this, marker) },
+	          _react2.default.createElement(
+	            'div',
+	            { className: '.gm-style-iw' },
+	            _react2.default.createElement(
+	              'div',
+	              { style: { fontSize: "12px" } },
+	              _react2.default.createElement(
+	                'p',
+	                null,
+	                marker.username || null
+	              ),
+	              marker.userAvatar ? _react2.default.createElement('img', { height: "82px", width: "82px", src: marker.userAvatar }) : null
+	            ),
+	            _react2.default.createElement('img', { height: "200px", width: "300px", src: marker.photo })
+	          )
+	        )
+	      );
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      console.log(this.state.markers[0].position);
 	      return _react2.default.createElement(
 	        'div',
 	        { style: style },
 	        _react2.default.createElement(_Map2.default, {
+	          onMarkerClick: this.handleMarkerClick.bind(this)
+	          // onMarkerCLose={this.handleMarkerClick.bind(this)}
+	          , renderInfoWindow: this.renderInfoWindow.bind(this),
 	          defaultCenter: this.state.defaultCenter,
 	          markers: this.state.markers,
 	          onMapClick: this.handleMapClick,
@@ -27808,22 +27880,50 @@
 	          ref: function ref(map) {
 	            return console.log(map);
 	          },
-	          defaultZoom: 13,
-	          defaultCenter: props.defaultCenter,
-	          center: props.markers[0].position,
+	          defaultZoom: 17
+	          // defaultCenter={props.defaultCenter}
+	          , center: props.markers[0].position,
 	          onClick: props.onMapClick,
 	          defaultOptions: {
 	            styles: _mapStyle2.default
 	          }
 	        },
 	        props.markers.map(function (marker, index) {
-	          return _react2.default.createElement(_reactGoogleMaps.Marker, _extends({}, marker, {
-	            onRightclick: function onRightclick() {
-	              return props.onMarkerRightClick(index);
-	            },
-	            icon: "../../styles/dot.gif",
-	            zoom: 1
-	          }));
+	          var ref = 'marker_' + index;
+	          if (marker.key === 'currentPosition') {
+	            return _react2.default.createElement(_reactGoogleMaps.Marker, {
+	              key: index
+	              // ref={ref}
+	              , position: marker.position,
+	              onClick: function onClick() {
+	                return props.onMarkerClick(marker);
+	              },
+	              onRightclick: function onRightclick() {
+	                return props.onMarkerRightClick(index);
+	              },
+	              icon: "../../styles/rsz_greendot.png"
+	            });
+	          } else {
+	            return _react2.default.createElement(
+	              _reactGoogleMaps.Marker,
+	              {
+	                key: index
+	                // ref={ref}
+	                , position: marker.position,
+	                onClick: function onClick() {
+	                  return props.onMarkerClick(marker);
+	                },
+	                onRightclick: function onRightclick() {
+	                  return props.onMarkerRightClick(index);
+	                },
+	                icon: "../../styles/dot.gif",
+	                onMouseOver: function onMouseOver() {
+	                  console.log('hovering');
+	                }
+	              },
+	              marker.showInfo ? props.renderInfoWindow(ref, marker) : null
+	            );
+	          }
 	        })
 	      )
 	    })
@@ -33125,7 +33225,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	var mapStyle = [{ "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#e9e9e9" }, { "lightness": 17 }] }, { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 20 }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }, { "lightness": 17 }] }, { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "color": "#ffffff" }, { "lightness": 29 }, { "weight": 0.2 }] }, { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 18 }] }, { "featureType": "road.local", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 16 }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 21 }] }, { "featureType": "poi.park", "elementType": "geometry", "stylers": [{ "color": "#dedede" }, { "lightness": 21 }] }, { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "on" }, { "color": "#ffffff" }, { "lightness": 16 }] }, { "elementType": "labels.text.fill", "stylers": [{ "saturation": 36 }, { "color": "#333333" }, { "lightness": 40 }] }, { "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#f2f2f2" }, { "lightness": 19 }] }, { "featureType": "administrative", "elementType": "geometry.fill", "stylers": [{ "color": "#fefefe" }, { "lightness": 20 }] }, { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{ "color": "#fefefe" }, { "lightness": 17 }, { "weight": 1.2 }] }];
+	var mapStyle = [{ "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#7BD3F0" }, { "lightness": 17 }] }, { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 20 }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }, { "lightness": 17 }] }, { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "color": "#ffffff" }, { "lightness": 29 }, { "weight": 0.2 }] }, { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 18 }] }, { "featureType": "road.local", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 16 }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 21 }] }, { "featureType": "poi.park", "elementType": "geometry", "stylers": [{ "color": "#dedede" }, { "lightness": 21 }] }, { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "on" }, { "color": "#ffffff" }, { "lightness": 16 }] }, { "elementType": "labels.text.fill", "stylers": [{ "saturation": 36 }, { "color": "#333333" }, { "lightness": 40 }] }, { "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#f2f2f2" }, { "lightness": 19 }] }, { "featureType": "administrative", "elementType": "geometry.fill", "stylers": [{ "color": "#fefefe" }, { "lightness": 20 }] }, { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{ "color": "#fefefe" }, { "lightness": 17 }, { "weight": 1.2 }] }];
 
 	exports.default = mapStyle;
 
@@ -33274,7 +33374,230 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _MyMemlys = __webpack_require__(291);
+	var _LoggedInNav = __webpack_require__(291);
+
+	var _LoggedInNav2 = _interopRequireDefault(_LoggedInNav);
+
+	var _reactRouter = __webpack_require__(174);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var LoggedInNavContainer = function (_React$Component) {
+	  _inherits(LoggedInNavContainer, _React$Component);
+
+	  function LoggedInNavContainer(props) {
+	    _classCallCheck(this, LoggedInNavContainer);
+
+	    var _this = _possibleConstructorReturn(this, (LoggedInNavContainer.__proto__ || Object.getPrototypeOf(LoggedInNavContainer)).call(this, props));
+
+	    _this.state = {};
+	    return _this;
+	  }
+
+	  _createClass(LoggedInNavContainer, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'NavContainer' },
+	        _react2.default.createElement(_LoggedInNav2.default, null)
+	      );
+	    }
+	  }]);
+
+	  return LoggedInNavContainer;
+	}(_react2.default.Component);
+
+	exports.default = LoggedInNavContainer;
+
+/***/ },
+/* 291 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(174);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var LoggedInNav = function LoggedInNav(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { id: 'navBar' },
+	    _react2.default.createElement(
+	      'ul',
+	      null,
+	      _react2.default.createElement(
+	        'li',
+	        null,
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/logout' },
+	          'Logout'
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        null,
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/user/profile' },
+	          'Profile'
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        null,
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/' },
+	          'Home'
+	        )
+	      )
+	    )
+	  );
+	};
+
+	exports.default = LoggedInNav;
+
+/***/ },
+/* 292 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _LoggedOutNav = __webpack_require__(293);
+
+	var _LoggedOutNav2 = _interopRequireDefault(_LoggedOutNav);
+
+	var _reactRouter = __webpack_require__(174);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var LoggedOutNavContainer = function (_React$Component) {
+	  _inherits(LoggedOutNavContainer, _React$Component);
+
+	  function LoggedOutNavContainer(props) {
+	    _classCallCheck(this, LoggedOutNavContainer);
+
+	    var _this = _possibleConstructorReturn(this, (LoggedOutNavContainer.__proto__ || Object.getPrototypeOf(LoggedOutNavContainer)).call(this, props));
+
+	    _this.state = {};
+	    return _this;
+	  }
+
+	  _createClass(LoggedOutNavContainer, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_LoggedOutNav2.default, null)
+	      );
+	    }
+	  }]);
+
+	  return LoggedOutNavContainer;
+	}(_react2.default.Component);
+
+	exports.default = LoggedOutNavContainer;
+
+/***/ },
+/* 293 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(174);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var LoggedOutNav = function LoggedOutNav(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { id: 'navBar2' },
+	    _react2.default.createElement(
+	      'ul',
+	      null,
+	      _react2.default.createElement(
+	        'li',
+	        null,
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/Login' },
+	          'Login'
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        null,
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/' },
+	          'Home'
+	        )
+	      )
+	    )
+	  );
+	};
+
+	exports.default = LoggedOutNav;
+
+/***/ },
+/* 294 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _MyMemlys = __webpack_require__(295);
 
 	var _MyMemlys2 = _interopRequireDefault(_MyMemlys);
 
@@ -33324,7 +33647,7 @@
 	exports.default = MyMemlysContainer;
 
 /***/ },
-/* 291 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33366,7 +33689,7 @@
 	exports.default = MyMemlys;
 
 /***/ },
-/* 292 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33381,7 +33704,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _LikedMemlys = __webpack_require__(293);
+	var _LikedMemlys = __webpack_require__(297);
 
 	var _LikedMemlys2 = _interopRequireDefault(_LikedMemlys);
 
@@ -33431,7 +33754,7 @@
 	exports.default = LikedMemlysContainer;
 
 /***/ },
-/* 293 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33469,7 +33792,7 @@
 	exports.default = LikedMemlys;
 
 /***/ },
-/* 294 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33484,7 +33807,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Profile = __webpack_require__(295);
+	var _Profile = __webpack_require__(299);
 
 	var _Profile2 = _interopRequireDefault(_Profile);
 
@@ -33528,7 +33851,7 @@
 	exports.default = ProfileContainer;
 
 /***/ },
-/* 295 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33641,229 +33964,6 @@
 	// }
 
 	exports.default = Profile;
-
-/***/ },
-/* 296 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _LoggedInNav = __webpack_require__(297);
-
-	var _LoggedInNav2 = _interopRequireDefault(_LoggedInNav);
-
-	var _reactRouter = __webpack_require__(174);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var LoggedInNavContainer = function (_React$Component) {
-	  _inherits(LoggedInNavContainer, _React$Component);
-
-	  function LoggedInNavContainer(props) {
-	    _classCallCheck(this, LoggedInNavContainer);
-
-	    var _this = _possibleConstructorReturn(this, (LoggedInNavContainer.__proto__ || Object.getPrototypeOf(LoggedInNavContainer)).call(this, props));
-
-	    _this.state = {};
-	    return _this;
-	  }
-
-	  _createClass(LoggedInNavContainer, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'NavContainer' },
-	        _react2.default.createElement(_LoggedInNav2.default, null)
-	      );
-	    }
-	  }]);
-
-	  return LoggedInNavContainer;
-	}(_react2.default.Component);
-
-	exports.default = LoggedInNavContainer;
-
-/***/ },
-/* 297 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(174);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var LoggedInNav = function LoggedInNav(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { id: 'navBar' },
-	    _react2.default.createElement(
-	      'ul',
-	      null,
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/logout' },
-	          'Logout'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/user/profile' },
-	          'Profile'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/' },
-	          'Home'
-	        )
-	      )
-	    )
-	  );
-	};
-
-	exports.default = LoggedInNav;
-
-/***/ },
-/* 298 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _LoggedOutNav = __webpack_require__(299);
-
-	var _LoggedOutNav2 = _interopRequireDefault(_LoggedOutNav);
-
-	var _reactRouter = __webpack_require__(174);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var LoggedOutNavContainer = function (_React$Component) {
-	  _inherits(LoggedOutNavContainer, _React$Component);
-
-	  function LoggedOutNavContainer(props) {
-	    _classCallCheck(this, LoggedOutNavContainer);
-
-	    var _this = _possibleConstructorReturn(this, (LoggedOutNavContainer.__proto__ || Object.getPrototypeOf(LoggedOutNavContainer)).call(this, props));
-
-	    _this.state = {};
-	    return _this;
-	  }
-
-	  _createClass(LoggedOutNavContainer, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(_LoggedOutNav2.default, null)
-	      );
-	    }
-	  }]);
-
-	  return LoggedOutNavContainer;
-	}(_react2.default.Component);
-
-	exports.default = LoggedOutNavContainer;
-
-/***/ },
-/* 299 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(174);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var LoggedOutNav = function LoggedOutNav(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { id: 'navBar2' },
-	    _react2.default.createElement(
-	      'ul',
-	      null,
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/Login' },
-	          'Login'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/' },
-	          'Home'
-	        )
-	      )
-	    )
-	  );
-	};
-
-	exports.default = LoggedOutNav;
 
 /***/ }
 /******/ ]);

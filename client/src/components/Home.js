@@ -5,7 +5,6 @@ const Home = (props) => {
   return(
     <div id ="Home">
       <h1> Memly </h1>
-      <MapContainer />
     </div>
     )
 }
