@@ -1,5 +1,6 @@
 //node dependencies for server
 var express = require('express');
+var session = require('express-session');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var cors = require('cors');
@@ -8,7 +9,7 @@ var path = require('path');
 // var keys = require('./config/config.js');
 // make sure you require express-session 
 var session = require('express-session');
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 3000;
 var auth = require('../db/auth/auth.js');
 var passport = require('passport');
 var authConfig = require('../db/auth/authConfig.js');
@@ -51,6 +52,13 @@ app.get('/auth/facebook/callback',
     res.redirect('/');
   });
 
+
+//Log out of session
+app.get('/logout', function(req, res) {
+  console.log('am I hitting the GET for LogOut?');
+  res.status(200).send('destroy session');
+});
+
 app.listen(port, function(){
   console.log('server listening on ' + port);
-})
+});

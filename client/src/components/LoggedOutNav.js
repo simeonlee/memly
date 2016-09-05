@@ -5,7 +5,7 @@ const LoggedOutNav = (props) => {
   return(
     <div id="navBar2">
       <ul>
-      <li><Link to ="/Login">Login</Link></li>
+      <li onClick = {function(){props.toggleLogIn();}}><Link to ="/">Login</Link></li>
       <li><Link to ="/">Home</Link></li>
       </ul>
     </div>
