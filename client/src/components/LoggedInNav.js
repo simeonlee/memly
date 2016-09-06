@@ -7,7 +7,7 @@ const LoggedInNav = (props) => {
       <ul>
       <li><Link to ="/logout">Logout</Link></li>
       <li><Link to ="/user/profile">Profile</Link></li>
-      <li><Link to ="/photo">Upload a Photo</Link></li>
+      <li><Link to ="/photo">Upload</Link></li>
       <li><Link to ="/">Home</Link></li>
       </ul>
     </div>

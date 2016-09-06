@@ -39,16 +39,22 @@ module.exports = function(app) {
 
 	app.post('/api/photo', upload.single('photo'), function(req, res) {
 		console.log('--> Request File --> ',req.file);
+		console.log('--> Request Body --> ',req.body);
 
-		// Create instance of Memly
+		// Create new instance of Memly and save to database
 		var newMemly = new Memly();
-		// Memly image.data key will have value of image data
+		newMemly.userId = null;
 		newMemly.image.data = fs.readFileSync(req.file.path);
-		// Memly image.contentType specifies that we have a 'png' file
-		newMemly.image.contentType = 'image/png';
-		// Save Memly to database
+		newMemly.image.contentType = req.file.mimetype; // 'image/png'
+		newMemly.comment = req.body.comment;
+		newMemly.place = req.body.place;
+		newMemly.visits = 1;
+		newMemly.location = {
+			lat: req.body.lat,
+			lng: req.body.lng
+		};
 		newMemly.save();
-		res.send('We\'ve successfully made our post request!');
+		res.redirect('back');
 	});
 
 };
