@@ -27528,13 +27528,36 @@
 	    var _this = _possibleConstructorReturn(this, (HomeContainer.__proto__ || Object.getPrototypeOf(HomeContainer)).call(this, props));
 
 	    _this.state = {
-	      isLoggedIn: false
+	      isLoggedIn: false,
+	      //user state will change based upon which user is signed via Facebook/passport. name: 'Rob' is just dummy data to consolelog
+	      user: { name: 'Rob' }
 
 	    };
 	    return _this;
 	  }
 
 	  _createClass(HomeContainer, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      //console.log('it hit componentDidMount =====>', this.state.user, this.props);
+	    }
+	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {}
+	    //console.log('it hit componentDidUpdate =====>', this.state.user, this.props);
+
+
+	    //updateUserState changes the state of 'user'. it gets called when 'onClick' one of the navbar items in LoggInNavContainer
+
+	  }, {
+	    key: 'updateUserState',
+	    value: function updateUserState(userObject) {
+	      this.setState({
+	        user: userObject
+	      });
+	      //console.log('checking if user state is updated', this.state.user);
+	    }
+	  }, {
 	    key: 'toggleLogIn',
 	    value: function toggleLogIn() {
 	      var changeLogInState = !this.state.isLoggedIn;
@@ -27546,6 +27569,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var context = this;
 	      var childToggleLogIn = this.toggleLogIn.bind(this);
 	      var childrenWithProps = _react2.default.Children.map(this.props.children, function (child) {
 	        return _react2.default.cloneElement(child, {
@@ -27556,7 +27580,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        this.state.isLoggedIn ? _react2.default.createElement(_LoggedInNavContainer2.default, { toggleLogIn: this.toggleLogIn.bind(this) }) : _react2.default.createElement(_LoggedOutNavContainer2.default, { toggleLogIn: this.toggleLogIn.bind(this) }),
+	        this.state.isLoggedIn ? _react2.default.createElement(_LoggedInNavContainer2.default, { toggleLogIn: this.toggleLogIn.bind(this), updateUserState: this.updateUserState.bind(this) }) : _react2.default.createElement(_LoggedOutNavContainer2.default, { toggleLogIn: this.toggleLogIn.bind(this) }),
 	        _react2.default.createElement(
 	          'div',
 	          { id: 'wrapper' },
@@ -27700,7 +27724,7 @@
 
 	      window.geolocator = window.setInterval(function () {
 	        navigator.geolocation.getCurrentPosition(function (position) {
-	          console.log(position.coords.latitude, position.coords.longitude);
+	          //console.log(position.coords.latitude, position.coords.longitude);
 	          var markers = this.state.markers;
 
 	          markers = (0, _reactAddonsUpdate2.default)(markers, { 0: { position: { $set: { lat: position.coords.latitude, lng: position.coords.longitude } } } });
@@ -27739,14 +27763,14 @@
 	  }, {
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
-	      console.log(geolocator);
+	      //console.log(geolocator);
 	      window.clearInterval(geolocator);
 	    }
 	  }, {
 	    key: 'handleMapClick',
 	    value: function handleMapClick(e) {
 	      //not exactly sure how e.latLng works... its magic. Documentation unhelpful 
-	      console.log(e.latLng);
+	      //console.log(e.latLng)
 	      var markers = this.state.markers;
 
 	      markers = (0, _reactAddonsUpdate2.default)(markers, {
@@ -27770,7 +27794,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      console.log(this.state.markers[0].position);
+	      //console.log(this.state.markers[0].position)
 	      return _react2.default.createElement(
 	        'div',
 	        { style: style },
@@ -33335,12 +33359,22 @@
 	      });
 	    }
 	  }, {
+	    key: 'retrieveProfileInfo',
+	    value: function retrieveProfileInfo() {
+	      var context = this;
+	      //console.log('i am hitting the getProfile function');
+	      _axios2.default.get('/user/retrieve/profileinfo/').then(function (res) {
+	        //console.log('I hit the the getProfile function and got a response--------->', res.data);
+	        context.props.updateUserState(res.data);
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'NavContainer' },
-	        _react2.default.createElement(_LoggedInNav2.default, { LogMeOut: this.LogMeOut.bind(this), toggleLogIn: this.props.toggleLogIn })
+	        _react2.default.createElement(_LoggedInNav2.default, { LogMeOut: this.LogMeOut.bind(this), toggleLogIn: this.props.toggleLogIn, retrieveProfileInfo: this.retrieveProfileInfo.bind(this) })
 	      );
 	    }
 	  }]);
@@ -34679,12 +34713,20 @@
 	  }
 
 	  _createClass(LoggedOutNavContainer, [{
+	    key: 'logInWithFacebook',
+	    value: function logInWithFacebook() {
+	      console.log('is this function for facebook login getting hit???');
+	      _axios2.default.get('/auth/facebook').then(function (res) {
+	        console.log('I made it to logout button', res);
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_LoggedOutNav2.default, { toggleLogIn: this.props.toggleLogIn })
+	        _react2.default.createElement(_LoggedOutNav2.default, { toggleLogIn: this.props.toggleLogIn, logInWithFacebook: this.logInWithFacebook.bind(this) })
 	      );
 	    }
 	  }]);
@@ -34739,6 +34781,11 @@
 	          'Home'
 	        )
 	      )
+	    ),
+	    _react2.default.createElement(
+	      'a',
+	      { id: 'FacebookLoginLink', href: '/auth/facebook' },
+	      'Facebook'
 	    )
 	  );
 	};
@@ -34975,6 +35022,10 @@
 
 	var _Profile2 = _interopRequireDefault(_Profile);
 
+	var _axios = __webpack_require__(292);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -34992,18 +35043,40 @@
 	    var _this = _possibleConstructorReturn(this, (ProfileContainer.__proto__ || Object.getPrototypeOf(ProfileContainer)).call(this, props));
 
 	    _this.state = {
-	      user: { name: 'John Doe', bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", city: 'San Francisco', photo: 'https://scontent.fsnc1-3.fna.fbcdn.net/t31.0-8/11232282_10153700263958254_6749315989191466632_o.jpg', myMemlys: [{ url: 'https://scontent.fsnc1-3.fna.fbcdn.net/t31.0-8/10265664_10152863685678254_2720788227246186432_o.jpg', location: 'New York' }, { url: 'https://scontent.fsnc1-3.fna.fbcdn.net/v/t1.0-9/11692782_10153548376573254_4076114351065122781_n.jpg?oh=98d0d35e39a1b376c806bee7bb47f075&oe=584175A8', location: 'San Francisco' }], likedMemlys: [{ url: 'https://scontent.fsnc1-3.fna.fbcdn.net/t31.0-8/13938311_1131762946908530_6242907422971776062_o.jpg', location: 'San Jose' }, { url: 'https://scontent.fsnc1-3.fna.fbcdn.net/v/t1.0-9/14225455_1107962689239467_1782382838638034127_n.jpg?oh=f36a23bd6873261d9569822fc59db40e&oe=58541FE4', location: 'Napa' }] }
+	      //some hardcoded user data for test purposes
+	      user: { name: 'John Doe', bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", city: 'San Francisco', photo: 'https://scontent.fsnc1-3.fna.fbcdn.net/t31.0-8/11232282_10153700263958254_6749315989191466632_o.jpg', myMemlys: [{ url: 'https://scontent.fsnc1-3.fna.fbcdn.net/t31.0-8/10265664_10152863685678254_2720788227246186432_o.jpg', location: 'New York' }, { url: 'https://scontent.fsnc1-3.fna.fbcdn.net/v/t1.0-9/11692782_10153548376573254_4076114351065122781_n.jpg?oh=98d0d35e39a1b376c806bee7bb47f075&oe=584175A8', location: 'San Francisco' }], likedMemlys: [{ url: 'https://scontent.fsnc1-3.fna.fbcdn.net/t31.0-8/13938311_1131762946908530_6242907422971776062_o.jpg', location: 'San Jose' }, { url: 'https://scontent.fsnc1-3.fna.fbcdn.net/v/t1.0-9/14225455_1107962689239467_1782382838638034127_n.jpg?oh=f36a23bd6873261d9569822fc59db40e&oe=58541FE4', location: 'Napa' }] },
+	      userFacebook: {}
 	    };
 	    return _this;
 	  }
 
 	  _createClass(ProfileContainer, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      var context = this;
+	      _axios2.default.get('/user/retrieve/profileinfo/').then(function (res) {
+	        context.setState({
+	          userFacebook: res.data
+	        });
+	        console.log('checking userFacebook state ------>', context.state.userFacebook);
+	      });
+	    }
+
+	    // componentDidMount() {
+	    //   console.log('checking my props lets take a look --------->', this.props);
+	    // }
+
+	    // componentDidUpdate(prevProps, prevState) {
+	    //   console.log('is this hitting here?????', this.props);
+	    // }
+
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_Profile2.default, { user: this.state.user }),
+	        _react2.default.createElement(_Profile2.default, { user: this.state.user, userFacebook: this.state.userFacebook }),
 	        this.props.children
 	      );
 	    }
@@ -35045,10 +35118,10 @@
 	        _react2.default.createElement(
 	          'b',
 	          null,
-	          'About Me: '
+	          'Email: '
 	        ),
 	        ' ',
-	        props.user.bio
+	        props.userFacebook.email
 	      ),
 	      _react2.default.createElement(
 	        'span',
@@ -35056,9 +35129,9 @@
 	        _react2.default.createElement(
 	          'b',
 	          null,
-	          'Lives in: '
+	          'Birthday: '
 	        ),
-	        props.user.city
+	        props.userFacebook.birthday
 	      )
 	    ),
 	    _react2.default.createElement(
@@ -35070,9 +35143,9 @@
 	        _react2.default.createElement(
 	          'h2',
 	          { id: 'ProfileName' },
-	          props.user.name
+	          props.userFacebook.name
 	        ),
-	        _react2.default.createElement('img', { id: 'profilePhoto', src: props.user.photo }),
+	        _react2.default.createElement('img', { id: 'profilePhoto', src: props.userFacebook.profilePhotoUrl }),
 	        _react2.default.createElement(
 	          'div',
 	          { id: 'MemlyFeedSelect' },

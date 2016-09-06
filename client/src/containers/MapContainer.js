@@ -48,7 +48,7 @@ class MapContainer extends React.Component {
   //set interval function to live track user location
   geolocate(){
     window.geolocator = window.setInterval(() => { navigator.geolocation.getCurrentPosition(function(position) {
-      console.log(position.coords.latitude, position.coords.longitude);
+      //console.log(position.coords.latitude, position.coords.longitude);
       let { markers } = this.state; 
       markers = update(markers, {0: {position:{$set: {lat:position.coords.latitude, lng:position.coords.longitude}}}});
       this.setState({ markers }) // equivalent of this.setState({markers: markers})
@@ -78,13 +78,13 @@ class MapContainer extends React.Component {
   }
   //Not yet working correctly. Need to clear interval when component unmounts
   componentWillUnmount() {
-    console.log(geolocator);
+    //console.log(geolocator);
     window.clearInterval(geolocator);
   }
 
   handleMapClick(e) {
     //not exactly sure how e.latLng works... its magic. Documentation unhelpful 
-    console.log(e.latLng)
+    //console.log(e.latLng)
     let { markers } = this.state;
     markers = update(markers, {
       $push: [
@@ -109,7 +109,7 @@ class MapContainer extends React.Component {
   }
 
   render() {
-    console.log(this.state.markers[0].position)
+    //console.log(this.state.markers[0].position)
     return(
       <div style={style}>
         <SimpleMap 
