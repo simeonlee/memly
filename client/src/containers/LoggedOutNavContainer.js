@@ -12,10 +12,20 @@ class LoggedOutNavContainer extends React.Component {
   }
 
 
+  logInWithFacebook() {
+    console.log('is this function for facebook login getting hit???');
+    axios.get('/auth/facebook')
+      .then(function(res) {
+        console.log('I made it to logout button', res);
+      });
+  }
+
+
+
   render() {
     return(
       <div>
-        <LoggedOutNav toggleLogIn = {this.props.toggleLogIn}/>
+        <LoggedOutNav toggleLogIn = {this.props.toggleLogIn} logInWithFacebook = {this.logInWithFacebook.bind(this)}/>
       </div>
       )
   }

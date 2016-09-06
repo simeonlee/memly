@@ -8,6 +8,7 @@ const LoggedOutNav = (props) => {
       <li onClick = {function(){props.toggleLogIn();}}><Link to ="/">Login</Link></li>
       <li><Link to ="/">Home</Link></li>
       </ul>
+      <a id ="FacebookLoginLink" href="/auth/facebook">Facebook</a>
     </div>
     )
 }

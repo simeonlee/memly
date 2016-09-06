@@ -59,28 +59,33 @@ userSchema = new Schema({
 },{ _id: false });
 
 userSchema.statics.findOrCreate = function(profile, cb) {
+  //console.log('checking what profile is before findone', profile);
   // store in server memory
-  userId = profile.id;
+  var raw = JSON.parse(profile['_raw']);
+  console.log('WHAT IS PROFILE PHOTOS', profile.photos);
+  // console.log('WHAT IS RAW????????', raw);
+  userId = raw.id;
   var userObj = new this();
-  this.findOne({_id: profile.id}, function(err, result) {
+  this.findOne({_id: userId}, function(err, result) {
     if (!result) {
-      var raw = JSON.parse(profile._raw);
-      userObj._id = profile.id;
-      userObj.name = raw.first_name;
-      userObj.email = profile.emails[0].value;
+      userObj._id = raw.id;
+      userObj.name = raw.name;
+      userObj.email = raw.email;
       userObj.age = utils.calculateAge(raw.birthday);
       userObj.birthday = raw.birthday;
       userObj.gender = raw.gender;
-      userObj.city = raw.location.name;
-      userObj.job = raw.work;
-      userObj.education = raw.education[0].school.name;
-      userObj.bio = raw.bio;
+      // userObj.city = raw.location.name || '';
+      // userObj.job = raw.work || '';
+      // userObj.education = raw.education[raw.education.length - 1].school.name || '';
+      // userObj.bio = raw.bio || '';
       userObj.profilePhotoUrl = profile.photos[0].value;
       userObj.save(cb);
     } else {
       cb(err, result);
     }
-  })
-}
+  });
+};
 
-module.exports = mongoose.model('User', userSchema);
+var User = mongoose.model('User', userSchema);
+
+module.exports = User;
