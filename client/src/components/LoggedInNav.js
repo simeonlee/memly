@@ -9,6 +9,10 @@ const LoggedInNav = (props) => {
       <li onClick = {function(){ props.LogMeOut(); props.toggleLogIn();}}><Link to ="/logout">Logout</Link></li>
 
       <li id = "Upload"><Link to ="/photo">Upload Photo</Link></li>
+      <li><Link to ="/logout">Logout</Link></li>
+      <li><Link to ="/user/profile">Profile</Link></li>
+      <li><Link to ="/photo">Upload</Link></li>
+      <li><Link to ="/nearby">Nearby</Link></li>
       <li><Link to ="/">Home</Link></li>
       </ul>
       <a id ="getProfileLink" href="user/profile/" onClick = {() =>props.retrieveProfileInfo()}>Profile</a>

@@ -20,6 +20,7 @@ var routes = (
           <Route path='/likedmemlys' component = {LikedMemlysContainer} />
         </Route>
         <Route path='/photo' component={ImageUploadContainer} />
+        <Route path='/nearby' component={ImageRetrieveContainer} />
       </Route>
     </Router>
   )
