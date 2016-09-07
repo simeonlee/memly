@@ -27646,7 +27646,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _LoggedInNav = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../components/LoggedInNav\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _LoggedInNav = __webpack_require__(240);
 
 	var _LoggedInNav2 = _interopRequireDefault(_LoggedInNav);
 
@@ -27710,7 +27710,75 @@
 	exports.default = LoggedInNavContainer;
 
 /***/ },
-/* 240 */,
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(174);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var LoggedInNav = function LoggedInNav(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { id: 'navBar' },
+	    _react2.default.createElement(
+	      'ul',
+	      null,
+	      _react2.default.createElement(
+	        'li',
+	        { onClick: function onClick() {
+	            props.LogMeOut();props.toggleLogIn();
+	          } },
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/logout' },
+	          'Logout'
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        { id: 'Upload' },
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/photo' },
+	          'Upload Photo'
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        null,
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/' },
+	          'Home'
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'a',
+	      { id: 'getProfileLink', href: 'user/profile/', onClick: function onClick() {
+	          return props.retrieveProfileInfo();
+	        } },
+	      'Profile'
+	    )
+	  );
+	};
+
+	exports.default = LoggedInNav;
+
+	//<li onClick = {function(){ props.getProfile();}}><Link to ="user/profile/">Profile</Link></li>
+
+/***/ },
 /* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
