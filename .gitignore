@@ -8,10 +8,8 @@ server/config/config.js
 
 db/auth/keys.js
 
-uploads
-
 client/bundle.js
 
-.DS_store
+uploads
 
 .DS_Store
