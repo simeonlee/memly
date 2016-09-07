@@ -1,13 +1,24 @@
-//This file will contain the route setup to be exported to be used by App.js
+//File contains the route setup to be exported to be used by App.js
 import React from 'react'
 import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 import HomeContainer from './containers/HomeContainer'
-import TestContainer from './containers/TestContainer'
+import MyMemlysContainer from './containers/MyMemlysContainer'
+import LikedMemlysContainer from './containers/LikedMemlysContainer'
+import ProfileContainer from './containers/ProfileContainer'
+import GoogleMapContainer from './containers/GoogleMapContainer';
+import ImageUploadContainer from './containers/ImageUploadContainer'
+
 
 var routes = (
     <Router history={hashHistory}>
       <Route path='/' component={HomeContainer}>
-        <Route path='test' component={TestContainer}/>
+        <IndexRoute component={GoogleMapContainer}/>
+        <Route path = '/logout' component= {GoogleMapContainer}/>
+        <Route path='user/profile' component = {ProfileContainer}>
+          <IndexRoute component = {MyMemlysContainer} />
+          <Route path='/likedmemlys' component = {LikedMemlysContainer} />
+        </Route>
+        <Route path='/photo' component={ImageUploadContainer} />
       </Route>
     </Router>
   )

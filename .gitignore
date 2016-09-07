@@ -7,3 +7,8 @@ node_modules/
 server/config/config.js
 
 db/auth/keys.js
+
+client/bundle.js
+
+uploads
+
