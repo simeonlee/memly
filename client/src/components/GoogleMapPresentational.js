@@ -4,13 +4,6 @@ import GoogleMapMemlyContainer from '../containers/GoogleMapMemlyContainer';
 // import shallowCompare from 'react-addons-shallow-compare'
 // import controllable from 'react-controllables'
 
-
-const style={
-  width: '100%',
-  height: '500px'
-}
-
-
 const GoogleMapPresentational = (props) => {
   const memlies = props.memlies.map((memly, index) => {
     const { showInfo, defaultAnimation, photo } = memly;
@@ -19,7 +12,7 @@ const GoogleMapPresentational = (props) => {
       )
   })
   return(
-      <div style={style}>
+      <div className="map">
        <GoogleMap
         {...props}
         //Using the es6 ...props syntax above, the following props will be passed from the GoogleMapPresentational component into the GoogleMap component

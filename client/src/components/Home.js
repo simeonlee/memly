@@ -1,11 +1,9 @@
 import React from 'react'
 
 const Home = (props) => {
-  return(
-    <div id ="Home">
-      <h1> Memly </h1>
-    </div>
-    )
+  return (
+    <div id ="Home" />
+  )
 }
 
 export default Home

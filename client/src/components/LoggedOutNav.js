@@ -3,11 +3,12 @@ import { Router, Route, hashHistory, IndexRoute, Link } from 'react-router'
 
 const LoggedOutNav = (props) => {
   return(
-    <div id="navBar2">
+    <div className="nav">
+    	<div className="logo">Memly</div>
       <ul>
-      <li><Link to ="/">Home</Link></li>
+	      <li><Link to="/">Home</Link></li>
+	      <li><a href="/auth/facebook">Login</a></li>
       </ul>
-      <a id ="FacebookLoginLink" href="/auth/facebook">Facebook</a>
     </div>
     )
 }
