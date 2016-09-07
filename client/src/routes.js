@@ -5,15 +5,16 @@ import HomeContainer from './containers/HomeContainer'
 import MyMemlysContainer from './containers/MyMemlysContainer'
 import LikedMemlysContainer from './containers/LikedMemlysContainer'
 import ProfileContainer from './containers/ProfileContainer'
-import MapContainer from './containers/MapContainer'
 import ImageUploadContainer from './containers/ImageUploadContainer'
+import GoogleMapContainer from './containers/GoogleMapContainer';
+
 
 
 var routes = (
     <Router history={hashHistory}>
       <Route path='/' component={HomeContainer}>
-        <IndexRoute component={MapContainer}/>
-        <Route path = '/logout' component= {MapContainer}/>
+        <IndexRoute component={GoogleMapContainer}/>
+        <Route path = '/logout' component= {GoogleMapContainer}/>
         <Route path='user/profile' component = {ProfileContainer}>
           <IndexRoute component = {MyMemlysContainer} />
           <Route path='/likedmemlys' component = {LikedMemlysContainer} />

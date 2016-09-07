@@ -31,4 +31,6 @@ export default ImageUpload
 // </form>
 
 // <form method="post" action="/api/photo" encType="multipart/form-data">
+
 // <div><button className="submitButton" type="submit">Upload Image</button></div>
+
