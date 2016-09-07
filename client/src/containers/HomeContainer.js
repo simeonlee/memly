@@ -37,22 +37,27 @@ class HomeContainer extends React.Component {
 
   toggleLogIn() {
     var changeLogInState = !this.state.isLoggedIn;
-
     this.setState({
       isLoggedIn: changeLogInState
     });
-
   }
+
+  changeNavToAlreadyLoggedIn() {
+      this.setState({
+        isLoggedIn: true
+      });
+    }
+  
 
 
   render() {
     var context = this;
     var childToggleLogIn = this.toggleLogIn.bind(this);
+    var childChangeNavToAlreadyLoggedIn = this.changeNavToAlreadyLoggedIn.bind(this);
     const childrenWithProps = React.Children.map(this.props.children,
      (child) => React.cloneElement(child, {
        toggleLogIn: childToggleLogIn,
-       //passing the current user information object to the childrenWithProps
-       // userFacebook: context.state.user
+       changeNavToAlreadyLoggedIn: childChangeNavToAlreadyLoggedIn
      })
     );
 

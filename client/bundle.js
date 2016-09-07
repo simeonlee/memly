@@ -27561,9 +27561,15 @@
 	    key: 'toggleLogIn',
 	    value: function toggleLogIn() {
 	      var changeLogInState = !this.state.isLoggedIn;
-
 	      this.setState({
 	        isLoggedIn: changeLogInState
+	      });
+	    }
+	  }, {
+	    key: 'changeNavToAlreadyLoggedIn',
+	    value: function changeNavToAlreadyLoggedIn() {
+	      this.setState({
+	        isLoggedIn: true
 	      });
 	    }
 	  }, {
@@ -27571,9 +27577,11 @@
 	    value: function render() {
 	      var context = this;
 	      var childToggleLogIn = this.toggleLogIn.bind(this);
+	      var childChangeNavToAlreadyLoggedIn = this.changeNavToAlreadyLoggedIn.bind(this);
 	      var childrenWithProps = _react2.default.Children.map(this.props.children, function (child) {
 	        return _react2.default.cloneElement(child, {
-	          toggleLogIn: childToggleLogIn
+	          toggleLogIn: childToggleLogIn,
+	          changeNavToAlreadyLoggedIn: childChangeNavToAlreadyLoggedIn
 	        });
 	      });
 
@@ -27873,17 +27881,6 @@
 	      null,
 	      _react2.default.createElement(
 	        'li',
-	        { onClick: function onClick() {
-	            props.toggleLogIn();
-	          } },
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/' },
-	          'Login'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
 	        null,
 	        _react2.default.createElement(
 	          _reactRouter.Link,
@@ -28170,6 +28167,7 @@
 	        });
 	        console.log('checking userFacebook state ------>', context.state.userFacebook);
 	      });
+	      this.props.changeNavToAlreadyLoggedIn();
 	    }
 
 	    // componentDidMount() {
