@@ -60,8 +60,8 @@ module.exports = function(app) {
 	app.get('/api/nearby', function(req, res) {
 		// Acknowledge current user location
 		var userLocation = {
-			lat: req.body.lat,
-			lng: req.body.lng
+			lat: parseFloat(req.query.lat),
+			lng: parseFloat(req.query.lng)
 		};
 
 		// Find any within 0.05 +/- lat and lng of current user location
@@ -81,7 +81,7 @@ module.exports = function(app) {
 				console.log(err);
 				return;
 			};
-			console.log(memlys);
+			res.send(memlys);
 		});
 	});
 

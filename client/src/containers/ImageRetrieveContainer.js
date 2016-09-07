@@ -13,7 +13,7 @@ export default class ImageRetrieveContainer extends React.Component {
 			},
 			images: []
 		};
-		this.geolocation();
+		this.geolocate();
 	}
 
 	geolocate() {
@@ -38,7 +38,12 @@ export default class ImageRetrieveContainer extends React.Component {
 
 		this.geolocate();
 
-		axios.get('/api/nearby')
+		axios.get('/api/nearby', {
+		    params: {
+		      lat: this.state.location.lat,
+		      lng: this.state.location.lng
+		    }
+		  })
 			.then(function(response) {
 				console.log(response);
 			})
