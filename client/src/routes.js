@@ -5,13 +5,13 @@ import HomeContainer from './containers/HomeContainer'
 import MyMemlysContainer from './containers/MyMemlysContainer'
 import LikedMemlysContainer from './containers/LikedMemlysContainer'
 import ProfileContainer from './containers/ProfileContainer'
-import MapContainer from './containers/MapContainer'
+import GoogleMapContainer from './containers/GoogleMapContainer';
 
 
 var routes = (
     <Router history={hashHistory}>
       <Route path='/' component={HomeContainer}>
-        <IndexRoute component={MapContainer}/>
+        <IndexRoute component={GoogleMapContainer}/>
         <Route path='/user/profile' component = {ProfileContainer}>
           <Route path='/user/profile/mymemlys' component = {MyMemlysContainer} />
           <Route path='/user/profile/likedmemlys' component = {LikedMemlysContainer} />

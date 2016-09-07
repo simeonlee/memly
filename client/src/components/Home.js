@@ -1,5 +1,4 @@
 import React from 'react'
-import MapContainer from '../containers/MapContainer'
 
 const Home = (props) => {
   return(
