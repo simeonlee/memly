@@ -10,4 +10,5 @@ db/auth/keys.js
 
 client/bundle.js
 
-.DS_store
+uploads
+
