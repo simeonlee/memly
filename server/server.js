@@ -5,7 +5,6 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var routes = require('./serverRoutes.js');
 var path = require('path');
-// var keys = require('./config/config.js');
 var session = require('express-session');
 var port = process.env.PORT || 3000;
 var auth = require('../db/auth/auth.js');
@@ -15,6 +14,7 @@ var logout = require('express-passport-logout');
 var User = require('../db/users/userModel.js');
 var mongoose = require('mongoose');
 var db = require('../db/database.js');
+var helper = require('./helperFunctions.js');
 //------ instantiate app. connect middleware. -----//
 var app = express();
 
@@ -24,16 +24,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
-<<<<<<< 161dc20742febb1af0f6f48cc9f5d8687d84fdae
-//need to import session 
-=======
 
-
-
-
-
-
->>>>>>> Adds passport/facebook authentication, session functionality, custom profile view based upon user signed in
 // Configure our server with the passport middleware
 auth(app);
 
@@ -81,27 +72,27 @@ app.get('/auth/facebook/callback',
 
 
 //helper function to check if a user session has been created.
-var isLoggedIn = function(req, res, next) {
-  console.log('I am hitting isLoggedIn helper function');
-  if (!req.session.passport) {
-    console.log('no passport session sorry!!!');
-    res.redirect('http://localhost:3000/#');
-  } else if (!req.session.passport.user) {
-    console.log('no passport user defined. maybe next time????');
-    res.redirect('http://localhost:3000/#');
-  } else {
-    next();
-  }
-};
+// var isLoggedIn = function(req, res, next) {
+//   console.log('I am hitting isLoggedIn helper function');
+//   if (!req.session.passport) {
+//     console.log('no passport session sorry!!!');
+//     res.redirect('http://localhost:3000/#');
+//   } else if (!req.session.passport.user) {
+//     console.log('no passport user defined. maybe next time????');
+//     res.redirect('http://localhost:3000/#');
+//   } else {
+//     next();
+//   }
+// };
 
-app.get('/user/profile/', isLoggedIn, function(req, res) {
+app.get('/user/profile/', helper.isLoggedIn, function(req, res) {
   res.redirect('http://localhost:3000/#/user/profile');
   // }
 });
 
 
 //function to pass information from database to client
-app.get('/user/retrieve/profileinfo/', isLoggedIn, function(req, res) {
+app.get('/user/retrieve/profileinfo/', helper.isLoggedIn, function(req, res) {
 
   if (req.session.passport.user) {
     var userID = req.session.passport.user['_id'];
