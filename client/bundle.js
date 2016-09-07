@@ -59,7 +59,7 @@
 
 	var _reactDom = __webpack_require__(35);
 
-	var _routes = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./routes\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _routes = __webpack_require__(173);
 
 	var _routes2 = _interopRequireDefault(_routes);
 
@@ -21497,8 +21497,6 @@
 	module.exports = ReactDOMNullInputValuePropHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-<<<<<<< 6f0066818a78acbaba3f6394d72f8a375ffb0987
-=======
 /***/ },
 /* 173 */
 /***/ function(module, exports, __webpack_require__) {
@@ -21519,29 +21517,25 @@
 
 	var _HomeContainer2 = _interopRequireDefault(_HomeContainer);
 
-<<<<<<< 1a5934cc7bb77cf1df367795d86989a67f9e5f56
-	var _MyMemlysContainer = __webpack_require__(243);
+	var _MyMemlysContainer = __webpack_require__(265);
 
 	var _MyMemlysContainer2 = _interopRequireDefault(_MyMemlysContainer);
 
-	var _LikedMemlysContainer = __webpack_require__(245);
+	var _LikedMemlysContainer = __webpack_require__(267);
 
 	var _LikedMemlysContainer2 = _interopRequireDefault(_LikedMemlysContainer);
 
-	var _ProfileContainer = __webpack_require__(247);
+	var _ProfileContainer = __webpack_require__(269);
 
 	var _ProfileContainer2 = _interopRequireDefault(_ProfileContainer);
 
-	var _GoogleMapContainer = __webpack_require__(249);
-=======
-	var _TestContainer = __webpack_require__(381);
->>>>>>> modified git-ignore
-
-	var _GoogleMapContainer2 = _interopRequireDefault(_GoogleMapContainer);
-
-	var _ImageUploadContainer = __webpack_require__(310);
+	var _ImageUploadContainer = __webpack_require__(271);
 
 	var _ImageUploadContainer2 = _interopRequireDefault(_ImageUploadContainer);
+
+	var _GoogleMapContainer = __webpack_require__(273);
+
+	var _GoogleMapContainer2 = _interopRequireDefault(_GoogleMapContainer);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21553,7 +21547,7 @@
 	    _reactRouter.Route,
 	    { path: '/', component: _HomeContainer2.default },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _GoogleMapContainer2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/logout', component: MapContainer }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/logout', component: _GoogleMapContainer2.default }),
 	    _react2.default.createElement(
 	      _reactRouter.Route,
 	      { path: 'user/profile', component: _ProfileContainer2.default },
@@ -27511,7 +27505,7 @@
 
 	var _LoggedInNavContainer2 = _interopRequireDefault(_LoggedInNavContainer);
 
-	var _LoggedOutNavContainer = __webpack_require__(241);
+	var _LoggedOutNavContainer = __webpack_require__(263);
 
 	var _LoggedOutNavContainer2 = _interopRequireDefault(_LoggedOutNavContainer);
 
@@ -27567,9 +27561,15 @@
 	    key: 'toggleLogIn',
 	    value: function toggleLogIn() {
 	      var changeLogInState = !this.state.isLoggedIn;
-
 	      this.setState({
 	        isLoggedIn: changeLogInState
+	      });
+	    }
+	  }, {
+	    key: 'changeNavToAlreadyLoggedIn',
+	    value: function changeNavToAlreadyLoggedIn() {
+	      this.setState({
+	        isLoggedIn: true
 	      });
 	    }
 	  }, {
@@ -27577,9 +27577,11 @@
 	    value: function render() {
 	      var context = this;
 	      var childToggleLogIn = this.toggleLogIn.bind(this);
+	      var childChangeNavToAlreadyLoggedIn = this.changeNavToAlreadyLoggedIn.bind(this);
 	      var childrenWithProps = _react2.default.Children.map(this.props.children, function (child) {
 	        return _react2.default.cloneElement(child, {
-	          toggleLogIn: childToggleLogIn
+	          toggleLogIn: childToggleLogIn,
+	          changeNavToAlreadyLoggedIn: childChangeNavToAlreadyLoggedIn
 	        });
 	      });
 
@@ -27635,149 +27637,7 @@
 	//props.children will render any sub routes specified by react-router!
 
 /***/ },
-/* 239 */,
-/* 240 */,
-/* 241 */,
-/* 242 */,
-/* 243 */,
-/* 244 */,
-/* 245 */,
-/* 246 */,
-/* 247 */,
-/* 248 */,
-/* 249 */,
-/* 250 */,
-/* 251 */,
-/* 252 */,
-/* 253 */,
-/* 254 */,
-/* 255 */,
-/* 256 */,
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */,
-/* 262 */,
-/* 263 */,
-/* 264 */,
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */,
-/* 269 */,
-/* 270 */,
-/* 271 */,
-/* 272 */,
-/* 273 */,
-/* 274 */,
-/* 275 */,
-/* 276 */,
-/* 277 */,
-/* 278 */,
-/* 279 */,
-/* 280 */,
-/* 281 */,
-/* 282 */,
-/* 283 */,
-/* 284 */,
-/* 285 */,
-/* 286 */,
-/* 287 */,
-/* 288 */,
-/* 289 */,
-/* 290 */,
-/* 291 */,
-/* 292 */,
-/* 293 */,
-/* 294 */,
-/* 295 */,
-/* 296 */,
-/* 297 */,
-/* 298 */,
-/* 299 */,
-/* 300 */,
-/* 301 */,
-/* 302 */,
-/* 303 */,
-/* 304 */,
-/* 305 */,
-/* 306 */,
-/* 307 */,
-/* 308 */,
-/* 309 */,
-/* 310 */,
-/* 311 */,
-/* 312 */,
-/* 313 */,
-/* 314 */,
-/* 315 */,
-/* 316 */,
-/* 317 */,
-/* 318 */,
-/* 319 */,
-/* 320 */,
-/* 321 */,
-/* 322 */,
-/* 323 */,
-/* 324 */,
-/* 325 */,
-/* 326 */,
-/* 327 */,
-/* 328 */,
-/* 329 */,
-/* 330 */,
-/* 331 */,
-/* 332 */,
-/* 333 */,
-/* 334 */,
-/* 335 */,
-/* 336 */,
-/* 337 */,
-/* 338 */,
-/* 339 */,
-/* 340 */,
-/* 341 */,
-/* 342 */,
-/* 343 */,
-/* 344 */,
-/* 345 */,
-/* 346 */,
-/* 347 */,
-/* 348 */,
-/* 349 */,
-/* 350 */,
-/* 351 */,
-/* 352 */,
-/* 353 */,
-/* 354 */,
-/* 355 */,
-/* 356 */,
-/* 357 */,
-/* 358 */,
-/* 359 */,
-/* 360 */,
-/* 361 */,
-/* 362 */,
-/* 363 */,
-/* 364 */,
-/* 365 */,
-/* 366 */,
-/* 367 */,
-/* 368 */,
-/* 369 */,
-/* 370 */,
-/* 371 */,
-/* 372 */,
-/* 373 */,
-/* 374 */,
-/* 375 */,
-/* 376 */,
-/* 377 */,
-/* 378 */,
-/* 379 */,
-/* 380 */,
-/* 381 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27792,12 +27652,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< 1a5934cc7bb77cf1df367795d86989a67f9e5f56
 	var _LoggedInNav = __webpack_require__(240);
 
 	var _LoggedInNav2 = _interopRequireDefault(_LoggedInNav);
 
-	var _axios = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"axios\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _axios = __webpack_require__(241);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
@@ -27931,6 +27790,1287 @@
 
 	'use strict';
 
+	module.exports = __webpack_require__(242);
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(243);
+	var bind = __webpack_require__(244);
+	var Axios = __webpack_require__(245);
+
+	/**
+	 * Create an instance of Axios
+	 *
+	 * @param {Object} defaultConfig The default config for the instance
+	 * @return {Axios} A new instance of Axios
+	 */
+	function createInstance(defaultConfig) {
+	  var context = new Axios(defaultConfig);
+	  var instance = bind(Axios.prototype.request, context);
+
+	  // Copy axios.prototype to instance
+	  utils.extend(instance, Axios.prototype, context);
+
+	  // Copy context to instance
+	  utils.extend(instance, context);
+
+	  return instance;
+	}
+
+	// Create the default instance to be exported
+	var axios = createInstance();
+
+	// Expose Axios class to allow class inheritance
+	axios.Axios = Axios;
+
+	// Factory for creating new instances
+	axios.create = function create(defaultConfig) {
+	  return createInstance(defaultConfig);
+	};
+
+	// Expose all/spread
+	axios.all = function all(promises) {
+	  return Promise.all(promises);
+	};
+	axios.spread = __webpack_require__(262);
+
+	module.exports = axios;
+
+	// Allow use of default import syntax in TypeScript
+	module.exports.default = axios;
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	var bind = __webpack_require__(244);
+
+	/*global toString:true*/
+
+	// utils is a library of generic helper functions non-specific to axios
+
+	var toString = Object.prototype.toString;
+
+	/**
+	 * Determine if a value is an Array
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is an Array, otherwise false
+	 */
+	function isArray(val) {
+	  return toString.call(val) === '[object Array]';
+	}
+
+	/**
+	 * Determine if a value is an ArrayBuffer
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is an ArrayBuffer, otherwise false
+	 */
+	function isArrayBuffer(val) {
+	  return toString.call(val) === '[object ArrayBuffer]';
+	}
+
+	/**
+	 * Determine if a value is a FormData
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is an FormData, otherwise false
+	 */
+	function isFormData(val) {
+	  return typeof FormData !== 'undefined' && val instanceof FormData;
+	}
+
+	/**
+	 * Determine if a value is a view on an ArrayBuffer
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
+	 */
+	function isArrayBufferView(val) {
+	  var result;
+	  if (typeof ArrayBuffer !== 'undefined' && ArrayBuffer.isView) {
+	    result = ArrayBuffer.isView(val);
+	  } else {
+	    result = val && val.buffer && val.buffer instanceof ArrayBuffer;
+	  }
+	  return result;
+	}
+
+	/**
+	 * Determine if a value is a String
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a String, otherwise false
+	 */
+	function isString(val) {
+	  return typeof val === 'string';
+	}
+
+	/**
+	 * Determine if a value is a Number
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a Number, otherwise false
+	 */
+	function isNumber(val) {
+	  return typeof val === 'number';
+	}
+
+	/**
+	 * Determine if a value is undefined
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if the value is undefined, otherwise false
+	 */
+	function isUndefined(val) {
+	  return typeof val === 'undefined';
+	}
+
+	/**
+	 * Determine if a value is an Object
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is an Object, otherwise false
+	 */
+	function isObject(val) {
+	  return val !== null && (typeof val === 'undefined' ? 'undefined' : _typeof(val)) === 'object';
+	}
+
+	/**
+	 * Determine if a value is a Date
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a Date, otherwise false
+	 */
+	function isDate(val) {
+	  return toString.call(val) === '[object Date]';
+	}
+
+	/**
+	 * Determine if a value is a File
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a File, otherwise false
+	 */
+	function isFile(val) {
+	  return toString.call(val) === '[object File]';
+	}
+
+	/**
+	 * Determine if a value is a Blob
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a Blob, otherwise false
+	 */
+	function isBlob(val) {
+	  return toString.call(val) === '[object Blob]';
+	}
+
+	/**
+	 * Determine if a value is a Function
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a Function, otherwise false
+	 */
+	function isFunction(val) {
+	  return toString.call(val) === '[object Function]';
+	}
+
+	/**
+	 * Determine if a value is a Stream
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a Stream, otherwise false
+	 */
+	function isStream(val) {
+	  return isObject(val) && isFunction(val.pipe);
+	}
+
+	/**
+	 * Determine if a value is a URLSearchParams object
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a URLSearchParams object, otherwise false
+	 */
+	function isURLSearchParams(val) {
+	  return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams;
+	}
+
+	/**
+	 * Trim excess whitespace off the beginning and end of a string
+	 *
+	 * @param {String} str The String to trim
+	 * @returns {String} The String freed of excess whitespace
+	 */
+	function trim(str) {
+	  return str.replace(/^\s*/, '').replace(/\s*$/, '');
+	}
+
+	/**
+	 * Determine if we're running in a standard browser environment
+	 *
+	 * This allows axios to run in a web worker, and react-native.
+	 * Both environments support XMLHttpRequest, but not fully standard globals.
+	 *
+	 * web workers:
+	 *  typeof window -> undefined
+	 *  typeof document -> undefined
+	 *
+	 * react-native:
+	 *  typeof document.createElement -> undefined
+	 */
+	function isStandardBrowserEnv() {
+	  return typeof window !== 'undefined' && typeof document !== 'undefined' && typeof document.createElement === 'function';
+	}
+
+	/**
+	 * Iterate over an Array or an Object invoking a function for each item.
+	 *
+	 * If `obj` is an Array callback will be called passing
+	 * the value, index, and complete array for each item.
+	 *
+	 * If 'obj' is an Object callback will be called passing
+	 * the value, key, and complete object for each property.
+	 *
+	 * @param {Object|Array} obj The object to iterate
+	 * @param {Function} fn The callback to invoke for each item
+	 */
+	function forEach(obj, fn) {
+	  // Don't bother if no value provided
+	  if (obj === null || typeof obj === 'undefined') {
+	    return;
+	  }
+
+	  // Force an array if not already something iterable
+	  if ((typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) !== 'object' && !isArray(obj)) {
+	    /*eslint no-param-reassign:0*/
+	    obj = [obj];
+	  }
+
+	  if (isArray(obj)) {
+	    // Iterate over array values
+	    for (var i = 0, l = obj.length; i < l; i++) {
+	      fn.call(null, obj[i], i, obj);
+	    }
+	  } else {
+	    // Iterate over object keys
+	    for (var key in obj) {
+	      if (obj.hasOwnProperty(key)) {
+	        fn.call(null, obj[key], key, obj);
+	      }
+	    }
+	  }
+	}
+
+	/**
+	 * Accepts varargs expecting each argument to be an object, then
+	 * immutably merges the properties of each object and returns result.
+	 *
+	 * When multiple objects contain the same key the later object in
+	 * the arguments list will take precedence.
+	 *
+	 * Example:
+	 *
+	 * ```js
+	 * var result = merge({foo: 123}, {foo: 456});
+	 * console.log(result.foo); // outputs 456
+	 * ```
+	 *
+	 * @param {Object} obj1 Object to merge
+	 * @returns {Object} Result of all merge properties
+	 */
+	function merge() /* obj1, obj2, obj3, ... */{
+	  var result = {};
+	  function assignValue(val, key) {
+	    if (_typeof(result[key]) === 'object' && (typeof val === 'undefined' ? 'undefined' : _typeof(val)) === 'object') {
+	      result[key] = merge(result[key], val);
+	    } else {
+	      result[key] = val;
+	    }
+	  }
+
+	  for (var i = 0, l = arguments.length; i < l; i++) {
+	    forEach(arguments[i], assignValue);
+	  }
+	  return result;
+	}
+
+	/**
+	 * Extends object a by mutably adding to it the properties of object b.
+	 *
+	 * @param {Object} a The object to be extended
+	 * @param {Object} b The object to copy properties from
+	 * @param {Object} thisArg The object to bind function to
+	 * @return {Object} The resulting value of object a
+	 */
+	function extend(a, b, thisArg) {
+	  forEach(b, function assignValue(val, key) {
+	    if (thisArg && typeof val === 'function') {
+	      a[key] = bind(val, thisArg);
+	    } else {
+	      a[key] = val;
+	    }
+	  });
+	  return a;
+	}
+
+	module.exports = {
+	  isArray: isArray,
+	  isArrayBuffer: isArrayBuffer,
+	  isFormData: isFormData,
+	  isArrayBufferView: isArrayBufferView,
+	  isString: isString,
+	  isNumber: isNumber,
+	  isObject: isObject,
+	  isUndefined: isUndefined,
+	  isDate: isDate,
+	  isFile: isFile,
+	  isBlob: isBlob,
+	  isFunction: isFunction,
+	  isStream: isStream,
+	  isURLSearchParams: isURLSearchParams,
+	  isStandardBrowserEnv: isStandardBrowserEnv,
+	  forEach: forEach,
+	  merge: merge,
+	  extend: extend,
+	  trim: trim
+	};
+
+/***/ },
+/* 244 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function bind(fn, thisArg) {
+	  return function wrap() {
+	    var args = new Array(arguments.length);
+	    for (var i = 0; i < args.length; i++) {
+	      args[i] = arguments[i];
+	    }
+	    return fn.apply(thisArg, args);
+	  };
+	};
+
+/***/ },
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var defaults = __webpack_require__(246);
+	var utils = __webpack_require__(243);
+	var InterceptorManager = __webpack_require__(248);
+	var dispatchRequest = __webpack_require__(249);
+	var isAbsoluteURL = __webpack_require__(260);
+	var combineURLs = __webpack_require__(261);
+
+	/**
+	 * Create a new instance of Axios
+	 *
+	 * @param {Object} defaultConfig The default config for the instance
+	 */
+	function Axios(defaultConfig) {
+	  this.defaults = utils.merge(defaults, defaultConfig);
+	  this.interceptors = {
+	    request: new InterceptorManager(),
+	    response: new InterceptorManager()
+	  };
+	}
+
+	/**
+	 * Dispatch a request
+	 *
+	 * @param {Object} config The config specific for this request (merged with this.defaults)
+	 */
+	Axios.prototype.request = function request(config) {
+	  /*eslint no-param-reassign:0*/
+	  // Allow for axios('example/url'[, config]) a la fetch API
+	  if (typeof config === 'string') {
+	    config = utils.merge({
+	      url: arguments[0]
+	    }, arguments[1]);
+	  }
+
+	  config = utils.merge(defaults, this.defaults, { method: 'get' }, config);
+
+	  // Support baseURL config
+	  if (config.baseURL && !isAbsoluteURL(config.url)) {
+	    config.url = combineURLs(config.baseURL, config.url);
+	  }
+
+	  // Hook up interceptors middleware
+	  var chain = [dispatchRequest, undefined];
+	  var promise = Promise.resolve(config);
+
+	  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
+	    chain.unshift(interceptor.fulfilled, interceptor.rejected);
+	  });
+
+	  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
+	    chain.push(interceptor.fulfilled, interceptor.rejected);
+	  });
+
+	  while (chain.length) {
+	    promise = promise.then(chain.shift(), chain.shift());
+	  }
+
+	  return promise;
+	};
+
+	// Provide aliases for supported request methods
+	utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+	  /*eslint func-names:0*/
+	  Axios.prototype[method] = function (url, config) {
+	    return this.request(utils.merge(config || {}, {
+	      method: method,
+	      url: url
+	    }));
+	  };
+	});
+
+	utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+	  /*eslint func-names:0*/
+	  Axios.prototype[method] = function (url, data, config) {
+	    return this.request(utils.merge(config || {}, {
+	      method: method,
+	      url: url,
+	      data: data
+	    }));
+	  };
+	});
+
+	module.exports = Axios;
+
+/***/ },
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(243);
+	var normalizeHeaderName = __webpack_require__(247);
+
+	var PROTECTION_PREFIX = /^\)\]\}',?\n/;
+	var DEFAULT_CONTENT_TYPE = {
+	  'Content-Type': 'application/x-www-form-urlencoded'
+	};
+
+	function setContentTypeIfUnset(headers, value) {
+	  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
+	    headers['Content-Type'] = value;
+	  }
+	}
+
+	module.exports = {
+	  transformRequest: [function transformRequest(data, headers) {
+	    normalizeHeaderName(headers, 'Content-Type');
+	    if (utils.isFormData(data) || utils.isArrayBuffer(data) || utils.isStream(data) || utils.isFile(data) || utils.isBlob(data)) {
+	      return data;
+	    }
+	    if (utils.isArrayBufferView(data)) {
+	      return data.buffer;
+	    }
+	    if (utils.isURLSearchParams(data)) {
+	      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+	      return data.toString();
+	    }
+	    if (utils.isObject(data)) {
+	      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
+	      return JSON.stringify(data);
+	    }
+	    return data;
+	  }],
+
+	  transformResponse: [function transformResponse(data) {
+	    /*eslint no-param-reassign:0*/
+	    if (typeof data === 'string') {
+	      data = data.replace(PROTECTION_PREFIX, '');
+	      try {
+	        data = JSON.parse(data);
+	      } catch (e) {/* Ignore */}
+	    }
+	    return data;
+	  }],
+
+	  headers: {
+	    common: {
+	      'Accept': 'application/json, text/plain, */*'
+	    },
+	    patch: utils.merge(DEFAULT_CONTENT_TYPE),
+	    post: utils.merge(DEFAULT_CONTENT_TYPE),
+	    put: utils.merge(DEFAULT_CONTENT_TYPE)
+	  },
+
+	  timeout: 0,
+
+	  xsrfCookieName: 'XSRF-TOKEN',
+	  xsrfHeaderName: 'X-XSRF-TOKEN',
+
+	  maxContentLength: -1,
+
+	  validateStatus: function validateStatus(status) {
+	    return status >= 200 && status < 300;
+	  }
+	};
+
+/***/ },
+/* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(243);
+
+	module.exports = function normalizeHeaderName(headers, normalizedName) {
+	  utils.forEach(headers, function processHeader(value, name) {
+	    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
+	      headers[normalizedName] = value;
+	      delete headers[name];
+	    }
+	  });
+	};
+
+/***/ },
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(243);
+
+	function InterceptorManager() {
+	  this.handlers = [];
+	}
+
+	/**
+	 * Add a new interceptor to the stack
+	 *
+	 * @param {Function} fulfilled The function to handle `then` for a `Promise`
+	 * @param {Function} rejected The function to handle `reject` for a `Promise`
+	 *
+	 * @return {Number} An ID used to remove interceptor later
+	 */
+	InterceptorManager.prototype.use = function use(fulfilled, rejected) {
+	  this.handlers.push({
+	    fulfilled: fulfilled,
+	    rejected: rejected
+	  });
+	  return this.handlers.length - 1;
+	};
+
+	/**
+	 * Remove an interceptor from the stack
+	 *
+	 * @param {Number} id The ID that was returned by `use`
+	 */
+	InterceptorManager.prototype.eject = function eject(id) {
+	  if (this.handlers[id]) {
+	    this.handlers[id] = null;
+	  }
+	};
+
+	/**
+	 * Iterate over all the registered interceptors
+	 *
+	 * This method is particularly useful for skipping over any
+	 * interceptors that may have become `null` calling `eject`.
+	 *
+	 * @param {Function} fn The function to call for each interceptor
+	 */
+	InterceptorManager.prototype.forEach = function forEach(fn) {
+	  utils.forEach(this.handlers, function forEachHandler(h) {
+	    if (h !== null) {
+	      fn(h);
+	    }
+	  });
+	};
+
+	module.exports = InterceptorManager;
+
+/***/ },
+/* 249 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+
+	var utils = __webpack_require__(243);
+	var transformData = __webpack_require__(250);
+
+	/**
+	 * Dispatch a request to the server using whichever adapter
+	 * is supported by the current environment.
+	 *
+	 * @param {object} config The config that is to be used for the request
+	 * @returns {Promise} The Promise to be fulfilled
+	 */
+	module.exports = function dispatchRequest(config) {
+	  // Ensure headers exist
+	  config.headers = config.headers || {};
+
+	  // Transform request data
+	  config.data = transformData(config.data, config.headers, config.transformRequest);
+
+	  // Flatten headers
+	  config.headers = utils.merge(config.headers.common || {}, config.headers[config.method] || {}, config.headers || {});
+
+	  utils.forEach(['delete', 'get', 'head', 'post', 'put', 'patch', 'common'], function cleanHeaderConfig(method) {
+	    delete config.headers[method];
+	  });
+
+	  var adapter;
+
+	  if (typeof config.adapter === 'function') {
+	    // For custom adapter support
+	    adapter = config.adapter;
+	  } else if (typeof XMLHttpRequest !== 'undefined') {
+	    // For browsers use XHR adapter
+	    adapter = __webpack_require__(251);
+	  } else if (typeof process !== 'undefined') {
+	    // For node use HTTP adapter
+	    adapter = __webpack_require__(251);
+	  }
+
+	  return Promise.resolve(config)
+	  // Wrap synchronous adapter errors and pass configuration
+	  .then(adapter).then(function onFulfilled(response) {
+	    // Transform response data
+	    response.data = transformData(response.data, response.headers, config.transformResponse);
+
+	    return response;
+	  }, function onRejected(error) {
+	    // Transform response data
+	    if (error && error.response) {
+	      error.response.data = transformData(error.response.data, error.response.headers, config.transformResponse);
+	    }
+
+	    return Promise.reject(error);
+	  });
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ },
+/* 250 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(243);
+
+	/**
+	 * Transform the data for a request or a response
+	 *
+	 * @param {Object|String} data The data to be transformed
+	 * @param {Array} headers The headers for the request or response
+	 * @param {Array|Function} fns A single function or Array of functions
+	 * @returns {*} The resulting transformed data
+	 */
+	module.exports = function transformData(data, headers, fns) {
+	  /*eslint no-param-reassign:0*/
+	  utils.forEach(fns, function transform(fn) {
+	    data = fn(data, headers);
+	  });
+
+	  return data;
+	};
+
+/***/ },
+/* 251 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+
+	var utils = __webpack_require__(243);
+	var settle = __webpack_require__(252);
+	var buildURL = __webpack_require__(255);
+	var parseHeaders = __webpack_require__(256);
+	var isURLSameOrigin = __webpack_require__(257);
+	var createError = __webpack_require__(253);
+	var btoa = typeof window !== 'undefined' && window.btoa || __webpack_require__(258);
+
+	module.exports = function xhrAdapter(config) {
+	  return new Promise(function dispatchXhrRequest(resolve, reject) {
+	    var requestData = config.data;
+	    var requestHeaders = config.headers;
+
+	    if (utils.isFormData(requestData)) {
+	      delete requestHeaders['Content-Type']; // Let the browser set it
+	    }
+
+	    var request = new XMLHttpRequest();
+	    var loadEvent = 'onreadystatechange';
+	    var xDomain = false;
+
+	    // For IE 8/9 CORS support
+	    // Only supports POST and GET calls and doesn't returns the response headers.
+	    // DON'T do this for testing b/c XMLHttpRequest is mocked, not XDomainRequest.
+	    if (process.env.NODE_ENV !== 'test' && typeof window !== 'undefined' && window.XDomainRequest && !('withCredentials' in request) && !isURLSameOrigin(config.url)) {
+	      request = new window.XDomainRequest();
+	      loadEvent = 'onload';
+	      xDomain = true;
+	      request.onprogress = function handleProgress() {};
+	      request.ontimeout = function handleTimeout() {};
+	    }
+
+	    // HTTP basic authentication
+	    if (config.auth) {
+	      var username = config.auth.username || '';
+	      var password = config.auth.password || '';
+	      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
+	    }
+
+	    request.open(config.method.toUpperCase(), buildURL(config.url, config.params, config.paramsSerializer), true);
+
+	    // Set the request timeout in MS
+	    request.timeout = config.timeout;
+
+	    // Listen for ready state
+	    request[loadEvent] = function handleLoad() {
+	      if (!request || request.readyState !== 4 && !xDomain) {
+	        return;
+	      }
+
+	      // The request errored out and we didn't get a response, this will be
+	      // handled by onerror instead
+	      if (request.status === 0) {
+	        return;
+	      }
+
+	      // Prepare the response
+	      var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
+	      var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
+	      var response = {
+	        data: responseData,
+	        // IE sends 1223 instead of 204 (https://github.com/mzabriskie/axios/issues/201)
+	        status: request.status === 1223 ? 204 : request.status,
+	        statusText: request.status === 1223 ? 'No Content' : request.statusText,
+	        headers: responseHeaders,
+	        config: config,
+	        request: request
+	      };
+
+	      settle(resolve, reject, response);
+
+	      // Clean up request
+	      request = null;
+	    };
+
+	    // Handle low level network errors
+	    request.onerror = function handleError() {
+	      // Real errors are hidden from us by the browser
+	      // onerror should only fire if it's a network error
+	      reject(createError('Network Error', config));
+
+	      // Clean up request
+	      request = null;
+	    };
+
+	    // Handle timeout
+	    request.ontimeout = function handleTimeout() {
+	      reject(createError('timeout of ' + config.timeout + 'ms exceeded', config, 'ECONNABORTED'));
+
+	      // Clean up request
+	      request = null;
+	    };
+
+	    // Add xsrf header
+	    // This is only done if running in a standard browser environment.
+	    // Specifically not if we're in a web worker, or react-native.
+	    if (utils.isStandardBrowserEnv()) {
+	      var cookies = __webpack_require__(259);
+
+	      // Add xsrf header
+	      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ? cookies.read(config.xsrfCookieName) : undefined;
+
+	      if (xsrfValue) {
+	        requestHeaders[config.xsrfHeaderName] = xsrfValue;
+	      }
+	    }
+
+	    // Add headers to the request
+	    if ('setRequestHeader' in request) {
+	      utils.forEach(requestHeaders, function setRequestHeader(val, key) {
+	        if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
+	          // Remove Content-Type if data is undefined
+	          delete requestHeaders[key];
+	        } else {
+	          // Otherwise add header to the request
+	          request.setRequestHeader(key, val);
+	        }
+	      });
+	    }
+
+	    // Add withCredentials to request if needed
+	    if (config.withCredentials) {
+	      request.withCredentials = true;
+	    }
+
+	    // Add responseType to request if needed
+	    if (config.responseType) {
+	      try {
+	        request.responseType = config.responseType;
+	      } catch (e) {
+	        if (request.responseType !== 'json') {
+	          throw e;
+	        }
+	      }
+	    }
+
+	    // Handle progress if needed
+	    if (typeof config.onDownloadProgress === 'function') {
+	      request.addEventListener('progress', config.onDownloadProgress);
+	    }
+
+	    // Not all browsers support upload events
+	    if (typeof config.onUploadProgress === 'function' && request.upload) {
+	      request.upload.addEventListener('progress', config.onUploadProgress);
+	    }
+
+	    if (requestData === undefined) {
+	      requestData = null;
+	    }
+
+	    // Send the request
+	    request.send(requestData);
+	  });
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ },
+/* 252 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var createError = __webpack_require__(253);
+
+	/**
+	 * Resolve or reject a Promise based on response status.
+	 *
+	 * @param {Function} resolve A function that resolves the promise.
+	 * @param {Function} reject A function that rejects the promise.
+	 * @param {object} response The response.
+	 */
+	module.exports = function settle(resolve, reject, response) {
+	  var validateStatus = response.config.validateStatus;
+	  // Note: status is not exposed by XDomainRequest
+	  if (!response.status || !validateStatus || validateStatus(response.status)) {
+	    resolve(response);
+	  } else {
+	    reject(createError('Request failed with status code ' + response.status, response.config, null, response));
+	  }
+	};
+
+/***/ },
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var enhanceError = __webpack_require__(254);
+
+	/**
+	 * Create an Error with the specified message, config, error code, and response.
+	 *
+	 * @param {string} message The error message.
+	 * @param {Object} config The config.
+	 * @param {string} [code] The error code (for example, 'ECONNABORTED').
+	 @ @param {Object} [response] The response.
+	 * @returns {Error} The created error.
+	 */
+	module.exports = function createError(message, config, code, response) {
+	  var error = new Error(message);
+	  return enhanceError(error, config, code, response);
+	};
+
+/***/ },
+/* 254 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Update an Error with the specified config, error code, and response.
+	 *
+	 * @param {Error} error The error to update.
+	 * @param {Object} config The config.
+	 * @param {string} [code] The error code (for example, 'ECONNABORTED').
+	 @ @param {Object} [response] The response.
+	 * @returns {Error} The error.
+	 */
+
+	module.exports = function enhanceError(error, config, code, response) {
+	  error.config = config;
+	  if (code) {
+	    error.code = code;
+	  }
+	  error.response = response;
+	  return error;
+	};
+
+/***/ },
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(243);
+
+	function encode(val) {
+	  return encodeURIComponent(val).replace(/%40/gi, '@').replace(/%3A/gi, ':').replace(/%24/g, '$').replace(/%2C/gi, ',').replace(/%20/g, '+').replace(/%5B/gi, '[').replace(/%5D/gi, ']');
+	}
+
+	/**
+	 * Build a URL by appending params to the end
+	 *
+	 * @param {string} url The base of the url (e.g., http://www.google.com)
+	 * @param {object} [params] The params to be appended
+	 * @returns {string} The formatted url
+	 */
+	module.exports = function buildURL(url, params, paramsSerializer) {
+	  /*eslint no-param-reassign:0*/
+	  if (!params) {
+	    return url;
+	  }
+
+	  var serializedParams;
+	  if (paramsSerializer) {
+	    serializedParams = paramsSerializer(params);
+	  } else if (utils.isURLSearchParams(params)) {
+	    serializedParams = params.toString();
+	  } else {
+	    var parts = [];
+
+	    utils.forEach(params, function serialize(val, key) {
+	      if (val === null || typeof val === 'undefined') {
+	        return;
+	      }
+
+	      if (utils.isArray(val)) {
+	        key = key + '[]';
+	      }
+
+	      if (!utils.isArray(val)) {
+	        val = [val];
+	      }
+
+	      utils.forEach(val, function parseValue(v) {
+	        if (utils.isDate(v)) {
+	          v = v.toISOString();
+	        } else if (utils.isObject(v)) {
+	          v = JSON.stringify(v);
+	        }
+	        parts.push(encode(key) + '=' + encode(v));
+	      });
+	    });
+
+	    serializedParams = parts.join('&');
+	  }
+
+	  if (serializedParams) {
+	    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
+	  }
+
+	  return url;
+	};
+
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(243);
+
+	/**
+	 * Parse headers into an object
+	 *
+	 * ```
+	 * Date: Wed, 27 Aug 2014 08:58:49 GMT
+	 * Content-Type: application/json
+	 * Connection: keep-alive
+	 * Transfer-Encoding: chunked
+	 * ```
+	 *
+	 * @param {String} headers Headers needing to be parsed
+	 * @returns {Object} Headers parsed into an object
+	 */
+	module.exports = function parseHeaders(headers) {
+	  var parsed = {};
+	  var key;
+	  var val;
+	  var i;
+
+	  if (!headers) {
+	    return parsed;
+	  }
+
+	  utils.forEach(headers.split('\n'), function parser(line) {
+	    i = line.indexOf(':');
+	    key = utils.trim(line.substr(0, i)).toLowerCase();
+	    val = utils.trim(line.substr(i + 1));
+
+	    if (key) {
+	      parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
+	    }
+	  });
+
+	  return parsed;
+	};
+
+/***/ },
+/* 257 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(243);
+
+	module.exports = utils.isStandardBrowserEnv() ?
+
+	// Standard browser envs have full support of the APIs needed to test
+	// whether the request URL is of the same origin as current location.
+	function standardBrowserEnv() {
+	  var msie = /(msie|trident)/i.test(navigator.userAgent);
+	  var urlParsingNode = document.createElement('a');
+	  var originURL;
+
+	  /**
+	  * Parse a URL to discover it's components
+	  *
+	  * @param {String} url The URL to be parsed
+	  * @returns {Object}
+	  */
+	  function resolveURL(url) {
+	    var href = url;
+
+	    if (msie) {
+	      // IE needs attribute set twice to normalize properties
+	      urlParsingNode.setAttribute('href', href);
+	      href = urlParsingNode.href;
+	    }
+
+	    urlParsingNode.setAttribute('href', href);
+
+	    // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+	    return {
+	      href: urlParsingNode.href,
+	      protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+	      host: urlParsingNode.host,
+	      search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+	      hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+	      hostname: urlParsingNode.hostname,
+	      port: urlParsingNode.port,
+	      pathname: urlParsingNode.pathname.charAt(0) === '/' ? urlParsingNode.pathname : '/' + urlParsingNode.pathname
+	    };
+	  }
+
+	  originURL = resolveURL(window.location.href);
+
+	  /**
+	  * Determine if a URL shares the same origin as the current location
+	  *
+	  * @param {String} requestURL The URL to test
+	  * @returns {boolean} True if URL shares the same origin, otherwise false
+	  */
+	  return function isURLSameOrigin(requestURL) {
+	    var parsed = utils.isString(requestURL) ? resolveURL(requestURL) : requestURL;
+	    return parsed.protocol === originURL.protocol && parsed.host === originURL.host;
+	  };
+	}() :
+
+	// Non standard browser envs (web workers, react-native) lack needed support.
+	function nonStandardBrowserEnv() {
+	  return function isURLSameOrigin() {
+	    return true;
+	  };
+	}();
+
+/***/ },
+/* 258 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	// btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
+
+	var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+
+	function E() {
+	  this.message = 'String contains an invalid character';
+	}
+	E.prototype = new Error();
+	E.prototype.code = 5;
+	E.prototype.name = 'InvalidCharacterError';
+
+	function btoa(input) {
+	  var str = String(input);
+	  var output = '';
+	  for (
+	  // initialize result and counter
+	  var block, charCode, idx = 0, map = chars;
+	  // if the next str index does not exist:
+	  //   change the mapping table to "="
+	  //   check if d has no fractional digits
+	  str.charAt(idx | 0) || (map = '=', idx % 1);
+	  // "8 - idx % 1 * 8" generates the sequence 2, 4, 6, 8
+	  output += map.charAt(63 & block >> 8 - idx % 1 * 8)) {
+	    charCode = str.charCodeAt(idx += 3 / 4);
+	    if (charCode > 0xFF) {
+	      throw new E();
+	    }
+	    block = block << 8 | charCode;
+	  }
+	  return output;
+	}
+
+	module.exports = btoa;
+
+/***/ },
+/* 259 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(243);
+
+	module.exports = utils.isStandardBrowserEnv() ?
+
+	// Standard browser envs support document.cookie
+	function standardBrowserEnv() {
+	  return {
+	    write: function write(name, value, expires, path, domain, secure) {
+	      var cookie = [];
+	      cookie.push(name + '=' + encodeURIComponent(value));
+
+	      if (utils.isNumber(expires)) {
+	        cookie.push('expires=' + new Date(expires).toGMTString());
+	      }
+
+	      if (utils.isString(path)) {
+	        cookie.push('path=' + path);
+	      }
+
+	      if (utils.isString(domain)) {
+	        cookie.push('domain=' + domain);
+	      }
+
+	      if (secure === true) {
+	        cookie.push('secure');
+	      }
+
+	      document.cookie = cookie.join('; ');
+	    },
+
+	    read: function read(name) {
+	      var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+	      return match ? decodeURIComponent(match[3]) : null;
+	    },
+
+	    remove: function remove(name) {
+	      this.write(name, '', Date.now() - 86400000);
+	    }
+	  };
+	}() :
+
+	// Non standard browser env (web workers, react-native) lack needed support.
+	function nonStandardBrowserEnv() {
+	  return {
+	    write: function write() {},
+	    read: function read() {
+	      return null;
+	    },
+	    remove: function remove() {}
+	  };
+	}();
+
+/***/ },
+/* 260 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Determines whether the specified URL is absolute
+	 *
+	 * @param {string} url The URL to test
+	 * @returns {boolean} True if the specified URL is absolute, otherwise false
+	 */
+
+	module.exports = function isAbsoluteURL(url) {
+	  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
+	  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
+	  // by any combination of letters, digits, plus, period, or hyphen.
+	  return (/^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url)
+	  );
+	};
+
+/***/ },
+/* 261 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Creates a new URL by combining the specified URLs
+	 *
+	 * @param {string} baseURL The base URL
+	 * @param {string} relativeURL The relative URL
+	 * @returns {string} The combined URL
+	 */
+
+	module.exports = function combineURLs(baseURL, relativeURL) {
+	  return baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '');
+	};
+
+/***/ },
+/* 262 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Syntactic sugar for invoking a function and expanding an array for arguments.
+	 *
+	 * Common use case would be to use `Function.prototype.apply`.
+	 *
+	 *  ```js
+	 *  function f(x, y, z) {}
+	 *  var args = [1, 2, 3];
+	 *  f.apply(null, args);
+	 *  ```
+	 *
+	 * With `spread` this example can be re-written.
+	 *
+	 *  ```js
+	 *  spread(function(x, y, z) {})([1, 2, 3]);
+	 *  ```
+	 *
+	 * @param {Function} callback
+	 * @returns {Function}
+	 */
+
+	module.exports = function spread(callback) {
+	  return function wrap(arr) {
+	    return callback.apply(null, arr);
+	  };
+	};
+
+/***/ },
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
@@ -27941,11 +29081,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _LoggedOutNav = __webpack_require__(242);
+	var _LoggedOutNav = __webpack_require__(264);
 
 	var _LoggedOutNav2 = _interopRequireDefault(_LoggedOutNav);
 
-	var _axios = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"axios\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _axios = __webpack_require__(241);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
@@ -27996,7 +29136,7 @@
 	exports.default = LoggedOutNavContainer;
 
 /***/ },
-/* 242 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28022,17 +29162,6 @@
 	      null,
 	      _react2.default.createElement(
 	        'li',
-	        { onClick: function onClick() {
-	            props.toggleLogIn();
-	          } },
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/' },
-	          'Login'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
 	        null,
 	        _react2.default.createElement(
 	          _reactRouter.Link,
@@ -28052,7 +29181,7 @@
 	exports.default = LoggedOutNav;
 
 /***/ },
-/* 243 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28067,10 +29196,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _MyMemlys = __webpack_require__(244);
-=======
-	var _Test = __webpack_require__(382);
->>>>>>> modified git-ignore
+	var _MyMemlys = __webpack_require__(266);
 
 	var _MyMemlys2 = _interopRequireDefault(_MyMemlys);
 
@@ -28120,11 +29246,7 @@
 	exports.default = MyMemlysContainer;
 
 /***/ },
-<<<<<<< 1a5934cc7bb77cf1df367795d86989a67f9e5f56
-/* 244 */
-=======
-/* 382 */
->>>>>>> modified git-ignore
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28166,7 +29288,7 @@
 	exports.default = MyMemlys;
 
 /***/ },
-/* 245 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28181,7 +29303,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _LikedMemlys = __webpack_require__(246);
+	var _LikedMemlys = __webpack_require__(268);
 
 	var _LikedMemlys2 = _interopRequireDefault(_LikedMemlys);
 
@@ -28231,7 +29353,7 @@
 	exports.default = LikedMemlysContainer;
 
 /***/ },
-/* 246 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28269,7 +29391,7 @@
 	exports.default = LikedMemlys;
 
 /***/ },
-/* 247 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28284,11 +29406,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Profile = __webpack_require__(248);
+	var _Profile = __webpack_require__(270);
 
 	var _Profile2 = _interopRequireDefault(_Profile);
 
-	var _axios = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"axios\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _axios = __webpack_require__(241);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
@@ -28326,6 +29448,7 @@
 	        });
 	        console.log('checking userFacebook state ------>', context.state.userFacebook);
 	      });
+	      this.props.changeNavToAlreadyLoggedIn();
 	    }
 
 	    // componentDidMount() {
@@ -28354,7 +29477,7 @@
 	exports.default = ProfileContainer;
 
 /***/ },
-/* 248 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28469,7 +29592,274 @@
 	exports.default = Profile;
 
 /***/ },
-/* 249 */
+/* 271 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _axios = __webpack_require__(241);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _ImageUpload = __webpack_require__(272);
+
+	var _ImageUpload2 = _interopRequireDefault(_ImageUpload);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ImageUploadContainer = function (_React$Component) {
+		_inherits(ImageUploadContainer, _React$Component);
+
+		function ImageUploadContainer(props) {
+			_classCallCheck(this, ImageUploadContainer);
+
+			var _this = _possibleConstructorReturn(this, (ImageUploadContainer.__proto__ || Object.getPrototypeOf(ImageUploadContainer)).call(this, props));
+
+			_this.state = {
+				file: '',
+				imagePreviewUrl: '',
+				location: {
+					lat: 0.0,
+					lng: 0.0
+				},
+				place: '',
+				comment: ''
+			};
+			_this.geolocate();
+			return _this;
+		}
+
+		_createClass(ImageUploadContainer, [{
+			key: 'geolocate',
+			value: function geolocate() {
+				var _this2 = this;
+
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(function (position) {
+						_this2.setState({
+							location: {
+								lat: position.coords.latitude,
+								lng: position.coords.longitude
+							}
+						});
+					}, function () {
+						alert('Geolocation failed');
+					});
+				} else {
+					alert('Your browser doesn\'t support geolocation');
+				}
+			}
+		}, {
+			key: 'handlePlaceChange',
+			value: function handlePlaceChange(e) {
+				this.setState({
+					place: e.target.value
+				});
+			}
+		}, {
+			key: 'handleCommentChange',
+			value: function handleCommentChange(e) {
+				this.setState({
+					comment: e.target.value
+				});
+			}
+
+			// This allows us to preview images before file post
+			// Please refer to this magic:
+			// https://codepen.io/hartzis/pen/VvNGZP
+			// https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
+
+		}, {
+			key: 'handleImageChange',
+			value: function handleImageChange(e) {
+				var _this3 = this;
+
+				e.preventDefault();
+
+				var reader = new FileReader();
+				var file = e.target.files[0];
+
+				reader.onloadend = function () {
+					_this3.setState({
+						file: file,
+						imagePreviewUrl: reader.result
+					});
+				};
+
+				reader.readAsDataURL(file);
+			}
+
+			// Once we have previewed a photo, we can do operations here
+			// to submit to the server for database storage
+
+		}, {
+			key: 'handleSubmit',
+			value: function handleSubmit(e) {
+				e.preventDefault();
+
+				// Geolocate one more time just in case location changed since last established
+				this.geolocate();
+
+				// Create virtual form to send multipart form data with image file
+				// https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects
+				var formData = new FormData();
+
+				formData.append('place', this.state.place);
+				formData.append('comment', this.state.comment);
+				formData.append('lat', this.state.location.lat);
+				formData.append('lng', this.state.location.lng);
+
+				var userPhoto = new Blob([this.state.file], { type: 'image/png' });
+				formData.append('photo', userPhoto);
+
+				// Use axios to send formData to server
+				_axios2.default.post('/api/photo', formData).then(function (response) {
+					console.log(response);
+				}).catch(function (error) {
+					console.log(error);
+				});
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(_ImageUpload2.default, {
+						imagePreviewUrl: this.state.imagePreviewUrl,
+						handleSubmit: this.handleSubmit.bind(this),
+						handleImageChange: this.handleImageChange.bind(this),
+						handlePlaceChange: this.handlePlaceChange.bind(this),
+						handleCommentChange: this.handleCommentChange.bind(this)
+					})
+				);
+			}
+		}]);
+
+		return ImageUploadContainer;
+	}(_react2.default.Component);
+
+	// handleSubmit={this.handleSubmit.bind(this)}
+
+
+	exports.default = ImageUploadContainer;
+
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ImageUpload = function ImageUpload(_ref) {
+	  var imagePreviewUrl = _ref.imagePreviewUrl;
+	  var handleSubmit = _ref.handleSubmit;
+	  var handleImageChange = _ref.handleImageChange;
+	  var handlePlaceChange = _ref.handlePlaceChange;
+	  var handleCommentChange = _ref.handleCommentChange;
+
+	  // let {imagePreviewUrl} = this.state;
+	  var $imagePreview = null;
+	  if (imagePreviewUrl) {
+	    $imagePreview = _react2.default.createElement("img", { src: imagePreviewUrl });
+	  } else {
+	    $imagePreview = _react2.default.createElement(
+	      "div",
+	      { className: "previewText" },
+	      "Preview image"
+	    );
+	  }
+
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "previewComponent" },
+	    _react2.default.createElement(
+	      "form",
+	      { onSubmit: function onSubmit(e) {
+	          return handleSubmit(e);
+	        } },
+	      _react2.default.createElement(
+	        "div",
+	        null,
+	        _react2.default.createElement("input", { className: "fileInput", type: "file", name: "photo", onChange: function onChange(e) {
+	            return handleImageChange(e);
+	          } })
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        null,
+	        "Tag place: ",
+	        _react2.default.createElement("input", { className: "placeInput", type: "text", name: "place", onChange: function onChange(e) {
+	            return handlePlaceChange(e);
+	          } })
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        null,
+	        "Your comment: ",
+	        _react2.default.createElement("input", { className: "commentInput", type: "text", name: "comment", onChange: function onChange(e) {
+	            return handleCommentChange(e);
+	          } })
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        null,
+	        _react2.default.createElement(
+	          "button",
+	          { className: "submitButton", type: "submit", onClick: function onClick(e) {
+	              return handleSubmit(e);
+	            } },
+	          "Upload Image"
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "imagePreview" },
+	      $imagePreview
+	    )
+	  );
+	};
+
+	exports.default = ImageUpload;
+
+	// <form method="post" action="/api/photo" enctype="multipart/form-data">
+	//   <p>Title: <input type="text" name="title" /></p>
+	//   <p>Image: <input type="file" name="image" /></p>
+	//   <p><input type="submit" value="Upload" /></p>
+	// </form>
+
+	// <form method="post" action="/api/photo" encType="multipart/form-data">
+
+	// <div><button className="submitButton" type="submit">Upload Image</button></div>
+
+/***/ },
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28484,29 +29874,29 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactAddonsShallowCompare = __webpack_require__(250);
+	var _reactAddonsShallowCompare = __webpack_require__(274);
 
 	var _reactAddonsShallowCompare2 = _interopRequireDefault(_reactAddonsShallowCompare);
 
-	var _reactControllables = __webpack_require__(252);
+	var _reactControllables = __webpack_require__(276);
 
 	var _reactControllables2 = _interopRequireDefault(_reactControllables);
 
-	var _googleMapReact = __webpack_require__(279);
+	var _googleMapReact = __webpack_require__(303);
 
 	var _googleMapReact2 = _interopRequireDefault(_googleMapReact);
 
-	var _memlyStyles = __webpack_require__(302);
+	var _memlyStyles = __webpack_require__(326);
 
-	var _mapStyle = __webpack_require__(303);
+	var _mapStyle = __webpack_require__(327);
 
 	var _mapStyle2 = _interopRequireDefault(_mapStyle);
 
-	var _GoogleMapPresentational = __webpack_require__(304);
+	var _GoogleMapPresentational = __webpack_require__(328);
 
 	var _GoogleMapPresentational2 = _interopRequireDefault(_GoogleMapPresentational);
 
-	var _reactAddonsUpdate = __webpack_require__(307);
+	var _reactAddonsUpdate = __webpack_require__(331);
 
 	var _reactAddonsUpdate2 = _interopRequireDefault(_reactAddonsUpdate);
 
@@ -28678,15 +30068,15 @@
 	exports.default = GoogleMapContainer;
 
 /***/ },
-/* 250 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(251);
+	module.exports = __webpack_require__(275);
 
 /***/ },
-/* 251 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -28716,7 +30106,7 @@
 	module.exports = shallowCompare;
 
 /***/ },
-/* 252 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28785,15 +30175,15 @@
 
 	var React = _interopRequire(__webpack_require__(2));
 
-	var keys = _interopRequire(__webpack_require__(253));
+	var keys = _interopRequire(__webpack_require__(277));
 
-	var omit = _interopRequire(__webpack_require__(255));
+	var omit = _interopRequire(__webpack_require__(279));
 
-	var pick = _interopRequire(__webpack_require__(271));
+	var pick = _interopRequire(__webpack_require__(295));
 
-	var mapValues = _interopRequire(__webpack_require__(272));
+	var mapValues = _interopRequire(__webpack_require__(296));
 
-	var isArray = _interopRequire(__webpack_require__(278));
+	var isArray = _interopRequire(__webpack_require__(302));
 
 	var mkFirstFunc = function mkFirstFunc(method) {
 	  return function (str) {
@@ -28956,7 +30346,7 @@
 	}
 
 /***/ },
-/* 253 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28968,7 +30358,7 @@
 	var has = Object.prototype.hasOwnProperty;
 	var toStr = Object.prototype.toString;
 	var slice = Array.prototype.slice;
-	var isArgs = __webpack_require__(254);
+	var isArgs = __webpack_require__(278);
 	var isEnumerable = Object.prototype.propertyIsEnumerable;
 	var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
 	var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
@@ -29098,7 +30488,7 @@
 	module.exports = keysShim;
 
 /***/ },
-/* 254 */
+/* 278 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29117,7 +30507,7 @@
 	};
 
 /***/ },
-/* 255 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29130,14 +30520,14 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var arrayMap = __webpack_require__(256),
-	    baseDifference = __webpack_require__(257),
-	    baseFlatten = __webpack_require__(262),
-	    bindCallback = __webpack_require__(265),
-	    pickByArray = __webpack_require__(266),
-	    pickByCallback = __webpack_require__(267),
-	    keysIn = __webpack_require__(269),
-	    restParam = __webpack_require__(270);
+	var arrayMap = __webpack_require__(280),
+	    baseDifference = __webpack_require__(281),
+	    baseFlatten = __webpack_require__(286),
+	    bindCallback = __webpack_require__(289),
+	    pickByArray = __webpack_require__(290),
+	    pickByCallback = __webpack_require__(291),
+	    keysIn = __webpack_require__(293),
+	    restParam = __webpack_require__(294);
 
 	/**
 	 * The opposite of `_.pick`; this method creates an object composed of the
@@ -29184,7 +30574,7 @@
 	module.exports = omit;
 
 /***/ },
-/* 256 */
+/* 280 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -29221,7 +30611,7 @@
 	module.exports = arrayMap;
 
 /***/ },
-/* 257 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29234,9 +30624,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseIndexOf = __webpack_require__(258),
-	    cacheIndexOf = __webpack_require__(259),
-	    createCache = __webpack_require__(260);
+	var baseIndexOf = __webpack_require__(282),
+	    cacheIndexOf = __webpack_require__(283),
+	    createCache = __webpack_require__(284);
 
 	/** Used as the size to enable large array optimizations. */
 	var LARGE_ARRAY_SIZE = 200;
@@ -29289,7 +30679,7 @@
 	module.exports = baseDifference;
 
 /***/ },
-/* 258 */
+/* 282 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -29353,7 +30743,7 @@
 	module.exports = baseIndexOf;
 
 /***/ },
-/* 259 */
+/* 283 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29415,7 +30805,7 @@
 	module.exports = cacheIndexOf;
 
 /***/ },
-/* 260 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
@@ -29430,7 +30820,7 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var getNative = __webpack_require__(261);
+	var getNative = __webpack_require__(285);
 
 	/** Native method references. */
 	var Set = getNative(global, 'Set');
@@ -29516,7 +30906,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 261 */
+/* 285 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29659,7 +31049,7 @@
 	module.exports = getNative;
 
 /***/ },
-/* 262 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29674,8 +31064,8 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var isArguments = __webpack_require__(263),
-	    isArray = __webpack_require__(264);
+	var isArguments = __webpack_require__(287),
+	    isArray = __webpack_require__(288);
 
 	/**
 	 * Checks if `value` is object-like.
@@ -29798,7 +31188,7 @@
 	module.exports = baseFlatten;
 
 /***/ },
-/* 263 */
+/* 287 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30034,7 +31424,7 @@
 	module.exports = isArguments;
 
 /***/ },
-/* 264 */
+/* 288 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30220,7 +31610,7 @@
 	module.exports = isArray;
 
 /***/ },
-/* 265 */
+/* 289 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30296,7 +31686,7 @@
 	module.exports = bindCallback;
 
 /***/ },
-/* 266 */
+/* 290 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30378,7 +31768,7 @@
 	module.exports = pickByArray;
 
 /***/ },
-/* 267 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30391,8 +31781,8 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseFor = __webpack_require__(268),
-	    keysIn = __webpack_require__(269);
+	var baseFor = __webpack_require__(292),
+	    keysIn = __webpack_require__(293);
 
 	/**
 	 * The base implementation of `_.forIn` without support for callback
@@ -30429,7 +31819,7 @@
 	module.exports = pickByCallback;
 
 /***/ },
-/* 268 */
+/* 292 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -30484,7 +31874,7 @@
 	module.exports = baseFor;
 
 /***/ },
-/* 269 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30499,8 +31889,8 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var isArguments = __webpack_require__(263),
-	    isArray = __webpack_require__(264);
+	var isArguments = __webpack_require__(287),
+	    isArray = __webpack_require__(288);
 
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -30623,7 +32013,7 @@
 	module.exports = keysIn;
 
 /***/ },
-/* 270 */
+/* 294 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30700,7 +32090,7 @@
 	module.exports = restParam;
 
 /***/ },
-/* 271 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30713,11 +32103,11 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseFlatten = __webpack_require__(262),
-	    bindCallback = __webpack_require__(265),
-	    pickByArray = __webpack_require__(266),
-	    pickByCallback = __webpack_require__(267),
-	    restParam = __webpack_require__(270);
+	var baseFlatten = __webpack_require__(286),
+	    bindCallback = __webpack_require__(289),
+	    pickByArray = __webpack_require__(290),
+	    pickByCallback = __webpack_require__(291),
+	    restParam = __webpack_require__(294);
 
 	/**
 	 * Creates an object composed of the picked `object` properties. Property
@@ -30755,7 +32145,7 @@
 	module.exports = pick;
 
 /***/ },
-/* 272 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30768,9 +32158,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseCallback = __webpack_require__(273),
-	    baseFor = __webpack_require__(268),
-	    keys = __webpack_require__(276);
+	var baseCallback = __webpack_require__(297),
+	    baseFor = __webpack_require__(292),
+	    keys = __webpack_require__(300);
 
 	/**
 	 * The base implementation of `_.forOwn` without support for callback
@@ -30853,7 +32243,7 @@
 	module.exports = mapValues;
 
 /***/ },
-/* 273 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30868,10 +32258,10 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseIsEqual = __webpack_require__(274),
-	    bindCallback = __webpack_require__(265),
-	    isArray = __webpack_require__(264),
-	    pairs = __webpack_require__(277);
+	var baseIsEqual = __webpack_require__(298),
+	    bindCallback = __webpack_require__(289),
+	    isArray = __webpack_require__(288),
+	    pairs = __webpack_require__(301);
 
 	/** Used to match property names within property paths. */
 	var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\n\\]|\\.)*?\1)\]/,
@@ -31275,7 +32665,7 @@
 	module.exports = baseCallback;
 
 /***/ },
-/* 274 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31290,9 +32680,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var isArray = __webpack_require__(264),
-	    isTypedArray = __webpack_require__(275),
-	    keys = __webpack_require__(276);
+	var isArray = __webpack_require__(288),
+	    isTypedArray = __webpack_require__(299),
+	    keys = __webpack_require__(300);
 
 	/** `Object#toString` result references. */
 	var argsTag = '[object Arguments]',
@@ -31621,7 +33011,7 @@
 	module.exports = baseIsEqual;
 
 /***/ },
-/* 275 */
+/* 299 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31765,7 +33155,7 @@
 	module.exports = isTypedArray;
 
 /***/ },
-/* 276 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31780,9 +33170,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var getNative = __webpack_require__(261),
-	    isArguments = __webpack_require__(263),
-	    isArray = __webpack_require__(264);
+	var getNative = __webpack_require__(285),
+	    isArguments = __webpack_require__(287),
+	    isArray = __webpack_require__(288);
 
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -32006,7 +33396,7 @@
 	module.exports = keys;
 
 /***/ },
-/* 277 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32021,7 +33411,7 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var keys = __webpack_require__(276);
+	var keys = __webpack_require__(300);
 
 	/**
 	 * Converts `value` to an object if it's not one.
@@ -32093,7 +33483,7 @@
 	module.exports = pairs;
 
 /***/ },
-/* 278 */
+/* 302 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -32103,7 +33493,7 @@
 	};
 
 /***/ },
-/* 279 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32113,7 +33503,7 @@
 	});
 	exports.default = undefined;
 
-	var _google_map = __webpack_require__(280);
+	var _google_map = __webpack_require__(304);
 
 	var _google_map2 = _interopRequireDefault(_google_map);
 
@@ -32124,7 +33514,7 @@
 	exports.default = _google_map2.default;
 
 /***/ },
-/* 280 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -32167,63 +33557,63 @@
 
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 
-	var _marker_dispatcher = __webpack_require__(281);
+	var _marker_dispatcher = __webpack_require__(305);
 
 	var _marker_dispatcher2 = _interopRequireDefault(_marker_dispatcher);
 
-	var _google_map_map = __webpack_require__(283);
+	var _google_map_map = __webpack_require__(307);
 
 	var _google_map_map2 = _interopRequireDefault(_google_map_map);
 
-	var _google_map_markers = __webpack_require__(284);
+	var _google_map_markers = __webpack_require__(308);
 
 	var _google_map_markers2 = _interopRequireDefault(_google_map_markers);
 
-	var _google_map_markers_prerender = __webpack_require__(286);
+	var _google_map_markers_prerender = __webpack_require__(310);
 
 	var _google_map_markers_prerender2 = _interopRequireDefault(_google_map_markers_prerender);
 
-	var _google_map_loader = __webpack_require__(287);
+	var _google_map_loader = __webpack_require__(311);
 
 	var _google_map_loader2 = _interopRequireDefault(_google_map_loader);
 
-	var _detect = __webpack_require__(289);
+	var _detect = __webpack_require__(313);
 
 	var _detect2 = _interopRequireDefault(_detect);
 
-	var _geo = __webpack_require__(290);
+	var _geo = __webpack_require__(314);
 
 	var _geo2 = _interopRequireDefault(_geo);
 
-	var _array_helper = __webpack_require__(295);
+	var _array_helper = __webpack_require__(319);
 
 	var _array_helper2 = _interopRequireDefault(_array_helper);
 
-	var _is_plain_object = __webpack_require__(296);
+	var _is_plain_object = __webpack_require__(320);
 
 	var _is_plain_object2 = _interopRequireDefault(_is_plain_object);
 
-	var _pick = __webpack_require__(297);
+	var _pick = __webpack_require__(321);
 
 	var _pick2 = _interopRequireDefault(_pick);
 
-	var _raf = __webpack_require__(298);
+	var _raf = __webpack_require__(322);
 
 	var _raf2 = _interopRequireDefault(_raf);
 
-	var _log = __webpack_require__(299);
+	var _log = __webpack_require__(323);
 
 	var _log2 = _interopRequireDefault(_log);
 
-	var _isNumber = __webpack_require__(300);
+	var _isNumber = __webpack_require__(324);
 
 	var _isNumber2 = _interopRequireDefault(_isNumber);
 
-	var _omit = __webpack_require__(285);
+	var _omit = __webpack_require__(309);
 
 	var _omit2 = _interopRequireDefault(_omit);
 
-	var _detectElementResize = __webpack_require__(301);
+	var _detectElementResize = __webpack_require__(325);
 
 	var _detectElementResize2 = _interopRequireDefault(_detectElementResize);
 
@@ -33174,7 +34564,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 281 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33195,7 +34585,7 @@
 	  };
 	}();
 
-	var _eventemitter = __webpack_require__(282);
+	var _eventemitter = __webpack_require__(306);
 
 	var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
@@ -33262,7 +34652,7 @@
 	exports.default = MarkerDispatcher;
 
 /***/ },
-/* 282 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33548,7 +34938,7 @@
 	}
 
 /***/ },
-/* 283 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33632,7 +35022,7 @@
 	exports.default = GoogleMapMap;
 
 /***/ },
-/* 284 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33671,7 +35061,7 @@
 
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 
-	var _omit = __webpack_require__(285);
+	var _omit = __webpack_require__(309);
 
 	var _omit2 = _interopRequireDefault(_omit);
 
@@ -33991,7 +35381,7 @@
 	exports.default = GoogleMapMarkers;
 
 /***/ },
-/* 285 */
+/* 309 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -34022,7 +35412,7 @@
 	exports.default = omit;
 
 /***/ },
-/* 286 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34049,7 +35439,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _google_map_markers = __webpack_require__(284);
+	var _google_map_markers = __webpack_require__(308);
 
 	var _google_map_markers2 = _interopRequireDefault(_google_map_markers);
 
@@ -34069,7 +35459,7 @@
 	};
 
 /***/ },
-/* 287 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -34090,7 +35480,7 @@
 	// TODO add libraries language and other map options
 	function googleMapLoader(bootstrapURLKeys) {
 	  if (!$script_) {
-	    $script_ = __webpack_require__(288); // eslint-disable-line
+	    $script_ = __webpack_require__(312); // eslint-disable-line
 	  }
 
 	  // call from outside google-map-react
@@ -34147,7 +35537,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 288 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -34280,7 +35670,7 @@
 	});
 
 /***/ },
-/* 289 */
+/* 313 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34329,7 +35719,7 @@
 	}
 
 /***/ },
-/* 290 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34358,15 +35748,15 @@
 	  };
 	}();
 
-	var _lat_lng = __webpack_require__(291);
+	var _lat_lng = __webpack_require__(315);
 
 	var _lat_lng2 = _interopRequireDefault(_lat_lng);
 
-	var _pointGeometry = __webpack_require__(293);
+	var _pointGeometry = __webpack_require__(317);
 
 	var _pointGeometry2 = _interopRequireDefault(_pointGeometry);
 
-	var _transform = __webpack_require__(294);
+	var _transform = __webpack_require__(318);
 
 	var _transform2 = _interopRequireDefault(_transform);
 
@@ -34507,7 +35897,7 @@
 	exports.default = Geo;
 
 /***/ },
-/* 291 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34526,7 +35916,7 @@
 	  };
 	}();
 
-	var _wrap2 = __webpack_require__(292);
+	var _wrap2 = __webpack_require__(316);
 
 	function _classCallCheck(instance, Constructor) {
 	  if (!(instance instanceof Constructor)) {
@@ -34574,7 +35964,7 @@
 	exports.default = LatLng;
 
 /***/ },
-/* 292 */
+/* 316 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -34589,7 +35979,7 @@
 	}
 
 /***/ },
-/* 293 */
+/* 317 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34742,7 +36132,7 @@
 	};
 
 /***/ },
-/* 294 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34761,15 +36151,15 @@
 	  };
 	}();
 
-	var _lat_lng = __webpack_require__(291);
+	var _lat_lng = __webpack_require__(315);
 
 	var _lat_lng2 = _interopRequireDefault(_lat_lng);
 
-	var _pointGeometry = __webpack_require__(293);
+	var _pointGeometry = __webpack_require__(317);
 
 	var _pointGeometry2 = _interopRequireDefault(_pointGeometry);
 
-	var _wrap = __webpack_require__(292);
+	var _wrap = __webpack_require__(316);
 
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -34935,7 +36325,7 @@
 	exports.default = Transform;
 
 /***/ },
-/* 295 */
+/* 319 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -34957,7 +36347,7 @@
 	}
 
 /***/ },
-/* 296 */
+/* 320 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -35001,7 +36391,7 @@
 	}
 
 /***/ },
-/* 297 */
+/* 321 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -35022,7 +36412,7 @@
 	}
 
 /***/ },
-/* 298 */
+/* 322 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -35042,7 +36432,7 @@
 	}
 
 /***/ },
-/* 299 */
+/* 323 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -35058,7 +36448,7 @@
 	exports.default = log2;
 
 /***/ },
-/* 300 */
+/* 324 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -35089,7 +36479,7 @@
 	}
 
 /***/ },
-/* 301 */
+/* 325 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -35264,7 +36654,7 @@
 	};
 
 /***/ },
-/* 302 */
+/* 326 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -35312,7 +36702,7 @@
 	exports.K_SIZE = K_SIZE;
 
 /***/ },
-/* 303 */
+/* 327 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -35325,7 +36715,7 @@
 	exports.default = mapStyle;
 
 /***/ },
-/* 304 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35340,11 +36730,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _googleMapReact = __webpack_require__(279);
+	var _googleMapReact = __webpack_require__(303);
 
 	var _googleMapReact2 = _interopRequireDefault(_googleMapReact);
 
-	var _GoogleMapMemlyContainer = __webpack_require__(305);
+	var _GoogleMapMemlyContainer = __webpack_require__(329);
 
 	var _GoogleMapMemlyContainer2 = _interopRequireDefault(_GoogleMapMemlyContainer);
 
@@ -35382,7 +36772,7 @@
 	exports.default = GoogleMapPresentational;
 
 /***/ },
-/* 305 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35397,9 +36787,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _GoogleMapMemly = __webpack_require__(306);
+	var _GoogleMapMemly = __webpack_require__(330);
 
-	var _memlyStyles = __webpack_require__(302);
+	var _memlyStyles = __webpack_require__(326);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35454,7 +36844,7 @@
 	exports.default = GoogleMapMemlyContainer;
 
 /***/ },
-/* 306 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35488,15 +36878,15 @@
 	};
 
 /***/ },
-/* 307 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(308);
+	module.exports = __webpack_require__(332);
 
 /***/ },
-/* 308 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -35616,273 +37006,5 @@
 	module.exports = update;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
-/***/ },
-/* 309 */,
-/* 310 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _axios = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"axios\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-
-	var _axios2 = _interopRequireDefault(_axios);
-
-	var _ImageUpload = __webpack_require__(311);
-
-	var _ImageUpload2 = _interopRequireDefault(_ImageUpload);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var ImageUploadContainer = function (_React$Component) {
-		_inherits(ImageUploadContainer, _React$Component);
-
-		function ImageUploadContainer(props) {
-			_classCallCheck(this, ImageUploadContainer);
-
-			var _this = _possibleConstructorReturn(this, (ImageUploadContainer.__proto__ || Object.getPrototypeOf(ImageUploadContainer)).call(this, props));
-
-			_this.state = {
-				file: '',
-				imagePreviewUrl: '',
-				location: {
-					lat: 0.0,
-					lng: 0.0
-				},
-				place: '',
-				comment: ''
-			};
-			_this.geolocate();
-			return _this;
-		}
-
-		_createClass(ImageUploadContainer, [{
-			key: 'geolocate',
-			value: function geolocate() {
-				var _this2 = this;
-
-				if (navigator.geolocation) {
-					navigator.geolocation.getCurrentPosition(function (position) {
-						_this2.setState({
-							location: {
-								lat: position.coords.latitude,
-								lng: position.coords.longitude
-							}
-						});
-					}, function () {
-						alert('Geolocation failed');
-					});
-				} else {
-					alert('Your browser doesn\'t support geolocation');
-				}
-			}
-		}, {
-			key: 'handlePlaceChange',
-			value: function handlePlaceChange(e) {
-				this.setState({
-					place: e.target.value
-				});
-			}
-		}, {
-			key: 'handleCommentChange',
-			value: function handleCommentChange(e) {
-				this.setState({
-					comment: e.target.value
-				});
-			}
-
-			// This allows us to preview images before file post
-			// Please refer to this magic:
-			// https://codepen.io/hartzis/pen/VvNGZP
-			// https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
-
-		}, {
-			key: 'handleImageChange',
-			value: function handleImageChange(e) {
-				var _this3 = this;
-
-				e.preventDefault();
-
-				var reader = new FileReader();
-				var file = e.target.files[0];
-
-				reader.onloadend = function () {
-					_this3.setState({
-						file: file,
-						imagePreviewUrl: reader.result
-					});
-				};
-
-				reader.readAsDataURL(file);
-			}
-
-			// Once we have previewed a photo, we can do operations here
-			// to submit to the server for database storage
-
-		}, {
-			key: 'handleSubmit',
-			value: function handleSubmit(e) {
-				e.preventDefault();
-
-				// Geolocate one more time just in case location changed since last established
-				this.geolocate();
-
-				// Create virtual form to send multipart form data with image file
-				// https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects
-				var formData = new FormData();
-
-				formData.append('place', this.state.place);
-				formData.append('comment', this.state.comment);
-				formData.append('lat', this.state.location.lat);
-				formData.append('lng', this.state.location.lng);
-
-				var userPhoto = new Blob([this.state.file], { type: 'image/png' });
-				formData.append('photo', userPhoto);
-
-				// Use axios to send formData to server
-				_axios2.default.post('/api/photo', formData).then(function (response) {
-					console.log(response);
-				}).catch(function (error) {
-					console.log(error);
-				});
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(_ImageUpload2.default, {
-						imagePreviewUrl: this.state.imagePreviewUrl,
-						handleSubmit: this.handleSubmit.bind(this),
-						handleImageChange: this.handleImageChange.bind(this),
-						handlePlaceChange: this.handlePlaceChange.bind(this),
-						handleCommentChange: this.handleCommentChange.bind(this)
-					})
-				);
-			}
-		}]);
-
-		return ImageUploadContainer;
-	}(_react2.default.Component);
-
-	// handleSubmit={this.handleSubmit.bind(this)}
-
-
-	exports.default = ImageUploadContainer;
-
-/***/ },
-/* 311 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var ImageUpload = function ImageUpload(_ref) {
-	  var imagePreviewUrl = _ref.imagePreviewUrl;
-	  var handleSubmit = _ref.handleSubmit;
-	  var handleImageChange = _ref.handleImageChange;
-	  var handlePlaceChange = _ref.handlePlaceChange;
-	  var handleCommentChange = _ref.handleCommentChange;
-
-	  // let {imagePreviewUrl} = this.state;
-	  var $imagePreview = null;
-	  if (imagePreviewUrl) {
-	    $imagePreview = _react2.default.createElement("img", { src: imagePreviewUrl });
-	  } else {
-	    $imagePreview = _react2.default.createElement(
-	      "div",
-	      { className: "previewText" },
-	      "Preview image"
-	    );
-	  }
-
-	  return _react2.default.createElement(
-	    "div",
-	    { className: "previewComponent" },
-	    _react2.default.createElement(
-	      "form",
-	      { onSubmit: function onSubmit(e) {
-	          return handleSubmit(e);
-	        } },
-	      _react2.default.createElement(
-	        "div",
-	        null,
-	        _react2.default.createElement("input", { className: "fileInput", type: "file", name: "photo", onChange: function onChange(e) {
-	            return handleImageChange(e);
-	          } })
-	      ),
-	      _react2.default.createElement(
-	        "div",
-	        null,
-	        "Tag place: ",
-	        _react2.default.createElement("input", { className: "placeInput", type: "text", name: "place", onChange: function onChange(e) {
-	            return handlePlaceChange(e);
-	          } })
-	      ),
-	      _react2.default.createElement(
-	        "div",
-	        null,
-	        "Your comment: ",
-	        _react2.default.createElement("input", { className: "commentInput", type: "text", name: "comment", onChange: function onChange(e) {
-	            return handleCommentChange(e);
-	          } })
-	      ),
-	      _react2.default.createElement(
-	        "div",
-	        null,
-	        _react2.default.createElement(
-	          "button",
-	          { className: "submitButton", type: "submit", onClick: function onClick(e) {
-	              return handleSubmit(e);
-	            } },
-	          "Upload Image"
-	        )
-	      )
-	    ),
-	    _react2.default.createElement(
-	      "div",
-	      { className: "imagePreview" },
-	      $imagePreview
-	    )
-	  );
-	};
-
-	exports.default = ImageUpload;
-
-	// <form method="post" action="/api/photo" enctype="multipart/form-data">
-	//   <p>Title: <input type="text" name="title" /></p>
-	//   <p>Image: <input type="file" name="image" /></p>
-	//   <p><input type="submit" value="Upload" /></p>
-	// </form>
-
-	// <form method="post" action="/api/photo" encType="multipart/form-data">
-	// <div><button className="submitButton" type="submit">Upload Image</button></div>
-
->>>>>>> commit before rebase
 /***/ }
 /******/ ]);
