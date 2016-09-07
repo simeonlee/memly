@@ -3,7 +3,7 @@ html, body, #app {
 }
 
 .gm-style-iw {
-   width: 308px !important;
+   width: 100% !important;
    top: 0 !important;
    left: 0 !important;
    background-color: #f6f6f6;
@@ -62,5 +62,7 @@ html, body, #app {
 /*.googlemapmemly img:hover {
   height:50px;
   width: 62.5;
+<<<<<<< 2205d87b1606ec077be69294b7bbf0ecc66476e3
 }*/
+
 
