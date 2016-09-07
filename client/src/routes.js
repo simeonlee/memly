@@ -13,16 +13,10 @@ var routes = (
     <Router history={hashHistory}>
       <Route path='/' component={HomeContainer}>
         <IndexRoute component={GoogleMapContainer}/>
-        <Route path = '/logout' component= {MapContainer}/>
+        <Route path = '/logout' component= {GoogleMapContainer}/>
         <Route path='user/profile' component = {ProfileContainer}>
           <IndexRoute component = {MyMemlysContainer} />
           <Route path='/likedmemlys' component = {LikedMemlysContainer} />
-=======
-        <IndexRoute component={GoogleMapContainer}/>
-        <Route path='/user/profile' component = {ProfileContainer}>
-          <Route path='/user/profile/mymemlys' component = {MyMemlysContainer} />
-          <Route path='/user/profile/likedmemlys' component = {LikedMemlysContainer} />
->>>>>>> switched from react-google-maps to google-maps-react. Map presentational and container component logic separated
         </Route>
         <Route path='/photo' component={ImageUploadContainer} />
       </Route>
