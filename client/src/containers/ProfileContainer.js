@@ -22,6 +22,7 @@ class ProfileContainer extends React.Component {
         });
         console.log('checking userFacebook state ------>', context.state.userFacebook);
       });
+    this.props.changeNavToAlreadyLoggedIn();
   }
 
   // componentDidMount() {
