@@ -9,10 +9,14 @@ var User = require('../users/userModel.js');
 var keys = require('./keys.js');
 
 
-var app = express();
 
 module.exports = function(app) {
   
+  app.use(session({ 
+    secret: 'sneaky diamonds',
+    saveUninitialized: true,
+    resave: false
+  }));
   app.use(passport.initialize());
   app.use(passport.session());
 
@@ -22,6 +26,7 @@ module.exports = function(app) {
     callbackURL: "http://localhost:3000/auth/facebook/callback", // TODO: put website url here
     profileFields: authConfig.profileFields
   }, function(accessToken, refreshToken, profile, done) {
+    // console.log('chekcing profile in auth.js', profile);
     User.findOrCreate(profile, function(err, user) {
       if (err) { return done(err); }
       done(null, user);

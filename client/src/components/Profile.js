@@ -7,13 +7,13 @@ const Profile = (props) => {
   return(
     <div id = "UserProfile">
     <div id= "UserInfo">
-        <span id = "Bio"><b>About Me: </b> {props.user.bio}</span>
-        <span id = "City"><b>Lives in: </b>{props.user.city}</span>
+        <span id = "Bio"><b>Email: </b> {props.userFacebook.email}</span>
+        <span id = "City"><b>Birthday: </b>{props.userFacebook.birthday}</span>
     </div>
     <div className = "ProfileBoxes">
       <div className = "PhotoTitleBox">
-        <h2 id ="ProfileName">{props.user.name}</h2>
-        <img id = "profilePhoto" src = {props.user.photo}/>
+        <h2 id ="ProfileName">{props.userFacebook.name}</h2>
+        <img id = "profilePhoto" src = {props.userFacebook.profilePhotoUrl}/>
         <div id = "MemlyFeedSelect">
           <ul id = "FeedSelectList">
           <li className = "MemlySelector"><Link to ="user/profile">My Memlys</Link></li>

@@ -5,9 +5,9 @@ const LoggedOutNav = (props) => {
   return(
     <div id="navBar2">
       <ul>
-      <li><Link to ="/Login">Login</Link></li>
       <li><Link to ="/">Home</Link></li>
       </ul>
+      <a id ="FacebookLoginLink" href="/auth/facebook">Facebook</a>
     </div>
     )
 }

@@ -53,8 +53,28 @@ h1 {
 
 #navBar li a {
   float: right;
-  width: 8%;
+  width: 11%;
   height: 8%;
+  line-height: 180%;
+  padding: 1%;
+  display: block;
+  text-align: center;
+}
+
+#FacebookLoginLink {
+  float: right;
+  width: 8%;
+  height: 55%;
+  line-height: 180%;
+  padding: 1%;
+  display: block;
+  text-align: center;
+}
+
+#getProfileLink {
+  float: right;
+  width: 8%;
+  height: 55%;
   line-height: 180%;
   padding: 1%;
   display: block;
@@ -70,7 +90,6 @@ h1 {
   display: block;
   text-align: center;
 }
-
 
 ul {
   list-style: none;
