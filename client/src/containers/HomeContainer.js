@@ -61,8 +61,9 @@ export default class HomeContainer extends React.Component {
     return(
       <div>
         {this.state.isLoggedIn ? <LoggedInNavContainer toggleLogIn={this.toggleLogIn.bind(this)} updateUserState={this.updateUserState.bind(this)}/> : <LoggedOutNavContainer toggleLogIn={this.toggleLogIn.bind(this)}/>}
-        <Home/>
-        {childrenWithProps}
+        <div className="body-container">
+          {childrenWithProps}
+        </div>
       </div>
     )
   }

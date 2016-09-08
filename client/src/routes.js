@@ -11,19 +11,19 @@ import GoogleMapContainer from './containers/GoogleMapContainer';
 
 
 var routes = (
-    <Router history={hashHistory}>
-      <Route path='/' component={HomeContainer}>
-        <IndexRoute component={GoogleMapContainer}/>
-        <Route path = '/logout' component= {GoogleMapContainer}/>
-        <Route path='user/profile' component = {ProfileContainer}>
-          <IndexRoute component = {MyMemlysContainer} />
-          <Route path='/likedmemlys' component = {LikedMemlysContainer} />
-        </Route>
-        <Route path='/photo' component={ImageUploadContainer} />
-        <Route path='/nearby' component={ImageRetrieveContainer} />
+  <Router history={hashHistory}>
+    <Route path='/' component={HomeContainer}>
+      <IndexRoute component={GoogleMapContainer}/>
+      <Route path='/logout' component={GoogleMapContainer}/>
+      <Route path='/user/profile' component={ProfileContainer}>
+        <IndexRoute component={MyMemlysContainer} />
+        <Route path='/likedmemlys' component={LikedMemlysContainer} />
       </Route>
-    </Router>
-  )
+      <Route path='/photo' component={ImageUploadContainer} />
+      <Route path='/nearby' component={ImageRetrieveContainer} />
+    </Route>
+  </Router>
+)
 
 export default routes
 

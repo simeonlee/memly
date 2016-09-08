@@ -98,7 +98,7 @@ app.get('/user/retrieve/profileinfo/', helper.isLoggedIn, function(req, res) {
     console.log('checking to make sure this is the right ID', userID);
     User.findOne({_id: userID}).exec(function(err, found) {
       if (err) {
-        res.status(404).send('i got a bad feeling about this....');
+        res.status(404).send('I got a bad feeling about this....');
       }
       if (found) {
         //console.log('what is found????????????', found);

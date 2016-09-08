@@ -12,25 +12,6 @@ ul {
   list-style: none;
 }
 
-h3 {
-  font-family: Helvetica Neue;
-  padding: 20px;
-  margin: 20px;
-}
-
-html, body, #app {
-  height: 100%;
-}
-
-#Home {
-  margin-bottom: 2%;
-}
-
-.logo {
-  font-family: 'Suez One', serif;
-  font-size: 26px;
-}
-
 .nav {
   position: absolute;
   top: 0;
@@ -41,24 +22,16 @@ html, body, #app {
   align-items: center;
   justify-content: space-around;
   color: white;
+  font-size: 16px;
   background-color: #446CB3;
 }
 
-.nav > ul {
-  display: flex;
-  justify-content: space-around;
+.logo {
+  font-family: 'Suez One', serif;
+  font-size: 26px;
 }
 
-.nav > ul > li {
-  margin: 0 40%;
-  font-size: 18px;
-}
-
-.nav > ul > li > a {
-  font-weight: 300;
-}
-
-.map {
+.body-container {
   position: absolute;
   top: 60px;
   left: 0;
@@ -66,14 +39,12 @@ html, body, #app {
   bottom: 0;
 }
 
-#navBar li a {
-  float: right;
-  width: 11%;
-  height: 8%;
-  line-height: 180%;
-  padding: 1%;
-  display: block;
-  text-align: center;
+.map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 #profilePhoto {
@@ -180,27 +151,20 @@ html, body, #app {
   padding: 10%;
   float: right;
   width:45%;
-
   margin: 0 auto;
 }
-
 
 .oneMemly {
   border-radius: 3px;
   background-color: #f0eff1;
   margin: 1%;
-
 }
 
-
 .memlyPhoto {
-
   border-radius: 2px;
   margin: 2%;
   max-width: 33%;
 }
-
-
 
 .memlyInfo {
   display: block;
