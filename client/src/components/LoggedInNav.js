@@ -2,21 +2,19 @@ import React from 'react'
 import { Router, Route, hashHistory, IndexRoute, Link } from 'react-router'
 
 const LoggedInNav = (props) => {
-  return(
-    <div id="navBar">
-      <ul>
+  const onClickLogOut = () => {
+    props.LogMeOut();
+    props.toggleLogIn();
+  }
 
-      <li onClick = {function(){ props.LogMeOut(); props.toggleLogIn();}}><Link to ="/logout">Logout</Link></li>
-
-      <li id = "Upload"><Link to ="/photo">Upload Photo</Link></li>
-      <li><Link to ="/">Home</Link></li>
-      </ul>
-      <a id ="getProfileLink" href="user/profile/" onClick = {() =>props.retrieveProfileInfo()}>Profile</a>
+  return (
+    <div className="nav">
+      <Link to="/" className="logo">Memly</Link>
+      <Link to="/photo">Upload</Link>
+      <Link to="/user/profile" onClick={()=>props.retrieveProfileInfo()}>Profile</Link>
+      <Link to="/logout" onClick={onClickLogOut}>Logout</Link>
     </div>
-    )
+  )
 }
 
 export default LoggedInNav
-
-
-//<li onClick = {function(){ props.getProfile();}}><Link to ="user/profile/">Profile</Link></li>

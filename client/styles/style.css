@@ -1,111 +1,61 @@
-*{
-  margin: 0;
-  padding: 0;
-
+* {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
 }
 
-#Home {
-  margin-bottom: 2%;
-}
-
-.NavContainer {
- margin: 0;
- padding: 0;
- 
-}
-
-#navBar {
-  position: fixed;
+a, a:link, a:hover, a:active, a:visited {
+  text-decoration: none;
   color: white;
-  width: 100%;
-  height: 8%;
-  background-color: #002e66;
-  top: 0;
-}
-
-#navBar2 {
-  position: fixed;
-  color: white;
-  width: 100%;
-  height: 8%;
-  background-color: #002e66;
-  top: 0;
-}
-
-#wrapper {
-  margin: 8% auto 0;
-}
-
-body {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  margin: 0;
-  padding: 0;
-  background-color: #f0eff1;
-  font-family: Lucida Grande;
-}
-
-h1 {
- font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
- font-weight: 300;
-}
-
-#navBar li a {
-  float: right;
-  width: 11%;
-  height: 8%;
-  line-height: 180%;
-  padding: 1%;
-  display: block;
-  text-align: center;
-}
-
-#FacebookLoginLink {
-  float: right;
-  width: 8%;
-  height: 55%;
-  line-height: 180%;
-  padding: 1%;
-  display: block;
-  text-align: center;
-}
-
-#getProfileLink {
-  float: right;
-  width: 8%;
-  height: 55%;
-  line-height: 180%;
-  padding: 1%;
-  display: block;
-  text-align: center;
-}
-
-#navBar2 li a {
-  float: right;
-  width: 8%;
-  height: 8%;
-  line-height: 180%;
-  padding: 1%;
-  display: block;
-  text-align: center;
 }
 
 ul {
   list-style: none;
-
 }
 
-#map {
-  height: 100%;
-  width: 100%;
-  border-radius: 1%;
-  display: block;
-  margin-top: 2%;
-  margin-bottom: 1%;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 80%;
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+  font-size: 16px;
+  background-color: #446CB3;
+}
+
+.logo {
+  font-family: 'Suez One', serif;
+  font-size: 26px;
+}
+
+.body-container {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.map-user-marker {
+  width: 40px;
+  height: 40px;
+}
+
+.map-memly-media {
+  position: absolute;
+  top: -70px;
+  left: -30px;
 }
 
 #profilePhoto {
@@ -134,22 +84,6 @@ ul {
   margin-right: auto;
 }
 
-a {
-  text-decoration: none;
-  color: white;
-
-}
-a:hover {
-  background-color: #00224d
-}
-
-#Home {
-  margin-top: 10%;
-  text-align: center;
-
-}
-
-
 .ProfileBoxes {
   border-radius: 3px;
   background-color: white;
@@ -165,7 +99,6 @@ a:hover {
 
 
 #ProfileMemlys {
-
   padding: 10px;
 }
 
@@ -187,7 +120,6 @@ a:hover {
   float:left;
   color: #002e66;
   width: 40%;
-
 }
 
 
@@ -230,30 +162,19 @@ a:hover {
   padding: 10%;
   float: right;
   width:45%;
-
   margin: 0 auto;
 }
-
 
 .oneMemly {
   border-radius: 3px;
   background-color: #f0eff1;
   margin: 1%;
-
 }
 
-
 .memlyPhoto {
-
   border-radius: 2px;
   margin: 2%;
   max-width: 33%;
-}
-
-h3 {
-  font-family: Helvetica Neue;
-  padding: 20px;
-  margin: 20px;
 }
 
 .memlyInfo {
@@ -262,3 +183,58 @@ h3 {
   padding-bottom: 1%;
 }
 
+.gm-style-iw {
+   width: 308px !important;
+   top: 0 !important;
+   left: 0 !important;
+   background-color: #f6f6f6;
+   box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+   border: 1px solid rgba(72, 181, 233, 0.6);
+   border-radius: 2px 2px 0 0;
+   /*margin-left: 11px;
+   margin-top: 10px;*/
+   /*padding: 10px 10px;*/
+}
+
+.infowindow-header {
+  height: 20%;
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 10px;
+  background-color: #f6f6f6;
+  font-weight: bold;
+}
+
+.infowindow-userinfo {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.infowindow-header img{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.infowindow-header h5 {
+  padding-left: 10px;
+  color: black;
+  font-size: 15px;
+}
+
+.infowindow-header p {
+  padding-left: 10px;
+  font-size: 8px;
+  color: gray;
+}
+
+.infowindow-image img{
+  width: 100%;
+  height: 100%;
+}
+
+.infowindow-footer {
+  height: 20%;
+  width: 100%;
+}

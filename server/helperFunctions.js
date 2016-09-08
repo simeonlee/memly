@@ -1,5 +1,4 @@
 module.exports = {
-
   isLoggedIn: function(req, res, next) {
     console.log('I am hitting isLoggedIn helper function');
     if (!req.session.passport) {
@@ -12,7 +11,4 @@ module.exports = {
       next();
     }
   }
-
-
-
 };

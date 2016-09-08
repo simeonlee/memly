@@ -1,4 +1,4 @@
-const K_SIZE = 10;
+const K_SIZE = 25;
 
 const memlyStyle = {
   // initially any map object has left top corner at lat lng coordinates
@@ -9,27 +9,26 @@ const memlyStyle = {
   left: -K_SIZE / 2,
   top: -K_SIZE / 2,
 
-  border: '2px solid #f44336',
+  border: '4px solid #50E3C2',
   borderRadius: K_SIZE,
-  backgroundColor: 'white',
-  textAlign: 'center',
+  // backgroundColor: 'white',
+  // textAlign: 'center',
   color: '#3f51b5',
-  fontSize: 10,
-  fontWeight: 'bold',
-  padding: 2,
+  // fontSize: 10,
+  // fontWeight: 'bold',
+  // padding: 2,
   cursor: 'pointer',
-  marginRight: '10px'
+  // marginRight: '10px'
 };
 
 const memlyStyleHover = {
   ...memlyStyle,
-  border: '2px solid #3f51b5',
-  color: '#f44336',
-  width: 15,
-  height: 15,
-  left: -7.5,
-  top: -7.5,
+  // border: '3px solid #3f51b5',
+  // color: '#f44336',
+  width: K_SIZE * 1.5,
+  height: K_SIZE * 1.5,
+  left: (-K_SIZE * 1.5) / 2,
+  top: (-K_SIZE * 1.5) / 2,
 };
-
 
 export {memlyStyle, memlyStyleHover, K_SIZE};

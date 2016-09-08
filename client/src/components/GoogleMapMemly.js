@@ -1,19 +1,28 @@
 import React from 'react'
+import { memlyStyle, memlyStyleHover } from '../../styles/memlyStyles'
 
-export const GoogleMapMemly = (props) => {
-  return(
-    <div>
-      {props.text}
-      <img height={'60px'} width={'85px'} src={props.photo}/>
-    </div>
-    )
-}
-
+// Represent user location
 export const UserLocation = (props) => {
   return(
     <div>
-      <img src='../../styles/rsz_greendot.png'/>
+      <img className="map-user-marker" src='../../images/user/user-star@2x.png'/>
     </div>
-    )
+  )
 }
 
+// Represent other memlys
+export const GoogleMapMemly = (props) => {
+  const style = props.$hover ? memlyStyleHover : memlyStyle;
+
+  return (
+    <div style={style}>
+      {props.text}
+      <img
+        height={'60px'}
+        width={'85px'}
+        src={props.photo}
+        className="map-memly-media"
+      />
+    </div>
+  )
+}

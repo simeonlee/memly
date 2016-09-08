@@ -6,19 +6,19 @@ import {K_SIZE} from '../../styles/memlyStyles'
 import mapStyle from '../../styles/mapStyle'
 import GoogleMapPresentational from '../components/GoogleMapPresentational'
 import update from 'react-addons-update'
+import axios from 'axios'
 
-const style = {
-  width: '100%',
-  height: '500px'
-}
-
+// const style = {
+//   width: '100%',
+//   height: '500px'
+// }
 
 class GoogleMapContainer extends Component {
   static propTypes = {
-    center: PropTypes.array,
+    // center: PropTypes.array,
     zoom: PropTypes.number,
     greatPlaceCoords: PropTypes.any,
-    memlies: PropTypes.array
+    memlys: PropTypes.array
   };
 
   static defaultProps = {
@@ -28,11 +28,14 @@ class GoogleMapContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //use geolocation and settimeout to update location of center position of Map
-      center: [37.7836966, -122.4089664], 
-      //memlies will be grabbed from db based on user location. (HTTP request in componentWillMount method)
-      memlies: [{
-        position: {
+      //use geolocation and settimeout to update location of currentUserLocation position of Map
+      currentUserLocation: {
+        lat: 37.7836966,
+        lng: -122.4089664
+      },
+      //memlys will be grabbed from db based on user location. (HTTP request in componentWillMount method)
+      memlys: [{
+        location: {
           lat: 0,
           lng: 0,
         },
@@ -42,7 +45,7 @@ class GoogleMapContainer extends Component {
         photo: null
       },
       {
-        position: {
+        location: {
           lat: 37.7836966,
           lng: -122.4089664
         },
@@ -52,7 +55,7 @@ class GoogleMapContainer extends Component {
         photo: "../../styles/hackreactor.jpg"
       },
       {
-        position: {
+        location: {
           lat: 51.507351,
           lng: -0.125758
         },
@@ -64,7 +67,7 @@ class GoogleMapContainer extends Component {
         photo: "../../styles/shutterstock_276995975.jpg"
       },
       {
-        position: {
+        location: {
           lat: 51.507351,
           lng: -0.12958
         },
@@ -74,7 +77,7 @@ class GoogleMapContainer extends Component {
         photo: "../../styles/M9071-PARENT-2.jpg"
       },
       {
-        position: {
+        location: {
           lat: 51.509351,
           lng: -0.12958
         },
@@ -84,7 +87,7 @@ class GoogleMapContainer extends Component {
         photo: "../../styles/15759420184_f34af1b4a8.jpg"
       },
       {
-        position: {
+        location: {
           lat: 51.506351,
           lng: -0.12958
         },
@@ -96,22 +99,45 @@ class GoogleMapContainer extends Component {
     }
 
     this.geolocate();
+    this.updateMemlys();
   }
   
-  //if user is in the same location, this lifecycle method will 'shallow equality check' the center state. If User is still
-  //in same place, the method will return false and prevent and unnecessary re-render
+  // If user is in the same location, this lifecycle method will 'shallow equality check'
+  // the currentUserLocation state.
+  // If User is still in same place, the method will return false and prevent unnecessary re-render
   shouldComponentUpdate(nextProps, nextState) {
-    console.log("should component update", this.state.center[0] != nextState.center[0] || this.state.center[1] != nextState.center[1]);
-    return this.state.center[0] != nextState.center[0] || this.state.center[1] != nextState.center[1]
+    console.log("should component update", this.state.currentUserLocation.lat != nextState.currentUserLocation.lat || this.state.currentUserLocation.lng != nextState.currentUserLocation.lng);
+    return this.state.currentUserLocation.lat != nextState.currentUserLocation.lat || this.state.currentUserLocation.lng != nextState.currentUserLocation.lng;
   }
 
   geolocate(){
-    window.geolocator = window.setInterval(() => { navigator.geolocation.getCurrentPosition(function(position) {
-      console.log(position.coords.latitude, position.coords.longitude);
-      let { center } = this.state; 
-      center = update(center, {$set:[position.coords.latitude, position.coords.longitude]});
-      this.setState({ center }) // equivalent of this.setState({center: center})
-    }.bind(this))}, 1000)
+    if (navigator.geolocation) {
+      // Assign interval to "window.geolocator" so we can clear the interval later if needed
+      window.geolocator = window.setInterval(() => {
+        navigator.geolocation.getCurrentPosition((position) => {
+
+          // Log coordinates for development
+          console.log(position.coords.latitude, position.coords.longitude);
+
+          // To read about "update", see below link:
+          // https://facebook.github.io/react/docs/update.html
+          let { currentUserLocation } = this.state;
+          currentUserLocation = update(currentUserLocation, {
+            lat: { $set: position.coords.latitude },
+            lng: { $set: position.coords.longitude }
+          });
+
+          // Below is equivalent to "this.setState({currentUserLocation: currentUserLocation})"
+          this.setState({ currentUserLocation });
+
+        }, function() {
+          // Error handler for "navigator.geolocation.getCurrentPosition()"
+          alert('Geolocation failed');
+        });
+      }, 1000);
+    } else {
+      alert('Your browser doesn\'t support geolocation');
+    }
   }
 
   //constantly update current user location with geolocate method
@@ -119,8 +145,34 @@ class GoogleMapContainer extends Component {
   //   this.geolocate();
   // }
   //Not yet working correctly. Need to clear interval when component unmounts
+
   componentWillUnmount() {
     window.clearInterval(window.geolocator);
+  }
+
+  updateMemlys() {
+    window.setInterval(() => {
+      console.log('Polling for nearby markers...');
+      axios.get('/api/nearby', {
+          params: {
+            lat: this.state.currentUserLocation.lat,
+            lng: this.state.currentUserLocation.lng
+          }
+        })
+        .then((response) => {
+          // 'response.data' is an array of memlys to be displayed
+          console.log(response.data);
+
+          let { memlys } = this.state;
+          memlys = update(memlys, { $push: response.data } );
+          this.setState({ memlys });
+          console.log(this.state.memlys);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, 5000);
+
   }
 
   render() {
@@ -131,13 +183,13 @@ class GoogleMapContainer extends Component {
         onClick={(e)=>{console.log(e)}} // event will show lat long on map
         options={{styles: mapStyle}}
         bootstrapURLKeys={{key: 'AIzaSyA0VOMMs7FVCwz_klHsvs_KFt-CV-YbVNc'}}
-        center={this.state.center}
+        currentUserLocation={this.state.currentUserLocation}
         zoom={this.props.zoom}
         // instead of css hover (which sometimes is bad for map markers) (bad means inability to hover on markers placed under other markers)
         // you can use internal GoogleMap component hover algorithm
         // hover algorithm explained at x_distance_hover example
         hoverDistance={K_SIZE}
-        memlies={this.state.memlies}
+        memlys={this.state.memlys}
       />
     </div>
     );

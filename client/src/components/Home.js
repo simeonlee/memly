@@ -1,13 +1,15 @@
-import React from 'react'
+// What are we even doing with home? I can comment out the below with no ill effect.
 
-const Home = (props) => {
-  return(
-    <div id ="Home">
-      <h1> Memly </h1>
-    </div>
-    )
-}
+// import React from 'react'
 
-export default Home
+// const Home = (props) => {
+//   return (
+//     <div />
+//   )
+// }
+
+// export default Home
 
 //props.children will render any sub routes specified by react-router!
+
+// <div id="Home" />

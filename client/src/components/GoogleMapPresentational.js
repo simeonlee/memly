@@ -4,41 +4,53 @@ import GoogleMapMemlyContainer from '../containers/GoogleMapMemlyContainer';
 // import shallowCompare from 'react-addons-shallow-compare'
 // import controllable from 'react-controllables'
 
-
-const style={
-  width: '100%',
-  height: '500px'
-}
-
-
 const GoogleMapPresentational = (props) => {
-  const memlies = props.memlies.map((memly, index) => {
+  const memlys = props.memlys.map((memly, index) => {
     const { showInfo, defaultAnimation, photo } = memly;
     return (
-      <GoogleMapMemlyContainer photo={photo} defaultAnimation={defaultAnimation} showInfo={showInfo} {...memly.position} text={index.toString()} key={index}/>
-      )
-  })
-  return(
-      <div style={style}>
+      <GoogleMapMemlyContainer
+        // Represent other peoples' memlys
+        photo={photo}
+        defaultAnimation={defaultAnimation}
+        showInfo={showInfo}
+        {...memly.location}
+        // text={index.toString()}
+        key={index}
+      />
+    )
+  });
+
+  return (
+      <div className="map">
        <GoogleMap
-        {...props}
-        //Using the es6 ...props syntax above, the following props will be passed from the GoogleMapPresentational component into the GoogleMap component
-            // onChildMouseEnter={(e)=>{console.log(e)}} // event argument will return index of child 
-            // onClick={(e)=>{console.log(e)}} // event will show lat long on map
-            // options={{styles: mapStyle}}
-            // bootstrapURLKeys={{key: 'AIzaSyA0VOMMs7FVCwz_klHsvs_KFt-CV-YbVNc'}}
-            // center={props.center}
-            // zoom={props.zoom}
-            // // instead of css hover (which sometimes is bad for map markers) (bad means inability to hover on markers placed under other markers)
-            // // you can use internal GoogleMap component hover algorithm
-            // // hover algorithm explained at x_distance_hover example
-            // hoverDistance={K_SIZE}
+        /*
+         * Using the ES6 spread syntax (...) below, the following props will be passed from the
+         * GoogleMapPresentational component into the GoogleMap component:
+         * * onChildMouseEnter={(e)=>{console.log(e)}} // event argument will return index of child 
+           * onClick={(e)=>{console.log(e)}} // event will show lat long on map
+           * options={{styles: mapStyle}}
+           * bootstrapURLKeys={{key: 'AIzaSyA0VOMMs7FVCwz_klHsvs_KFt-CV-YbVNc'}}
+           * center={[array representing center for googlemaps]}
+           * zoom={props.zoom}
+           * * Instead of css hover (which sometimes is "bad" for map markers)
+             * ("bad" means inability to hover on markers placed under other markers)
+             * you can use internal GoogleMap component hover algorithm
+           * * Hover algorithm explained at "x_distance_hover" example
+           * hoverDistance={K_SIZE}
+           */
+          {...props}
+          // "google-map-react" library requires center to be an array as per below
+          center={[props.currentUserLocation.lat, props.currentUserLocation.lng]}
         >
-        {memlies}
-        <GoogleMapMemlyContainer currentLocation={true} lat={props.center[0]} lng={props.center[1]} text={'M'} />
+        <GoogleMapMemlyContainer
+          // Represent current user location
+          representCurrentUserLocation={true}
+          {...props.currentUserLocation}
+        />
+        {memlys}
       </GoogleMap>
     </div>
-    );
+  );
 }
 
 export default GoogleMapPresentational

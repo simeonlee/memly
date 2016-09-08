@@ -4,7 +4,7 @@ import LoggedInNavContainer from './LoggedInNavContainer'
 import LoggedOutNavContainer from './LoggedOutNavContainer'
 import { Router, Route, hashHistory, IndexRoute, Link } from 'react-router'
 
-class HomeContainer extends React.Component {
+export default class HomeContainer extends React.Component {
 
   constructor(props){
     super(props);
@@ -12,7 +12,6 @@ class HomeContainer extends React.Component {
       isLoggedIn: false,
       //user state will change based upon which user is signed via Facebook/passport. name: 'Rob' is just dummy data to consolelog
       user: {name: 'Rob'}
-
     }
   }
 
@@ -43,35 +42,29 @@ class HomeContainer extends React.Component {
   }
 
   changeNavToAlreadyLoggedIn() {
-      this.setState({
-        isLoggedIn: true
-      });
-    }
-  
-
+    this.setState({
+      isLoggedIn: true
+    });
+  }
 
   render() {
     var context = this;
     var childToggleLogIn = this.toggleLogIn.bind(this);
     var childChangeNavToAlreadyLoggedIn = this.changeNavToAlreadyLoggedIn.bind(this);
     const childrenWithProps = React.Children.map(this.props.children,
-     (child) => React.cloneElement(child, {
-       toggleLogIn: childToggleLogIn,
-       changeNavToAlreadyLoggedIn: childChangeNavToAlreadyLoggedIn
-     })
+      (child) => React.cloneElement(child, {
+        toggleLogIn: childToggleLogIn,
+        changeNavToAlreadyLoggedIn: childChangeNavToAlreadyLoggedIn
+      })
     );
 
     return(
       <div>
-      {this.state.isLoggedIn ? <LoggedInNavContainer toggleLogIn={this.toggleLogIn.bind(this)} updateUserState={this.updateUserState.bind(this)}/> : <LoggedOutNavContainer toggleLogIn={this.toggleLogIn.bind(this)}/>}
-        <div id = "wrapper">
-        <Home/>
-        {childrenWithProps}
+        {this.state.isLoggedIn ? <LoggedInNavContainer toggleLogIn={this.toggleLogIn.bind(this)} updateUserState={this.updateUserState.bind(this)}/> : <LoggedOutNavContainer toggleLogIn={this.toggleLogIn.bind(this)}/>}
+        <div className="body-container">
+          {childrenWithProps}
         </div>
       </div>
-      )
+    )
   }
-
 }
-
-export default HomeContainer

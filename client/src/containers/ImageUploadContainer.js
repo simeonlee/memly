@@ -100,15 +100,13 @@ export default class ImageUploadContainer extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<ImageUpload 
-					imagePreviewUrl={this.state.imagePreviewUrl}
-					handleSubmit={this.handleSubmit.bind(this)}
-					handleImageChange={this.handleImageChange.bind(this)}
-					handlePlaceChange={this.handlePlaceChange.bind(this)}
-					handleCommentChange={this.handleCommentChange.bind(this)}
-				/>
-			</div>
+			<ImageUpload 
+				imagePreviewUrl={this.state.imagePreviewUrl}
+				handleSubmit={this.handleSubmit.bind(this)}
+				handleImageChange={this.handleImageChange.bind(this)}
+				handlePlaceChange={this.handlePlaceChange.bind(this)}
+				handleCommentChange={this.handleCommentChange.bind(this)}
+			/>
 		)
 	}
 }
