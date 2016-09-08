@@ -1,3 +1,5 @@
+// ------ ACTIONS FOR MEMLYS REDUCER --------- //
+
 function uploadMemlys (memlys) {
   return {
     type: 'UPLOAD_MEMLYS',
@@ -10,7 +12,9 @@ function addMemly (memly) {
   memly
 }
 
-const memlyInitialState = {
+// ---- INITIAL STATE FOR MEMLYS REDUCER ----- //
+
+const memlysInitialState = {
   memlys: [{
         location: {
           lat: 0,
@@ -73,12 +77,14 @@ const memlyInitialState = {
         showInfo: false,
         photo: "../../styles/londonstreet.jpeg"
       }]
-}
+  }
 
-function memlysReducer(state = memlyInitialState, action) {
+// ------------------ MEMLY REDUCER ----------------------- //
+
+export default function memlysReducer(state = memlysInitialState, action) {
   switch(action.type) {
 
-    case 'UPLOAD_MEMLYS' {
+    case 'UPLOAD_MEMLYS' : {
       if(action.memlys.length > 0){
         return {
           ...state,
@@ -87,11 +93,13 @@ function memlysReducer(state = memlyInitialState, action) {
       }
     }
 
-    case 'ADD_MEMLY' {
+    case 'ADD_MEMLY' : {
       return {
-        //the idea is that they can only add to the current grid they current 
-        //reside in so we should be able to update the state with the photo instantly
         ...state, 
         memlys: [action.memly, ...state.memlys]
       }
     }
+
+    default : return state
+  }
+}

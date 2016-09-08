@@ -1,4 +1,6 @@
 //reducer functions to modify state tree
+
+// ------ ACTIONS FOR USER REDUCER --------- //
 function userAuth (userID) {
   return {
     type: 'USER_AUTH',
@@ -26,7 +28,7 @@ function updateUserLocation (userLocation) {
   }
 }
 
-
+// ----- SET USER REDUCER INITIAL STATE ------ //
 const userInitialState = {
   userID: '',
   info: { name: '' },
@@ -39,7 +41,7 @@ const userInitialState = {
   }
 }
 
-
+// ------------ USER REDUCER -----------------//
 export default function userReducer (state = userInitialState, action) {
   switch(action.type){
    
