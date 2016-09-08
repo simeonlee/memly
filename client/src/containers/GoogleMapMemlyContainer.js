@@ -1,8 +1,7 @@
 import React, { PropTypes, Component } from 'react'
-import { GoogleMapMemly, UserLocation } from '../components/GoogleMapMemly' 
-import { memlyStyle, memlyStyleHover } from '../../styles/memlyStyles'
+import { UserLocation, GoogleMapMemly } from '../components/GoogleMapMemly' 
 
-class GoogleMapMemlyContainer extends Component {
+export default class GoogleMapMemlyContainer extends Component {
   static propTypes = {
     // GoogleMap pass $hover props to hovered components
     // to detect hover it uses internal mechanism created by react library
@@ -22,20 +21,15 @@ class GoogleMapMemlyContainer extends Component {
 
   render() {
     if(this.props.representUserCurrentLocation){
-      return(
-        <UserLocation />
-      )
-    } else {
-      const style = this.props.$hover ? memlyStyleHover : memlyStyle;
-      // const style = this.props.$hover ? memlyStyleHover : memlyStyle;
-      // maybe there is a way to pass the $hover prop down to the presentational Memly Component?
       return (
-        <div className='googlemapmemly' style={style}> 
+        <UserLocation />
+      );
+    } else {
+      return (
+        <div className='googlemapmemly'> 
           <GoogleMapMemly {...this.props} />
         </div>
       );
     }
   }
-} 
-
-export default GoogleMapMemlyContainer
+}

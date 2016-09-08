@@ -47,6 +47,18 @@ ul {
   bottom: 0;
 }
 
+.map-memly-marker {
+/*  height: 50px;
+  width: 50px;
+  background-color: red;*/
+}
+
+.map-memly-media {
+  position: absolute;
+  top: -70px;
+  left: -30px;
+}
+
 #profilePhoto {
   border-radius: 1%;
   display: block;

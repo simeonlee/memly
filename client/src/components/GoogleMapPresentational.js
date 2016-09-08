@@ -45,7 +45,7 @@ const GoogleMapPresentational = (props) => {
           representUserCurrentLocation={true}
           lat={props.center[0]}
           lng={props.center[1]}
-          text={'M'}
+          // text={'M'}
         />
         {memlies}
       </GoogleMap>
