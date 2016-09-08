@@ -13,7 +13,7 @@ const GoogleMapPresentational = (props) => {
         photo={photo}
         defaultAnimation={defaultAnimation}
         showInfo={showInfo}
-        {...memly.position}
+        {...memly.location}
         // text={index.toString()}
         key={index}
       />
@@ -30,7 +30,7 @@ const GoogleMapPresentational = (props) => {
            * onClick={(e)=>{console.log(e)}} // event will show lat long on map
            * options={{styles: mapStyle}}
            * bootstrapURLKeys={{key: 'AIzaSyA0VOMMs7FVCwz_klHsvs_KFt-CV-YbVNc'}}
-           * center={props.center}
+           * center={[array representing center for googlemaps]}
            * zoom={props.zoom}
            * * Instead of css hover (which sometimes is "bad" for map markers)
              * ("bad" means inability to hover on markers placed under other markers)
@@ -39,13 +39,13 @@ const GoogleMapPresentational = (props) => {
            * hoverDistance={K_SIZE}
            */
           {...props}
+          // "google-map-react" library requires center to be an array as per below
+          center={[props.currentUserLocation.lat, props.currentUserLocation.lng]}
         >
         <GoogleMapMemlyContainer
-          // Represent user current location
-          representUserCurrentLocation={true}
-          lat={props.center[0]}
-          lng={props.center[1]}
-          // text={'M'}
+          // Represent current user location
+          representCurrentUserLocation={true}
+          {...props.currentUserLocation}
         />
         {memlys}
       </GoogleMap>

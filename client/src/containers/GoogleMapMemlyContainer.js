@@ -20,7 +20,7 @@ export default class GoogleMapMemlyContainer extends Component {
   }
 
   render() {
-    if ( this.props.representUserCurrentLocation ) {
+    if ( this.props.representCurrentUserLocation ) {
       return (
         <UserLocation />
       );
