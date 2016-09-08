@@ -7,11 +7,10 @@ import mapStyle from '../../styles/mapStyle'
 import GoogleMapPresentational from '../components/GoogleMapPresentational'
 import update from 'react-addons-update'
 
-const style = {
-  width: '100%',
-  height: '500px'
-}
-
+// const style = {
+//   width: '100%',
+//   height: '500px'
+// }
 
 class GoogleMapContainer extends Component {
   static propTypes = {
@@ -106,13 +105,26 @@ class GoogleMapContainer extends Component {
   }
 
   geolocate(){
-    window.geolocator = window.setInterval(() => { navigator.geolocation.getCurrentPosition(function(position) {
-      console.log(position.coords.latitude, position.coords.longitude);
-      let { center } = this.state; 
-      center = update(center, {$set:[position.coords.latitude, position.coords.longitude]});
-      this.setState({ center }) // equivalent of this.setState({center: center})
-    }.bind(this))}, 1000)
+    if (navigator.geolocation) {
+      window.geolocator = window.setInterval(() => {
+        navigator.geolocation.getCurrentPosition((position) => {
+          console.log(position.coords.latitude, position.coords.longitude);
+          // To read about "update", see below link:
+          // https://facebook.github.io/react/docs/update.html
+          let { center } = this.state;
+          center = update(center, {$set: [position.coords.latitude, position.coords.longitude] } );
+
+          // Below is equivalent to "this.setState({center: center})"
+          this.setState({ center });
+        }, function() {
+          alert('Geolocation failed');
+        });
+      }, 1000);
+    } else {
+      alert('Your browser doesn\'t support geolocation');
+    }
   }
+
 
   //constantly update current user location with geolocate method
   // componentDidMount() {
