@@ -23,12 +23,12 @@ const memlyStyle = {
 
 const memlyStyleHover = {
   ...memlyStyle,
-  border: '2px solid #3f51b5',
-  color: '#f44336',
-  width: 15,
-  height: 15,
-  left: -7.5,
-  top: -7.5,
+  // border: '3px solid #3f51b5',
+  // color: '#f44336',
+  width: K_SIZE * 1.5,
+  height: K_SIZE * 1.5,
+  left: (-K_SIZE * 1.5) / 2,
+  top: (-K_SIZE * 1.5) / 2,
 };
 
 export {memlyStyle, memlyStyleHover, K_SIZE};

@@ -5,7 +5,7 @@ import { memlyStyle, memlyStyleHover } from '../../styles/memlyStyles'
 export const UserLocation = (props) => {
   return(
     <div>
-      <img src='../../styles/rsz_greendot.png'/>
+      <img className="map-user-marker" src='../../images/user/user-star@2x.png'/>
     </div>
   )
 }
@@ -14,8 +14,8 @@ export const UserLocation = (props) => {
 export const GoogleMapMemly = (props) => {
   const style = props.$hover ? memlyStyleHover : memlyStyle;
 
-  return(
-    <div style={style} className="map-memly-marker">
+  return (
+    <div style={style}>
       {props.text}
       <img
         height={'60px'}

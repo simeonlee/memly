@@ -20,15 +20,13 @@ export default class GoogleMapMemlyContainer extends Component {
   }
 
   render() {
-    if(this.props.representUserCurrentLocation){
+    if ( this.props.representUserCurrentLocation ) {
       return (
         <UserLocation />
       );
     } else {
       return (
-        <div className='googlemapmemly'> 
-          <GoogleMapMemly {...this.props} />
-        </div>
+        <GoogleMapMemly {...this.props} />
       );
     }
   }

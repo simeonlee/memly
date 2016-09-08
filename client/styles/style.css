@@ -47,10 +47,9 @@ ul {
   bottom: 0;
 }
 
-.map-memly-marker {
-/*  height: 50px;
-  width: 50px;
-  background-color: red;*/
+.map-user-marker {
+  width: 40px;
+  height: 40px;
 }
 
 .map-memly-media {
