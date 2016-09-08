@@ -26,7 +26,7 @@ module.exports = function(app) {
     callbackURL: "http://localhost:3000/auth/facebook/callback", // TODO: put website url here
     profileFields: authConfig.profileFields
   }, function(accessToken, refreshToken, profile, done) {
-    // console.log('chekcing profile in auth.js', profile);
+    console.log('chekcing profile in auth.js', profile);
     User.findOrCreate(profile, function(err, user) {
       if (err) { return done(err); }
       done(null, user);

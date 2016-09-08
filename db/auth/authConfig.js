@@ -10,7 +10,7 @@ exports.profileFields = [
   'location',
   'birthday',
   'cover',
-  'photos',
+  'picture.type(large)',
   'gender',
   'interested_in',
   'link', // FB timeline 
