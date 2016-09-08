@@ -98,6 +98,9 @@ export default function userReducer (state = userInitialState, action) {
       }
     }
 
+    default : 
+      return state
+
    }
   }
 
