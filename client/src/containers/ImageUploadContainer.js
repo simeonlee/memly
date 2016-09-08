@@ -110,6 +110,3 @@ export default class ImageUploadContainer extends React.Component {
 		)
 	}
 }
-
-
-// handleSubmit={this.handleSubmit.bind(this)}
