@@ -6,6 +6,7 @@ var keys = require('./config/keys');
 exports.create = function(req, res) {
 
   // Update AWS configuration for access and secret keys
+  // http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html
   AWS.config.update({
     accessKeyId: keys.AWS_ACCESS_KEY_ID,
     secretAccessKey: keys.AWS_SECRET_ACCESS_KEY 
