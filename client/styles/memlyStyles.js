@@ -1,4 +1,4 @@
-const K_SIZE = 10;
+const K_SIZE = 20;
 
 const memlyStyle = {
   // initially any map object has left top corner at lat lng coordinates
@@ -30,6 +30,5 @@ const memlyStyleHover = {
   left: -7.5,
   top: -7.5,
 };
-
 
 export {memlyStyle, memlyStyleHover, K_SIZE};
