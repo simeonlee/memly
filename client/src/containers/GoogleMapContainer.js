@@ -17,7 +17,7 @@ class GoogleMapContainer extends Component {
     center: PropTypes.array,
     zoom: PropTypes.number,
     greatPlaceCoords: PropTypes.any,
-    memlies: PropTypes.array
+    memlys: PropTypes.array
   };
 
   static defaultProps = {
@@ -29,8 +29,8 @@ class GoogleMapContainer extends Component {
     this.state = {
       //use geolocation and settimeout to update location of center position of Map
       center: [37.7836966, -122.4089664], 
-      //memlies will be grabbed from db based on user location. (HTTP request in componentWillMount method)
-      memlies: [{
+      //memlys will be grabbed from db based on user location. (HTTP request in componentWillMount method)
+      memlys: [{
         position: {
           lat: 0,
           lng: 0,
@@ -142,6 +142,10 @@ class GoogleMapContainer extends Component {
     window.clearInterval(window.geolocator);
   }
 
+  updateMemlys() {
+
+  }
+
   render() {
     return (
       <div >
@@ -156,7 +160,7 @@ class GoogleMapContainer extends Component {
         // you can use internal GoogleMap component hover algorithm
         // hover algorithm explained at x_distance_hover example
         hoverDistance={K_SIZE}
-        memlies={this.state.memlies}
+        memlys={this.state.memlys}
       />
     </div>
     );

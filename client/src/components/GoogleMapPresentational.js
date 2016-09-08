@@ -5,7 +5,7 @@ import GoogleMapMemlyContainer from '../containers/GoogleMapMemlyContainer';
 // import controllable from 'react-controllables'
 
 const GoogleMapPresentational = (props) => {
-  const memlies = props.memlies.map((memly, index) => {
+  const memlys = props.memlys.map((memly, index) => {
     const { showInfo, defaultAnimation, photo } = memly;
     return (
       <GoogleMapMemlyContainer
@@ -47,7 +47,7 @@ const GoogleMapPresentational = (props) => {
           lng={props.center[1]}
           // text={'M'}
         />
-        {memlies}
+        {memlys}
       </GoogleMap>
     </div>
   );
