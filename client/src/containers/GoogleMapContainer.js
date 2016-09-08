@@ -97,8 +97,9 @@ class GoogleMapContainer extends Component {
     this.geolocate();
   }
   
-  //if user is in the same location, this lifecycle method will 'shallow equality check' the center state. If User is still
-  //in same place, the method will return false and prevent and unnecessary re-render
+  // If user is in the same location, this lifecycle method will 'shallow equality check'
+  // the center state.
+  // If User is still in same place, the method will return false and prevent unnecessary re-render
   shouldComponentUpdate(nextProps, nextState) {
     console.log("should component update", this.state.center[0] != nextState.center[0] || this.state.center[1] != nextState.center[1]);
     return this.state.center[0] != nextState.center[0] || this.state.center[1] != nextState.center[1]
@@ -106,9 +107,13 @@ class GoogleMapContainer extends Component {
 
   geolocate(){
     if (navigator.geolocation) {
+      // Assign interval to "window.geolocator" so we can clear the interval later if needed
       window.geolocator = window.setInterval(() => {
         navigator.geolocation.getCurrentPosition((position) => {
+
+          // Log coordinates for development
           console.log(position.coords.latitude, position.coords.longitude);
+
           // To read about "update", see below link:
           // https://facebook.github.io/react/docs/update.html
           let { center } = this.state;
@@ -116,7 +121,9 @@ class GoogleMapContainer extends Component {
 
           // Below is equivalent to "this.setState({center: center})"
           this.setState({ center });
+
         }, function() {
+          // Error handler for "navigator.geolocation.getCurrentPosition()"
           alert('Geolocation failed');
         });
       }, 1000);
@@ -125,12 +132,12 @@ class GoogleMapContainer extends Component {
     }
   }
 
-
   //constantly update current user location with geolocate method
   // componentDidMount() {
   //   this.geolocate();
   // }
   //Not yet working correctly. Need to clear interval when component unmounts
+
   componentWillUnmount() {
     window.clearInterval(window.geolocator);
   }
