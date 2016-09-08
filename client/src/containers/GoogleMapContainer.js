@@ -44,7 +44,7 @@ class GoogleMapContainer extends Component {
           defaultAnimation: 2,
           showInfo: false,
           media: {
-            data: "../../styles/hackreactor.jpg"
+            url: "../../styles/hackreactor.jpg"
           }
         },
         {
@@ -58,7 +58,7 @@ class GoogleMapContainer extends Component {
           defaultAnimation: 2,
           showInfo: false,
           media: {
-            data: "../../styles/shutterstock_276995975.jpg"
+            url: "../../styles/shutterstock_276995975.jpg"
           }
         },
         {
@@ -70,7 +70,7 @@ class GoogleMapContainer extends Component {
           defaultAnimation: 2,
           showInfo: false,
           media: {
-            data: "../../styles/M9071-PARENT-2.jpg"
+            url: "../../styles/M9071-PARENT-2.jpg"
           }
         },
         {
@@ -82,7 +82,7 @@ class GoogleMapContainer extends Component {
           defaultAnimation: 2,
           showInfo: false,
           media: {
-            data: "../../styles/15759420184_f34af1b4a8.jpg"
+            url: "../../styles/15759420184_f34af1b4a8.jpg"
           }
         },
         {
@@ -94,7 +94,7 @@ class GoogleMapContainer extends Component {
           defaultAnimation: 2,
           showInfo: false,
           media: {
-            data: "../../styles/londonstreet.jpeg"
+            url: "../../styles/londonstreet.jpeg"
           }
         }
       ]
@@ -164,10 +164,6 @@ class GoogleMapContainer extends Component {
         .then((response) => {
           // 'response.data' is an array of memlys to be displayed
           console.log(response.data);
-
-          response.data.forEach(function(memly) {
-            memly.media.data = memly.media.data.data.toString('base64');
-          });
 
           let { memlys } = this.state;
           memlys = update(memlys, { $push: response.data } );

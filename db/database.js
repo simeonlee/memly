@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var crypto = require('crypto');
 var mime = require('mime');
 var mediaUpload = require('./aws/media');
+var Memly = require('./memly/model');
 
 var mongooseUri =
   process.env.MONGODB_URI ||
@@ -70,9 +71,6 @@ module.exports = function(app) {
 				console.log(err);
 				return;
 			};
-			memlys.forEach(function(memly) {
-			  memly.media.data = memly.media.data.toString('base64');
-			});
 			res.send(memlys);
 		});
 	});

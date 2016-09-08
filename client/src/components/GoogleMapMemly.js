@@ -20,7 +20,7 @@ export const GoogleMapMemly = (props) => {
       <img
         height={'60px'}
         width={'85px'}
-        src={props.media.data}
+        src={props.media.url}
         className="map-memly-media"
       />
     </div>
