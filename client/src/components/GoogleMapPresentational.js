@@ -6,11 +6,11 @@ import GoogleMapMemlyContainer from '../containers/GoogleMapMemlyContainer';
 
 const GoogleMapPresentational = (props) => {
   const memlys = props.memlys.map((memly, index) => {
-    const { showInfo, defaultAnimation, photo } = memly;
+    const { showInfo, defaultAnimation, media } = memly;
     return (
       <GoogleMapMemlyContainer
         // Represent other peoples' memlys
-        photo={photo}
+        media={media}
         defaultAnimation={defaultAnimation}
         showInfo={showInfo}
         {...memly.location}

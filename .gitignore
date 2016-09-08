@@ -13,3 +13,6 @@ client/bundle.js
 uploads
 
 .DS_Store
+
+db/aws/sample
+db/aws/config/keys.js
