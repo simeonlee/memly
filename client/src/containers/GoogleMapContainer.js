@@ -106,7 +106,7 @@ class GoogleMapContainer extends Component {
   // the currentUserLocation state.
   // If User is still in same place, the method will return false and prevent unnecessary re-render
   shouldComponentUpdate(nextProps, nextState) {
-    console.log("should component update", this.state.currentUserLocation.lat != nextState.currentUserLocation.lat || this.state.currentUserLocation.lng != nextState.currentUserLocation.lng);
+    // console.log("should component update", this.state.currentUserLocation.lat != nextState.currentUserLocation.lat || this.state.currentUserLocation.lng != nextState.currentUserLocation.lng);
     return this.state.currentUserLocation.lat != nextState.currentUserLocation.lat || this.state.currentUserLocation.lng != nextState.currentUserLocation.lng;
   }
 
