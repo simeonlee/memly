@@ -11,7 +11,6 @@ const LoggedInNav = (props) => {
     <div className="nav">
       <Link to="/" className="logo">Memly</Link>
       <Link to="/photo">Upload</Link>
-      <Link to="/nearby">Nearby</Link>
       <Link to="/user/profile" onClick={()=>props.retrieveProfileInfo()}>Profile</Link>
       <Link to="/logout" onClick={onClickLogOut}>Logout</Link>
     </div>

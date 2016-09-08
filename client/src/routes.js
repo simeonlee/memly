@@ -6,7 +6,6 @@ import MyMemlysContainer from './containers/MyMemlysContainer'
 import LikedMemlysContainer from './containers/LikedMemlysContainer'
 import ProfileContainer from './containers/ProfileContainer'
 import ImageUploadContainer from './containers/ImageUploadContainer'
-import ImageRetrieveContainer from './containers/ImageRetrieveContainer'
 import GoogleMapContainer from './containers/GoogleMapContainer';
 
 
@@ -20,7 +19,6 @@ var routes = (
         <Route path='/likedmemlys' component={LikedMemlysContainer} />
       </Route>
       <Route path='/photo' component={ImageUploadContainer} />
-      <Route path='/nearby' component={ImageRetrieveContainer} />
     </Route>
   </Router>
 )

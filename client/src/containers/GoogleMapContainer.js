@@ -6,6 +6,7 @@ import {K_SIZE} from '../../styles/memlyStyles'
 import mapStyle from '../../styles/mapStyle'
 import GoogleMapPresentational from '../components/GoogleMapPresentational'
 import update from 'react-addons-update'
+import axios from 'axios'
 
 // const style = {
 //   width: '100%',
@@ -95,6 +96,7 @@ class GoogleMapContainer extends Component {
     }
 
     this.geolocate();
+    this.updateMemlys();
   }
   
   // If user is in the same location, this lifecycle method will 'shallow equality check'
@@ -143,7 +145,21 @@ class GoogleMapContainer extends Component {
   }
 
   updateMemlys() {
-
+    window.setInterval(()=>{
+      console.log('Polling for nearby markers...');
+      axios.get('/api/nearby', {
+          params: {
+            lat: this.state.center[0],
+            lng: this.state.center[1]
+          }
+        })
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    }, 5000);
   }
 
   render() {
