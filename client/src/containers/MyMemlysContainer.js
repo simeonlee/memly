@@ -13,8 +13,9 @@ class MyMemlysContainer extends React.Component {
   render() {
     return(
       <div className = "ProfileBoxes">
-        <h3>My Memlys</h3>
-        {this.state.user.myMemlys.map((item) => <MyMemlys item = {item}/>)}
+        <div className ="MemlysContainer">
+          {this.state.user.myMemlys.map((item) => <MyMemlys item = {item}/>)}
+        </div>
       </div>
       )
   }
