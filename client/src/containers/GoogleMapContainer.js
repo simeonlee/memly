@@ -135,6 +135,10 @@ class GoogleMapContainer extends Component {
         }, function() {
           // Error handler for "navigator.geolocation.getCurrentPosition()"
           alert('Geolocation failed');
+          // Clear further geolocation's upon failure so we don't get repeat alerts
+          if (window.geolocator) {
+            window.clearInterval(window.geolocator);
+          };
         });
       }, 1000);
     } else {
