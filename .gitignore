@@ -10,8 +10,6 @@ db/auth/keys.js
 
 client/bundle.js
 
-uploads
-
 .DS_Store
 
 db/aws/sample
