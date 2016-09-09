@@ -84,17 +84,26 @@ class ProfileContainer extends React.Component {
   componentWillReceiveProps(props, next) {
     console.log(props, next, 'ProfileContainer componentDidMount')
   }
+//SEE NOTE BELOW
+  // updateUserData(data) {
+  //   console.log('calling updateUserdata', data);
+  //   this.setState({
+  //     userFacebook: data
+  //   });
+  // }
+
 
 
   render() {
 
-    var context = this;
-    var childUpdateUserData = this.updateUserData.bind(this);
-    const childrenWithProps = React.Children.map(this.props.children,
-      (child) => React.cloneElement(child, {
-        updateUserData: childUpdateUserData,
-      })
-    );
+  //BECAUSE OF HOW REDUX WORKS. CHILDREN WILL BE ABLE TO CHANGE AND OBTAIN STATE!
+    // var context = this;
+    // var childUpdateUserData = this.updateUserData.bind(this);
+    // const childrenWithProps = React.Children.map(this.props.children,
+    //   (child) => React.cloneElement(child, {
+    //     updateUserData: childUpdateUserData,
+    //   })
+    // );
 
     return(
       <div>
