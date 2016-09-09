@@ -27,11 +27,19 @@ class LoggedInNavContainer extends React.Component {
   //       this.props.dispatch(userActions.fetchUserSuccess(res.data));
   //     });
   // }
+  retrieveProfileInfo() {
+    //console.log('i am hitting the getProfile function');
+    axios.get('/user/retrieve/profileinfo/')
+      .then((res) => {
+        //console.log('I hit the the getProfile function and got a response--------->', res.data);
+        this.props.dispatch(userActions.fetchUserSuccess(res.data));
+      });
+  }
 
   render() {
     return(
       <div className = 'NavContainer'>
-        <LoggedInNav LogMeOut={this.LogMeOut.bind(this)}/>
+        <LoggedInNav LogMeOut={this.LogMeOut.bind(this)} toggleLogIn={this.props.dispatch(userActions.toggleLogIn())} retrieveProfileInfo={this.retrieveProfileInfo.bind(this)}/>
       </div>
       )
   }

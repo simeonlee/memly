@@ -20,6 +20,7 @@ class ProfileContainer extends React.Component {
     user: PropTypes.object,
     userFacebook: PropTypes.object,
     memlyCount: PropTypes.number,
+    birthday: '',
   }
 
   DateParser(date) {
@@ -172,6 +173,7 @@ function mapStateToProps(state) {
     user: state.userReducer.user,
     userFacebook: state.userReducer.userFacebook,
     memlyCount: state.userReducer.memlyCount
+    birthday: state.userReducer.birthday,
   }
 }
 

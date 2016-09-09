@@ -1,24 +1,8 @@
 // ------ ACTIONS FOR MEMLYS REDUCER --------- //
 
-export function updateMemlys (memlys) {
-  return {
-    type: 'UPDATE_MEMLYS',
-    memlys,
-  }
-}
-
 export function addMemly (memly) {
-  return {
-    type: 'ADD_MEMLY',
-    memly,
-  }
-}
-
-export function addToMemlyIdStorage (memlyId) {
-  return {
-    type: 'ADD_TO_MEMLY_ID_STORAGE',
-    memlyId,
-  }
+  type: 'ADD_MEMLY',
+  memly
 }
 
 
