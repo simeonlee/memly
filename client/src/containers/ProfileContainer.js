@@ -103,16 +103,20 @@ class ProfileContainer extends React.Component {
     // var context = this;
     this.props.dispatch(userActions.userAuth());
 
+    //turn isLogged in as true so nav bar shows logged in buttons
     axios.get('/user/retrieve/profileinfo/')
       .then((res) => {
         this.props.dispatch(userActions.updateUserFacebook(res.data));
         this.props.dispatch(userActions.updateMemlyCount(res.data.memlys.length))
         console.log('checking userFacebook props ------>', this.props.userFacebook.memlys.length);
+        return res;
+      })
       .then((res) => {
         res.data.birthday = this.DateParser(res.data.birthday);
 
+        //why are we doing this twice? 
         this.props.dispatch(userActions.updateMemlyCount(res.data.memlys.length));
-        this.props.dispatch(userActions.updateUserFacebook({res.data}));
+        this.props.dispatch(userActions.updateUserFacebook(res.data));
         
         // context.setState({
         //   userFacebook: res.data,
@@ -120,21 +124,12 @@ class ProfileContainer extends React.Component {
         // });
 
 
-        console.log('checking userFacebook state ------>', context.state.userFacebook);
       });
     // this.props.changeNavToAlreadyLoggedIn();
   }
 
-  // updateUserData(data) {
-  //   console.log('calling updateUserdata', data);
-  //   this.setState({
-  //     userFacebook: data
-  //   });
-  // }
-
-
   componentWillReceiveProps(props, next) {
-    console.log(props, next, 'ProfileContainer componentDidMount')
+    console.log(props, next, 'ProfileContainer componentWillReceiveProps')
   }
 //SEE NOTE BELOW
   // updateUserData(data) {
@@ -172,7 +167,7 @@ function mapStateToProps(state) {
     isLoggedIn: state.userReducer.isLoggedIn,
     user: state.userReducer.user,
     userFacebook: state.userReducer.userFacebook,
-    memlyCount: state.userReducer.memlyCount
+    memlyCount: state.userReducer.memlyCount,
     birthday: state.userReducer.birthday,
   }
 }

@@ -36,6 +36,7 @@ class LoggedInNavContainer extends React.Component {
       });
   }
 
+  // RENDER METHOD HERE IS MESSING UP THE STATE DURING RENDER! FIXX!!!
   render() {
     return(
       <div className = 'NavContainer'>

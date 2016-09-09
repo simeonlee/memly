@@ -29,7 +29,6 @@ class HomeContainer extends React.Component {
     console.log(nextProps, nextProps)
   }
 
-
   // //updateUserState changes the state of 'user'. it gets called when 'onClick' one of the navbar items in LoggInNavContainer
   // updateUserState(userObject) {
   //   this.setState({

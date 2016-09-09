@@ -63,8 +63,6 @@ const userInitialState = {
   user: {},
   userFacebook: {},
   memlyCount: 0,
-  info: { name: '' },
-  isFetching: false,
   isLoggedIn: false,
   error: '',
   userLocation: {
