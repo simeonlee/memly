@@ -97,7 +97,16 @@ class ProfileContainer extends React.Component {
     console.log(this.props, 'profileComponentDidMount'); 
     // props.isLoggedIn should be TRUE...
   }
+  // updateUserData(data) {
+  //   console.log('calling updateUserdata', data);
+  //   this.setState({
+  //     userFacebook: data
+  //   });
+  // }
 
+  componentWillReceiveProps(props, next) {
+    console.log(props, next, 'ProfileContainer componentDidMount')
+  }
 
   componentWillReceiveProps(props, next) {
     console.log(props, next, 'ProfileContainer componentWillReceiveProps')

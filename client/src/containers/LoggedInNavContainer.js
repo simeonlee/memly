@@ -14,7 +14,7 @@ class LoggedInNavContainer extends React.Component {
   LogMeOut() {
     axios.get('/logout')
       .then((res) => {
-        this.props.dispatch(userActions.userUnauth())
+        this.props.dispatch(userActions.userUnauth()) //(invoked before axios call response?)
         console.log('I made it to logout button', res);
       });
   }
@@ -40,7 +40,7 @@ class LoggedInNavContainer extends React.Component {
   render() {
     return(
       <div className = 'NavContainer'>
-        <LoggedInNav LogMeOut={this.LogMeOut.bind(this)} toggleLogIn={this.props.dispatch(userActions.toggleLogIn())} retrieveProfileInfo={this.retrieveProfileInfo.bind(this)}/>
+        <LoggedInNav LogMeOut={this.LogMeOut} retrieveProfileInfo={this.retrieveProfileInfo}/>
       </div>
       )
   }
