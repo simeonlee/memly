@@ -63,8 +63,6 @@ const userInitialState = {
   user: {},
   userFacebook: {},
   memlyCount: 0,
-  info: { name: '' },
-  isFetching: false,
   isLoggedIn: false,
   error: '',
   userLocation: {
@@ -80,8 +78,7 @@ export default function userReducer (state = userInitialState, action) {
    case 'USER_AUTH' :  
     return {
       ...state, 
-      isLoggedIn: true, 
-      userID: action.userID,
+      isLoggedIn: true,
     }
 
     case 'USER_UNAUTH' : 

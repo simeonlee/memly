@@ -62,6 +62,9 @@ class ProfileContainer extends React.Component {
   componentWillMount() {
     console.log(this.props, 'profileComponentWillMount');
     // var context = this;
+    this.props.dispatch(userActions.userAuth());
+    //turn isLogged in as true so nav bar shows logged in buttons
+
     axios.get('/user/retrieve/profileinfo/')
       .then((res) => {
         this.props.dispatch(userActions.updateUserFacebook(res.data));
@@ -71,13 +74,17 @@ class ProfileContainer extends React.Component {
     // this.props.changeNavToAlreadyLoggedIn();
   }
 
-  updateUserData(data) {
-    console.log('calling updateUserdata', data);
-    this.setState({
-      userFacebook: data
-    });
-  }
+  // updateUserData(data) {
+  //   console.log('calling updateUserdata', data);
+  //   this.setState({
+  //     userFacebook: data
+  //   });
+  // }
 
+
+  componentWillReceiveProps(props, next) {
+    console.log(props, next, 'ProfileContainer componentDidMount')
+  }
 
 
   render() {
@@ -102,6 +109,7 @@ class ProfileContainer extends React.Component {
 
 function mapStateToProps(state) {
   return {
+    isLoggedIn: state.userReducer.isLoggedIn,
     user: state.userReducer.user,
     userFacebook: state.userReducer.userFacebook,
     memlyCount: state.userReducer.memlyCount

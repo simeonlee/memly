@@ -66,12 +66,27 @@ app.get('/auth/facebook/callback',
   function(req, res) {
     //console.log('LOGIN SUCCESS NOW SHOW ME THE USER---------------------->', req.user);
     //console.log('SHOW ME WHAT THIS SESSION IS------------>', req.session.passport.user);
-    res.redirect('http://localhost:3000/#/user/profile');
+    res.redirect('http://localhost:3000/#/user/profile/');
   });
 
 
+//helper function to check if a user session has been created.
+// var isLoggedIn = function(req, res, next) {
+//   console.log('I am hitting isLoggedIn helper function');
+//   if (!req.session.passport) {
+//     console.log('no passport session sorry!!!');
+//     res.redirect('http://localhost:3000/#');
+//   } else if (!req.session.passport.user) {
+//     console.log('no passport user defined. maybe next time????');
+//     res.redirect('http://localhost:3000/#');
+//   } else {
+//     next();
+//   }
+// };
+
+//not for facbeook auth.. this is for profile button?
 app.get('/user/profile/', helper.isLoggedIn, function(req, res) {
-  res.redirect('http://localhost:3000/#/user/profile');
+  res.redirect('http://localhost:3000/#/user/profile/');
   // }
 });
 
