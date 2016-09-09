@@ -278,7 +278,7 @@ Old? Are we using the below? Feel free to uncomment out
   top: 50%;
   margin: -20px 0 0 -20px;
 }
-.pin:after {
+.pin:after { /* Read about Pseudo-Elements: https://www.smashingmagazine.com/2011/07/learning-to-use-the-before-and-after-pseudo-elements-in-css */
   content: "";
   width: 14px;
   height: 14px;
@@ -306,7 +306,7 @@ Old? Are we using the below? Feel free to uncomment out
   transform: rotateX(55deg);
   z-index: -2;
 }
-.pulse:after {
+.pulse:after { /* Read about Pseudo-Elements: https://www.smashingmagazine.com/2011/07/learning-to-use-the-before-and-after-pseudo-elements-in-css */
   content: "";
   border-radius: 50%;
   height: 40px;
