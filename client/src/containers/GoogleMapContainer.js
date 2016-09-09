@@ -97,7 +97,9 @@ class GoogleMapContainer extends Component {
             url: "../../styles/londonstreet.jpeg"
           }
         }
-      ]
+      ],
+      // Keep ids of already accepted memlys in below storage to avoid duplicate entries
+      memlyIdStorage: {}
     }
 
     this.geolocate();
@@ -169,9 +171,18 @@ class GoogleMapContainer extends Component {
           // 'response.data' is an array of memlys to be displayed
           console.log(response.data);
 
-          let { memlys } = this.state;
-          memlys = update(memlys, { $push: response.data } );
-          this.setState({ memlys });
+          let { memlys, memlyIdStorage } = this.state;
+
+          // If our memlys storage does not yet contain the new memly,
+          // add the new memly to our storage
+          response.data.forEach((memly) => {
+            if (!memlyIdStorage[memly._id]) {
+              memlyIdStorage[memly._id] = true;
+              memlys.push(memly);
+            };
+          });
+
+          this.setState({ memlys, memlyIdStorage });
           console.log(this.state.memlys);
         })
         .catch((error) => {
