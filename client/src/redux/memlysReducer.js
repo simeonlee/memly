@@ -1,8 +1,24 @@
 // ------ ACTIONS FOR MEMLYS REDUCER --------- //
 
+export function updateMemlys (memlys) {
+  return {
+    type: 'UPDATE_MEMLYS',
+    memlys,
+  }
+}
+
 export function addMemly (memly) {
-  type: 'ADD_MEMLY',
-  memly
+  return {
+    type: 'ADD_MEMLY',
+    memly,
+  }
+}
+
+export function addToMemlyIdStorage (memlyId) {
+  return {
+    type: 'ADD_TO_MEMLY_ID_STORAGE',
+    memlyId,
+  }
 }
 
 
@@ -20,6 +36,20 @@ const memlysInitialState = {
           showInfo: false,
           media: {
             url: "../../styles/hackreactor.jpg"
+          }
+        },
+        {
+          location: {
+            lat: 51.507351,
+            lng: -0.125758
+          },
+          username: "Michael Wong",
+          userAvatar: "../../styles/userAvatar.jpg",
+          key: 'timestamp1',
+          defaultAnimation: 2,
+          showInfo: false,
+          media: {
+            url: "../../styles/shutterstock_276995975.jpg"
           }
         },
         {
