@@ -418,9 +418,14 @@ Old? Are we using the below? Feel free to uncomment out
   color: #1da1f2;
   font-size: 150%;
   padding-left: 2%;
+  padding-right: 2%
 }
 
-
+#MemlyNavItemText3{
+  color: #1da1f2;
+  font-size: 150%;
+  padding-left: 2%;
+}
 
 
 #MemlyNavItemText:hover{
@@ -431,3 +436,13 @@ Old? Are we using the below? Feel free to uncomment out
   text-decoration: none;
   color: blue;
 }
+
+#MemlyNavItemText3:hover{
+  text-decoration: none;
+  color: blue;
+}
+
+#EditProfileContainer{
+  margin: 5%;
+}
+

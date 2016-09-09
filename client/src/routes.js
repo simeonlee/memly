@@ -5,6 +5,7 @@ import HomeContainer from './containers/HomeContainer'
 import MyMemlysContainer from './containers/MyMemlysContainer'
 import LikedMemlysContainer from './containers/LikedMemlysContainer'
 import ProfileContainer from './containers/ProfileContainer'
+import EditProfileContainer from './containers/EditProfileContainer';
 import ImageUploadContainer from './containers/ImageUploadContainer'
 import GoogleMapContainer from './containers/GoogleMapContainer';
 
@@ -17,6 +18,7 @@ var routes = (
       <Route path='/user/profile' component={ProfileContainer}>
         <IndexRoute component={MyMemlysContainer} />
         <Route path='/likedmemlys' component={LikedMemlysContainer} />
+        <Route path='/edit' component={EditProfileContainer} />
       </Route>
       <Route path='/photo' component={ImageUploadContainer} />
     </Route>

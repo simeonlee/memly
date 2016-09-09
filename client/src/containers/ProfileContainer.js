@@ -27,14 +27,30 @@ class ProfileContainer extends React.Component {
     this.props.changeNavToAlreadyLoggedIn();
   }
 
+  updateUserData(data) {
+    console.log('calling updateUserdata', data);
+    this.setState({
+      userFacebook: data
+    });
+  }
+
 
 
   render() {
+
+    var context = this;
+    var childUpdateUserData = this.updateUserData.bind(this);
+    const childrenWithProps = React.Children.map(this.props.children,
+      (child) => React.cloneElement(child, {
+        updateUserData: childUpdateUserData,
+      })
+    );
+
     return(
       <div>
         <Profile user = {this.state.user} userFacebook = {this.state.userFacebook} memlyCount={this.state.memlyCount}/>
 
-        {this.props.children}
+        {childrenWithProps}
       </div>
       )
   }
