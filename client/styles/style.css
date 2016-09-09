@@ -8,9 +8,21 @@ a, a:link, a:hover, a:active, a:visited {
   color: white;
 }
 
+a:hover {
+  color: #e6f1ff;
+}
+
 ul {
   list-style: none;
 }
+
+
+/*
+#MemlyNavSelector .MemlyNavItem {
+  color: #595959;
+}*/
+
+
 
 .nav {
   position: absolute;
@@ -166,9 +178,8 @@ ul {
 }
 
 .oneMemly {
-  border-radius: 3px;
-  background-color: #f0eff1;
-  margin: 1%;
+  border: 1px solid #e1e8ed;
+  background-color: #f5f8fa;
 }
 
 .memlyPhoto {
@@ -238,3 +249,81 @@ ul {
   height: 20%;
   width: 100%;
 }
+
+
+#profilePhoto {
+  border-radius: 12%;
+  border: 1px solid white;
+  width: 60%;
+}
+
+.profileName {
+  font-size: 200%;
+  margin-right: 3%;
+  margin-left: 3%;
+  padding-left: 5%;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+.profileRow {
+  padding-left: 5%;
+  margin-right: 3%;
+  margin-left: 3%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+#userProfileContainer {
+  margin-top: 2%;
+}
+
+#MemlyNavSelector{
+  margin-left: 3%;
+  margin-top: 5%;
+  position: static;
+  background-color: white;
+  margin-bottom: -2%;
+}
+
+#MemlyNavItems{
+  position: static;
+  background-color: white;
+}
+
+.MemlysContainer{
+  border-radius: 5px;
+  border: 1px solid #e1e8ed;
+}
+
+
+.MemlyNavItem {
+  background-color: white;
+
+  color: black;
+}
+
+#MemlyNavItemText{
+  color: #1da1f2;
+  font-size: 150%;
+  padding-right: 2%;
+}
+
+#MemlyNavItemText2{
+  color: #1da1f2;
+  font-size: 150%;
+  padding-left: 2%;
+}
+
+
+
+
+#MemlyNavItemText:hover{
+  color: blue;
+}
+
+#MemlyNavItemText2:hover{
+  text-decoration: none;
+  color: blue;
+}
+
