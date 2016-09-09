@@ -1,13 +1,13 @@
 // ------ ACTIONS FOR MEMLYS REDUCER --------- //
 
-function uploadMemlys (memlys) {
+export function uploadMemlys (memlys) {
   return {
     type: 'UPLOAD_MEMLYS',
     memlys
   }
 }
 
-function addMemly (memly) {
+export function addMemly (memly) {
   type: 'ADD_MEMLY',
   memly
 }

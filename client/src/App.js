@@ -14,7 +14,6 @@ const reducers = combineReducers({
 //create a store that houses state-tree of app. Can only be modified by dispatching actions on the reducers 
 //provided in createStore. (see.... ./redux/userReducers for example of Actions)
 const store = createStore(reducers);
-console.log(store.getState());
 
 
 render(
