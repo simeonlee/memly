@@ -29,6 +29,9 @@ class LoggedOutNavContainer extends React.Component {
       });
   }
 
+  componentWillUnmount() {
+    console.log(this.props, 'yooloooo')
+  }
 
 
   render() {

@@ -63,7 +63,6 @@ class ProfileContainer extends React.Component {
     console.log(this.props, 'profileComponentWillMount');
     // var context = this;
     this.props.dispatch(userActions.userAuth());
-    //turn isLogged in as true so nav bar shows logged in buttons
 
     axios.get('/user/retrieve/profileinfo/')
       .then((res) => {
