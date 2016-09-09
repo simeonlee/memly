@@ -57,6 +57,7 @@ class EditProfileContainer extends React.Component {
   }
 
 
+
   componentWillMount() {
     var context = this;
     axios.get('/user/retrieve/profileinfo/')
@@ -102,6 +103,19 @@ class EditProfileContainer extends React.Component {
         console.log('checking out how birthday is formatted ONE MORE TIME', res.data);
         res.data.birthday = context.DateParser(res.data.birthday);
         console.log('its my birthday!!!!!', res.data);
+
+    // console.log('what is inside email', email);
+    // console.log('hitting changeProfileInfo');
+    // name = name || this.state.userFacebook.name;
+    // email = email || this.state.userFacebook.email;
+    // birthday = birthday || this.state.userFacebook.birthday;
+    // gender = gender || this.state.userFacebook.gender;
+    // bio = bio || this.state.userFacebook.bio;
+
+    // axios.post('/user/edit/profileinfo/', 
+    //   {name: name, email: email, birthday: birthday, gender: gender, bio: bio})
+    //   .then(function(res) {
+
         console.log('ClientSide updated profile info successfully');
         context.props.updateUserData(res.data);
       })

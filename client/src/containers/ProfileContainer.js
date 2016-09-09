@@ -107,6 +107,14 @@ class ProfileContainer extends React.Component {
   componentWillReceiveProps(props, next) {
     console.log(props, next, 'ProfileContainer componentDidMount')
   }
+//SEE NOTE BELOW
+  // updateUserData(data) {
+  //   console.log('calling updateUserdata', data);
+  //   this.setState({
+  //     userFacebook: data
+  //   });
+  // }
+
 
   componentWillReceiveProps(props, next) {
     console.log(props, next, 'ProfileContainer componentWillReceiveProps')
