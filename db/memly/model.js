@@ -3,10 +3,17 @@ var Schema = mongoose.Schema;
 
 var memlySchema = new Schema({
   userId: String,
-  title: String,
-  mediaUrl: String,
-  visits: Number
-  // TODO: what else should describe our memly?
+  comment: String,
+  visits: Number,
+  place: String,
+  location: {
+  	lat: Number,
+  	lng: Number
+  },
+  media: {
+    url: String,
+    contentType: String
+  }
 });
 
 module.exports = mongoose.model('Memly', memlySchema);
