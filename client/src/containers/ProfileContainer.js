@@ -133,6 +133,7 @@ class ProfileContainer extends React.Component {
     // props.isLoggedIn should be TRUE...
   }
 
+
   componentWillReceiveProps(props, next) {
     console.log(props, next, 'ProfileContainer componentWillReceiveProps')
   }
