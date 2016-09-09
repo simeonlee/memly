@@ -142,7 +142,7 @@ class ProfileContainer extends React.Component {
   // }
 
   componentWillReceiveProps(props, next) {
-    console.log(props, next, 'ProfileContainer componentDidMount')
+    console.log(props, next, 'ProfileContainer componentWillReceiveProps')
   }
 //SEE NOTE BELOW
   // updateUserData(data) {
