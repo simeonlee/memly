@@ -8,11 +8,6 @@ import GoogleMapPresentational from '../components/GoogleMapPresentational'
 import update from 'react-addons-update'
 import axios from 'axios'
 
-// const style = {
-//   width: '100%',
-//   height: '500px'
-// }
-
 class GoogleMapContainer extends Component {
   static propTypes = {
     // center: PropTypes.array,
