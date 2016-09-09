@@ -5,24 +5,30 @@ import { memlyStyle, memlyStyleHover } from '../../styles/memlyStyles'
 export const UserLocation = (props) => {
   return(
     <div>
-      <img className="map-user-marker" src='../../images/user/user-star@2x.png'/>
+      <div className="pin bounce" />
+      <div className="pulse" />
     </div>
   )
 }
+
+// Old user marker star:
+// <img className="user-marker" src='../../images/user/user-star@2x.png'/>
 
 // Represent other memlys
 export const GoogleMapMemly = (props) => {
   const style = props.$hover ? memlyStyleHover : memlyStyle;
 
   return (
-    <div style={style}>
-      {props.text}
-      <img
-        height={'60px'}
-        width={'85px'}
-        src={props.photo}
-        className="map-memly-media"
-      />
+    <div>
+      <div className="memly-infowindow" /* Infowindow floats above marker */>
+        <img className="memly-media" src={props.media.url} />
+      </div>
+      <div className="memly-marker" style={style} />
     </div>
   )
 }
+
+// Old stuffs:
+// height={'60px'}
+// width={'85px'}
+// {props.text}

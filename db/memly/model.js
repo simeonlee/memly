@@ -10,9 +10,9 @@ var memlySchema = new Schema({
   	lat: Number,
   	lng: Number
   },
-  image: {
-  	data: Buffer, // allows us to store our image as data in the form of arrays
-  	contentType: String
+  media: {
+    url: String,
+    contentType: String
   }
 });
 

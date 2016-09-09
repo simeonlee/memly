@@ -8,11 +8,6 @@ import GoogleMapPresentational from '../components/GoogleMapPresentational'
 import update from 'react-addons-update'
 import axios from 'axios'
 
-// const style = {
-//   width: '100%',
-//   height: '500px'
-// }
-
 class GoogleMapContainer extends Component {
   static propTypes = {
     // center: PropTypes.array,
@@ -34,68 +29,72 @@ class GoogleMapContainer extends Component {
         lng: -122.4089664
       },
       //memlys will be grabbed from db based on user location. (HTTP request in componentWillMount method)
-      memlys: [{
-        location: {
-          lat: 0,
-          lng: 0,
+      memlys: [
+        {
+          location: {
+            lat: 37.7836966,
+            lng: -122.4089664
+          },
+          key: 'Hack Reactor',
+          defaultAnimation: 2,
+          showInfo: false,
+          media: {
+            url: "../../styles/hackreactor.jpg"
+          }
         },
-        key: 'currentPosition',
-        defaultAnimation: 2,
-        showInfo: false,
-        photo: null
-      },
-      {
-        location: {
-          lat: 37.7836966,
-          lng: -122.4089664
+        {
+          location: {
+            lat: 51.507351,
+            lng: -0.125758
+          },
+          username: "Michael Wong",
+          userAvatar: "../../styles/userAvatar.jpg",
+          key: 'timestamp1',
+          defaultAnimation: 2,
+          showInfo: false,
+          media: {
+            url: "../../styles/shutterstock_276995975.jpg"
+          }
         },
-        key: 'Hack Reactor',
-        defaultAnimation: 2,
-        showInfo: false,
-        photo: "../../styles/hackreactor.jpg"
-      },
-      {
-        location: {
-          lat: 51.507351,
-          lng: -0.125758
+        {
+          location: {
+            lat: 51.507351,
+            lng: -0.12958
+          },
+          key: 'timestamp2',
+          defaultAnimation: 2,
+          showInfo: false,
+          media: {
+            url: "../../styles/M9071-PARENT-2.jpg"
+          }
         },
-        username: "Michael Wong",
-        userAvatar: "../../styles/userAvatar.jpg",
-        key: 'timestamp1',
-        defaultAnimation: 2,
-        showInfo: false,
-        photo: "../../styles/shutterstock_276995975.jpg"
-      },
-      {
-        location: {
-          lat: 51.507351,
-          lng: -0.12958
+        {
+          location: {
+            lat: 51.509351,
+            lng: -0.12958
+          },
+          key: 'timestamp3',
+          defaultAnimation: 2,
+          showInfo: false,
+          media: {
+            url: "../../styles/15759420184_f34af1b4a8.jpg"
+          }
         },
-        key: 'timestamp2',
-        defaultAnimation: 2,
-        showInfo: false,
-        photo: "../../styles/M9071-PARENT-2.jpg"
-      },
-      {
-        location: {
-          lat: 51.509351,
-          lng: -0.12958
-        },
-        key: 'timestamp3',
-        defaultAnimation: 2,
-        showInfo: false,
-        photo: "../../styles/15759420184_f34af1b4a8.jpg"
-      },
-      {
-        location: {
-          lat: 51.506351,
-          lng: -0.12958
-        },
-        key: 'timestamp4',
-        defaultAnimation: 2,
-        showInfo: false,
-        photo: "../../styles/londonstreet.jpeg"
-      }]
+        {
+          location: {
+            lat: 51.506351,
+            lng: -0.12958
+          },
+          key: 'timestamp4',
+          defaultAnimation: 2,
+          showInfo: false,
+          media: {
+            url: "../../styles/londonstreet.jpeg"
+          }
+        }
+      ],
+      // Keep ids of already accepted memlys in below storage to avoid duplicate entries
+      memlyIdStorage: {}
     }
 
     this.geolocate();
@@ -133,6 +132,10 @@ class GoogleMapContainer extends Component {
         }, function() {
           // Error handler for "navigator.geolocation.getCurrentPosition()"
           alert('Geolocation failed');
+          // Clear further geolocation's upon failure so we don't get repeat alerts
+          if (window.geolocator) {
+            window.clearInterval(window.geolocator);
+          };
         });
       }, 1000);
     } else {
@@ -163,9 +166,18 @@ class GoogleMapContainer extends Component {
           // 'response.data' is an array of memlys to be displayed
           console.log(response.data);
 
-          let { memlys } = this.state;
-          memlys = update(memlys, { $push: response.data } );
-          this.setState({ memlys });
+          let { memlys, memlyIdStorage } = this.state;
+
+          // If our memlys storage does not yet contain the new memly,
+          // add the new memly to our storage
+          response.data.forEach((memly) => {
+            if (!memlyIdStorage[memly._id]) {
+              memlyIdStorage[memly._id] = true;
+              memlys.push(memly);
+            };
+          });
+
+          this.setState({ memlys, memlyIdStorage });
           console.log(this.state.memlys);
         })
         .catch((error) => {
