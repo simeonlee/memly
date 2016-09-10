@@ -57,7 +57,6 @@ class EditProfileContainer extends React.Component {
   }
 
 
-
   componentWillMount() {
     var context = this;
     axios.get('/user/retrieve/profileinfo/')
@@ -103,7 +102,6 @@ class EditProfileContainer extends React.Component {
         console.log('checking out how birthday is formatted ONE MORE TIME', res.data);
         res.data.birthday = context.DateParser(res.data.birthday);
         console.log('its my birthday!!!!!', res.data);
-
         console.log('ClientSide updated profile info successfully');
         context.props.updateUserData(res.data);
       })
