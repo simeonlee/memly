@@ -70,6 +70,7 @@ app.get('/auth/facebook/callback',
   });
 
 
+
 //helper function to check if a user session has been created.
 // var isLoggedIn = function(req, res, next) {
 //   console.log('I am hitting isLoggedIn helper function');
