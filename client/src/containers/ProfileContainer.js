@@ -20,7 +20,7 @@ class ProfileContainer extends React.Component {
     user: PropTypes.object,
     userFacebook: PropTypes.object,
     memlyCount: PropTypes.number,
-    birthday: '',
+    // birthday: '',
   }
 
   DateParser(date) {
@@ -128,6 +128,11 @@ class ProfileContainer extends React.Component {
     // this.props.changeNavToAlreadyLoggedIn();
   }
 
+  componentDidMount(){
+    console.log(this.props, 'profileComponentDidMount'); 
+    // props.isLoggedIn should be TRUE...
+  }
+
   componentWillReceiveProps(props, next) {
     console.log(props, next, 'ProfileContainer componentWillReceiveProps')
   }
@@ -154,7 +159,7 @@ class ProfileContainer extends React.Component {
 
     return(
       <div>
-        <Profile user = {this.props.user} userFacebook = {this.props.userFacebook} memlyCount={this.props.memlyCount}/>
+        <Profile user = {this.props.user} userFacebook = {this.props.userFacebook} memlyCount={this.props.memlyCount} />
         {this.props.children}
       </div>
       )
