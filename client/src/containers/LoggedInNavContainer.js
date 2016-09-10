@@ -40,7 +40,7 @@ class LoggedInNavContainer extends React.Component {
   render() {
     return(
       <div className = 'NavContainer'>
-        <LoggedInNav LogMeOut={this.LogMeOut} retrieveProfileInfo={this.retrieveProfileInfo}/>
+        <LoggedInNav LogMeOut={this.LogMeOut.bind(this)} retrieveProfileInfo={this.retrieveProfileInfo}/>
       </div>
       )
   }
