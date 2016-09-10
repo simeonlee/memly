@@ -70,20 +70,6 @@ app.get('/auth/facebook/callback',
   });
 
 
-//helper function to check if a user session has been created.
-// var isLoggedIn = function(req, res, next) {
-//   console.log('I am hitting isLoggedIn helper function');
-//   if (!req.session.passport) {
-//     console.log('no passport session sorry!!!');
-//     res.redirect('http://localhost:3000/#');
-//   } else if (!req.session.passport.user) {
-//     console.log('no passport user defined. maybe next time????');
-//     res.redirect('http://localhost:3000/#');
-//   } else {
-//     next();
-//   }
-// };
-
 app.get('/user/profile/', helper.isLoggedIn, function(req, res) {
   res.redirect('http://localhost:3000/#/user/profile');
   // }
@@ -114,6 +100,42 @@ app.get('/user/retrieve/profileinfo/', helper.isLoggedIn, function(req, res) {
 
 });
 
+app.post('/user/edit/profileinfo/', helper.isLoggedIn, function(req, res) {
+  console.log('i hit my post request for edit profile', req.body);
+  var userID = req.session.passport.user['_id'];
+  console.log('whats in my editProfile post request ------>', req.body);
+  var name = req.body.name;
+  var email = req.body.email;
+  var birthday = req.body.birthday;
+  var gender = req.body.gender;
+  var bio = req.body.bio;
+
+  User.findOne({_id: userID}).exec(function(err, found) {
+    if (err) {
+      res.status(404).send('couldnt find the model ur looking for');
+    }
+    if (found) {
+      console.log('checking found in editProfile', found);
+      found.name = name;
+      found.email = email;
+      found.birthday = birthday;
+      found.gender = gender;
+      found.bio = bio;
+      found.save((function(err, User) {
+        if (err) {
+          console.log('am i hitting error in edit profile???????');
+          res.status(500).send(err);
+        }
+        console.log('i successfully edited my profile and just saved ----->');
+        res.status(200).send(found);
+      }));
+    } else {
+      res.redirect('http://localhost:3000/#');
+    }
+  });
+
+});
+
 
 
 
@@ -121,7 +143,6 @@ app.get('/user/retrieve/profileinfo/', helper.isLoggedIn, function(req, res) {
 app.get('/logout', function(req, res) {
   console.log('I HIT LOGOUT, checking if theres a session made', req.session);
   req.logOut();
-  console.log('MAKING SURE SESSION IS DESTROYED', req.session);
   res.status(200).send('destroy session');
 });
 

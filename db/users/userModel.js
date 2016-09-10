@@ -14,6 +14,7 @@ userSchema = new Schema({
   bio: String,
   profilePhotoUrl: String,
   email: String,
+  newUser: Boolean,
   memlys: [
     {
       mediaUrl: String,
@@ -62,8 +63,8 @@ userSchema.statics.findOrCreate = function(profile, cb) {
   //console.log('checking what profile is before findone', profile);
   // store in server memory
   var raw = JSON.parse(profile['_raw']);
-  console.log('WHAT IS PROFILE PHOTOS', profile.photos);
-  // console.log('WHAT IS RAW????????', raw);
+  // console.log('WHAT IS PROFILE PHOTOS', profile.photos);
+  console.log('WHAT IS RAW????????', raw.birthday);
   userId = raw.id;
   var userObj = new this();
   this.findOne({_id: userId}, function(err, result) {
@@ -74,6 +75,7 @@ userSchema.statics.findOrCreate = function(profile, cb) {
       userObj.age = utils.calculateAge(raw.birthday);
       userObj.birthday = raw.birthday;
       userObj.gender = raw.gender;
+      userObj.newUser = true;
       // userObj.city = raw.location.name || '';
       // userObj.job = raw.work || '';
       // userObj.education = raw.education[raw.education.length - 1].school.name || '';
