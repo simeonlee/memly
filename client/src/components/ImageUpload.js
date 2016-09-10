@@ -3,7 +3,7 @@ import React from 'react'
 const ImageUpload = ({imagePreviewUrl, handleSubmit, handleImageChange, handlePlaceChange, handleCommentChange}) => {
   // let {imagePreviewUrl} = this.state;
   let $imagePreview = null;
-  if (imagePreviewUrl) {
+  if (imagePreviewUrl !== '') {
     $imagePreview = (<img src={imagePreviewUrl} />);
   } else {
     $imagePreview = (<div className="previewText">Preview image</div>);

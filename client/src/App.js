@@ -6,12 +6,14 @@ import { Provider } from 'react-redux'
 import userReducer from './redux/userReducer'
 import memlysReducer from './redux/memlysReducer'
 import mapReducer from './redux/mapReducer'
+import imageUploadReducer from './redux/imageUploadReducer'
 
 //combine reducers
 const reducers = combineReducers({
   userReducer,
   memlysReducer,
   mapReducer,
+  imageUploadReducer,
 })
 //create a store that houses state-tree of app. Can only be modified by dispatching actions on the reducers 
 //provided in createStore. (see.... ./redux/userReducers for example of Actions)

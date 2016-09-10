@@ -11,7 +11,7 @@ class ImageUploadContainer extends React.Component {
 		imagePreviewUrl: PropTypes.string,
 		loaction: PropTypes.object,
 		place: PropTypes.string,
-		comment: PropTypes.string
+		comment: PropTypes.string,
 	};
 
 	constructor(props) {
@@ -117,10 +117,10 @@ class ImageUploadContainer extends React.Component {
 		return (
 			<ImageUpload 
 				imagePreviewUrl={this.props.imagePreviewUrl}
-				handleSubmit={this.handleSubmit}
-				handleImageChange={this.handleImageChange}
-				handlePlaceChange={this.handlePlaceChange}
-				handleCommentChange={this.handleCommentChange}
+				handleSubmit={this.handleSubmit.bind(this)}
+				handleImageChange={this.handleImageChange.bind(this)}
+				handlePlaceChange={this.handlePlaceChange.bind(this)}
+				handleCommentChange={this.handleCommentChange.bind(this)}
 			/>
 		)
 	}
