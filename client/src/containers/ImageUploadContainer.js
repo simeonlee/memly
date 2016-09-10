@@ -54,11 +54,11 @@ class ImageUploadContainer extends React.Component {
 	}
 
 	handlePlaceChange(e) {
-		this.props.dispatch(imageUploadActions.handePlaceChange(e.target.value));
+		this.props.dispatch(imageUploadActions.handlePlaceChange(e.target.value));
 	}
 
 	handleCommentChange(e) {
-		this.props.dispatch(imageUploadActions.handeCommentChange(e.target.value));
+		this.props.dispatch(imageUploadActions.handleCommentChange(e.target.value));
 	}
 
 	// This allows us to preview images before file post
@@ -133,8 +133,8 @@ function mapStateToProps(state) {
 		file: state.imageUploadReducer.file,
 		imagePreviewUrl: state.imageUploadReducer.imagePreviewUrl,
 		location: state.imageUploadReducer.location,
-		place: state.imageUploadReducer.location,
-		comment: state.imageUploadReducer.location,
+		place: state.imageUploadReducer.place,
+		comment: state.imageUploadReducer.comment,
 	}
 }
 
