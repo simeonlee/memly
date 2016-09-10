@@ -32,7 +32,7 @@ class LoggedInNavContainer extends React.Component {
     axios.get('/user/retrieve/profileinfo/')
       .then((res) => {
         //console.log('I hit the the getProfile function and got a response--------->', res.data);
-        this.props.dispatch(userActions.fetchUserSuccess(res.data));
+        this.props.dispatch(userActions.updateUserFacebook(res.data));
       });
   }
 
@@ -40,7 +40,7 @@ class LoggedInNavContainer extends React.Component {
   render() {
     return(
       <div className = 'NavContainer'>
-        <LoggedInNav LogMeOut={this.LogMeOut.bind(this)} retrieveProfileInfo={this.retrieveProfileInfo}/>
+        <LoggedInNav LogMeOut={this.LogMeOut.bind(this)} retrieveProfileInfo={this.retrieveProfileInfo.bind(this)}/>
       </div>
       )
   }

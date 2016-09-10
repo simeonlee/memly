@@ -44,6 +44,13 @@ export function updateUserFacebook (userFacebook) {
   }
 }
 
+export function updateUserBirthday (birthday) {
+  return {
+    type: 'UPDATE_USER_BIRTHDAY',
+    birthday,
+  }
+}
+
 export function updateMemlyCount(memlyCount) {
   return {
     type: 'UPDATE_MEMLY_COUNT',
@@ -142,6 +149,13 @@ export default function userReducer (state = userInitialState, action) {
       return {
         ...state,
         userFacebook: action.userFacebook,
+      }
+    }
+
+    case 'UPDATE_USER_BIRTHDAY' : {
+      return {
+        ...state,
+        birthday: action.birthday,
       }
     }
 

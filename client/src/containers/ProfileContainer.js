@@ -115,8 +115,8 @@ class ProfileContainer extends React.Component {
       })
       .then((res) => {
         res.data.birthday = this.DateParser(res.data.birthday);
-
         //why are we doing this twice? 
+        this.props.dispatch(userActions.updateUserBirthday(res.data.birthday));
         this.props.dispatch(userActions.updateMemlyCount(res.data.memlys.length));
         this.props.dispatch(userActions.updateUserFacebook(res.data));
         

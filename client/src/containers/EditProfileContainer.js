@@ -1,14 +1,40 @@
 import React, { PropTypes } from 'react'
 import EditProfile from '../components/EditProfile'
 import axios from 'axios'
+import { connect } from 'react-redux'
+import * as userActions from '../redux/userReducer'
+
 class EditProfileContainer extends React.Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      userFacebook: {},
-      birthday: ''
-    }
+  static propTypes = {
+    userFacebook: PropTypes.object,
+    birthday: PropTypes.string,
+  }
+
+  // constructor(props){
+  //   super(props);
+    
+    //in ES6, componentWillMount goes into constructor invocation!
+    //just put whatever you want componentWillMount within this method
+    
+    // axios.get('/user/retrieve/profileinfo/')
+    //   .then((res) => {
+    //     this.props.dispatch(userActions.updateUserFacebook(res.data));
+    //     this.props.dispatch(userActions.updateUserBirthday(res.data.birthday))
+    //     context.setState({
+    //       userFacebook: res.data,
+    //       birthday: res.data.birthday
+    //     });
+    //     console.log('checking userFacebook state for EditProfileContainer ------>', context.state.userFacebook);
+    //   });
+
+    // console.log(this.props, 'editprofielContainer Will Mount props');
+    
+  // }
+
+  componentDidMount(){
+    console.log(this.props, 'editprofielContainer DID Mount props');
+
   }
 
 
@@ -58,31 +84,31 @@ class EditProfileContainer extends React.Component {
 
 
 
-  componentWillMount() {
-    var context = this;
-    axios.get('/user/retrieve/profileinfo/')
-      .then(function(res) {
-        context.setState({
-          userFacebook: res.data,
-          birthday: res.data.birthday
-        });
-        console.log('checking userFacebook state for EditProfileContainer ------>', context.state.userFacebook);
-      });
-  }
+  // componentWillMount() {
+  //   var context = this;
+  //   axios.get('/user/retrieve/profileinfo/')
+  //     .then(function(res) {
+  //       context.setState({
+  //         userFacebook: res.data,
+  //         birthday: res.data.birthday
+  //       });
+  //       console.log('checking userFacebook state for EditProfileContainer ------>', context.state.userFacebook);
+  //     });
+  // }
 
   changeProfileInfo(name, email, birthday, gender, bio) {
-    var context = this;
+    // var context = this;
 
     if(! this.validateEmail(email)) {
-      email = this.state.userFacebook.email;
+      email = this.props.userFacebook.email;
     } else {
       email = email;
     }
 
-    name = name || this.state.userFacebook.name;
-    birthday = birthday || this.state.birthday;
-    gender = gender || this.state.userFacebook.gender;
-    bio = bio || this.state.userFacebook.bio;
+    name = name || this.props.userFacebook.name;
+    birthday = birthday || this.props.birthday;
+    gender = gender || this.props.userFacebook.gender;
+    bio = bio || this.props.userFacebook.bio;
 
     if (birthday.indexOf('-') !== -1) {
       var birthdayArray = birthday.split('-');
@@ -94,14 +120,16 @@ class EditProfileContainer extends React.Component {
 
     axios.post('/user/edit/profileinfo/', 
       {name: name, email: email, birthday: birthday, gender: gender, bio: bio})
-      .then(function(res) {
+      .then((res) => {
         console.log('checking out how birthday is formatted', res.data);
-        context.setState({
-          userFacebook: res.data
-        });
+        this.props.dispatch(userActions.updateUserFacebook(res.data));
+        
+        // context.setState({
+        //   userFacebook: res.data
+        // });
 
         console.log('checking out how birthday is formatted ONE MORE TIME', res.data);
-        res.data.birthday = context.DateParser(res.data.birthday);
+        res.data.birthday = this.DateParser(res.data.birthday);
         console.log('its my birthday!!!!!', res.data);
 
     // console.log('what is inside email', email);
@@ -117,18 +145,24 @@ class EditProfileContainer extends React.Component {
     //   .then(function(res) {
 
         console.log('ClientSide updated profile info successfully');
-        context.props.updateUserData(res.data);
+        // context.props.updateUserData(res.data);
       })
   }
 
   render() {
     return(
       <div id="EditProfileContainer">
-        <EditProfile userFacebook={this.state.userFacebook} changeProfileInfo={this.changeProfileInfo.bind(this)}/>
+        <EditProfile userFacebook={this.props.userFacebook} changeProfileInfo={this.changeProfileInfo.bind(this)}/>
       </div>
     )
   }
-
 }
 
-export default EditProfileContainer
+function mapStateToProps(state) {
+  return {
+    userFacebook: state.userReducer.userFacebook,
+    birthday: state.userReducer.birthday
+  }
+}
+
+export default connect(mapStateToProps)(EditProfileContainer)
