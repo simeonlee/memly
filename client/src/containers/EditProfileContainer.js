@@ -57,6 +57,7 @@ class EditProfileContainer extends React.Component {
   }
 
 
+
   componentWillMount() {
     var context = this;
     axios.get('/user/retrieve/profileinfo/')
