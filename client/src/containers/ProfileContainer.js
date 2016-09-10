@@ -61,6 +61,7 @@ class ProfileContainer extends React.Component {
     return dateFormatted;
   }
 
+
   DateParser(date) {
     console.log('checking date format', date);
     var dateArray = date.split('/');
