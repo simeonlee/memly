@@ -70,20 +70,6 @@ app.get('/auth/facebook/callback',
   });
 
 
-//helper function to check if a user session has been created.
-// var isLoggedIn = function(req, res, next) {
-//   console.log('I am hitting isLoggedIn helper function');
-//   if (!req.session.passport) {
-//     console.log('no passport session sorry!!!');
-//     res.redirect('http://localhost:3000/#');
-//   } else if (!req.session.passport.user) {
-//     console.log('no passport user defined. maybe next time????');
-//     res.redirect('http://localhost:3000/#');
-//   } else {
-//     next();
-//   }
-// };
-
 app.get('/user/profile/', helper.isLoggedIn, function(req, res) {
   res.redirect('http://localhost:3000/#/user/profile');
   // }
@@ -157,7 +143,6 @@ app.post('/user/edit/profileinfo/', helper.isLoggedIn, function(req, res) {
 app.get('/logout', function(req, res) {
   console.log('I HIT LOGOUT, checking if theres a session made', req.session);
   req.logOut();
-  console.log('MAKING SURE SESSION IS DESTROYED', req.session);
   res.status(200).send('destroy session');
 });
 
