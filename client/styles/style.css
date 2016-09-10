@@ -111,11 +111,11 @@ ul {
 }
 
 .ProfileBoxes {
+  width: 85%;
   border-radius: 3px;
   background-color: white;
+  margin: 0 auto;
   margin-top: 2%;
-  margin-right: 2%;
-  margin-left: 2%; 
   padding-bottom: 2%;
 }
 
@@ -191,16 +191,6 @@ ul {
   margin: 0 auto;
 }
 
-.oneMemly {
-  border: 1px solid #e1e8ed;
-  background-color: #f5f8fa;
-}
-
-.memlyPhoto {
-  border-radius: 2px;
-  margin: 2%;
-  max-width: 33%;
-}
 
 .memlyInfo {
   display: block;
@@ -442,6 +432,24 @@ Old? Are we using the below? Feel free to uncomment out
   color: blue;
 }
 
+.oneMemly {
+  display: inline-block;
+  width: 30%;
+  margin: 1.5%;
+  background-color: white;
+}
+.memlyPhoto {
+  position: relative;
+  border-radius: 2px;
+  margin: 2%;
+  width:100%;
+
+}
+
+.memlyPhoto:hover {
+  border:1px solid black;
+}
+
 #EditProfileContainer{
   margin: 5%;
 }
@@ -487,4 +495,5 @@ Old? Are we using the below? Feel free to uncomment out
  background-image: -o-linear-gradient(top, #1ab0ec, #3f9feb);
  background-image: linear-gradient(to bottom, #1ab0ec, #3f9feb);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#1ab0ec, endColorstr=#3f9feb);
 }
+
 
