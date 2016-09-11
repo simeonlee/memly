@@ -32,11 +32,13 @@ exports.create = function(req, res) {
 */
 
   // Read and create buffer file from disk-saved image
-  var file = fs.readFileSync(req.file.path);
+  // var file = fs.readFileSync(req.file.path);
+  var file = req.body.imageData;
+  console.log('----> file ---->', file);
 
   // Grab randomized file name
-  var filename = req.file.filename;
-  // var filename = 'test-file-name.png'
+  // var filename = req.file.filename;
+  var filename = 'test-file-name.png'
 
   // Create re-usable url that can be used to view media asset from anywhere
   var mediaUrl = 'https://s3-' + env.region + '.amazonaws.com/' + env.bucket + '/' + folder + '/' + filename;

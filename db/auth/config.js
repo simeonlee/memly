@@ -6,7 +6,7 @@ exports.env = function() {
       return {
         FACEBOOK_APP_ID: keys.FACEBOOK_APP_ID,
         FACEBOOK_APP_SECRET: keys.FACEBOOK_APP_SECRET,
-        callbackURL: 'https://localhost:3000/auth/facebook/callback'
+        callbackURL: 'http://localhost:3000/auth/facebook/callback'
       };
     case 'production':
       return {
