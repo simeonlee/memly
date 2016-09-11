@@ -7,7 +7,7 @@ import LikedMemlysContainer from './components/user/likedMemlys/LikedMemlysConta
 import ProfileContainer from './components/user/profile/ProfileContainer'
 import EditProfileContainer from './components/user/editProfile/EditProfileContainer';
 import ImageUploadContainer from './components/media/upload/ImageUploadContainer'
-import GoogleMapContainer from './components/map/map/GoogleMapContainer';
+import GoogleMapContainer from './components/map/map/container';
 import axios from 'axios'
 
 var routes = (

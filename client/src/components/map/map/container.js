@@ -4,7 +4,7 @@ import controllable from 'react-controllables' //need to look into use for this.
 import GoogleMap from 'google-map-react'
 import {K_SIZE} from '../../../../styles/memlyStyles'
 import mapStyle from '../../../../styles/mapStyle'
-import GoogleMapPresentational from './GoogleMapPresentational'
+import GoogleMapPresentational from './presentation'
 import update from 'react-addons-update'
 import axios from 'axios'
 import { connect } from 'react-redux'
