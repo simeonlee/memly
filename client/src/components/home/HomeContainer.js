@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react'
-import Home from '../components/Home'
-import LoggedInNavContainer from './LoggedInNavContainer'
-import LoggedOutNavContainer from './LoggedOutNavContainer'
+import Home from './Home'
+import LoggedInNavContainer from '../nav/loggedIn/LoggedInNavContainer'
+import LoggedOutNavContainer from '../nav/loggedOut/LoggedOutNavContainer'
 import { Router, Route, hashHistory, IndexRoute, Link } from 'react-router'
 import { connect } from 'react-redux'
 //import actions to dispatch on store
-import * as userActions from '../redux/userReducer'
+import * as userActions from '../../redux/userReducer'
 
 class HomeContainer extends React.Component {
 

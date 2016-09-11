@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import ImageRetrieve from '../components/ImageRetrieve'
+import ImageRetrieve from './ImageRetrieve'
 
 export default class ImageRetrieveContainer extends React.Component {
 

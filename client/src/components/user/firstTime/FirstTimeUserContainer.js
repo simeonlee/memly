@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import FirstTimeUser from '../components/FirstTimeUser'
+import FirstTimeUser from './FirstTimeUser'
 import axios from 'axios'
 class FirstTimeUserContainer extends React.Component {
 

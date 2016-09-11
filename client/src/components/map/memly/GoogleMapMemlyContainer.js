@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react'
-import { UserLocation, GoogleMapMemly } from '../components/GoogleMapMemly' 
+import { UserLocation, GoogleMapMemly } from './GoogleMapMemly' 
 
 export default class GoogleMapMemlyContainer extends Component {
   static propTypes = {

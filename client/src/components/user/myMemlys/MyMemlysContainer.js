@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import MyMemlys from '../components/MyMemlys'
+import MyMemlys from './MyMemlys'
 
 class MyMemlysContainer extends React.Component {
 

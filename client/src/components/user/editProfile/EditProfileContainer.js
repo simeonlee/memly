@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
-import EditProfile from '../components/EditProfile'
+import EditProfile from './EditProfile'
 import axios from 'axios'
 import { connect } from 'react-redux'
-import * as userActions from '../redux/userReducer'
+import * as userActions from '../../../redux/userReducer'
 
 class EditProfileContainer extends React.Component {
 

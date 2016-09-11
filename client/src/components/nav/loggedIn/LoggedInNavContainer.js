@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
-import LoggedInNav from '../components/LoggedInNav'
+import LoggedInNav from './LoggedInNav'
 import axios from 'axios'
 import { Router, Route, hashHistory, IndexRoute, Link } from 'react-router'
 import { connect } from 'react-redux'
-import * as userActions from '../redux/userReducer'
+import * as userActions from '../../../redux/userReducer'
 
 class LoggedInNavContainer extends React.Component {
   static propTypes = {

@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 import axios from 'axios'
-import ImageUpload from '../components/ImageUpload'
+import ImageUpload from './ImageUpload'
 import { connect } from 'react-redux'
-import * as imageUploadActions from '../redux/imageUploadReducer'
+import * as imageUploadActions from '../../../redux/imageUploadReducer'
 
 class ImageUploadContainer extends React.Component {
 	

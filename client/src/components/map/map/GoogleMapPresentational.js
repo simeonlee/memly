@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import GoogleMap from 'google-map-react'
-import GoogleMapMemlyContainer from '../containers/GoogleMapMemlyContainer';
+import GoogleMapMemlyContainer from '../memly/GoogleMapMemlyContainer';
 // import shallowCompare from 'react-addons-shallow-compare'
 // import controllable from 'react-controllables'
 

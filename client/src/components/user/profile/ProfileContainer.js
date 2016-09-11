@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
-import Profile from '../components/Profile'
+import Profile from './Profile'
 import axios from 'axios'
 import { connect } from 'react-redux'
-import * as userActions from '../redux/userReducer'
+import * as userActions from '../../../redux/userReducer'
 
 class ProfileContainer extends React.Component {
 

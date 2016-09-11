@@ -1,5 +1,5 @@
 import React from 'react'
-import { memlyStyle, memlyStyleHover } from '../../styles/memlyStyles'
+import { memlyStyle, memlyStyleHover } from '../../../../styles/memlyStyles'
 
 // Represent user location
 export const UserLocation = (props) => {

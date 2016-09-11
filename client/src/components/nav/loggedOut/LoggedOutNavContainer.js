@@ -1,10 +1,10 @@
 
 import React, { PropTypes } from 'react'
-import LoggedOutNav from '../components/LoggedOutNav'
+import LoggedOutNav from './LoggedOutNav'
 import axios from 'axios';
 import { Router, Route, hashHistory, IndexRoute, Link } from 'react-router'
 import { connect } from 'react-redux'
-import * as userActions from '../redux/userReducer'
+import * as userActions from '../../../redux/userReducer'
 
 class LoggedOutNavContainer extends React.Component {
 

@@ -2,14 +2,14 @@ import React, { PropTypes, Component } from 'react'
 import shallowCompare from 'react-addons-shallow-compare'
 import controllable from 'react-controllables' //need to look into use for this... allows you to control prop types somehow...
 import GoogleMap from 'google-map-react'
-import {K_SIZE} from '../../styles/memlyStyles'
-import mapStyle from '../../styles/mapStyle'
-import GoogleMapPresentational from '../components/GoogleMapPresentational'
+import {K_SIZE} from '../../../../styles/memlyStyles'
+import mapStyle from '../../../../styles/mapStyle'
+import GoogleMapPresentational from './GoogleMapPresentational'
 import update from 'react-addons-update'
 import axios from 'axios'
 import { connect } from 'react-redux'
-import * as memlysActions from '../redux/memlysReducer'
-import * as mapActions from '../redux/mapReducer'
+import * as memlysActions from '../../../redux/memlysReducer'
+import * as mapActions from '../../../redux/mapReducer'
 
 class GoogleMapContainer extends Component {
   static propTypes = {
