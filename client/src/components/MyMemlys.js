@@ -3,14 +3,16 @@ import { Router, Route, hashHistory, IndexRoute, Link } from 'react-router'
 
 
 const MyMemlys = (props) => {
+    const divStyle = {
+      backgroundImage: 'url(' +props.item.url+ ')',
+      backgroundPosition:'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat'
+    }
   return(
-    <div>
-    <div className = "oneMemly">
-    <img className = 'memlyPhoto' src= {props.item.url}/>
-    <div className = "memlyInfo">
-    <span>taken from: {props.item.location}</span>
-    </div>
-    </div>
+    <div className = "oneMemly" style={divStyle}>
+        <div className="oneMemlyWrapper">
+        </div>
     </div>
     )
 }
