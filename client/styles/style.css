@@ -443,9 +443,10 @@ Old? Are we using the below? Feel free to uncomment out
 
 .oneMemly {
   display: block;
-
+  border-radius: 3px;
+  border: 1px solid white;
   width: 30%;
-  margin: 1.5%;
+  margin: 1.6%;
 
 }
 
