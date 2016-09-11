@@ -15,7 +15,7 @@ export const UserLocation = (props) => {
 // <img className="user-marker" src='../../images/user/user-star@2x.png'/>
 
 // Represent other memlys
-export const GoogleMapMemly = (props) => {
+export const MapMemly = (props) => {
   const style = props.$hover ? memlyStyleHover : memlyStyle;
   const showImg = props.$hover ? (
      <div className="memly-infowindow" /* Infowindow floats above marker */>

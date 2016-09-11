@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react'
-import { UserLocation, GoogleMapMemly } from './presentation' 
+import { UserLocation, MapMemly } from './presentation' 
 
-export default class GoogleMapMemlyContainer extends Component {
+export default class MapMemlyContainer extends Component {
   static propTypes = {
     // GoogleMap pass $hover props to hovered components
     // to detect hover it uses internal mechanism created by react library
@@ -26,7 +26,7 @@ export default class GoogleMapMemlyContainer extends Component {
       );
     } else {
       return (
-        <GoogleMapMemly {...this.props} />
+        <MapMemly {...this.props} />
       );
     }
   }

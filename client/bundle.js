@@ -58499,7 +58499,7 @@
 	// import shallowCompare from 'react-addons-shallow-compare'
 	// import controllable from 'react-controllables'
 
-	var GoogleMapPresentational = function GoogleMapPresentational(props) {
+	var MapPresentational = function MapPresentational(props) {
 	  var memlys = props.memlys.map(function (memly, index) {
 	    var showInfo = memly.showInfo;
 	    var defaultAnimation = memly.defaultAnimation;
@@ -58525,7 +58525,7 @@
 	      _googleMapReact2.default
 	      /*
 	       * Using the ES6 spread syntax (...) below, the following props will be passed from the
-	       * GoogleMapPresentational component into the GoogleMap component:
+	       * MapPresentational component into the GoogleMap component:
 	       * * onChildMouseEnter={(e)=>{console.log(e)}} // event argument will return index of child 
 	         * onClick={(e)=>{console.log(e)}} // event will show lat long on map
 	         * options={{styles: mapStyle}}
@@ -58550,7 +58550,7 @@
 	  );
 	};
 
-	exports.default = GoogleMapPresentational;
+	exports.default = MapPresentational;
 
 /***/ },
 /* 615 */
@@ -58578,16 +58578,16 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var GoogleMapMemlyContainer = function (_Component) {
-	  _inherits(GoogleMapMemlyContainer, _Component);
+	var MapMemlyContainer = function (_Component) {
+	  _inherits(MapMemlyContainer, _Component);
 
-	  function GoogleMapMemlyContainer(props) {
-	    _classCallCheck(this, GoogleMapMemlyContainer);
+	  function MapMemlyContainer(props) {
+	    _classCallCheck(this, MapMemlyContainer);
 
-	    return _possibleConstructorReturn(this, (GoogleMapMemlyContainer.__proto__ || Object.getPrototypeOf(GoogleMapMemlyContainer)).call(this, props));
+	    return _possibleConstructorReturn(this, (MapMemlyContainer.__proto__ || Object.getPrototypeOf(MapMemlyContainer)).call(this, props));
 	  }
 
-	  _createClass(GoogleMapMemlyContainer, [{
+	  _createClass(MapMemlyContainer, [{
 	    key: 'shouldComponentUpdate',
 	    value: function shouldComponentUpdate(nextProps, nextState) {
 	      return this.props !== nextProps;
@@ -58598,22 +58598,22 @@
 	      if (this.props.representCurrentUserLocation) {
 	        return _react2.default.createElement(_presentation.UserLocation, null);
 	      } else {
-	        return _react2.default.createElement(_presentation.GoogleMapMemly, this.props);
+	        return _react2.default.createElement(_presentation.MapMemly, this.props);
 	      }
 	    }
 	  }]);
 
-	  return GoogleMapMemlyContainer;
+	  return MapMemlyContainer;
 	}(_react.Component);
 
-	GoogleMapMemlyContainer.propTypes = {
+	MapMemlyContainer.propTypes = {
 	  // GoogleMap pass $hover props to hovered components
 	  // to detect hover it uses internal mechanism created by react library
 	  $hover: _react.PropTypes.bool,
 	  text: _react.PropTypes.string
 	};
-	GoogleMapMemlyContainer.defaultProps = {};
-	exports.default = GoogleMapMemlyContainer;
+	MapMemlyContainer.defaultProps = {};
+	exports.default = MapMemlyContainer;
 
 /***/ },
 /* 616 */
@@ -58624,7 +58624,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.GoogleMapMemly = exports.UserLocation = undefined;
+	exports.MapMemly = exports.UserLocation = undefined;
 
 	var _react = __webpack_require__(2);
 
@@ -58648,7 +58648,7 @@
 	// <img className="user-marker" src='../../images/user/user-star@2x.png'/>
 
 	// Represent other memlys
-	var GoogleMapMemly = exports.GoogleMapMemly = function GoogleMapMemly(props) {
+	var MapMemly = exports.MapMemly = function MapMemly(props) {
 	  var style = props.$hover ? _memlyStyles.memlyStyleHover : _memlyStyles.memlyStyle;
 	  var showImg = props.$hover ? _react2.default.createElement(
 	    'div',
