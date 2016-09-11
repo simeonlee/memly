@@ -21,9 +21,9 @@ module.exports = function(app) {
   app.use(passport.session());
 
   passport.use(new FacebookStrategy({
-    clientID: keys.FACEBOOK_APP_ID, // TODO: set process.env.FACEBOOK_APP_ID config vars in heroku
-    clientSecret: keys.FACEBOOK_APP_SECRET, // TODO: set  process.env.FACEBOOK_APP_SECRET config vars in heroku
-    callbackURL: "http://localhost:3000/auth/facebook/callback", // TODO: put website url here
+    clientID: process.env.FACEBOOK_APP_ID || keys.FACEBOOK_APP_ID, // TODO: set process.env.FACEBOOK_APP_ID config vars in heroku
+    clientSecret: process.env.FACEBOOK_APP_SECRET || keys.FACEBOOK_APP_SECRET, // TODO: set  process.env.FACEBOOK_APP_SECRET config vars in heroku
+    callbackURL: "https://thawing-fortress-62578.herokuapp.com/auth/facebook/callback", // TODO: put website url here
     profileFields: authConfig.profileFields
   }, function(accessToken, refreshToken, profile, done) {
     console.log('chekcing profile in auth.js', profile);
