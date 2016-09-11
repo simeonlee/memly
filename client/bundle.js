@@ -57727,7 +57727,7 @@
 	    defaultAnimation: 2,
 	    showInfo: false,
 	    media: {
-	      url: "../../styles/hackreactor.jpg"
+	      url: "../../images/test-assets/hackreactor.jpg"
 	    }
 	  }, {
 	    location: {
@@ -57735,12 +57735,12 @@
 	      lng: -0.125758
 	    },
 	    username: "Michael Wong",
-	    userAvatar: "../../styles/userAvatar.jpg",
+	    userAvatar: "../../images/test-assets/userAvatar.jpg",
 	    key: 'timestamp1',
 	    defaultAnimation: 2,
 	    showInfo: false,
 	    media: {
-	      url: "../../styles/shutterstock_276995975.jpg"
+	      url: "../../images/test-assets/shutterstock_276995975.jpg"
 	    }
 	  }, {
 	    location: {
@@ -57748,12 +57748,12 @@
 	      lng: -0.125758
 	    },
 	    username: "Michael Wong",
-	    userAvatar: "../../styles/userAvatar.jpg",
+	    userAvatar: "../../images/test-assets/userAvatar.jpg",
 	    key: 'timestamp1',
 	    defaultAnimation: 2,
 	    showInfo: false,
 	    media: {
-	      url: "../../styles/shutterstock_276995975.jpg"
+	      url: "../../images/test-assets/shutterstock_276995975.jpg"
 	    }
 	  }, {
 	    location: {
@@ -57764,7 +57764,7 @@
 	    defaultAnimation: 2,
 	    showInfo: false,
 	    media: {
-	      url: "../../styles/M9071-PARENT-2.jpg"
+	      url: "../../images/test-assets/M9071-PARENT-2.jpg"
 	    }
 	  }, {
 	    location: {
@@ -57775,7 +57775,7 @@
 	    defaultAnimation: 2,
 	    showInfo: false,
 	    media: {
-	      url: "../../styles/15759420184_f34af1b4a8.jpg"
+	      url: "../../images/test-assets/15759420184_f34af1b4a8.jpg"
 	    }
 	  }, {
 	    location: {
@@ -57786,7 +57786,7 @@
 	    defaultAnimation: 2,
 	    showInfo: false,
 	    media: {
-	      url: "../../styles/londonstreet.jpeg"
+	      url: "../../images/test-assets/londonstreet.jpeg"
 	    }
 	  }],
 
