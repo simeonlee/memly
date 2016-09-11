@@ -1,3 +1,4 @@
+// Default state for reducer as called in 'mapReducer()'
 const mapInitialState = {
   currentUserLocation : {
     lat: 37.7836966,
@@ -26,4 +27,3 @@ export default function mapReducer(state = mapInitialState, action) {
     default : return state
   }
 }
-
