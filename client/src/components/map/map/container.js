@@ -4,14 +4,14 @@ import controllable from 'react-controllables' //need to look into use for this.
 import GoogleMap from 'google-map-react'
 import {K_SIZE} from '../../../../styles/memlyStyles'
 import mapStyle from '../../../../styles/mapStyle'
-import GoogleMapPresentational from './presentation'
+import MapPresentational from './presentation'
 import update from 'react-addons-update'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import * as memlysActions from '../../../redux/memlysReducer'
 import * as mapActions from '../../../redux/mapReducer'
 
-class GoogleMapContainer extends Component {
+class MapContainer extends Component {
   static propTypes = {
     // center: PropTypes.array,
     zoom: PropTypes.number,
@@ -202,7 +202,7 @@ class GoogleMapContainer extends Component {
   render() {
     return (
       <div >
-       <GoogleMapPresentational
+       <MapPresentational
         onChildMouseEnter={(e)=>{console.log(e)}} // event argument will return index of child 
         onClick={(e)=>{console.log(e)}} // event will show lat long on map
         options={{styles: mapStyle}}
@@ -228,4 +228,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(GoogleMapContainer)
+export default connect(mapStateToProps)(MapContainer)

@@ -58232,11 +58232,11 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } //need to look into use for this... allows you to control prop types somehow...
 
 
-	var GoogleMapContainer = function (_Component) {
-	  _inherits(GoogleMapContainer, _Component);
+	var MapContainer = function (_Component) {
+	  _inherits(MapContainer, _Component);
 
-	  function GoogleMapContainer(props) {
-	    _classCallCheck(this, GoogleMapContainer);
+	  function MapContainer(props) {
+	    _classCallCheck(this, MapContainer);
 
 	    // this.state = {
 	    //use geolocation and settimeout to update location of currentUserLocation position of Map
@@ -58313,7 +58313,7 @@
 	    //   memlyIdStorage: {}
 	    // }
 
-	    var _this = _possibleConstructorReturn(this, (GoogleMapContainer.__proto__ || Object.getPrototypeOf(GoogleMapContainer)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (MapContainer.__proto__ || Object.getPrototypeOf(MapContainer)).call(this, props));
 
 	    _this.geolocate();
 	    _this.updateMemlys();
@@ -58329,7 +58329,7 @@
 	  //   // return this.state.currentUserLocation.lat != nextState.currentUserLocation.lat || this.state.currentUserLocation.lng != nextState.currentUserLocation.lng;
 	  // }
 
-	  _createClass(GoogleMapContainer, [{
+	  _createClass(MapContainer, [{
 	    key: 'geolocate',
 	    value: function geolocate() {
 	      var _this2 = this;
@@ -58444,10 +58444,10 @@
 	    }
 	  }]);
 
-	  return GoogleMapContainer;
+	  return MapContainer;
 	}(_react.Component);
 
-	GoogleMapContainer.propTypes = {
+	MapContainer.propTypes = {
 	  // center: PropTypes.array,
 	  zoom: _react.PropTypes.number,
 	  greatPlaceCoords: _react.PropTypes.any,
@@ -58455,7 +58455,7 @@
 	  memlyIdStorage: _react.PropTypes.object,
 	  currentUserLocation: _react.PropTypes.object
 	};
-	GoogleMapContainer.defaultProps = {
+	MapContainer.defaultProps = {
 	  zoom: 15
 	};
 
@@ -58468,7 +58468,7 @@
 	  };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(GoogleMapContainer);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MapContainer);
 
 /***/ },
 /* 614 */
