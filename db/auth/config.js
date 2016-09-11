@@ -1,4 +1,6 @@
-var keys = require('./keys.js') || null;
+if (process.env.NODE_ENV === 'development') {
+  var keys = require('./keys.js');
+};
 
 exports.env = function() {
   switch (process.env.NODE_ENV) {
