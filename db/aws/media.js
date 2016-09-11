@@ -35,7 +35,7 @@ exports.create = function(req, res) {
 
   // Read and create buffer file from disk-saved image
   // var file = fs.readFileSync(req.file.path);
-  var file = req.body.imageData;
+  var file = new Buffer(req.body.imageData, 'base64');
   console.log('----> file ---->', file);
 
   // Grab randomized file name
