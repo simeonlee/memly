@@ -386,10 +386,6 @@ Old? Are we using the below? Feel free to uncomment out
   background-color: white;
 }
 
-.MemlysContainer{
-  border-radius: 5px;
-  border: 1px solid #e1e8ed;
-}
 
 
 .MemlyNavItem {
@@ -432,16 +428,39 @@ Old? Are we using the below? Feel free to uncomment out
   color: blue;
 }
 
+.MemlysContainer{
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #e1e8ed;
+}
+
+
 .oneMemly {
-  display: inline-block;
+  display: block;
+
   width: 30%;
   margin: 1.5%;
-  background-color: white;
+
 }
+
+.oneMemly:hover {
+  border: 1px solid black;
+
+}
+
+.oneMemlyWrapper {
+  width: 0;
+  padding-bottom: 100%;
+  overflow: hidden;
+}
+
 .memlyPhoto {
-  position: relative;
-  border-radius: 2px;
-  margin: 2%;
+  height: 100%;
   width:100%;
 
 }

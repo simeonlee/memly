@@ -3,11 +3,15 @@ import { Router, Route, hashHistory, IndexRoute, Link } from 'react-router'
 
 
 const LikedMemlys = (props) => {
+  const divStyle = {
+    backgroundImage: 'url(' +props.item.url+ ')',
+    backgroundSize: 'cover',
+    backgroundPosition:'center',
+    backgroundRepeat: 'no-repeat',
+  }
   return(
-    <div className = "oneMemly">
-    <img className = 'memlyPhoto' src= {props.item.url}/>
-    <div className = "memlyInfo">
-    <span>taken from: {props.item.location}</span>
+    <div className = "oneMemly" style={divStyle}>
+    <div className="oneMemlyWrapper">
     </div>
     </div>
     )
