@@ -13,6 +13,7 @@ const MyMemlys = (props) => {
   return(
     <div className = "oneMemly" style={divStyle}>
         <div className="oneMemlyWrapper">
+        <span className = "memlyInfo">This is a Test</span>
         </div>
     </div>
     )

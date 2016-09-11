@@ -5,6 +5,16 @@ import {Grid, Row, Col, Nav, NavItem} from 'react-bootstrap'
 
 
 const Profile = (props) => {
+
+  var aboutMe;
+  if (props.userFacebook.bio) {
+    aboutMe =           <Row className ="show-grid profileRow">
+            <span><b>About me:</b> {props.userFacebook.bio}</span>
+          </Row>;
+  } else {
+    aboutMe = undefined;
+  }
+
   return (
 
     <Grid>
@@ -20,6 +30,7 @@ const Profile = (props) => {
           <Row className ="show-grid profileRow">
             <span><b>Birthday:</b> {props.userFacebook.birthday}</span>
           </Row>
+          {aboutMe}
           <Row className ="show-grid profileRow">
             <span><b>Memlys Made:</b> {props.memlyCount}</span>
           </Row>

@@ -98,19 +98,18 @@ class EditProfileContainer extends React.Component {
 
   changeProfileInfo(name, email, birthday, gender, bio) {
     // var context = this;
-
+    console.log('checking bio value', bio);
     if(! this.validateEmail(email)) {
       email = this.props.userFacebook.email;
     } else {
       email = email;
     }
-    console.log('checking birthday at the beginning', birthday, 'checking propsbirthday', this.props.userFacebook.birthday);
+    //console.log('checking birthday at the beginning', birthday, 'checking propsbirthday', this.props.userFacebook.birthday);
     name = name || this.props.userFacebook.name;
     birthday = birthday || this.props.userFacebook.birthday;
     gender = gender || this.props.userFacebook.gender;
     bio = bio || this.props.userFacebook.bio;
-
-    console.log('what is inside birthday ---->', birthday);
+    //console.log('what is inside birthday ---->', birthday);
 
     if (birthday.indexOf('-') !== -1) {
       var birthdayArray = birthday.split('-');
@@ -123,9 +122,9 @@ class EditProfileContainer extends React.Component {
     axios.post('/user/edit/profileinfo/', 
       {name: name, email: email, birthday: birthday, gender: gender, bio: bio})
       .then((res) => {
-        console.log('checking out how data is formatted', res.data);
+        //console.log('checking out how data is formatted', res.data);
         this.props.dispatch(userActions.updateUserFacebook(res.data));
-        
+
         // context.setState({
         //   userFacebook: res.data
         // });
