@@ -1,7 +1,7 @@
 var AWS = require('aws-sdk');
 var fs = require('fs');
 var env = require('./config/environment');
-// var keys = require('./config/keys');
+var keys = require('./config/keys') || null;
 
 exports.create = function(req, res) {
   console.log(req)
@@ -22,18 +22,21 @@ exports.create = function(req, res) {
   // user downloads the file, it will include original file name
   var folder = require('./utils/randomString').generate(20);
 
+/*
   // TODO: IN CASE I WANT TO DO VALIDATION LATER
-  // var matches = req.body.upload.match(/data:([A-Za-z-+\/].+);base64,(.+)/);
-  // if (matches === null || matches.length !== 3) {
-  //   return handleError(res, 'Invalid input string');
-  // }
-  // var uploadBody = new Buffer(matches[2], 'base64'); // === file
+  var matches = req.body.upload.match(/data:([A-Za-z-+\/].+);base64,(.+)/);
+  if (matches === null || matches.length !== 3) {
+    return handleError(res, 'Invalid input string');
+  }
+  var uploadBody = new Buffer(matches[2], 'base64'); // === file
+*/
 
   // Read and create buffer file from disk-saved image
   var file = fs.readFileSync(req.file.path);
 
   // Grab randomized file name
   var filename = req.file.filename;
+  // var filename = 'test-file-name.png'
 
   // Create re-usable url that can be used to view media asset from anywhere
   var mediaUrl = 'https://s3-' + env.region + '.amazonaws.com/' + env.bucket + '/' + folder + '/' + filename;

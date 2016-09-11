@@ -4,7 +4,7 @@
   "description": "HR47 2016-07 Green-Field Project",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/server.js"
+    "start": "NODE_ENV=development nodemon server/server.js"
   },
   "repository": {
     "type": "git",
