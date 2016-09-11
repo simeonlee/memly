@@ -58012,15 +58012,8 @@
 	  left: -K_SIZE / 2,
 	  top: -K_SIZE / 2,
 
-	  border: '4px solid #50E3C2',
-	  borderRadius: K_SIZE,
-	  // backgroundColor: 'white',
-	  // textAlign: 'center',
-	  color: '#3f51b5',
-	  // fontSize: 10,
-	  // fontWeight: 'bold',
-	  // padding: 2,
-	  cursor: 'pointer'
+	  // border: '4px solid #50E3C2',
+	  borderRadius: K_SIZE
 	};
 
 	var memlyStyleHover = _extends({}, memlyStyle, {
@@ -58630,6 +58623,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _container = __webpack_require__(617);
+
+	var _container2 = _interopRequireDefault(_container);
+
 	var _memlyStyles = __webpack_require__(611);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -58639,7 +58636,7 @@
 	  return _react2.default.createElement(
 	    'div',
 	    null,
-	    _react2.default.createElement('div', { className: 'pin bounce' }),
+	    _react2.default.createElement('div', { className: 'marker pin bounce' }),
 	    _react2.default.createElement('div', { className: 'pulse' })
 	  );
 	};
@@ -58650,17 +58647,13 @@
 	// Represent other memlys
 	var MapMemly = exports.MapMemly = function MapMemly(props) {
 	  var style = props.$hover ? _memlyStyles.memlyStyleHover : _memlyStyles.memlyStyle;
-	  var showImg = props.$hover ? _react2.default.createElement(
-	    'div',
-	    { className: 'memly-infowindow' /* Infowindow floats above marker */ },
-	    _react2.default.createElement('img', { className: 'memly-media', src: props.media.url })
-	  ) : _react2.default.createElement('div', { display: 'none' });
 
 	  return _react2.default.createElement(
 	    'div',
 	    null,
-	    showImg,
-	    _react2.default.createElement('div', { className: 'memly-marker', style: style })
+	    _react2.default.createElement(_container2.default, props),
+	    _react2.default.createElement('div', { className: 'marker memly-marker', style: style }),
+	    _react2.default.createElement('div', { className: 'memly-pulse' })
 	  );
 	};
 
@@ -58668,6 +58661,85 @@
 	// height={'60px'}
 	// width={'85px'}
 	// {props.text}
+
+/***/ },
+/* 617 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _presentation = __webpack_require__(618);
+
+	var _presentation2 = _interopRequireDefault(_presentation);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Container = function (_Component) {
+		_inherits(Container, _Component);
+
+		function Container(props) {
+			_classCallCheck(this, Container);
+
+			return _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).call(this, props));
+		}
+
+		_createClass(Container, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(_presentation2.default, this.props);
+			}
+		}]);
+
+		return Container;
+	}(_react.Component);
+
+	exports.default = Container;
+
+/***/ },
+/* 618 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (props) {
+	  var infowindow = props.$hover ? _react2.default.createElement(
+	    "div",
+	    { className: "memly-infowindow" /* Infowindow floats above marker */ },
+	    _react2.default.createElement("img", { className: "memly-media", src: props.media.url })
+	  ) : _react2.default.createElement("div", { display: 'none' });
+
+	  return _react2.default.createElement(
+	    "div",
+	    null,
+	    infowindow
+	  );
+	};
 
 /***/ }
 /******/ ]);
