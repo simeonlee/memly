@@ -6,7 +6,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var authConfig = require('./authConfig.js');
 var User = require('../users/userModel.js');
-var keys = require('./keys.js');
+// var keys = require('./keys.js');
 
 
 
