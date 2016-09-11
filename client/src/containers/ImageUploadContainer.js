@@ -1,33 +1,50 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import axios from 'axios'
 import ImageUpload from '../components/ImageUpload'
+import { connect } from 'react-redux'
+import * as imageUploadActions from '../redux/imageUploadReducer'
 
-export default class ImageUploadContainer extends React.Component {
+class ImageUploadContainer extends React.Component {
+	
+	static defaultProps = {
+		file: PropTypes.string,
+		imagePreviewUrl: PropTypes.string,
+		loaction: PropTypes.object,
+		place: PropTypes.string,
+		comment: PropTypes.string,
+	};
 
 	constructor(props) {
 		super(props);
-		this.state = {
-			file: '',
-			imagePreviewUrl: '',
-			location: {
-				lat: 0.0,
-				lng: 0.0
-			},
-			place: '',
-			comment: ''
-		};
+		// this.state = {
+		// 	file: '',
+		// 	imagePreviewUrl: '',
+		// 	location: {
+		// 		lat: 0.0,
+		// 		lng: 0.0
+		// 	},
+		// 	place: '',
+		// 	comment: ''
+		// };
 		this.geolocate();
 	}
 
 	geolocate() {
 	  if (navigator.geolocation) {
 	    navigator.geolocation.getCurrentPosition((position) => {        
-	      this.setState({
-		      location: {
+	      this.props.dispatch(imageUploadActions.updateImageContainerLocation({
 		        lat: position.coords.latitude,
 		        lng: position.coords.longitude
-		      }
-	      });
+		      }));
+	      
+
+	      // this.setState({
+		     //  location: {
+		     //    lat: position.coords.latitude,
+		     //    lng: position.coords.longitude
+		     //  }
+	      // });
+
 	    }, function() {
 	      alert('Geolocation failed');
 	    });
@@ -37,15 +54,11 @@ export default class ImageUploadContainer extends React.Component {
 	}
 
 	handlePlaceChange(e) {
-		this.setState({
-			place: e.target.value
-		})
+		this.props.dispatch(imageUploadActions.handlePlaceChange(e.target.value));
 	}
 
 	handleCommentChange(e) {
-		this.setState({
-			comment: e.target.value
-		})
+		this.props.dispatch(imageUploadActions.handleCommentChange(e.target.value));
 	}
 
 	// This allows us to preview images before file post
@@ -59,10 +72,12 @@ export default class ImageUploadContainer extends React.Component {
 		let file = e.target.files[0];
 
 		reader.onloadend = () => {
-		  this.setState({
-		    file: file,
-		    imagePreviewUrl: reader.result
-		  });
+			this.props.dispatch(imageUploadActions.handleImageChange(file, reader.result));
+		  
+		  // this.setState({
+		  //   file: file,
+		  //   imagePreviewUrl: reader.result
+		  // });
 		}
 
 		reader.readAsDataURL(file);
@@ -80,12 +95,12 @@ export default class ImageUploadContainer extends React.Component {
 	  // https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects
 	  var formData = new FormData();
 
-	  formData.append('place', this.state.place);
-	  formData.append('comment', this.state.comment);
-	  formData.append('lat', this.state.location.lat);
-	  formData.append('lng', this.state.location.lng);
+	  formData.append('place', this.props.place);
+	  formData.append('comment', this.props.comment);
+	  formData.append('lat', this.props.location.lat);
+	  formData.append('lng', this.props.location.lng);
 
-	  var userPhoto = new Blob([this.state.file], { type: 'image/png'});
+	  var userPhoto = new Blob([this.props.file], { type: 'image/png'});
 	  formData.append('photo', userPhoto);
 
 	  // Use axios to send formData to server
@@ -101,7 +116,7 @@ export default class ImageUploadContainer extends React.Component {
 	render() {
 		return (
 			<ImageUpload 
-				imagePreviewUrl={this.state.imagePreviewUrl}
+				imagePreviewUrl={this.props.imagePreviewUrl}
 				handleSubmit={this.handleSubmit.bind(this)}
 				handleImageChange={this.handleImageChange.bind(this)}
 				handlePlaceChange={this.handlePlaceChange.bind(this)}
@@ -110,3 +125,17 @@ export default class ImageUploadContainer extends React.Component {
 		)
 	}
 }
+
+// ====== set default state values necessary for this component and send them in as props ===// 
+
+function mapStateToProps(state) {
+	return {
+		file: state.imageUploadReducer.file,
+		imagePreviewUrl: state.imageUploadReducer.imagePreviewUrl,
+		location: state.imageUploadReducer.location,
+		place: state.imageUploadReducer.place,
+		comment: state.imageUploadReducer.comment,
+	}
+}
+
+export default connect(mapStateToProps)(ImageUploadContainer)

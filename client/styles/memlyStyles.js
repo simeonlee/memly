@@ -29,6 +29,7 @@ const memlyStyleHover = {
   height: K_SIZE * 1.5,
   left: (-K_SIZE * 1.5) / 2,
   top: (-K_SIZE * 1.5) / 2,
+  zIndex: 9999999,
 };
 
 export {memlyStyle, memlyStyleHover, K_SIZE};

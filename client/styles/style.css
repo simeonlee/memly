@@ -267,6 +267,7 @@ Old? Are we using the below? Feel free to uncomment out
   left: 50%;
   top: 50%;
   margin: -20px 0 0 -20px;
+  z-index: 1000000;
 }
 .pin:after { /* Read about Pseudo-Elements: https://www.smashingmagazine.com/2011/07/learning-to-use-the-before-and-after-pseudo-elements-in-css */
   content: "";
@@ -514,5 +515,3 @@ Old? Are we using the below? Feel free to uncomment out
  background-image: -o-linear-gradient(top, #1ab0ec, #3f9feb);
  background-image: linear-gradient(to bottom, #1ab0ec, #3f9feb);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#1ab0ec, endColorstr=#3f9feb);
 }
-
-

@@ -17,12 +17,15 @@ export const UserLocation = (props) => {
 // Represent other memlys
 export const GoogleMapMemly = (props) => {
   const style = props.$hover ? memlyStyleHover : memlyStyle;
-
+  const showImg = props.$hover ? (
+     <div className="memly-infowindow" /* Infowindow floats above marker */>
+      <img className="memly-media" src={props.media.url} />
+     </div>
+     ) : (<div display={'none'}></div>)
+  
   return (
     <div>
-      <div className="memly-infowindow" /* Infowindow floats above marker */>
-        <img className="memly-media" src={props.media.url} />
-      </div>
+        {showImg}
       <div className="memly-marker" style={style} />
     </div>
   )

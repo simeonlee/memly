@@ -14,7 +14,7 @@ class LikedMemlysContainer extends React.Component {
     return(
       <div className = "ProfileBoxes">
         <div className ="MemlysContainer">
-          {this.state.user.likedMemlys.map((item) => <LikedMemlys item = {item}/>)}
+          {this.state.user.likedMemlys.map((item, index) => <LikedMemlys key={index} item = {item}/>)}
         </div>
       </div>
       )
