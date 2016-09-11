@@ -141,15 +141,15 @@ class GoogleMapContainer extends Component {
 
         }, function() {
           // Error handler for "navigator.geolocation.getCurrentPosition()"
-          alert('Geolocation failed');
-          // Clear further geolocation's upon failure so we don't get repeat alerts
+          // Clear further geolocation's upon failure so we don't get repeat errors
           if (window.geolocator) {
             window.clearInterval(window.geolocator);
           };
+          console.error('Geolocation failed');
         });
       }, 1000);
     } else {
-      alert('Your browser doesn\'t support geolocation');
+      console.error('Your browser doesn\'t support geolocation');
     }
   }
 

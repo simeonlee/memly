@@ -6,7 +6,7 @@ const mapInitialState = {
 }
 
 export function updateUserLocation (currentUserLocation) {
-  console.log('udpating User location with action')
+  console.log('updating User location with action')
   return {
     type: 'UPDATE_USER_LOCATION',
     currentUserLocation,
