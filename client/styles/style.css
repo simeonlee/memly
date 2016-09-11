@@ -391,8 +391,7 @@ Old? Are we using the below? Feel free to uncomment out
 
 .MemlyNavItem {
   background-color: white;
-
-  color: black;
+  margin-right: 1%; 
 }
 
 #MemlyNavItemText{
@@ -443,9 +442,10 @@ Old? Are we using the below? Feel free to uncomment out
 
 .oneMemly {
   display: block;
-
+  border-radius: 3px;
+  border: 1px solid white;
   width: 30%;
-  margin: 1.5%;
+  margin: 1.655%;
 
 }
 
@@ -491,8 +491,14 @@ Old? Are we using the below? Feel free to uncomment out
 
 }
 
+
+
 #editBio {
   height: 5em;
+}
+
+.memlyInfo{
+  display: none;
 }
 
 #editProfileButton{

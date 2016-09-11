@@ -86,6 +86,7 @@ app.get('/auth/facebook/callback',
 
 //not for facbeook auth.. this is for profile button?
 app.get('/user/profile/', helper.isLoggedIn, function(req, res) {
+  console.log('am i hitting my get user profile');
   res.redirect('http://localhost:3000/#/user/profile/');
   // }
 });
