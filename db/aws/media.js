@@ -40,7 +40,7 @@ exports.create = function(req, res) {
 
   // Grab randomized file name
   // var filename = req.file.filename;
-  var filename = 'test-file-name.png'
+  var filename = 'test-file-name.jpg'
 
   // Create re-usable url that can be used to view media asset from anywhere
   var mediaUrl = 'https://s3-' + env.region + '.amazonaws.com/' + env.bucket + '/' + folder + '/' + filename;
