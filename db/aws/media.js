@@ -4,7 +4,7 @@ var User = require('../users/userModel');
 var env = require('./config/environment');
 if (process.env.NODE_ENV === 'development') {
   var keys = require('./config/keys');
-}
+};
 
 exports.create = function(req, res) {
   //console.log(req);
