@@ -25,16 +25,8 @@ userSchema = new Schema({
       }
     }
   ],
-  likedMemlys: [
-    {
-      mediaUrl: String,
-      date: Date,
-      location: {
-        lat: Number,
-        lng: Number
-      }
-    }
-  ],
+  likedMemlys: [String],
+  dislikedMemlys: [String],
   savedMemlys: [
     {
       mediaUrl: String,

@@ -67,19 +67,19 @@
 
 	var _reactRedux = __webpack_require__(263);
 
-	var _userReducer = __webpack_require__(287);
+	var _userReducer = __webpack_require__(285);
 
 	var _userReducer2 = _interopRequireDefault(_userReducer);
 
-	var _memlysReducer = __webpack_require__(608);
+	var _memlysReducer = __webpack_require__(614);
 
 	var _memlysReducer2 = _interopRequireDefault(_memlysReducer);
 
-	var _mapReducer = __webpack_require__(609);
+	var _mapReducer = __webpack_require__(615);
 
 	var _mapReducer2 = _interopRequireDefault(_mapReducer);
 
-	var _imageUploadReducer = __webpack_require__(610);
+	var _imageUploadReducer = __webpack_require__(550);
 
 	var _imageUploadReducer2 = _interopRequireDefault(_imageUploadReducer);
 
@@ -21553,7 +21553,7 @@
 
 	var _ImageUploadContainer2 = _interopRequireDefault(_ImageUploadContainer);
 
-	var _container = __webpack_require__(613);
+	var _container = __webpack_require__(551);
 
 	var _container2 = _interopRequireDefault(_container);
 
@@ -27540,7 +27540,7 @@
 
 	var _LoggedInNavContainer2 = _interopRequireDefault(_LoggedInNavContainer);
 
-	var _LoggedOutNavContainer = __webpack_require__(285);
+	var _LoggedOutNavContainer = __webpack_require__(286);
 
 	var _LoggedOutNavContainer2 = _interopRequireDefault(_LoggedOutNavContainer);
 
@@ -27548,7 +27548,7 @@
 
 	var _reactRedux = __webpack_require__(263);
 
-	var _userReducer = __webpack_require__(287);
+	var _userReducer = __webpack_require__(285);
 
 	var userActions = _interopRequireWildcard(_userReducer);
 
@@ -27710,7 +27710,7 @@
 
 	var _reactRedux = __webpack_require__(263);
 
-	var _userReducer = __webpack_require__(287);
+	var _userReducer = __webpack_require__(285);
 
 	var userActions = _interopRequireWildcard(_userReducer);
 
@@ -30692,144 +30692,6 @@
 
 /***/ },
 /* 285 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _LoggedOutNav = __webpack_require__(286);
-
-	var _LoggedOutNav2 = _interopRequireDefault(_LoggedOutNav);
-
-	var _axios = __webpack_require__(241);
-
-	var _axios2 = _interopRequireDefault(_axios);
-
-	var _reactRouter = __webpack_require__(174);
-
-	var _reactRedux = __webpack_require__(263);
-
-	var _userReducer = __webpack_require__(287);
-
-	var userActions = _interopRequireWildcard(_userReducer);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var LoggedOutNavContainer = function (_React$Component) {
-	  _inherits(LoggedOutNavContainer, _React$Component);
-
-	  function LoggedOutNavContainer() {
-	    _classCallCheck(this, LoggedOutNavContainer);
-
-	    return _possibleConstructorReturn(this, (LoggedOutNavContainer.__proto__ || Object.getPrototypeOf(LoggedOutNavContainer)).apply(this, arguments));
-	  }
-
-	  _createClass(LoggedOutNavContainer, [{
-	    key: 'logInWithFacebook',
-	    value: function logInWithFacebook() {
-	      console.log('is this function for facebook login getting hit???');
-	      _axios2.default.get('/auth/facebook').then(function (res) {
-	        console.log(res, 'loginwithfb');
-	      });
-	    }
-
-	    // constructor(props){
-	    //   super(props);
-	    //   this.state = {
-
-	    //   }
-	    // }
-
-	  }, {
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      console.log(this.props, 'yooloooo');
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(_LoggedOutNav2.default, { isLoggedIn: this.props.isLoggedIn, logInWithFacebook: this.logInWithFacebook })
-	      );
-	    }
-	  }]);
-
-	  return LoggedOutNavContainer;
-	}(_react2.default.Component);
-
-	LoggedOutNavContainer.propTypes = {
-	  isLoggedIn: _react.PropTypes.bool,
-	  user: _react.PropTypes.object
-	};
-
-
-	function mapStateToProps(state) {
-	  return {
-	    isLoggedIn: state.userReducer.isLoggedIn, //<=== shouldnt have to do this...? 
-	    user: state.userReducer.user
-	  };
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(LoggedOutNavContainer);
-
-/***/ },
-/* 286 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(174);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var LoggedOutNav = function LoggedOutNav(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'nav' },
-	    _react2.default.createElement(
-	      _reactRouter.Link,
-	      { to: '/', className: 'logo' },
-	      'Memly'
-	    ),
-	    _react2.default.createElement(
-	      'a',
-	      { href: '/auth/facebook' },
-	      'Login'
-	    )
-	  );
-	};
-
-	exports.default = LoggedOutNav;
-
-/***/ },
-/* 287 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30847,9 +30709,14 @@
 	exports.updateUserLocation = updateUserLocation;
 	exports.updateUserFacebook = updateUserFacebook;
 	exports.updateUserBirthday = updateUserBirthday;
+	exports.likeMemly = likeMemly;
+	exports.dislikeMemly = dislikeMemly;
 	exports.updateMemlyCount = updateMemlyCount;
 	exports.increaseMemlyCount = increaseMemlyCount;
 	exports.default = userReducer;
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 	//reducer functions to modify state tree
 
 	// ------ ACTIONS FOR USER REDUCER --------- //
@@ -30903,6 +30770,20 @@
 	  };
 	}
 
+	function likeMemly(memlyId) {
+	  return {
+	    type: 'UPDATE_LIKED_MEMLYS',
+	    memlyId: memlyId
+	  };
+	}
+
+	function dislikeMemly(memlyId) {
+	  return {
+	    type: 'UPDATE_DISLIKED_MEMLYS',
+	    memlyId: memlyId
+	  };
+	}
+
 	function updateMemlyCount(memlyCount) {
 	  return {
 	    type: 'UPDATE_MEMLY_COUNT',
@@ -30924,6 +30805,8 @@
 	  memlyCount: 0,
 	  isLoggedIn: false,
 	  error: '',
+	  likedMemlys: [],
+	  dislikedMemlys: [],
 	  userLocation: {
 	    lat: '',
 	    lng: ''
@@ -31010,6 +30893,20 @@
 	        });
 	      }
 
+	    case 'UPDATE_LIKED_MEMLYS':
+	      {
+	        return _extends({}, state, {
+	          likedMemlys: [].concat(_toConsumableArray(state.likedMemlys), [action.memlyId])
+	        });
+	      }
+
+	    case 'UPDATE_DISLIKED_MEMLYS':
+	      {
+	        return _extends({}, state, {
+	          dislikedMemlys: [].concat(_toConsumableArray(state.likedMemlys), [action.memlyId])
+	        });
+	      }
+
 	    case 'UPDATE_MEMLY_COUNT':
 	      {
 	        return _extends({}, state, {
@@ -31029,6 +30926,144 @@
 
 	  }
 	}
+
+/***/ },
+/* 286 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _LoggedOutNav = __webpack_require__(287);
+
+	var _LoggedOutNav2 = _interopRequireDefault(_LoggedOutNav);
+
+	var _axios = __webpack_require__(241);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _reactRouter = __webpack_require__(174);
+
+	var _reactRedux = __webpack_require__(263);
+
+	var _userReducer = __webpack_require__(285);
+
+	var userActions = _interopRequireWildcard(_userReducer);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var LoggedOutNavContainer = function (_React$Component) {
+	  _inherits(LoggedOutNavContainer, _React$Component);
+
+	  function LoggedOutNavContainer() {
+	    _classCallCheck(this, LoggedOutNavContainer);
+
+	    return _possibleConstructorReturn(this, (LoggedOutNavContainer.__proto__ || Object.getPrototypeOf(LoggedOutNavContainer)).apply(this, arguments));
+	  }
+
+	  _createClass(LoggedOutNavContainer, [{
+	    key: 'logInWithFacebook',
+	    value: function logInWithFacebook() {
+	      console.log('is this function for facebook login getting hit???');
+	      _axios2.default.get('/auth/facebook').then(function (res) {
+	        console.log(res, 'loginwithfb');
+	      });
+	    }
+
+	    // constructor(props){
+	    //   super(props);
+	    //   this.state = {
+
+	    //   }
+	    // }
+
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      console.log(this.props, 'yooloooo');
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_LoggedOutNav2.default, { isLoggedIn: this.props.isLoggedIn, logInWithFacebook: this.logInWithFacebook })
+	      );
+	    }
+	  }]);
+
+	  return LoggedOutNavContainer;
+	}(_react2.default.Component);
+
+	LoggedOutNavContainer.propTypes = {
+	  isLoggedIn: _react.PropTypes.bool,
+	  user: _react.PropTypes.object
+	};
+
+
+	function mapStateToProps(state) {
+	  return {
+	    isLoggedIn: state.userReducer.isLoggedIn, //<=== shouldnt have to do this...? 
+	    user: state.userReducer.user
+	  };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(LoggedOutNavContainer);
+
+/***/ },
+/* 287 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(174);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var LoggedOutNav = function LoggedOutNav(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'nav' },
+	    _react2.default.createElement(
+	      _reactRouter.Link,
+	      { to: '/', className: 'logo' },
+	      'Memly'
+	    ),
+	    _react2.default.createElement(
+	      'a',
+	      { href: '/auth/facebook' },
+	      'Login'
+	    )
+	  );
+	};
+
+	exports.default = LoggedOutNav;
 
 /***/ },
 /* 288 */
@@ -31262,7 +31297,7 @@
 
 	var _reactRedux = __webpack_require__(263);
 
-	var _userReducer = __webpack_require__(287);
+	var _userReducer = __webpack_require__(285);
 
 	var userActions = _interopRequireWildcard(_userReducer);
 
@@ -50412,7 +50447,7 @@
 
 	var _reactRedux = __webpack_require__(263);
 
-	var _userReducer = __webpack_require__(287);
+	var _userReducer = __webpack_require__(285);
 
 	var userActions = _interopRequireWildcard(_userReducer);
 
@@ -50688,7 +50723,7 @@
 
 	var _reactRedux = __webpack_require__(263);
 
-	var _imageUploadReducer = __webpack_require__(610);
+	var _imageUploadReducer = __webpack_require__(550);
 
 	var imageUploadActions = _interopRequireWildcard(_imageUploadReducer);
 
@@ -50953,16 +50988,375 @@
 	// <div><button className="submitButton" type="submit">Upload Image</button></div>
 
 /***/ },
-/* 550 */,
+/* 550 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	exports.updateImageContainerLocation = updateImageContainerLocation;
+	exports.handlePlaceChange = handlePlaceChange;
+	exports.handleCommentChange = handleCommentChange;
+	exports.handleImageChange = handleImageChange;
+	exports.default = imageUploadReducer;
+	// actions to be dispatched to reducer for imageUploadReducer === //
+
+	function updateImageContainerLocation(currentUserLocation) {
+	  console.log('updating User location with action');
+	  return {
+	    type: 'UPDATE_IMAGE_CONTAINER_LOCATION',
+	    currentUserLocation: currentUserLocation
+	  };
+	}
+
+	function handlePlaceChange(placeText) {
+	  return {
+	    type: 'HANDLE_PLACE_CHANGE',
+	    place: placeText
+	  };
+	}
+
+	function handleCommentChange(commentText) {
+	  return {
+	    type: 'HANDLE_COMMENT_CHANGE',
+	    place: commentText
+	  };
+	}
+
+	function handleImageChange(file, imagePreviewUrl) {
+	  return {
+	    type: 'HANDLE_IMAGE_CHANGE',
+	    file: file,
+	    imagePreviewUrl: imagePreviewUrl
+	  };
+	}
+
+	//====== initial state for image container ====== //
+
+	var imageUploadInitialState = {
+	  file: '',
+	  imagePreviewUrl: '',
+	  location: {
+	    lat: 0.0,
+	    lng: 0.0
+	  },
+	  place: '',
+	  comment: ''
+	};
+
+	//========= reducer to connect to container component ====//
+
+	function imageUploadReducer() {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? imageUploadInitialState : arguments[0];
+	  var action = arguments[1];
+
+	  switch (action.type) {
+
+	    case 'UPDATE_IMAGE_CONTAINER_LOCATION':
+	      {
+	        console.log('updating image user location in state tree');
+	        return _extends({}, state, {
+	          location: action.currentUserLocation
+	        });
+	      }
+
+	    case 'HANDLE_PLACE_CHANGE':
+	      {
+	        return _extends({}, state, {
+	          place: action.placeText
+	        });
+	      }
+
+	    case 'HANDLE_COMMENT_CHANGE':
+	      {
+	        return _extends({}, state, {
+	          comment: action.commentText
+	        });
+	      }
+
+	    case 'HANDLE_IMAGE_CHANGE':
+	      {
+	        return _extends({}, state, {
+	          file: action.file,
+	          imagePreviewUrl: action.imagePreviewUrl
+	        });
+	      }
+
+	    default:
+	      return state;
+	  }
+	}
+
+/***/ },
 /* 551 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactAddonsShallowCompare = __webpack_require__(552);
+
+	var _reactAddonsShallowCompare2 = _interopRequireDefault(_reactAddonsShallowCompare);
+
+	var _reactControllables = __webpack_require__(554);
+
+	var _reactControllables2 = _interopRequireDefault(_reactControllables);
+
+	var _googleMapReact = __webpack_require__(581);
+
+	var _googleMapReact2 = _interopRequireDefault(_googleMapReact);
+
+	var _memlyStyles = __webpack_require__(604);
+
+	var _mapStyle = __webpack_require__(605);
+
+	var _mapStyle2 = _interopRequireDefault(_mapStyle);
+
+	var _presentation = __webpack_require__(606);
+
+	var _presentation2 = _interopRequireDefault(_presentation);
+
+	var _reactAddonsUpdate = __webpack_require__(612);
+
+	var _reactAddonsUpdate2 = _interopRequireDefault(_reactAddonsUpdate);
+
+	var _axios = __webpack_require__(241);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _reactRedux = __webpack_require__(263);
+
+	var _memlysReducer = __webpack_require__(614);
+
+	var memlysActions = _interopRequireWildcard(_memlysReducer);
+
+	var _mapReducer = __webpack_require__(615);
+
+	var mapActions = _interopRequireWildcard(_mapReducer);
+
+	var _userReducer = __webpack_require__(285);
+
+	var userActions = _interopRequireWildcard(_userReducer);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } //need to look into use for this... allows you to control prop types somehow...
+
+
+	var MapContainer = function (_Component) {
+	  _inherits(MapContainer, _Component);
+
+	  function MapContainer(props) {
+	    _classCallCheck(this, MapContainer);
+
+	    var _this = _possibleConstructorReturn(this, (MapContainer.__proto__ || Object.getPrototypeOf(MapContainer)).call(this, props));
+
+	    _this.geolocate();
+	    _this.updateMemlys();
+	    return _this;
+	  }
+
+	  // If user is in the same location, this lifecycle method will 'shallow equality check'
+	  // the currentUserLocation state.
+	  // If User is still in same place, the method will return false and prevent unnecessary re-render
+
+	  // shouldComponentUpdate(nextProps, nextState) {
+	  //   // console.log("should component update", this.state.currentUserLocation.lat != nextState.currentUserLocation.lat || this.state.currentUserLocation.lng != nextState.currentUserLocation.lng);
+	  //   // return this.state.currentUserLocation.lat != nextState.currentUserLocation.lat || this.state.currentUserLocation.lng != nextState.currentUserLocation.lng;
+	  // }
+
+	  _createClass(MapContainer, [{
+	    key: 'geolocate',
+	    value: function geolocate() {
+	      var _this2 = this;
+
+	      if (navigator.geolocation) {
+	        // Assign interval to "window.geolocator" so we can clear the interval later if needed
+	        window.geolocator = window.setInterval(function () {
+	          navigator.geolocation.getCurrentPosition(function (position) {
+	            // Log coordinates for development
+	            if (process.env.NODE_ENV === 'development') {
+	              console.log(position.coords.latitude, position.coords.longitude);
+	            };
+	            _this2.props.dispatch(mapActions.updateUserLocation({
+	              lat: position.coords.latitude,
+	              lng: position.coords.longitude
+	            }));
+	          }, function () {
+	            // Error handler for "navigator.geolocation.getCurrentPosition()"
+	            // Clear further geolocation's upon failure so we don't get repeat errors
+	            if (window.geolocator) {
+	              window.clearInterval(window.geolocator);
+	            };
+	            console.error('Geolocation failed');
+	          });
+	        }, 1000);
+	      } else {
+	        console.error('Your browser doesn\'t support geolocation');
+	      }
+	    }
+
+	    //constantly update current user location with geolocate method
+	    // componentDidMount() {
+	    //   this.geolocate();
+	    // }
+	    //Not yet working correctly. Need to clear interval when component unmounts
+
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      window.clearInterval(window.geolocator);
+	    }
+	  }, {
+	    key: 'updateMemlys',
+	    value: function updateMemlys() {
+	      var _this3 = this;
+
+	      window.setInterval(function () {
+	        console.log('Polling for nearby markers...');
+	        _axios2.default.get('/api/nearby', {
+	          params: {
+	            lat: _this3.props.currentUserLocation.lat,
+	            lng: _this3.props.currentUserLocation.lng
+	          }
+	        }).then(function (response) {
+	          // 'response.data' is an array of memlys to be displayed
+	          console.log(response.data, 'data from updateMemly\'s function');
+
+	          // let { memlys, memlyIdStorage } = this.state;
+
+	          // If our memlys storage does not yet contain the new memly,
+	          // add the new memly to our storage
+	          response.data.forEach(function (memly) {
+	            if (!_this3.props.memlyIdStorage[memly._id]) {
+	              console.log('!memlyIdStorage');
+	              // memlyIdStorage[memly._id] = true;
+	              _this3.props.dispatch(memlysActions.addMemly(memly));
+	              // memlys.push(memly);
+	            }
+	          });
+
+	          // this.setState({ memlys, memlyIdStorage });
+	          // console.log(this.state.memlys);
+	        }).catch(function (error) {
+	          console.log(error);
+	        });
+	      }, 5000);
+	    }
+	  }, {
+	    key: 'handleLike',
+	    value: function handleLike(e) {
+	      e.preventDefault();
+	      var memlyId = e.target.getAttribute('value');
+	      this.props.dispatch(userActions.likeMemly(memlyId));
+	      _axios2.default.put('/user/like-new-memly', {
+	        id: memlyId
+	      }).then(function (response) {
+	        console.log(response);
+	      }).catch(function (error) {
+	        console.log(error);
+	      });
+	    }
+	  }, {
+	    key: 'handleDislike',
+	    value: function handleDislike(e) {
+	      e.preventDefault();
+	      var memlyId = e.target.getAttribute('value');
+	      this.props.dispatch(userActions.dislikeMemly(memlyId));
+	      _axios2.default.put('/user/dislike-new-memly', {
+	        id: memlyId
+	      }).then(function (response) {
+	        console.log(response);
+	      }).catch(function (error) {
+	        console.log(error);
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_presentation2.default, {
+	          onChildMouseEnter: function onChildMouseEnter(e) {
+	            console.log(e);
+	          } // event argument will return index of child 
+	          , onClick: function onClick(e) {
+	            console.log(e);
+	          } // event will show lat long on map
+	          , options: { styles: _mapStyle2.default },
+	          bootstrapURLKeys: { key: 'AIzaSyA0VOMMs7FVCwz_klHsvs_KFt-CV-YbVNc' },
+	          currentUserLocation: this.props.currentUserLocation,
+	          zoom: this.props.zoom
+	          // instead of css hover (which sometimes is bad for map markers) (bad means inability to hover on markers placed under other markers)
+	          // you can use internal GoogleMap component hover algorithm
+	          // hover algorithm explained at x_distance_hover example
+	          , hoverDistance: _memlyStyles.K_SIZE,
+	          handleLike: this.handleLike.bind(this),
+	          handleDislike: this.handleDislike.bind(this),
+	          memlys: this.props.memlys
+	        })
+	      );
+	    }
+	  }]);
+
+	  return MapContainer;
+	}(_react.Component);
+
+	MapContainer.propTypes = {
+	  // center: PropTypes.array,
+	  zoom: _react.PropTypes.number,
+	  greatPlaceCoords: _react.PropTypes.any,
+	  memlys: _react.PropTypes.array,
+	  memlyIdStorage: _react.PropTypes.object,
+	  currentUserLocation: _react.PropTypes.object
+	};
+	MapContainer.defaultProps = {
+	  zoom: 15
+	};
+
+
+	function mapStateToProps(state) {
+	  return {
+	    currentUserLocation: state.mapReducer.currentUserLocation,
+	    memlys: state.memlysReducer.memlys,
+	    memlyIdStorage: state.memlysReducer.memlyIdStorage
+	  };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MapContainer);
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ },
+/* 552 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(552);
+	module.exports = __webpack_require__(553);
 
 /***/ },
-/* 552 */
+/* 553 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -50992,7 +51386,7 @@
 	module.exports = shallowCompare;
 
 /***/ },
-/* 553 */
+/* 554 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51061,15 +51455,15 @@
 
 	var React = _interopRequire(__webpack_require__(2));
 
-	var keys = _interopRequire(__webpack_require__(554));
+	var keys = _interopRequire(__webpack_require__(555));
 
-	var omit = _interopRequire(__webpack_require__(556));
+	var omit = _interopRequire(__webpack_require__(557));
 
-	var pick = _interopRequire(__webpack_require__(572));
+	var pick = _interopRequire(__webpack_require__(573));
 
-	var mapValues = _interopRequire(__webpack_require__(573));
+	var mapValues = _interopRequire(__webpack_require__(574));
 
-	var isArray = _interopRequire(__webpack_require__(579));
+	var isArray = _interopRequire(__webpack_require__(580));
 
 	var mkFirstFunc = function mkFirstFunc(method) {
 	  return function (str) {
@@ -51232,7 +51626,7 @@
 	}
 
 /***/ },
-/* 554 */
+/* 555 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51244,7 +51638,7 @@
 	var has = Object.prototype.hasOwnProperty;
 	var toStr = Object.prototype.toString;
 	var slice = Array.prototype.slice;
-	var isArgs = __webpack_require__(555);
+	var isArgs = __webpack_require__(556);
 	var isEnumerable = Object.prototype.propertyIsEnumerable;
 	var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
 	var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
@@ -51374,7 +51768,7 @@
 	module.exports = keysShim;
 
 /***/ },
-/* 555 */
+/* 556 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -51393,7 +51787,7 @@
 	};
 
 /***/ },
-/* 556 */
+/* 557 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51406,14 +51800,14 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var arrayMap = __webpack_require__(557),
-	    baseDifference = __webpack_require__(558),
-	    baseFlatten = __webpack_require__(563),
-	    bindCallback = __webpack_require__(566),
-	    pickByArray = __webpack_require__(567),
-	    pickByCallback = __webpack_require__(568),
-	    keysIn = __webpack_require__(570),
-	    restParam = __webpack_require__(571);
+	var arrayMap = __webpack_require__(558),
+	    baseDifference = __webpack_require__(559),
+	    baseFlatten = __webpack_require__(564),
+	    bindCallback = __webpack_require__(567),
+	    pickByArray = __webpack_require__(568),
+	    pickByCallback = __webpack_require__(569),
+	    keysIn = __webpack_require__(571),
+	    restParam = __webpack_require__(572);
 
 	/**
 	 * The opposite of `_.pick`; this method creates an object composed of the
@@ -51460,7 +51854,7 @@
 	module.exports = omit;
 
 /***/ },
-/* 557 */
+/* 558 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -51497,7 +51891,7 @@
 	module.exports = arrayMap;
 
 /***/ },
-/* 558 */
+/* 559 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51510,9 +51904,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseIndexOf = __webpack_require__(559),
-	    cacheIndexOf = __webpack_require__(560),
-	    createCache = __webpack_require__(561);
+	var baseIndexOf = __webpack_require__(560),
+	    cacheIndexOf = __webpack_require__(561),
+	    createCache = __webpack_require__(562);
 
 	/** Used as the size to enable large array optimizations. */
 	var LARGE_ARRAY_SIZE = 200;
@@ -51565,7 +51959,7 @@
 	module.exports = baseDifference;
 
 /***/ },
-/* 559 */
+/* 560 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -51629,7 +52023,7 @@
 	module.exports = baseIndexOf;
 
 /***/ },
-/* 560 */
+/* 561 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -51691,7 +52085,7 @@
 	module.exports = cacheIndexOf;
 
 /***/ },
-/* 561 */
+/* 562 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
@@ -51706,7 +52100,7 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var getNative = __webpack_require__(562);
+	var getNative = __webpack_require__(563);
 
 	/** Native method references. */
 	var Set = getNative(global, 'Set');
@@ -51792,7 +52186,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 562 */
+/* 563 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -51935,7 +52329,7 @@
 	module.exports = getNative;
 
 /***/ },
-/* 563 */
+/* 564 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51950,8 +52344,8 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var isArguments = __webpack_require__(564),
-	    isArray = __webpack_require__(565);
+	var isArguments = __webpack_require__(565),
+	    isArray = __webpack_require__(566);
 
 	/**
 	 * Checks if `value` is object-like.
@@ -52074,7 +52468,7 @@
 	module.exports = baseFlatten;
 
 /***/ },
-/* 564 */
+/* 565 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -52310,7 +52704,7 @@
 	module.exports = isArguments;
 
 /***/ },
-/* 565 */
+/* 566 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -52496,7 +52890,7 @@
 	module.exports = isArray;
 
 /***/ },
-/* 566 */
+/* 567 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -52572,7 +52966,7 @@
 	module.exports = bindCallback;
 
 /***/ },
-/* 567 */
+/* 568 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -52654,7 +53048,7 @@
 	module.exports = pickByArray;
 
 /***/ },
-/* 568 */
+/* 569 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52667,8 +53061,8 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseFor = __webpack_require__(569),
-	    keysIn = __webpack_require__(570);
+	var baseFor = __webpack_require__(570),
+	    keysIn = __webpack_require__(571);
 
 	/**
 	 * The base implementation of `_.forIn` without support for callback
@@ -52705,7 +53099,7 @@
 	module.exports = pickByCallback;
 
 /***/ },
-/* 569 */
+/* 570 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -52760,7 +53154,7 @@
 	module.exports = baseFor;
 
 /***/ },
-/* 570 */
+/* 571 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52775,8 +53169,8 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var isArguments = __webpack_require__(564),
-	    isArray = __webpack_require__(565);
+	var isArguments = __webpack_require__(565),
+	    isArray = __webpack_require__(566);
 
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -52899,7 +53293,7 @@
 	module.exports = keysIn;
 
 /***/ },
-/* 571 */
+/* 572 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -52976,7 +53370,7 @@
 	module.exports = restParam;
 
 /***/ },
-/* 572 */
+/* 573 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52989,11 +53383,11 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseFlatten = __webpack_require__(563),
-	    bindCallback = __webpack_require__(566),
-	    pickByArray = __webpack_require__(567),
-	    pickByCallback = __webpack_require__(568),
-	    restParam = __webpack_require__(571);
+	var baseFlatten = __webpack_require__(564),
+	    bindCallback = __webpack_require__(567),
+	    pickByArray = __webpack_require__(568),
+	    pickByCallback = __webpack_require__(569),
+	    restParam = __webpack_require__(572);
 
 	/**
 	 * Creates an object composed of the picked `object` properties. Property
@@ -53031,7 +53425,7 @@
 	module.exports = pick;
 
 /***/ },
-/* 573 */
+/* 574 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53044,9 +53438,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseCallback = __webpack_require__(574),
-	    baseFor = __webpack_require__(569),
-	    keys = __webpack_require__(577);
+	var baseCallback = __webpack_require__(575),
+	    baseFor = __webpack_require__(570),
+	    keys = __webpack_require__(578);
 
 	/**
 	 * The base implementation of `_.forOwn` without support for callback
@@ -53129,7 +53523,7 @@
 	module.exports = mapValues;
 
 /***/ },
-/* 574 */
+/* 575 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53144,10 +53538,10 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseIsEqual = __webpack_require__(575),
-	    bindCallback = __webpack_require__(566),
-	    isArray = __webpack_require__(565),
-	    pairs = __webpack_require__(578);
+	var baseIsEqual = __webpack_require__(576),
+	    bindCallback = __webpack_require__(567),
+	    isArray = __webpack_require__(566),
+	    pairs = __webpack_require__(579);
 
 	/** Used to match property names within property paths. */
 	var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\n\\]|\\.)*?\1)\]/,
@@ -53551,7 +53945,7 @@
 	module.exports = baseCallback;
 
 /***/ },
-/* 575 */
+/* 576 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53566,9 +53960,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var isArray = __webpack_require__(565),
-	    isTypedArray = __webpack_require__(576),
-	    keys = __webpack_require__(577);
+	var isArray = __webpack_require__(566),
+	    isTypedArray = __webpack_require__(577),
+	    keys = __webpack_require__(578);
 
 	/** `Object#toString` result references. */
 	var argsTag = '[object Arguments]',
@@ -53897,7 +54291,7 @@
 	module.exports = baseIsEqual;
 
 /***/ },
-/* 576 */
+/* 577 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -54041,7 +54435,7 @@
 	module.exports = isTypedArray;
 
 /***/ },
-/* 577 */
+/* 578 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54056,9 +54450,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var getNative = __webpack_require__(562),
-	    isArguments = __webpack_require__(564),
-	    isArray = __webpack_require__(565);
+	var getNative = __webpack_require__(563),
+	    isArguments = __webpack_require__(565),
+	    isArray = __webpack_require__(566);
 
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -54282,7 +54676,7 @@
 	module.exports = keys;
 
 /***/ },
-/* 578 */
+/* 579 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54297,7 +54691,7 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var keys = __webpack_require__(577);
+	var keys = __webpack_require__(578);
 
 	/**
 	 * Converts `value` to an object if it's not one.
@@ -54369,7 +54763,7 @@
 	module.exports = pairs;
 
 /***/ },
-/* 579 */
+/* 580 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -54379,7 +54773,7 @@
 	};
 
 /***/ },
-/* 580 */
+/* 581 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54389,7 +54783,7 @@
 	});
 	exports.default = undefined;
 
-	var _google_map = __webpack_require__(581);
+	var _google_map = __webpack_require__(582);
 
 	var _google_map2 = _interopRequireDefault(_google_map);
 
@@ -54400,7 +54794,7 @@
 	exports.default = _google_map2.default;
 
 /***/ },
-/* 581 */
+/* 582 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -54443,63 +54837,63 @@
 
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 
-	var _marker_dispatcher = __webpack_require__(582);
+	var _marker_dispatcher = __webpack_require__(583);
 
 	var _marker_dispatcher2 = _interopRequireDefault(_marker_dispatcher);
 
-	var _google_map_map = __webpack_require__(584);
+	var _google_map_map = __webpack_require__(585);
 
 	var _google_map_map2 = _interopRequireDefault(_google_map_map);
 
-	var _google_map_markers = __webpack_require__(585);
+	var _google_map_markers = __webpack_require__(586);
 
 	var _google_map_markers2 = _interopRequireDefault(_google_map_markers);
 
-	var _google_map_markers_prerender = __webpack_require__(587);
+	var _google_map_markers_prerender = __webpack_require__(588);
 
 	var _google_map_markers_prerender2 = _interopRequireDefault(_google_map_markers_prerender);
 
-	var _google_map_loader = __webpack_require__(588);
+	var _google_map_loader = __webpack_require__(589);
 
 	var _google_map_loader2 = _interopRequireDefault(_google_map_loader);
 
-	var _detect = __webpack_require__(590);
+	var _detect = __webpack_require__(591);
 
 	var _detect2 = _interopRequireDefault(_detect);
 
-	var _geo = __webpack_require__(591);
+	var _geo = __webpack_require__(592);
 
 	var _geo2 = _interopRequireDefault(_geo);
 
-	var _array_helper = __webpack_require__(596);
+	var _array_helper = __webpack_require__(597);
 
 	var _array_helper2 = _interopRequireDefault(_array_helper);
 
-	var _is_plain_object = __webpack_require__(597);
+	var _is_plain_object = __webpack_require__(598);
 
 	var _is_plain_object2 = _interopRequireDefault(_is_plain_object);
 
-	var _pick = __webpack_require__(598);
+	var _pick = __webpack_require__(599);
 
 	var _pick2 = _interopRequireDefault(_pick);
 
-	var _raf = __webpack_require__(599);
+	var _raf = __webpack_require__(600);
 
 	var _raf2 = _interopRequireDefault(_raf);
 
-	var _log = __webpack_require__(600);
+	var _log = __webpack_require__(601);
 
 	var _log2 = _interopRequireDefault(_log);
 
-	var _isNumber = __webpack_require__(601);
+	var _isNumber = __webpack_require__(602);
 
 	var _isNumber2 = _interopRequireDefault(_isNumber);
 
-	var _omit = __webpack_require__(586);
+	var _omit = __webpack_require__(587);
 
 	var _omit2 = _interopRequireDefault(_omit);
 
-	var _detectElementResize = __webpack_require__(602);
+	var _detectElementResize = __webpack_require__(603);
 
 	var _detectElementResize2 = _interopRequireDefault(_detectElementResize);
 
@@ -55450,7 +55844,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 582 */
+/* 583 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55471,7 +55865,7 @@
 	  };
 	}();
 
-	var _eventemitter = __webpack_require__(583);
+	var _eventemitter = __webpack_require__(584);
 
 	var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
@@ -55538,7 +55932,7 @@
 	exports.default = MarkerDispatcher;
 
 /***/ },
-/* 583 */
+/* 584 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55824,7 +56218,7 @@
 	}
 
 /***/ },
-/* 584 */
+/* 585 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55908,7 +56302,7 @@
 	exports.default = GoogleMapMap;
 
 /***/ },
-/* 585 */
+/* 586 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55947,7 +56341,7 @@
 
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 
-	var _omit = __webpack_require__(586);
+	var _omit = __webpack_require__(587);
 
 	var _omit2 = _interopRequireDefault(_omit);
 
@@ -56267,7 +56661,7 @@
 	exports.default = GoogleMapMarkers;
 
 /***/ },
-/* 586 */
+/* 587 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -56298,7 +56692,7 @@
 	exports.default = omit;
 
 /***/ },
-/* 587 */
+/* 588 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56325,7 +56719,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _google_map_markers = __webpack_require__(585);
+	var _google_map_markers = __webpack_require__(586);
 
 	var _google_map_markers2 = _interopRequireDefault(_google_map_markers);
 
@@ -56345,7 +56739,7 @@
 	};
 
 /***/ },
-/* 588 */
+/* 589 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -56366,7 +56760,7 @@
 	// TODO add libraries language and other map options
 	function googleMapLoader(bootstrapURLKeys) {
 	  if (!$script_) {
-	    $script_ = __webpack_require__(589); // eslint-disable-line
+	    $script_ = __webpack_require__(590); // eslint-disable-line
 	  }
 
 	  // call from outside google-map-react
@@ -56423,7 +56817,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 589 */
+/* 590 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -56556,7 +56950,7 @@
 	});
 
 /***/ },
-/* 590 */
+/* 591 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -56605,7 +56999,7 @@
 	}
 
 /***/ },
-/* 591 */
+/* 592 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56634,15 +57028,15 @@
 	  };
 	}();
 
-	var _lat_lng = __webpack_require__(592);
+	var _lat_lng = __webpack_require__(593);
 
 	var _lat_lng2 = _interopRequireDefault(_lat_lng);
 
-	var _pointGeometry = __webpack_require__(594);
+	var _pointGeometry = __webpack_require__(595);
 
 	var _pointGeometry2 = _interopRequireDefault(_pointGeometry);
 
-	var _transform = __webpack_require__(595);
+	var _transform = __webpack_require__(596);
 
 	var _transform2 = _interopRequireDefault(_transform);
 
@@ -56783,7 +57177,7 @@
 	exports.default = Geo;
 
 /***/ },
-/* 592 */
+/* 593 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56802,7 +57196,7 @@
 	  };
 	}();
 
-	var _wrap2 = __webpack_require__(593);
+	var _wrap2 = __webpack_require__(594);
 
 	function _classCallCheck(instance, Constructor) {
 	  if (!(instance instanceof Constructor)) {
@@ -56850,7 +57244,7 @@
 	exports.default = LatLng;
 
 /***/ },
-/* 593 */
+/* 594 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -56865,7 +57259,7 @@
 	}
 
 /***/ },
-/* 594 */
+/* 595 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -57018,7 +57412,7 @@
 	};
 
 /***/ },
-/* 595 */
+/* 596 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57037,15 +57431,15 @@
 	  };
 	}();
 
-	var _lat_lng = __webpack_require__(592);
+	var _lat_lng = __webpack_require__(593);
 
 	var _lat_lng2 = _interopRequireDefault(_lat_lng);
 
-	var _pointGeometry = __webpack_require__(594);
+	var _pointGeometry = __webpack_require__(595);
 
 	var _pointGeometry2 = _interopRequireDefault(_pointGeometry);
 
-	var _wrap = __webpack_require__(593);
+	var _wrap = __webpack_require__(594);
 
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -57211,7 +57605,7 @@
 	exports.default = Transform;
 
 /***/ },
-/* 596 */
+/* 597 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -57233,7 +57627,7 @@
 	}
 
 /***/ },
-/* 597 */
+/* 598 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -57277,7 +57671,7 @@
 	}
 
 /***/ },
-/* 598 */
+/* 599 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -57298,7 +57692,7 @@
 	}
 
 /***/ },
-/* 599 */
+/* 600 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -57318,7 +57712,7 @@
 	}
 
 /***/ },
-/* 600 */
+/* 601 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -57334,7 +57728,7 @@
 	exports.default = log2;
 
 /***/ },
-/* 601 */
+/* 602 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -57365,7 +57759,7 @@
 	}
 
 /***/ },
-/* 602 */
+/* 603 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -57540,18 +57934,605 @@
 	};
 
 /***/ },
-/* 603 */,
-/* 604 */,
-/* 605 */,
+/* 604 */
+/***/ function(module, exports) {
+
+	// This stuff is happening via css now
+
+	// const K_SIZE = 25;
+
+	// const memlyStyle = {
+	// initially any map object has left top corner at lat lng coordinates
+	// it's on you to set object origin to 0,0 coordinates
+	// position: 'absolute',
+	// width: K_SIZE,
+	// height: K_SIZE,
+	// left: -K_SIZE / 2,
+	// top: -K_SIZE / 2,
+
+	// border: '4px solid #50E3C2',
+	// borderRadius: K_SIZE,
+	// backgroundColor: 'white',
+	// textAlign: 'center',
+	// color: '#3f51b5',
+	// fontSize: 10,
+	// fontWeight: 'bold',
+	// padding: 2,
+	// cursor: 'pointer',
+	// marginRight: '10px'
+	// };
+
+	// const memlyStyleHover = {
+	// ...memlyStyle,
+	// // border: '3px solid #3f51b5',
+	// // color: '#f44336',
+	// width: K_SIZE * 1.5,
+	// height: K_SIZE * 1.5,
+	// left: (-K_SIZE * 1.5) / 2,
+	// top: (-K_SIZE * 1.5) / 2,
+	// zIndex: 9999999,
+	// };
+
+	// export {memlyStyle, memlyStyleHover, K_SIZE};
+	"use strict";
+
+/***/ },
+/* 605 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var mapStyle = [{
+	  "featureType": "water",
+	  "elementType": "geometry",
+	  "stylers": [{
+	    "color": "#7BD3F0"
+	  }, {
+	    "lightness": 17
+	  }]
+	}, {
+	  "featureType": "landscape",
+	  "elementType": "geometry",
+	  "stylers": [{
+	    "color": "#f5f5f5"
+	  }, {
+	    "lightness": 20
+	  }]
+	}, {
+	  "featureType": "road.highway",
+	  "elementType": "geometry.fill",
+	  "stylers": [{
+	    "color": "#ffffff"
+	  }, {
+	    "lightness": 17
+	  }]
+	}, {
+	  "featureType": "road.highway",
+	  "elementType": "geometry.stroke",
+	  "stylers": [{
+	    "color": "#ffffff"
+	  }, {
+	    "lightness": 29
+	  }, {
+	    "weight": 0.2
+	  }]
+	}, {
+	  "featureType": "road.arterial",
+	  "elementType": "geometry",
+	  "stylers": [{
+	    "color": "#ffffff"
+	  }, {
+	    "lightness": 18
+	  }]
+	}, {
+	  "featureType": "road.local",
+	  "elementType": "geometry",
+	  "stylers": [{
+	    "color": "#ffffff"
+	  }, {
+	    "lightness": 16
+	  }]
+	}, {
+	  "featureType": "poi",
+	  "elementType": "geometry",
+	  "stylers": [{
+	    "color": "#f5f5f5"
+	  }, {
+	    "lightness": 21
+	  }]
+	}, {
+	  "featureType": "poi.park",
+	  "elementType": "geometry",
+	  "stylers": [{
+	    "color": "#dedede"
+	  }, {
+	    "lightness": 21
+	  }]
+	}, {
+	  "elementType": "labels.text.stroke",
+	  "stylers": [{
+	    "visibility": "on"
+	  }, {
+	    "color": "#ffffff"
+	  }, {
+	    "lightness": 16
+	  }]
+	}, {
+	  "elementType": "labels.text.fill",
+	  "stylers": [{
+	    "saturation": 36
+	  }, {
+	    "color": "#333333"
+	  }, {
+	    "lightness": 40
+	  }]
+	}, {
+	  "elementType": "labels.icon",
+	  "stylers": [{
+	    "visibility": "off"
+	  }]
+	}, {
+	  "featureType": "transit",
+	  "elementType": "geometry",
+	  "stylers": [{
+	    "color": "#f2f2f2"
+	  }, {
+	    "lightness": 19
+	  }]
+	}, {
+	  "featureType": "administrative",
+	  "elementType": "geometry.fill",
+	  "stylers": [{
+	    "color": "#fefefe"
+	  }, {
+	    "lightness": 20
+	  }]
+	}, {
+	  "featureType": "administrative",
+	  "elementType": "geometry.stroke",
+	  "stylers": [{
+	    "color": "#fefefe"
+	  }, {
+	    "lightness": 17
+	  }, {
+	    "weight": 1.2
+	  }]
+	}];
+
+	exports.default = mapStyle;
+
+/***/ },
 /* 606 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(607);
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _googleMapReact = __webpack_require__(581);
+
+	var _googleMapReact2 = _interopRequireDefault(_googleMapReact);
+
+	var _container = __webpack_require__(607);
+
+	var _container2 = _interopRequireDefault(_container);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// import shallowCompare from 'react-addons-shallow-compare'
+	// import controllable from 'react-controllables'
+
+	var MapPresentational = function MapPresentational(props) {
+	  var memlys = props.memlys.map(function (memly, index) {
+	    var _id = memly._id;
+	    var showInfo = memly.showInfo;
+	    var defaultAnimation = memly.defaultAnimation;
+	    var media = memly.media;
+	    var user = memly.user;
+	    var place = memly.place;
+	    var comment = memly.comment;
+
+	    return _react2.default.createElement(_container2.default
+	    // Represent other peoples' memlys
+
+	    // Represent current user location
+	    , _extends({ id: _id,
+	      media: media,
+	      user: user,
+	      place: place,
+	      comment: comment,
+	      handleLike: props.handleLike,
+	      handleDislike: props.handleDislike,
+	      defaultAnimation: defaultAnimation,
+	      showInfo: showInfo
+	    }, memly.location, {
+	      key: index
+	    }));
+	  });
+
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'map' },
+	    _react2.default.createElement(
+	      _googleMapReact2.default
+	      /*
+	       * Using the ES6 spread syntax (...) below, the following props will be passed from the
+	       * MapPresentational component into the GoogleMap component:
+	       * * onChildMouseEnter={(e)=>{console.log(e)}} // event argument will return index of child 
+	         * onClick={(e)=>{console.log(e)}} // event will show lat long on map
+	         * options={{styles: mapStyle}}
+	         * bootstrapURLKeys={{key: 'AIzaSyA0VOMMs7FVCwz_klHsvs_KFt-CV-YbVNc'}}
+	         * center={[array representing center for googlemaps]}
+	         * zoom={props.zoom}
+	         * * Instead of css hover (which sometimes is "bad" for map markers)
+	           * ("bad" means inability to hover on markers placed under other markers)
+	           * you can use internal GoogleMap component hover algorithm
+	         * * Hover algorithm explained at "x_distance_hover" example
+	         * hoverDistance={K_SIZE}
+	         */
+	      ,
+	      _extends({}, props, {
+	        // "google-map-react" library requires center to be an array as per below
+	        center: [props.currentUserLocation.lat, props.currentUserLocation.lng]
+	      }),
+	      _react2.default.createElement(_container2.default, _extends({ representCurrentUserLocation: true
+	      }, props.currentUserLocation)),
+	      memlys
+	    )
+	  );
+	};
+
+	exports.default = MapPresentational;
 
 /***/ },
 /* 607 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _presentation = __webpack_require__(608);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MapMemlyContainer = function (_Component) {
+	  _inherits(MapMemlyContainer, _Component);
+
+	  function MapMemlyContainer(props) {
+	    _classCallCheck(this, MapMemlyContainer);
+
+	    return _possibleConstructorReturn(this, (MapMemlyContainer.__proto__ || Object.getPrototypeOf(MapMemlyContainer)).call(this, props));
+	  }
+
+	  _createClass(MapMemlyContainer, [{
+	    key: 'shouldComponentUpdate',
+	    value: function shouldComponentUpdate(nextProps, nextState) {
+	      return this.props !== nextProps;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      if (this.props.representCurrentUserLocation) {
+	        return _react2.default.createElement(_presentation.UserLocation, null);
+	      } else {
+	        return _react2.default.createElement(_presentation.MapMemly, this.props);
+	      }
+	    }
+	  }]);
+
+	  return MapMemlyContainer;
+	}(_react.Component);
+
+	MapMemlyContainer.propTypes = {
+	  // GoogleMap pass $hover props to hovered components
+	  // to detect hover it uses internal mechanism created by react library
+	  $hover: _react.PropTypes.bool,
+	  text: _react.PropTypes.string
+	};
+	MapMemlyContainer.defaultProps = {};
+	exports.default = MapMemlyContainer;
+
+/***/ },
+/* 608 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.MapMemly = exports.UserLocation = undefined;
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _container = __webpack_require__(609);
+
+	var _container2 = _interopRequireDefault(_container);
+
+	var _memlyStyles = __webpack_require__(604);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// Represent user location
+	var UserLocation = exports.UserLocation = function UserLocation(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement('div', { className: 'pin marker bounce' }),
+	    _react2.default.createElement('div', { className: 'fuchsia pulse' })
+	  );
+	};
+
+	// Old user marker star:
+	// <img className="user-marker" src='../../images/user/user-star@2x.png'/>
+
+	// Represent other memlys
+	var MapMemly = exports.MapMemly = function MapMemly(props) {
+	  // Marker hover action happening via css
+	  // const style = props.$hover ? memlyStyleHover : memlyStyle;
+
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'hover' },
+	      _react2.default.createElement(_container2.default, props),
+	      _react2.default.createElement('div', { className: 'ring marker' }),
+	      _react2.default.createElement('div', { className: 'teal pulse' })
+	    )
+	  );
+	};
+
+	// Old stuffs:
+	// height={'60px'}
+	// width={'85px'}
+	// {props.text}
+
+/***/ },
+/* 609 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _presentation = __webpack_require__(610);
+
+	var _presentation2 = _interopRequireDefault(_presentation);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Container = function (_Component) {
+		_inherits(Container, _Component);
+
+		function Container(props) {
+			_classCallCheck(this, Container);
+
+			return _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).call(this, props));
+		}
+
+		_createClass(Container, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(_presentation2.default, this.props);
+			}
+		}]);
+
+		return Container;
+	}(_react.Component);
+
+	exports.default = Container;
+
+/***/ },
+/* 610 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _infowindowUtils = __webpack_require__(611);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (props) {
+	  // const infowindow = props.$hover ? (
+	  //   <div className="memly-infowindow" /* Infowindow floats above marker */>
+	  //     <img className="memly-media" src={props.media.url} />
+	  //   </div>
+	  // ) : (
+	  //   <div display={'none'}></div>
+	  // )
+
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'iw' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'iw-top' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'iw-header' },
+	        _react2.default.createElement('img', { className: 'iw-avatar', src: props.user.avatarUrl }),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'iw-name' },
+	          props.user.name
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'iw-place' },
+	          props.place
+	        )
+	      ),
+	      _react2.default.createElement('img', { className: 'iw-media', src: props.media.url }),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'iw-footer' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'iw-pane' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'iw-like-button', onClick: function onClick(e) {
+	                return props.handleLike(e);
+	              } },
+	            _react2.default.createElement('img', { className: 'iw-like-image', value: props.id, src: '../../../../images/icons/heart/heart@2x.png' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'iw-dislike-button', onClick: function onClick(e) {
+	                return props.handleDislike(e);
+	              } },
+	            _react2.default.createElement('img', { className: 'iw-dislike-image', value: props.id, src: '../../../../images/icons/dislike/dislike@2x.png' })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'iw-time' },
+	          (0, _infowindowUtils.calculateSince)(props.media.timestamp)
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'iw-comment' },
+	      props.comment
+	    )
+	  );
+	};
+
+/***/ },
+/* 611 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var calculateSince = exports.calculateSince = function calculateSince(datetime) {
+	  // Calculates the time since message was created
+	  var tTime = new Date(datetime);
+	  var cTime = new Date();
+	  var sinceMin = Math.round((cTime - tTime) / 60000);
+
+	  if (sinceMin == 0) {
+	    var sinceSec = Math.round((cTime - tTime) / 1000);
+	    if (sinceSec < 10) {
+	      var since = 'less than 10 seconds ago';
+	    } else if (sinceSec < 20) {
+	      var since = 'less than 20 seconds ago';
+	    } else {
+	      var since = 'half a minute ago';
+	    }
+	  } else if (sinceMin == 1) {
+	    var sinceSec = Math.round((cTime - tTime) / 1000);
+	    if (sinceSec == 30) {
+	      var since = 'half a minute ago';
+	    } else if (sinceSec < 60) {
+	      var since = 'less than a minute ago';
+	    } else {
+	      var since = '1 minute ago';
+	    }
+	  } else if (sinceMin < 45) {
+	    var since = sinceMin + ' minutes ago';
+	  } else if (sinceMin > 44 && sinceMin < 60) {
+	    var since = 'about 1 hour ago';
+	  } else if (sinceMin < 1440) {
+	    var sinceHr = Math.round(sinceMin / 60);
+	    if (sinceHr == 1) {
+	      var since = 'about 1 hour ago';
+	    } else {
+	      var since = 'about ' + sinceHr + ' hours ago';
+	    }
+	  } else if (sinceMin > 1439 && sinceMin < 2880) {
+	    var since = '1 day ago';
+	  } else {
+	    var sinceDay = Math.round(sinceMin / 1440);
+	    var since = sinceDay + ' days ago';
+	  }
+	  return since;
+	};
+
+	var calculateDistance = exports.calculateDistance = function calculateDistance(lat1, lng1, lat2, lng2, unit) {
+	  // Calculates the distance between the user's geolocation and the message's geolocation
+	  var radlat1 = Math.PI * lat1 / 180;
+	  var radlat2 = Math.PI * lat2 / 180;
+	  var theta = lng1 - lng2;
+	  var radtheta = Math.PI * theta / 180;
+	  var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+	  dist = Math.acos(dist);
+	  dist = dist * 180 / Math.PI;
+	  dist = dist * 60 * 1.1515;
+	  if (unit == "K") {
+	    dist = dist * 1.609344;
+	  }
+	  if (unit == "N") {
+	    dist = dist * 0.8684;
+	  }
+	  return dist;
+	};
+
+/***/ },
+/* 612 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = __webpack_require__(613);
+
+/***/ },
+/* 613 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -57672,7 +58653,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 608 */
+/* 614 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -57879,7 +58860,7 @@
 	}
 
 /***/ },
-/* 609 */
+/* 615 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -57925,990 +58906,6 @@
 	      return state;
 	  }
 	}
-
-/***/ },
-/* 610 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	exports.updateImageContainerLocation = updateImageContainerLocation;
-	exports.handlePlaceChange = handlePlaceChange;
-	exports.handleCommentChange = handleCommentChange;
-	exports.handleImageChange = handleImageChange;
-	exports.default = imageUploadReducer;
-	// actions to be dispatched to reducer for imageUploadReducer === //
-
-	function updateImageContainerLocation(currentUserLocation) {
-	  console.log('updating User location with action');
-	  return {
-	    type: 'UPDATE_IMAGE_CONTAINER_LOCATION',
-	    currentUserLocation: currentUserLocation
-	  };
-	}
-
-	function handlePlaceChange(placeText) {
-	  return {
-	    type: 'HANDLE_PLACE_CHANGE',
-	    place: placeText
-	  };
-	}
-
-	function handleCommentChange(commentText) {
-	  return {
-	    type: 'HANDLE_COMMENT_CHANGE',
-	    place: commentText
-	  };
-	}
-
-	function handleImageChange(file, imagePreviewUrl) {
-	  return {
-	    type: 'HANDLE_IMAGE_CHANGE',
-	    file: file,
-	    imagePreviewUrl: imagePreviewUrl
-	  };
-	}
-
-	//====== initial state for image container ====== //
-
-	var imageUploadInitialState = {
-	  file: '',
-	  imagePreviewUrl: '',
-	  location: {
-	    lat: 0.0,
-	    lng: 0.0
-	  },
-	  place: '',
-	  comment: ''
-	};
-
-	//========= reducer to connect to container component ====//
-
-	function imageUploadReducer() {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? imageUploadInitialState : arguments[0];
-	  var action = arguments[1];
-
-	  switch (action.type) {
-
-	    case 'UPDATE_IMAGE_CONTAINER_LOCATION':
-	      {
-	        console.log('updating image user location in state tree');
-	        return _extends({}, state, {
-	          location: action.currentUserLocation
-	        });
-	      }
-
-	    case 'HANDLE_PLACE_CHANGE':
-	      {
-	        return _extends({}, state, {
-	          place: action.placeText
-	        });
-	      }
-
-	    case 'HANDLE_COMMENT_CHANGE':
-	      {
-	        return _extends({}, state, {
-	          comment: action.commentText
-	        });
-	      }
-
-	    case 'HANDLE_IMAGE_CHANGE':
-	      {
-	        return _extends({}, state, {
-	          file: action.file,
-	          imagePreviewUrl: action.imagePreviewUrl
-	        });
-	      }
-
-	    default:
-	      return state;
-	  }
-	}
-
-/***/ },
-/* 611 */
-/***/ function(module, exports) {
-
-	// This stuff is happening via css now
-
-	// const K_SIZE = 25;
-
-	// const memlyStyle = {
-	// initially any map object has left top corner at lat lng coordinates
-	// it's on you to set object origin to 0,0 coordinates
-	// position: 'absolute',
-	// width: K_SIZE,
-	// height: K_SIZE,
-	// left: -K_SIZE / 2,
-	// top: -K_SIZE / 2,
-
-	// border: '4px solid #50E3C2',
-	// borderRadius: K_SIZE,
-	// backgroundColor: 'white',
-	// textAlign: 'center',
-	// color: '#3f51b5',
-	// fontSize: 10,
-	// fontWeight: 'bold',
-	// padding: 2,
-	// cursor: 'pointer',
-	// marginRight: '10px'
-	// };
-
-	// const memlyStyleHover = {
-	// ...memlyStyle,
-	// // border: '3px solid #3f51b5',
-	// // color: '#f44336',
-	// width: K_SIZE * 1.5,
-	// height: K_SIZE * 1.5,
-	// left: (-K_SIZE * 1.5) / 2,
-	// top: (-K_SIZE * 1.5) / 2,
-	// zIndex: 9999999,
-	// };
-
-	// export {memlyStyle, memlyStyleHover, K_SIZE};
-	"use strict";
-
-/***/ },
-/* 612 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var mapStyle = [{
-	  "featureType": "water",
-	  "elementType": "geometry",
-	  "stylers": [{
-	    "color": "#7BD3F0"
-	  }, {
-	    "lightness": 17
-	  }]
-	}, {
-	  "featureType": "landscape",
-	  "elementType": "geometry",
-	  "stylers": [{
-	    "color": "#f5f5f5"
-	  }, {
-	    "lightness": 20
-	  }]
-	}, {
-	  "featureType": "road.highway",
-	  "elementType": "geometry.fill",
-	  "stylers": [{
-	    "color": "#ffffff"
-	  }, {
-	    "lightness": 17
-	  }]
-	}, {
-	  "featureType": "road.highway",
-	  "elementType": "geometry.stroke",
-	  "stylers": [{
-	    "color": "#ffffff"
-	  }, {
-	    "lightness": 29
-	  }, {
-	    "weight": 0.2
-	  }]
-	}, {
-	  "featureType": "road.arterial",
-	  "elementType": "geometry",
-	  "stylers": [{
-	    "color": "#ffffff"
-	  }, {
-	    "lightness": 18
-	  }]
-	}, {
-	  "featureType": "road.local",
-	  "elementType": "geometry",
-	  "stylers": [{
-	    "color": "#ffffff"
-	  }, {
-	    "lightness": 16
-	  }]
-	}, {
-	  "featureType": "poi",
-	  "elementType": "geometry",
-	  "stylers": [{
-	    "color": "#f5f5f5"
-	  }, {
-	    "lightness": 21
-	  }]
-	}, {
-	  "featureType": "poi.park",
-	  "elementType": "geometry",
-	  "stylers": [{
-	    "color": "#dedede"
-	  }, {
-	    "lightness": 21
-	  }]
-	}, {
-	  "elementType": "labels.text.stroke",
-	  "stylers": [{
-	    "visibility": "on"
-	  }, {
-	    "color": "#ffffff"
-	  }, {
-	    "lightness": 16
-	  }]
-	}, {
-	  "elementType": "labels.text.fill",
-	  "stylers": [{
-	    "saturation": 36
-	  }, {
-	    "color": "#333333"
-	  }, {
-	    "lightness": 40
-	  }]
-	}, {
-	  "elementType": "labels.icon",
-	  "stylers": [{
-	    "visibility": "off"
-	  }]
-	}, {
-	  "featureType": "transit",
-	  "elementType": "geometry",
-	  "stylers": [{
-	    "color": "#f2f2f2"
-	  }, {
-	    "lightness": 19
-	  }]
-	}, {
-	  "featureType": "administrative",
-	  "elementType": "geometry.fill",
-	  "stylers": [{
-	    "color": "#fefefe"
-	  }, {
-	    "lightness": 20
-	  }]
-	}, {
-	  "featureType": "administrative",
-	  "elementType": "geometry.stroke",
-	  "stylers": [{
-	    "color": "#fefefe"
-	  }, {
-	    "lightness": 17
-	  }, {
-	    "weight": 1.2
-	  }]
-	}];
-
-	exports.default = mapStyle;
-
-/***/ },
-/* 613 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactAddonsShallowCompare = __webpack_require__(551);
-
-	var _reactAddonsShallowCompare2 = _interopRequireDefault(_reactAddonsShallowCompare);
-
-	var _reactControllables = __webpack_require__(553);
-
-	var _reactControllables2 = _interopRequireDefault(_reactControllables);
-
-	var _googleMapReact = __webpack_require__(580);
-
-	var _googleMapReact2 = _interopRequireDefault(_googleMapReact);
-
-	var _memlyStyles = __webpack_require__(611);
-
-	var _mapStyle = __webpack_require__(612);
-
-	var _mapStyle2 = _interopRequireDefault(_mapStyle);
-
-	var _presentation = __webpack_require__(614);
-
-	var _presentation2 = _interopRequireDefault(_presentation);
-
-	var _reactAddonsUpdate = __webpack_require__(606);
-
-	var _reactAddonsUpdate2 = _interopRequireDefault(_reactAddonsUpdate);
-
-	var _axios = __webpack_require__(241);
-
-	var _axios2 = _interopRequireDefault(_axios);
-
-	var _reactRedux = __webpack_require__(263);
-
-	var _memlysReducer = __webpack_require__(608);
-
-	var memlysActions = _interopRequireWildcard(_memlysReducer);
-
-	var _mapReducer = __webpack_require__(609);
-
-	var mapActions = _interopRequireWildcard(_mapReducer);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } //need to look into use for this... allows you to control prop types somehow...
-
-
-	var MapContainer = function (_Component) {
-	  _inherits(MapContainer, _Component);
-
-	  function MapContainer(props) {
-	    _classCallCheck(this, MapContainer);
-
-	    // this.state = {
-	    //use geolocation and settimeout to update location of currentUserLocation position of Map
-	    // currentUserLocation: {
-	    //   lat: 37.7836966,
-	    //   lng: -122.4089664
-	    // },
-	    //memlys will be grabbed from db based on user location. (HTTP request in componentWillMount method)
-	    //   memlys: [
-	    //     {
-	    //       location: {
-	    //         lat: 37.7836966,
-	    //         lng: -122.4089664
-	    //       },
-	    //       key: 'Hack Reactor',
-	    //       defaultAnimation: 2,
-	    //       showInfo: false,
-	    //       media: {
-	    //         url: "../../styles/hackreactor.jpg"
-	    //       }
-	    //     },
-	    //     {
-	    //       location: {
-	    //         lat: 51.507351,
-	    //         lng: -0.125758
-	    //       },
-	    //       username: "Michael Wong",
-	    //       userAvatar: "../../styles/userAvatar.jpg",
-	    //       key: 'timestamp1',
-	    //       defaultAnimation: 2,
-	    //       showInfo: false,
-	    //       media: {
-	    //         url: "../../styles/shutterstock_276995975.jpg"
-	    //       }
-	    //     },
-	    //     {
-	    //       location: {
-	    //         lat: 51.507351,
-	    //         lng: -0.12958
-	    //       },
-	    //       key: 'timestamp2',
-	    //       defaultAnimation: 2,
-	    //       showInfo: false,
-	    //       media: {
-	    //         url: "../../styles/M9071-PARENT-2.jpg"
-	    //       }
-	    //     },
-	    //     {
-	    //       location: {
-	    //         lat: 51.509351,
-	    //         lng: -0.12958
-	    //       },
-	    //       key: 'timestamp3',
-	    //       defaultAnimation: 2,
-	    //       showInfo: false,
-	    //       media: {
-	    //         url: "../../styles/15759420184_f34af1b4a8.jpg"
-	    //       }
-	    //     },
-	    //     {
-	    //       location: {
-	    //         lat: 51.506351,
-	    //         lng: -0.12958
-	    //       },
-	    //       key: 'timestamp4',
-	    //       defaultAnimation: 2,
-	    //       showInfo: false,
-	    //       media: {
-	    //         url: "../../styles/londonstreet.jpeg"
-	    //       }
-	    //     }
-	    //   ],
-	    //   // Keep ids of already accepted memlys in below storage to avoid duplicate entries
-	    //   memlyIdStorage: {}
-	    // }
-
-	    var _this = _possibleConstructorReturn(this, (MapContainer.__proto__ || Object.getPrototypeOf(MapContainer)).call(this, props));
-
-	    _this.geolocate();
-	    _this.updateMemlys();
-	    return _this;
-	  }
-
-	  // If user is in the same location, this lifecycle method will 'shallow equality check'
-	  // the currentUserLocation state.
-	  // If User is still in same place, the method will return false and prevent unnecessary re-render
-
-	  // shouldComponentUpdate(nextProps, nextState) {
-	  //   // console.log("should component update", this.state.currentUserLocation.lat != nextState.currentUserLocation.lat || this.state.currentUserLocation.lng != nextState.currentUserLocation.lng);
-	  //   // return this.state.currentUserLocation.lat != nextState.currentUserLocation.lat || this.state.currentUserLocation.lng != nextState.currentUserLocation.lng;
-	  // }
-
-	  _createClass(MapContainer, [{
-	    key: 'geolocate',
-	    value: function geolocate() {
-	      var _this2 = this;
-
-	      if (navigator.geolocation) {
-	        // Assign interval to "window.geolocator" so we can clear the interval later if needed
-	        window.geolocator = window.setInterval(function () {
-	          navigator.geolocation.getCurrentPosition(function (position) {
-
-	            // Log coordinates for development
-	            console.log(position.coords.latitude, position.coords.longitude);
-
-	            // // To read about "update", see below link:
-	            // // https://facebook.github.io/react/docs/update.html
-	            // let { currentUserLocation } = this.state;
-	            // currentUserLocation = update(currentUserLocation, {
-	            //   lat: { $set: position.coords.latitude },
-	            //   lng: { $set: position.coords.longitude }
-	            // });
-
-	            // // Below is equivalent to "this.setState({currentUserLocation: currentUserLocation})"
-	            // this.setState({ currentUserLocation });
-	            _this2.props.dispatch(mapActions.updateUserLocation({
-	              lat: position.coords.latitude,
-	              lng: position.coords.longitude
-	            }));
-	          }, function () {
-	            // Error handler for "navigator.geolocation.getCurrentPosition()"
-	            // Clear further geolocation's upon failure so we don't get repeat errors
-	            if (window.geolocator) {
-	              window.clearInterval(window.geolocator);
-	            };
-	            console.error('Geolocation failed');
-	          });
-	        }, 1000);
-	      } else {
-	        console.error('Your browser doesn\'t support geolocation');
-	      }
-	    }
-
-	    //constantly update current user location with geolocate method
-	    // componentDidMount() {
-	    //   this.geolocate();
-	    // }
-	    //Not yet working correctly. Need to clear interval when component unmounts
-
-	  }, {
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      window.clearInterval(window.geolocator);
-	    }
-	  }, {
-	    key: 'updateMemlys',
-	    value: function updateMemlys() {
-	      var _this3 = this;
-
-	      window.setInterval(function () {
-	        console.log('Polling for nearby markers...');
-	        _axios2.default.get('/api/nearby', {
-	          params: {
-	            lat: _this3.props.currentUserLocation.lat,
-	            lng: _this3.props.currentUserLocation.lng
-	          }
-	        }).then(function (response) {
-	          // 'response.data' is an array of memlys to be displayed
-	          console.log(response.data, 'data from updateMemly\'s function');
-
-	          // let { memlys, memlyIdStorage } = this.state;
-
-	          // If our memlys storage does not yet contain the new memly,
-	          // add the new memly to our storage
-	          response.data.forEach(function (memly) {
-	            if (!_this3.props.memlyIdStorage[memly._id]) {
-	              console.log('!memlyIdStorage');
-	              // memlyIdStorage[memly._id] = true;
-	              _this3.props.dispatch(memlysActions.addMemly(memly));
-	              // memlys.push(memly);
-	            }
-	          });
-
-	          // this.setState({ memlys, memlyIdStorage });
-	          // console.log(this.state.memlys);
-	        }).catch(function (error) {
-	          console.log(error);
-	        });
-	      }, 5000);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(_presentation2.default, {
-	          onChildMouseEnter: function onChildMouseEnter(e) {
-	            console.log(e);
-	          } // event argument will return index of child 
-	          , onClick: function onClick(e) {
-	            console.log(e);
-	          } // event will show lat long on map
-	          , options: { styles: _mapStyle2.default },
-	          bootstrapURLKeys: { key: 'AIzaSyA0VOMMs7FVCwz_klHsvs_KFt-CV-YbVNc' },
-	          currentUserLocation: this.props.currentUserLocation,
-	          zoom: this.props.zoom
-	          // instead of css hover (which sometimes is bad for map markers) (bad means inability to hover on markers placed under other markers)
-	          // you can use internal GoogleMap component hover algorithm
-	          // hover algorithm explained at x_distance_hover example
-	          , hoverDistance: _memlyStyles.K_SIZE,
-	          memlys: this.props.memlys
-	        })
-	      );
-	    }
-	  }]);
-
-	  return MapContainer;
-	}(_react.Component);
-
-	MapContainer.propTypes = {
-	  // center: PropTypes.array,
-	  zoom: _react.PropTypes.number,
-	  greatPlaceCoords: _react.PropTypes.any,
-	  memlys: _react.PropTypes.array,
-	  memlyIdStorage: _react.PropTypes.object,
-	  currentUserLocation: _react.PropTypes.object
-	};
-	MapContainer.defaultProps = {
-	  zoom: 15
-	};
-
-
-	function mapStateToProps(state) {
-	  return {
-	    currentUserLocation: state.mapReducer.currentUserLocation,
-	    memlys: state.memlysReducer.memlys,
-	    memlyIdStorage: state.memlysReducer.memlyIdStorage
-	  };
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MapContainer);
-
-/***/ },
-/* 614 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _googleMapReact = __webpack_require__(580);
-
-	var _googleMapReact2 = _interopRequireDefault(_googleMapReact);
-
-	var _container = __webpack_require__(615);
-
-	var _container2 = _interopRequireDefault(_container);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	// import shallowCompare from 'react-addons-shallow-compare'
-	// import controllable from 'react-controllables'
-
-	var MapPresentational = function MapPresentational(props) {
-	  var memlys = props.memlys.map(function (memly, index) {
-	    var showInfo = memly.showInfo;
-	    var defaultAnimation = memly.defaultAnimation;
-	    var media = memly.media;
-	    var user = memly.user;
-	    var place = memly.place;
-	    var comment = memly.comment;
-
-	    return _react2.default.createElement(_container2.default
-	    // Represent other peoples' memlys
-
-	    // Represent current user location
-	    , _extends({ media: media,
-	      user: user,
-	      place: place,
-	      comment: comment,
-	      defaultAnimation: defaultAnimation,
-	      showInfo: showInfo
-	    }, memly.location, {
-	      key: index
-	    }));
-	  });
-
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'map' },
-	    _react2.default.createElement(
-	      _googleMapReact2.default
-	      /*
-	       * Using the ES6 spread syntax (...) below, the following props will be passed from the
-	       * MapPresentational component into the GoogleMap component:
-	       * * onChildMouseEnter={(e)=>{console.log(e)}} // event argument will return index of child 
-	         * onClick={(e)=>{console.log(e)}} // event will show lat long on map
-	         * options={{styles: mapStyle}}
-	         * bootstrapURLKeys={{key: 'AIzaSyA0VOMMs7FVCwz_klHsvs_KFt-CV-YbVNc'}}
-	         * center={[array representing center for googlemaps]}
-	         * zoom={props.zoom}
-	         * * Instead of css hover (which sometimes is "bad" for map markers)
-	           * ("bad" means inability to hover on markers placed under other markers)
-	           * you can use internal GoogleMap component hover algorithm
-	         * * Hover algorithm explained at "x_distance_hover" example
-	         * hoverDistance={K_SIZE}
-	         */
-	      ,
-	      _extends({}, props, {
-	        // "google-map-react" library requires center to be an array as per below
-	        center: [props.currentUserLocation.lat, props.currentUserLocation.lng]
-	      }),
-	      _react2.default.createElement(_container2.default, _extends({ representCurrentUserLocation: true
-	      }, props.currentUserLocation)),
-	      memlys
-	    )
-	  );
-	};
-
-	exports.default = MapPresentational;
-
-/***/ },
-/* 615 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _presentation = __webpack_require__(616);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var MapMemlyContainer = function (_Component) {
-	  _inherits(MapMemlyContainer, _Component);
-
-	  function MapMemlyContainer(props) {
-	    _classCallCheck(this, MapMemlyContainer);
-
-	    return _possibleConstructorReturn(this, (MapMemlyContainer.__proto__ || Object.getPrototypeOf(MapMemlyContainer)).call(this, props));
-	  }
-
-	  _createClass(MapMemlyContainer, [{
-	    key: 'shouldComponentUpdate',
-	    value: function shouldComponentUpdate(nextProps, nextState) {
-	      return this.props !== nextProps;
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      if (this.props.representCurrentUserLocation) {
-	        return _react2.default.createElement(_presentation.UserLocation, null);
-	      } else {
-	        return _react2.default.createElement(_presentation.MapMemly, this.props);
-	      }
-	    }
-	  }]);
-
-	  return MapMemlyContainer;
-	}(_react.Component);
-
-	MapMemlyContainer.propTypes = {
-	  // GoogleMap pass $hover props to hovered components
-	  // to detect hover it uses internal mechanism created by react library
-	  $hover: _react.PropTypes.bool,
-	  text: _react.PropTypes.string
-	};
-	MapMemlyContainer.defaultProps = {};
-	exports.default = MapMemlyContainer;
-
-/***/ },
-/* 616 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.MapMemly = exports.UserLocation = undefined;
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _container = __webpack_require__(617);
-
-	var _container2 = _interopRequireDefault(_container);
-
-	var _memlyStyles = __webpack_require__(611);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	// Represent user location
-	var UserLocation = exports.UserLocation = function UserLocation(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement('div', { className: 'pin marker bounce' }),
-	    _react2.default.createElement('div', { className: 'fuchsia pulse' })
-	  );
-	};
-
-	// Old user marker star:
-	// <img className="user-marker" src='../../images/user/user-star@2x.png'/>
-
-	// Represent other memlys
-	var MapMemly = exports.MapMemly = function MapMemly(props) {
-	  // Marker hover action happening via css
-	  // const style = props.$hover ? memlyStyleHover : memlyStyle;
-
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'hover' },
-	      _react2.default.createElement(_container2.default, props),
-	      _react2.default.createElement('div', { className: 'ring marker' }),
-	      _react2.default.createElement('div', { className: 'teal pulse' })
-	    )
-	  );
-	};
-
-	// Old stuffs:
-	// height={'60px'}
-	// width={'85px'}
-	// {props.text}
-
-/***/ },
-/* 617 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _presentation = __webpack_require__(618);
-
-	var _presentation2 = _interopRequireDefault(_presentation);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Container = function (_Component) {
-		_inherits(Container, _Component);
-
-		function Container(props) {
-			_classCallCheck(this, Container);
-
-			return _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).call(this, props));
-		}
-
-		_createClass(Container, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(_presentation2.default, this.props);
-			}
-		}]);
-
-		return Container;
-	}(_react.Component);
-
-	exports.default = Container;
-
-/***/ },
-/* 618 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _infowindowUtils = __webpack_require__(619);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = function (props) {
-	  // const infowindow = props.$hover ? (
-	  //   <div className="memly-infowindow" /* Infowindow floats above marker */>
-	  //     <img className="memly-media" src={props.media.url} />
-	  //   </div>
-	  // ) : (
-	  //   <div display={'none'}></div>
-	  // )
-
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'iw' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'iw-top' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'iw-header' },
-	        _react2.default.createElement('img', { className: 'iw-avatar', src: props.user.avatarUrl }),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'iw-name' },
-	          props.user.name
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'iw-place' },
-	          props.place
-	        )
-	      ),
-	      _react2.default.createElement('img', { className: 'iw-media', src: props.media.url }),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'iw-footer' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'iw-pane' },
-	          _react2.default.createElement('img', { className: 'iw-like-image', src: '../../../../images/icons/heart/heart@2x.png' }),
-	          _react2.default.createElement('img', { className: 'iw-dislike-image', src: '../../../../images/icons/dislike/dislike@2x.png' })
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'iw-time' },
-	          (0, _infowindowUtils.calculateSince)(props.media.timestamp)
-	        )
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'iw-comment' },
-	      props.comment
-	    )
-	  );
-	};
-
-/***/ },
-/* 619 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var calculateSince = exports.calculateSince = function calculateSince(datetime) {
-	  // Calculates the time since message was created
-	  var tTime = new Date(datetime);
-	  var cTime = new Date();
-	  var sinceMin = Math.round((cTime - tTime) / 60000);
-
-	  if (sinceMin == 0) {
-	    var sinceSec = Math.round((cTime - tTime) / 1000);
-	    if (sinceSec < 10) {
-	      var since = 'less than 10 seconds ago';
-	    } else if (sinceSec < 20) {
-	      var since = 'less than 20 seconds ago';
-	    } else {
-	      var since = 'half a minute ago';
-	    }
-	  } else if (sinceMin == 1) {
-	    var sinceSec = Math.round((cTime - tTime) / 1000);
-	    if (sinceSec == 30) {
-	      var since = 'half a minute ago';
-	    } else if (sinceSec < 60) {
-	      var since = 'less than a minute ago';
-	    } else {
-	      var since = '1 minute ago';
-	    }
-	  } else if (sinceMin < 45) {
-	    var since = sinceMin + ' minutes ago';
-	  } else if (sinceMin > 44 && sinceMin < 60) {
-	    var since = 'about 1 hour ago';
-	  } else if (sinceMin < 1440) {
-	    var sinceHr = Math.round(sinceMin / 60);
-	    if (sinceHr == 1) {
-	      var since = 'about 1 hour ago';
-	    } else {
-	      var since = 'about ' + sinceHr + ' hours ago';
-	    }
-	  } else if (sinceMin > 1439 && sinceMin < 2880) {
-	    var since = '1 day ago';
-	  } else {
-	    var sinceDay = Math.round(sinceMin / 1440);
-	    var since = sinceDay + ' days ago';
-	  }
-	  return since;
-	};
-
-	var calculateDistance = exports.calculateDistance = function calculateDistance(lat1, lng1, lat2, lng2, unit) {
-	  // Calculates the distance between the user's geolocation and the message's geolocation
-	  var radlat1 = Math.PI * lat1 / 180;
-	  var radlat2 = Math.PI * lat2 / 180;
-	  var theta = lng1 - lng2;
-	  var radtheta = Math.PI * theta / 180;
-	  var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-	  dist = Math.acos(dist);
-	  dist = dist * 180 / Math.PI;
-	  dist = dist * 60 * 1.1515;
-	  if (unit == "K") {
-	    dist = dist * 1.609344;
-	  }
-	  if (unit == "N") {
-	    dist = dist * 0.8684;
-	  }
-	  return dist;
-	};
 
 /***/ }
 /******/ ]);
