@@ -223,6 +223,22 @@ $media-height-hover: $media-height * 3 / 2;
   justify-content: space-around;
 }
 
+.iw-pane > div {
+  cursor: pointer;
+}
+
+.iw-like-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.iw-dislike-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .iw-like-image {
   height: 10px;
 }
