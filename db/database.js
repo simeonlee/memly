@@ -23,9 +23,9 @@ var multer = require('multer');
 // file names rather than have multer assign some hexadecimal blabber
 // http://stackoverflow.com/questions/32184589/renaming-an-uploaded-file-using-multer-doesnt-work-express-js
 var storage = multer.diskStorage({
-  // destination: function(req, file, cb) {
-  //   cb(null, 'uploads/');
-  // },
+  destination: function(req, file, cb) {
+    cb(null, 'uploads/');
+  },
   // Randomize file name using below code
   filename: function(req, file, cb) {
   	crypto.pseudoRandomBytes(16, function (err, raw) {
