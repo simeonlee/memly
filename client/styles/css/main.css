@@ -3,55 +3,6 @@ Make changes in file "styles/scss/main.scss" (ends in ".scss") and
 run "npm run watch-css" to compile to "styles/css/main.css" (ends in ".css")
 which is where index.html points to
 */
-* {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100; }
-
-a, a:link, a:hover, a:active, a:visited {
-  text-decoration: none;
-  color: white; }
-
-a:hover {
-  color: #e6f1ff; }
-
-ul {
-  list-style: none; }
-
-/*
-#MemlyNavSelector .MemlyNavItem {
-  color: #595959;
-}*/
-.nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  color: white;
-  font-size: 16px;
-  background-color: #446CB3; }
-
-.logo {
-  font-family: 'Suez One', serif;
-  font-size: 26px; }
-
-.body-container {
-  position: absolute;
-  top: 60px;
-  left: 0;
-  right: 0;
-  bottom: 0; }
-
-.map {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; }
-
 .pin {
   width: 30px;
   height: 30px;
@@ -215,6 +166,55 @@ ul {
     width: 18px;
     top: 5px;
     margin: 9px 0px 0px -14px; } }
+
+* {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100; }
+
+a, a:link, a:hover, a:active, a:visited {
+  text-decoration: none;
+  color: white; }
+
+a:hover {
+  color: #e6f1ff; }
+
+ul {
+  list-style: none; }
+
+/*
+#MemlyNavSelector .MemlyNavItem {
+  color: #595959;
+}*/
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+  font-size: 16px;
+  background-color: #446CB3; }
+
+.logo {
+  font-family: 'Suez One', serif;
+  font-size: 26px; }
+
+.body-container {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
 
 #profilePhoto {
   border-radius: 1%;
