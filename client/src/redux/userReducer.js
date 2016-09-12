@@ -51,11 +51,25 @@ export function updateUserBirthday (birthday) {
   }
 }
 
+export function likeMemly(memlyId) {
+  return {
+    type: 'UPDATE_LIKED_MEMLYS',
+    memlyId,
+  }
+}
+
+export function dislikeMemly(memlyId) {
+  return {
+    type: 'UPDATE_DISLIKED_MEMLYS',
+    memlyId,
+  }
+}
+
 export function updateMemlyCount(memlyCount) {
   return {
     type: 'UPDATE_MEMLY_COUNT',
     memlyCount,
-    }
+  }
 }
 
 export function increaseMemlyCount() {
@@ -72,6 +86,8 @@ const userInitialState = {
   memlyCount: 0,
   isLoggedIn: false,
   error: '',
+  likedMemlys: [],
+  dislikedMemlys: [],
   userLocation: {
     lat: '',
     lng: '',
@@ -159,6 +175,20 @@ export default function userReducer (state = userInitialState, action) {
       }
     }
 
+    case 'UPDATE_LIKED_MEMLYS' : {
+      return {
+        ...state,
+        likedMemlys: [...state.likedMemlys, action.memlyId]
+      }
+    }
+
+    case 'UPDATE_DISLIKED_MEMLYS' : {
+      return {
+        ...state,
+        dislikedMemlys: [...state.likedMemlys, action.memlyId]
+      }
+    }
+
     case 'UPDATE_MEMLY_COUNT' : {
       return {
         ...state,
@@ -176,8 +206,5 @@ export default function userReducer (state = userInitialState, action) {
     default : 
       return state
 
-   }
+    }
   }
-
-
-

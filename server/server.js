@@ -116,6 +116,34 @@ app.get('/user/retrieve/profileinfo/', helper.isLoggedIn, function(req, res) {
 
 });
 
+app.put('/user/like-memly', function(req, res) {
+  if (req.session.passport.user) {
+    var userID = req.session.passport.user['_id'];
+    User.findOneAndUpdate({_id: userID}, {$push: {'likedMemlys': req.body}}, {new: true}, function(err, user) {
+      if (err) {
+        console.log(err);
+      }
+      res.send(user);
+    })
+  } else {
+    res.error('User must log in before doing that!');
+  }
+});
+
+app.put('/user/dislike-memly', function(req, res) {
+  if (req.session.passport.user) {
+    var userID = req.session.passport.user['_id'];
+    User.findOneAndUpdate({_id: userID}, {$push: {'dislikedMemlys': req.body}}, {new: true}, function(err, user) {
+      if (err) {
+        console.log(err);
+      }
+      res.send(user);
+    })
+  } else {
+    res.error('User must log in before doing that!');
+  }
+});
+
 app.post('/user/edit/profileinfo/', helper.isLoggedIn, function(req, res) {
   console.log('i hit my post request for edit profile', req.body);
   var userID = req.session.passport.user['_id'];

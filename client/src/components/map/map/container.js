@@ -10,6 +10,7 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import * as memlysActions from '../../../redux/memlysReducer'
 import * as mapActions from '../../../redux/mapReducer'
+import * as userActions from '../../../redux/userReducer'
 
 class MapContainer extends Component {
   static propTypes = {
@@ -27,81 +28,6 @@ class MapContainer extends Component {
 
   constructor(props) {
     super(props);
-    // this.state = {
-      //use geolocation and settimeout to update location of currentUserLocation position of Map
-      // currentUserLocation: {
-      //   lat: 37.7836966,
-      //   lng: -122.4089664
-      // },
-      //memlys will be grabbed from db based on user location. (HTTP request in componentWillMount method)
-    //   memlys: [
-    //     {
-    //       location: {
-    //         lat: 37.7836966,
-    //         lng: -122.4089664
-    //       },
-    //       key: 'Hack Reactor',
-    //       defaultAnimation: 2,
-    //       showInfo: false,
-    //       media: {
-    //         url: "../../styles/hackreactor.jpg"
-    //       }
-    //     },
-    //     {
-    //       location: {
-    //         lat: 51.507351,
-    //         lng: -0.125758
-    //       },
-    //       username: "Michael Wong",
-    //       userAvatar: "../../styles/userAvatar.jpg",
-    //       key: 'timestamp1',
-    //       defaultAnimation: 2,
-    //       showInfo: false,
-    //       media: {
-    //         url: "../../styles/shutterstock_276995975.jpg"
-    //       }
-    //     },
-    //     {
-    //       location: {
-    //         lat: 51.507351,
-    //         lng: -0.12958
-    //       },
-    //       key: 'timestamp2',
-    //       defaultAnimation: 2,
-    //       showInfo: false,
-    //       media: {
-    //         url: "../../styles/M9071-PARENT-2.jpg"
-    //       }
-    //     },
-    //     {
-    //       location: {
-    //         lat: 51.509351,
-    //         lng: -0.12958
-    //       },
-    //       key: 'timestamp3',
-    //       defaultAnimation: 2,
-    //       showInfo: false,
-    //       media: {
-    //         url: "../../styles/15759420184_f34af1b4a8.jpg"
-    //       }
-    //     },
-    //     {
-    //       location: {
-    //         lat: 51.506351,
-    //         lng: -0.12958
-    //       },
-    //       key: 'timestamp4',
-    //       defaultAnimation: 2,
-    //       showInfo: false,
-    //       media: {
-    //         url: "../../styles/londonstreet.jpeg"
-    //       }
-    //     }
-    //   ],
-    //   // Keep ids of already accepted memlys in below storage to avoid duplicate entries
-    //   memlyIdStorage: {}
-    // }
-
     this.geolocate();
     this.updateMemlys();
   }
@@ -120,25 +46,14 @@ class MapContainer extends Component {
       // Assign interval to "window.geolocator" so we can clear the interval later if needed
       window.geolocator = window.setInterval(() => {
         navigator.geolocation.getCurrentPosition((position) => {
-
           // Log coordinates for development
-          console.log(position.coords.latitude, position.coords.longitude);
-
-          // // To read about "update", see below link:
-          // // https://facebook.github.io/react/docs/update.html
-          // let { currentUserLocation } = this.state;
-          // currentUserLocation = update(currentUserLocation, {
-          //   lat: { $set: position.coords.latitude },
-          //   lng: { $set: position.coords.longitude }
-          // });
-
-          // // Below is equivalent to "this.setState({currentUserLocation: currentUserLocation})"
-          // this.setState({ currentUserLocation });
+          if (process.env.NODE_ENV === 'development') {
+            console.log(position.coords.latitude, position.coords.longitude);
+          };
           this.props.dispatch(mapActions.updateUserLocation({
             lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          }))
-
+            lng: position.coords.longitude
+          }));
         }, function() {
           // Error handler for "navigator.geolocation.getCurrentPosition()"
           // Clear further geolocation's upon failure so we don't get repeat errors
@@ -196,7 +111,42 @@ class MapContainer extends Component {
           console.log(error);
         });
     }, 5000);
+  }
 
+  handleLike(e) {
+    e.preventDefault();
+    var memlyId = e.target.getAttribute('value');
+    var mediaUrl = e.target.getAttribute('alt');
+    var meta = {
+      memlyId: memlyId,
+      mediaUrl: mediaUrl
+    };
+    this.props.dispatch(userActions.likeMemly(meta));
+    axios.put('/user/like-memly', meta)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  handleDislike(e) {
+    e.preventDefault();
+    var memlyId = e.target.getAttribute('value');
+    var mediaUrl = e.target.getAttribute('alt');
+    var meta = {
+      memlyId: memlyId,
+      mediaUrl: mediaUrl
+    };
+    this.props.dispatch(userActions.dislikeMemly(meta));
+    axios.put('/user/dislike-memly', meta)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {
@@ -213,6 +163,8 @@ class MapContainer extends Component {
         // you can use internal GoogleMap component hover algorithm
         // hover algorithm explained at x_distance_hover example
         hoverDistance={K_SIZE}
+        handleLike={this.handleLike.bind(this)}
+        handleDislike={this.handleDislike.bind(this)}
         memlys={this.props.memlys}
       />
     </div>
