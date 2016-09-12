@@ -6,11 +6,14 @@ import MapMemlyContainer from '../memly/container';
 
 const MapPresentational = (props) => {
   const memlys = props.memlys.map((memly, index) => {
-    const { showInfo, defaultAnimation, media } = memly;
+    const { showInfo, defaultAnimation, media, user, place, comment } = memly;
     return (
       <MapMemlyContainer
         // Represent other peoples' memlys
         media={media}
+        user={user}
+        place={place}
+        comment={comment}
         defaultAnimation={defaultAnimation}
         showInfo={showInfo}
         {...memly.location}

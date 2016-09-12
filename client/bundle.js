@@ -57723,70 +57723,112 @@
 	      lat: 37.7836966,
 	      lng: -122.4089664
 	    },
+	    user: {
+	      name: 'Mike Wong',
+	      avatarUrl: 'http://www.menshairstyles.net/d/76238-2/Young+Asian+man+hairstyles.PNG'
+	    },
+	    place: 'Hack Reactor',
+	    comment: 'Hey guys!',
 	    key: 'Hack Reactor',
 	    defaultAnimation: 2,
 	    showInfo: false,
 	    media: {
-	      url: "../../images/test-assets/hackreactor.jpg"
+	      url: "../../images/test-assets/hackreactor.jpg",
+	      timestamp: new Date()
 	    }
 	  }, {
 	    location: {
 	      lat: 51.507351,
 	      lng: -0.125758
 	    },
-	    username: "Michael Wong",
-	    userAvatar: "../../images/test-assets/userAvatar.jpg",
+	    user: {
+	      name: 'Mike Wong',
+	      avatarUrl: 'http://www.menshairstyles.net/d/76238-2/Young+Asian+man+hairstyles.PNG'
+	    },
+	    place: 'Hack Reactor',
+	    comment: 'Hey guys!',
+	    // username: "Michael Wong",
+	    // userAvatar: "../../images/test-assets/userAvatar.jpg",
 	    key: 'timestamp1',
 	    defaultAnimation: 2,
 	    showInfo: false,
 	    media: {
-	      url: "../../images/test-assets/shutterstock_276995975.jpg"
+	      url: "../../images/test-assets/shutterstock_276995975.jpg",
+	      timestamp: new Date()
 	    }
 	  }, {
 	    location: {
 	      lat: 51.507351,
 	      lng: -0.125758
 	    },
-	    username: "Michael Wong",
-	    userAvatar: "../../images/test-assets/userAvatar.jpg",
+	    user: {
+	      name: 'Mike Wong',
+	      avatarUrl: 'http://www.menshairstyles.net/d/76238-2/Young+Asian+man+hairstyles.PNG'
+	    },
+	    place: 'Hack Reactor',
+	    comment: 'Hey guys!',
+	    // username: "Michael Wong",
+	    // userAvatar: "../../images/test-assets/userAvatar.jpg",
 	    key: 'timestamp1',
 	    defaultAnimation: 2,
 	    showInfo: false,
 	    media: {
-	      url: "../../images/test-assets/shutterstock_276995975.jpg"
+	      url: "../../images/test-assets/shutterstock_276995975.jpg",
+	      timestamp: new Date()
 	    }
 	  }, {
 	    location: {
 	      lat: 51.507351,
 	      lng: -0.12958
 	    },
+	    user: {
+	      name: 'Mike Wong',
+	      avatarUrl: 'http://www.menshairstyles.net/d/76238-2/Young+Asian+man+hairstyles.PNG'
+	    },
+	    place: 'Hack Reactor',
+	    comment: 'Hey guys!',
 	    key: 'timestamp2',
 	    defaultAnimation: 2,
 	    showInfo: false,
 	    media: {
-	      url: "../../images/test-assets/M9071-PARENT-2.jpg"
+	      url: "../../images/test-assets/M9071-PARENT-2.jpg",
+	      timestamp: new Date()
 	    }
 	  }, {
 	    location: {
 	      lat: 51.509351,
 	      lng: -0.12958
 	    },
+	    user: {
+	      name: 'Mike Wong',
+	      avatarUrl: 'http://www.menshairstyles.net/d/76238-2/Young+Asian+man+hairstyles.PNG'
+	    },
+	    place: 'Hack Reactor',
+	    comment: 'Hey guys!',
 	    key: 'timestamp3',
 	    defaultAnimation: 2,
 	    showInfo: false,
 	    media: {
-	      url: "../../images/test-assets/15759420184_f34af1b4a8.jpg"
+	      url: "../../images/test-assets/15759420184_f34af1b4a8.jpg",
+	      timestamp: new Date()
 	    }
 	  }, {
 	    location: {
 	      lat: 51.506351,
 	      lng: -0.12958
 	    },
+	    user: {
+	      name: 'Mike Wong',
+	      avatarUrl: 'http://www.menshairstyles.net/d/76238-2/Young+Asian+man+hairstyles.PNG'
+	    },
+	    place: 'Hack Reactor',
+	    comment: 'Hey guys!',
 	    key: 'timestamp4',
 	    defaultAnimation: 2,
 	    showInfo: false,
 	    media: {
-	      url: "../../images/test-assets/londonstreet.jpeg"
+	      url: "../../images/test-assets/londonstreet.jpeg",
+	      timestamp: new Date()
 	    }
 	  }],
 
@@ -58499,12 +58541,18 @@
 	    var showInfo = memly.showInfo;
 	    var defaultAnimation = memly.defaultAnimation;
 	    var media = memly.media;
+	    var user = memly.user;
+	    var place = memly.place;
+	    var comment = memly.comment;
 
 	    return _react2.default.createElement(_container2.default
 	    // Represent other peoples' memlys
 
 	    // Represent current user location
 	    , _extends({ media: media,
+	      user: user,
+	      place: place,
+	      comment: comment,
 	      defaultAnimation: defaultAnimation,
 	      showInfo: showInfo
 	    }, memly.location, {
@@ -58654,10 +58702,10 @@
 	  return _react2.default.createElement(
 	    'div',
 	    null,
-	    _react2.default.createElement(_container2.default, props),
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'hover' },
+	      _react2.default.createElement(_container2.default, props),
 	      _react2.default.createElement('div', { className: 'ring marker' }),
 	      _react2.default.createElement('div', { className: 'teal pulse' })
 	    )
@@ -58722,7 +58770,7 @@
 /* 618 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -58732,20 +58780,135 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _infowindowUtils = __webpack_require__(619);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = function (props) {
-	  var infowindow = props.$hover ? _react2.default.createElement(
-	    "div",
-	    { className: "memly-infowindow" /* Infowindow floats above marker */ },
-	    _react2.default.createElement("img", { className: "memly-media", src: props.media.url })
-	  ) : _react2.default.createElement("div", { display: 'none' });
+	  // const infowindow = props.$hover ? (
+	  //   <div className="memly-infowindow" /* Infowindow floats above marker */>
+	  //     <img className="memly-media" src={props.media.url} />
+	  //   </div>
+	  // ) : (
+	  //   <div display={'none'}></div>
+	  // )
 
 	  return _react2.default.createElement(
-	    "div",
-	    null,
-	    infowindow
+	    'div',
+	    { className: 'iw' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'iw-top' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'iw-header' },
+	        _react2.default.createElement('img', { className: 'iw-avatar', src: props.user.avatarUrl }),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'iw-name' },
+	          props.user.name
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'iw-place' },
+	          props.place
+	        )
+	      ),
+	      _react2.default.createElement('img', { className: 'iw-media', src: props.media.url }),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'iw-footer' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'iw-pane' },
+	          _react2.default.createElement('img', { className: 'iw-like-image', src: '../../../../images/icons/heart/heart@2x.png' }),
+	          _react2.default.createElement('img', { className: 'iw-dislike-image', src: '../../../../images/icons/dislike/dislike@2x.png' })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'iw-time' },
+	          (0, _infowindowUtils.calculateSince)(props.media.timestamp)
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'iw-comment' },
+	      props.comment
+	    )
 	  );
+	};
+
+/***/ },
+/* 619 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var calculateSince = exports.calculateSince = function calculateSince(datetime) {
+	  // Calculates the time since message was created
+	  var tTime = new Date(datetime);
+	  var cTime = new Date();
+	  var sinceMin = Math.round((cTime - tTime) / 60000);
+
+	  if (sinceMin == 0) {
+	    var sinceSec = Math.round((cTime - tTime) / 1000);
+	    if (sinceSec < 10) {
+	      var since = 'less than 10 seconds ago';
+	    } else if (sinceSec < 20) {
+	      var since = 'less than 20 seconds ago';
+	    } else {
+	      var since = 'half a minute ago';
+	    }
+	  } else if (sinceMin == 1) {
+	    var sinceSec = Math.round((cTime - tTime) / 1000);
+	    if (sinceSec == 30) {
+	      var since = 'half a minute ago';
+	    } else if (sinceSec < 60) {
+	      var since = 'less than a minute ago';
+	    } else {
+	      var since = '1 minute ago';
+	    }
+	  } else if (sinceMin < 45) {
+	    var since = sinceMin + ' minutes ago';
+	  } else if (sinceMin > 44 && sinceMin < 60) {
+	    var since = 'about 1 hour ago';
+	  } else if (sinceMin < 1440) {
+	    var sinceHr = Math.round(sinceMin / 60);
+	    if (sinceHr == 1) {
+	      var since = 'about 1 hour ago';
+	    } else {
+	      var since = 'about ' + sinceHr + ' hours ago';
+	    }
+	  } else if (sinceMin > 1439 && sinceMin < 2880) {
+	    var since = '1 day ago';
+	  } else {
+	    var sinceDay = Math.round(sinceMin / 1440);
+	    var since = sinceDay + ' days ago';
+	  }
+	  return since;
+	};
+
+	var calculateDistance = exports.calculateDistance = function calculateDistance(lat1, lng1, lat2, lng2, unit) {
+	  // Calculates the distance between the user's geolocation and the message's geolocation
+	  var radlat1 = Math.PI * lat1 / 180;
+	  var radlat2 = Math.PI * lat2 / 180;
+	  var theta = lng1 - lng2;
+	  var radtheta = Math.PI * theta / 180;
+	  var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+	  dist = Math.acos(dist);
+	  dist = dist * 180 / Math.PI;
+	  dist = dist * 60 * 1.1515;
+	  if (unit == "K") {
+	    dist = dist * 1.609344;
+	  }
+	  if (unit == "N") {
+	    dist = dist * 0.8684;
+	  }
+	  return dist;
 	};
 
 /***/ }

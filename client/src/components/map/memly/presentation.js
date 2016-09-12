@@ -22,10 +22,8 @@ export const MapMemly = (props) => {
   
   return (
     <div>
-      <Infowindow
-        {...props}
-      />
       <div className="hover">
+        <Infowindow {...props} />
         <div className="ring marker" />
         <div className="teal pulse" />
       </div>
