@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var memlySchema = new Schema({
   user: {
-    _id: String,
+    id: String,
     name: String,
     avatarUrl: String
   },

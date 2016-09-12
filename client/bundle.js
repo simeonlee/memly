@@ -57946,7 +57946,7 @@
 	// actions to be dispatched to reducer for imageUploadReducer === //
 
 	function updateImageContainerLocation(currentUserLocation) {
-	  console.log('udpating User location with action');
+	  console.log('updating User location with action');
 	  return {
 	    type: 'UPDATE_IMAGE_CONTAINER_LOCATION',
 	    currentUserLocation: currentUserLocation
@@ -57956,7 +57956,7 @@
 	function handlePlaceChange(placeText) {
 	  return {
 	    type: 'HANDLE_PLACE_CHANGE',
-	    palce: placeText
+	    place: placeText
 	  };
 	}
 
@@ -58556,7 +58556,6 @@
 	      defaultAnimation: defaultAnimation,
 	      showInfo: showInfo
 	    }, memly.location, {
-	      // text={index.toString()}
 	      key: index
 	    }));
 	  });

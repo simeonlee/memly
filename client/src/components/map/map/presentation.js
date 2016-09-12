@@ -17,7 +17,6 @@ const MapPresentational = (props) => {
         defaultAnimation={defaultAnimation}
         showInfo={showInfo}
         {...memly.location}
-        // text={index.toString()}
         key={index}
       />
     )
