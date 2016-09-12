@@ -184,6 +184,7 @@ class EditProfileContainer extends React.Component {
         console.log('changeProfilePhoto: what kind of data am i getting back????????', res.data);
 
         this.props.dispatch(userActions.updateUserFacebook(res.data));
+        this.context.router.push('likedmemlys');
       })
   }
 

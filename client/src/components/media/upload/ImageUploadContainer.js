@@ -119,7 +119,7 @@ class ImageUploadContainer extends React.Component {
 		  .catch((error) => {
 		    console.log(error);
 		  });
-
+		this.props.dispatch(imageUploadActions.handleImageChange('', ''));
 		this.context.router.push('/');
 	}
 
