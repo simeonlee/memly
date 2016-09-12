@@ -57993,42 +57993,44 @@
 /* 611 */
 /***/ function(module, exports) {
 
-	'use strict';
+	// This stuff is happening via css now
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
+	// const K_SIZE = 25;
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	// const memlyStyle = {
+	// initially any map object has left top corner at lat lng coordinates
+	// it's on you to set object origin to 0,0 coordinates
+	// position: 'absolute',
+	// width: K_SIZE,
+	// height: K_SIZE,
+	// left: -K_SIZE / 2,
+	// top: -K_SIZE / 2,
 
-	var K_SIZE = 25;
+	// border: '4px solid #50E3C2',
+	// borderRadius: K_SIZE,
+	// backgroundColor: 'white',
+	// textAlign: 'center',
+	// color: '#3f51b5',
+	// fontSize: 10,
+	// fontWeight: 'bold',
+	// padding: 2,
+	// cursor: 'pointer',
+	// marginRight: '10px'
+	// };
 
-	var memlyStyle = {
-	  // initially any map object has left top corner at lat lng coordinates
-	  // it's on you to set object origin to 0,0 coordinates
-	  position: 'absolute',
-	  width: K_SIZE,
-	  height: K_SIZE,
-	  left: -K_SIZE / 2,
-	  top: -K_SIZE / 2,
+	// const memlyStyleHover = {
+	// ...memlyStyle,
+	// // border: '3px solid #3f51b5',
+	// // color: '#f44336',
+	// width: K_SIZE * 1.5,
+	// height: K_SIZE * 1.5,
+	// left: (-K_SIZE * 1.5) / 2,
+	// top: (-K_SIZE * 1.5) / 2,
+	// zIndex: 9999999,
+	// };
 
-	  // border: '4px solid #50E3C2',
-	  borderRadius: K_SIZE
-	};
-
-	var memlyStyleHover = _extends({}, memlyStyle, {
-	  // border: '3px solid #3f51b5',
-	  // color: '#f44336',
-	  width: K_SIZE * 1.5,
-	  height: K_SIZE * 1.5,
-	  left: -K_SIZE * 1.5 / 2,
-	  top: -K_SIZE * 1.5 / 2,
-	  zIndex: 9999999
-	});
-
-	exports.memlyStyle = memlyStyle;
-	exports.memlyStyleHover = memlyStyleHover;
-	exports.K_SIZE = K_SIZE;
+	// export {memlyStyle, memlyStyleHover, K_SIZE};
+	"use strict";
 
 /***/ },
 /* 612 */
@@ -58646,14 +58648,19 @@
 
 	// Represent other memlys
 	var MapMemly = exports.MapMemly = function MapMemly(props) {
-	  var style = props.$hover ? _memlyStyles.memlyStyleHover : _memlyStyles.memlyStyle;
+	  // Marker hover action happening via css
+	  // const style = props.$hover ? memlyStyleHover : memlyStyle;
 
 	  return _react2.default.createElement(
 	    'div',
 	    null,
 	    _react2.default.createElement(_container2.default, props),
-	    _react2.default.createElement('div', { className: 'marker memly-marker', style: style }),
-	    _react2.default.createElement('div', { className: 'memly-pulse' })
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'hover' },
+	      _react2.default.createElement('div', { className: 'marker memly-marker' }),
+	      _react2.default.createElement('div', { className: 'memly-pulse' })
+	    )
 	  );
 	};
 

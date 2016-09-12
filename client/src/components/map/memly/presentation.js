@@ -17,15 +17,18 @@ export const UserLocation = (props) => {
 
 // Represent other memlys
 export const MapMemly = (props) => {
-  const style = props.$hover ? memlyStyleHover : memlyStyle;
+  // Marker hover action happening via css
+  // const style = props.$hover ? memlyStyleHover : memlyStyle;
   
   return (
     <div>
       <Infowindow
         {...props}
       />
-      <div className="marker memly-marker" style={style} />
-      <div className="memly-pulse" />
+      <div className="hover">
+        <div className="marker memly-marker" />
+        <div className="memly-pulse" />
+      </div>
     </div>
   )
 }
