@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var crypto = require('crypto');
 var mime = require('mime');
 var mediaUpload = require('./aws/media');
+var profileUpload = require('./aws/uploadProfilePhoto');
 var Memly = require('./memly/model');
 
 var mongooseUri =
@@ -46,6 +47,14 @@ module.exports = function(app) {
 		// to the model to be more easily retrieved later
 		mediaUpload.create(req, res);
 	});
+
+  app.post('/user/edit/profilephoto', upload.single('photo'), function(req, res) {
+    // console.log(' checking my request file------> ', req.file);
+    //console.log('checking my request body-------> ', req.body);
+
+
+    profileUpload.create(req, res);
+  });
 
 	app.get('/api/nearby', function(req, res) {
 		// Acknowledge current user location

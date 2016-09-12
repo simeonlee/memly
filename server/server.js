@@ -9,7 +9,7 @@ var session = require('express-session');
 var port = process.env.PORT || 3000;
 var auth = require('../db/auth/auth.js');
 var passport = require('passport');
-var authConfig = require('../db/auth/authConfig.js');
+var authConfig = require('../db/auth/config.js');
 var logout = require('express-passport-logout');
 var User = require('../db/users/userModel.js');
 var mongoose = require('mongoose');
@@ -66,7 +66,7 @@ app.get('/auth/facebook/callback',
   function(req, res) {
     //console.log('LOGIN SUCCESS NOW SHOW ME THE USER---------------------->', req.user);
     //console.log('SHOW ME WHAT THIS SESSION IS------------>', req.session.passport.user);
-    res.redirect('http://localhost:3000/#/user/profile');
+    res.redirect('http://localhost:3000/#/user/profile/');
   });
 
 
@@ -84,8 +84,10 @@ app.get('/auth/facebook/callback',
 //   }
 // };
 
+//not for facbeook auth.. this is for profile button?
 app.get('/user/profile/', helper.isLoggedIn, function(req, res) {
-  res.redirect('http://localhost:3000/#/user/profile');
+  //console.log('am i hitting my get user profile');
+  res.redirect('http://localhost:3000/#/user/profile/');
   // }
 });
 
@@ -95,7 +97,7 @@ app.get('/user/retrieve/profileinfo/', helper.isLoggedIn, function(req, res) {
 
   if (req.session.passport.user) {
     var userID = req.session.passport.user['_id'];
-    console.log('checking to make sure this is the right ID', userID);
+    //console.log('checking to make sure this is the right ID', userID);
     User.findOne({_id: userID}).exec(function(err, found) {
       if (err) {
         res.status(404).send('I got a bad feeling about this....');
@@ -114,6 +116,70 @@ app.get('/user/retrieve/profileinfo/', helper.isLoggedIn, function(req, res) {
 
 });
 
+app.put('/user/like-memly', function(req, res) {
+  if (req.session.passport.user) {
+    var userID = req.session.passport.user['_id'];
+    User.findOneAndUpdate({_id: userID}, {$push: {'likedMemlys': req.body}}, {new: true}, function(err, user) {
+      if (err) {
+        console.log(err);
+      }
+      res.send(user);
+    })
+  } else {
+    res.error('User must log in before doing that!');
+  }
+});
+
+app.put('/user/dislike-memly', function(req, res) {
+  if (req.session.passport.user) {
+    var userID = req.session.passport.user['_id'];
+    User.findOneAndUpdate({_id: userID}, {$push: {'dislikedMemlys': req.body}}, {new: true}, function(err, user) {
+      if (err) {
+        console.log(err);
+      }
+      res.send(user);
+    })
+  } else {
+    res.error('User must log in before doing that!');
+  }
+});
+
+app.post('/user/edit/profileinfo/', helper.isLoggedIn, function(req, res) {
+  //console.log('i hit my post request for edit profile', req.body);
+  var userID = req.session.passport.user['_id'];
+  //console.log('whats in my editProfile post request ------>', req.body);
+  var name = req.body.name;
+  var email = req.body.email;
+  var birthday = req.body.birthday;
+  var gender = req.body.gender;
+  var bio = req.body.bio;
+
+  User.findOne({_id: userID}).exec(function(err, found) {
+    if (err) {
+      res.status(404).send('couldnt find the model ur looking for');
+    }
+    if (found) {
+      //console.log('checking found in editProfile', found);
+      found.name = name;
+      found.email = email;
+      found.birthday = birthday;
+      found.gender = gender;
+      found.bio = bio;
+      found.save((function(err, User) {
+        if (err) {
+          //console.log('am i hitting error in edit profile???????');
+          res.status(500).send(err);
+        }
+        //console.log('i successfully edited my profile and just saved ----->');
+        res.status(200).send(found);
+      }));
+    } else {
+      res.redirect('http://localhost:3000/#');
+    }
+  });
+
+});
+
 
 
 
@@ -121,7 +187,6 @@ app.get('/user/retrieve/profileinfo/', helper.isLoggedIn, function(req, res) {
 app.get('/logout', function(req, res) {
   console.log('I HIT LOGOUT, checking if theres a session made', req.session);
   req.logOut();
-  console.log('MAKING SURE SESSION IS DESTROYED', req.session);
   res.status(200).send('destroy session');
 });
 

@@ -2,7 +2,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var memlySchema = new Schema({
-  userId: String,
+  user: {
+    id: String,
+    name: String,
+    avatarUrl: String
+  },
   comment: String,
   visits: Number,
   place: String,
@@ -12,7 +16,8 @@ var memlySchema = new Schema({
   },
   media: {
     url: String,
-    contentType: String
+    contentType: String,
+    timestamp: String
   }
 });
 
