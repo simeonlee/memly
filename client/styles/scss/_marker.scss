@@ -76,17 +76,7 @@ $marker-size: 30px;
   animation-duration: 1s;
 }
 
-@function get-vw($target) { 
-  $vw-context: (1000*.01) * 1px;
-  @return ($target/$vw-context) * 1vw;
-}
-
-@function get-px($target) {
-  $px-context: (1000/.01) * 1vw;
-  @return ($target/$vw-context) * 1px
-}
-
-$window-width: 20vw;
+$window-width: 180px;
 $window-height: $window-width * 7 / 10;
 $window-width-hover: $window-width * 5 / 4;
 $window-height-hover: $window-height * 3 / 2;
@@ -121,8 +111,8 @@ $media-height-hover: $media-height * 3 / 2;
     .iw-comment {
       animation-name: black-text-appear;
     }
-    .iw-top {
-      animation-name: top-expand;
+    .iw-layers {
+      animation-name: layers-expand;
     }
     .iw-header, .iw-footer {
       animation-name: front-move
@@ -146,6 +136,9 @@ $media-height-hover: $media-height * 3 / 2;
   background-color: #50E3C2;
 }
 
+.iw-overlay {
+}
+
 .iw-media {
   border-radius: $marker-size;
   height: 100%;
@@ -153,7 +146,7 @@ $media-height-hover: $media-height * 3 / 2;
   z-index: 0;
 }
 
-.iw-top {
+.iw-layers {
   height: 100%;
   width: 100%;
 }
@@ -201,7 +194,7 @@ $media-height-hover: $media-height * 3 / 2;
 
 .iw-footer {
   position: absolute;
-  bottom: 34px;
+  bottom: 38px;
   left: 0;
   width: 100%;
   z-index: -9999999;
@@ -220,8 +213,8 @@ $media-height-hover: $media-height * 3 / 2;
 .iw-pane {
   position: absolute;
   bottom: 10px;
-  left: 4px;
-  width: 30%;
+  left: 8px;
+  width: 25%;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -305,7 +298,7 @@ $media-height-hover: $media-height * 3 / 2;
   }
 }
 
-@keyframes top-expand {
+@keyframes layers-expand {
   0% {
 
   }

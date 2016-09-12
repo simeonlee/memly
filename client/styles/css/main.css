@@ -97,8 +97,8 @@ which is where index.html points to
     animation-name: white-text-appear; }
   .hover:hover .iw .iw-comment {
     animation-name: black-text-appear; }
-  .hover:hover .iw .iw-top {
-    animation-name: top-expand; }
+  .hover:hover .iw .iw-layers {
+    animation-name: layers-expand; }
   .hover:hover .iw .iw-header, .hover:hover .iw .iw-footer {
     animation-name: front-move; }
   .hover:hover .iw .iw-media {
@@ -121,7 +121,7 @@ which is where index.html points to
   width: 100%;
   z-index: 0; }
 
-.iw-top {
+.iw-layers {
   height: 100%;
   width: 100%; }
 
@@ -162,7 +162,7 @@ which is where index.html points to
 
 .iw-footer {
   position: absolute;
-  bottom: 34px;
+  bottom: 38px;
   left: 0;
   width: 100%;
   z-index: -9999999; }
@@ -179,8 +179,8 @@ which is where index.html points to
 .iw-pane {
   position: absolute;
   bottom: 10px;
-  left: 4px;
-  width: 30%;
+  left: 8px;
+  width: 25%;
   display: flex;
   align-items: center;
   justify-content: space-around; }
@@ -231,10 +231,10 @@ which is where index.html points to
   20% {
     box-shadow: 0 0px 4px rgba(120, 120, 120, 0.6); }
   100% {
-    top: -23.625vw;
-    left: -12.5vw;
-    height: 21vw;
-    width: 25vw;
+    top: -212.625px;
+    left: -112.5px;
+    height: 189px;
+    width: 225px;
     background-color: white;
     border-radius: 4px;
     padding: 5px;
@@ -247,7 +247,7 @@ which is where index.html points to
   100% {
     border-radius: 2px 2px 0px 0px; } }
 
-@keyframes top-expand {
+@keyframes layers-expand {
   0% { }
   100% {
     height: 80%; } }
