@@ -175,7 +175,7 @@ export default function memlysReducer(state = memlysInitialState, action) {
         ...state,
         memlyIdStorage : {
           ...state.memlyIdStorage,
-          [action.memly['_id']]: true,
+          [action.memly['_id']]: true, // DO SOMETHING WITH THISSSS
         },
         memlys: [action.memly, ...state.memlys,]
       }

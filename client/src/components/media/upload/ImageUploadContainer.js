@@ -54,11 +54,17 @@ class ImageUploadContainer extends React.Component {
 	}
 
 	handlePlaceChange(e) {
+		const cachePlace = e.target.value;
 		this.props.dispatch(imageUploadActions.handlePlaceChange(e.target.value));
 	}
 
 	handleCommentChange(e) {
+		const cacheComment = e.target.vlaue
 		this.props.dispatch(imageUploadActions.handleCommentChange(e.target.value));
+	}
+
+	componentWillReceiveProps(nextprops){
+		console.log('mike', nextprops)
 	}
 
 	// This allows us to preview images before file post
@@ -94,7 +100,8 @@ class ImageUploadContainer extends React.Component {
 	  // Create virtual form to send multipart form data with image file
 	  // https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects
 	  var formData = new FormData();
-
+	  console.log(this.props.place, 'place place place');
+	  console.log(this.props.comment, 'comment comment comment')
 	  formData.append('place', this.props.place);
 	  formData.append('comment', this.props.comment);
 	  formData.append('lat', this.props.location.lat);

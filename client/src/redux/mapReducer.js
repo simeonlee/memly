@@ -1,8 +1,8 @@
 // Default state for reducer as called in 'mapReducer()'
 const mapInitialState = {
   currentUserLocation : {
-    lat: 37.7836966,
-    lng: -122.4089664,
+    lat: 0,
+    lng: 0,
   }
 }
 
