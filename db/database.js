@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var crypto = require('crypto');
 var mime = require('mime');
 var mediaUpload = require('./aws/media');
+var profileUpload = require('./aws/uploadProfilePhoto');
 var Memly = require('./memly/model');
 
 var mongooseUri =
@@ -22,9 +23,9 @@ var multer = require('multer');
 // file names rather than have multer assign some hexadecimal blabber
 // http://stackoverflow.com/questions/32184589/renaming-an-uploaded-file-using-multer-doesnt-work-express-js
 var storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, 'uploads/');
-  },
+  // destination: function(req, file, cb) {
+  //   cb(null, 'uploads/');
+  // },
   // Randomize file name using below code
   filename: function(req, file, cb) {
   	crypto.pseudoRandomBytes(16, function (err, raw) {
@@ -46,6 +47,14 @@ module.exports = function(app) {
 		// to the model to be more easily retrieved later
 		mediaUpload.create(req, res);
 	});
+
+  app.post('/user/edit/profilephoto', upload.single('photo'), function(req, res) {
+    // console.log(' checking my request file------> ', req.file);
+    //console.log('checking my request body-------> ', req.body);
+
+
+    profileUpload.create(req, res);
+  });
 
 	app.get('/api/nearby', function(req, res) {
 		// Acknowledge current user location

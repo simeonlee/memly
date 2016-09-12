@@ -19,7 +19,9 @@ const Profile = (props) => {
 
     <Grid>
       <Row className = "show-grid" id ="userProfileContainer">
-        <Col sm={4}><img id = "profilePhoto" src={props.userFacebook.profilePhotoUrl}/></Col>
+        <div id="profilePhotoContainer">
+          <Col sm={4} id="profilePhotoWrapper"><img id = "profilePhoto" src={props.userFacebook.profilePhotoUrl}/></Col>
+        </div>
         <Col sm={8}>
           <Row className ="show-grid profileName">
             <span id= "profileName">{props.userFacebook.name}</span>

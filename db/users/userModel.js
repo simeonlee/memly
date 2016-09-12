@@ -66,7 +66,7 @@ userSchema.statics.findOrCreate = function(profile, cb) {
   // store in server memory
   var raw = JSON.parse(profile['_raw']);
   // console.log('WHAT IS PROFILE PHOTOS', profile.photos);
-  console.log('WHAT IS RAW????????', raw.birthday);
+  //console.log('WHAT IS RAW????????', raw.birthday);
   userId = raw.id;
   var userObj = new this();
   this.findOne({_id: userId}, function(err, result) {

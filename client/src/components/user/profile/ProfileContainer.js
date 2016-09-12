@@ -16,7 +16,7 @@ class ProfileContainer extends React.Component {
   //   }
   // }
   static propTypes = {
-    isLoggeIn: PropTypes.bool, 
+    isLoggedIn: PropTypes.bool, 
     user: PropTypes.object,
     userFacebook: PropTypes.object,
     memlyCount: PropTypes.number,

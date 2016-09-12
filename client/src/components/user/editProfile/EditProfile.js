@@ -10,6 +10,7 @@ const EditProfile = (props) => {
       <Grid>
         <Row className = "show-grid">
           <form id="usrform" onSubmit ={(event)=>{event.preventDefault(); var name=document.getElementById('editName').value; var email=document.getElementById('editEmail').value; var birthday=document.getElementById('editBirthday').value; var gender=document.getElementById('editGender').value; var bio=document.getElementById('editBio').value; props.changeProfileInfo(name, email, birthday, gender, bio);}}>
+            
             <input className ="editProfileInput" id="editName" type="text" placeholder ='Name:' maxLength='40'/>
             <input className ="editProfileInput" id="editEmail" placeholder ='Email:' maxLength='40'/>
             <input className ="editProfileInput" id="editBirthday" type="date" data-date="" data-date-format="DD MMMM YYYY"/>
@@ -19,7 +20,12 @@ const EditProfile = (props) => {
             Edit Profile
             </button>
           </form>
-
+          <form onSubmit={(event) =>{event.preventDefault(); props.changeProfilePhoto(event);}}>
+          <input className="editProfileInput" id="uploadedPhoto" type="file" name="photo" onChange={(e) =>props.handleImageChange(e)} />
+          <button>
+          Change Profile Photo
+          </button>
+          </form>
         </Row>
       </Grid>
     </div>

@@ -3,6 +3,7 @@ import EditProfile from './EditProfile'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import * as userActions from '../../../redux/userReducer'
+import * as imageUploadActions from '../../../redux/imageUploadReducer'
 
 class EditProfileContainer extends React.Component {
 
@@ -151,10 +152,45 @@ class EditProfileContainer extends React.Component {
       })
   }
 
+  handleImageChange(e) {
+    e.preventDefault();
+    console.log('i hit handleImageChange');
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
+      this.props.dispatch(imageUploadActions.handleImageChange(file, reader.result));
+      
+      // this.setState({
+      //   file: file,
+      //   imagePreviewUrl: reader.result
+      // });
+    }
+
+    reader.readAsDataURL(file);
+  }
+
+
+  changeProfilePhoto(event) {
+    var formData = new FormData();
+
+    var userPhoto = new Blob([this.props.file], { type: 'image/png'});
+    formData.append('photo', userPhoto);
+
+    console.log('i hit changeProfilePhoto. i should check formData', formData);
+    axios.post('/user/edit/profilephoto',
+      formData)
+      .then((res) => {
+        console.log('changeProfilePhoto: what kind of data am i getting back????????', res.data);
+
+        this.props.dispatch(userActions.updateUserFacebook(res.data));
+      })
+  }
+
   render() {
     return(
       <div id="EditProfileContainer">
-        <EditProfile userFacebook={this.props.userFacebook} changeProfileInfo={this.changeProfileInfo.bind(this)}/>
+        <EditProfile userFacebook={this.props.userFacebook} changeProfileInfo={this.changeProfileInfo.bind(this)} changeProfilePhoto={this.changeProfilePhoto.bind(this)} handleImageChange={this.handleImageChange.bind(this)} />
       </div>
     )
   }
@@ -162,6 +198,7 @@ class EditProfileContainer extends React.Component {
 
 function mapStateToProps(state) {
   return {
+    file: state.imageUploadReducer.file,
     userFacebook: state.userReducer.userFacebook,
     birthday: state.userReducer.birthday
   }
