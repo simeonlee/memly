@@ -79,6 +79,7 @@ which is where index.html points to
   animation-duration: 1s; }
 
 .hover:hover * {
+  z-index: 999999;
   animation-fill-mode: forwards;
   animation-duration: 1s; }
 
