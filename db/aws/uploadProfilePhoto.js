@@ -1,7 +1,9 @@
 var AWS = require('aws-sdk');
 var fs = require('fs');
 var env = require('./config/environment');
-var keys = require('./config/keys');
+if (process.env.NODE_ENV === 'development') {
+  var keys = require('./config/keys');
+};
 var User = require('../users/userModel');
 
 exports.create = function(req, res) {
