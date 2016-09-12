@@ -14,8 +14,8 @@ class ImageUploadContainer extends React.Component {
 		comment: PropTypes.string,
 	};
 
-	constructor(props) {
-		super(props);
+	constructor(props, context) {
+		super(props, context);
 		// this.state = {
 		// 	file: '',
 		// 	imagePreviewUrl: '',
@@ -105,12 +105,15 @@ class ImageUploadContainer extends React.Component {
 
 	  // Use axios to send formData to server
 		axios.post('/api/photo', formData)
-		  .then(function(response) {
+		  .then((response) => {
 		    console.log(response);
+
 		  })
-		  .catch(function(error) {
+		  .catch((error) => {
 		    console.log(error);
 		  });
+
+		this.context.router.push('/');
 	}
 
 	render() {
@@ -136,6 +139,10 @@ function mapStateToProps(state) {
 		place: state.imageUploadReducer.place,
 		comment: state.imageUploadReducer.comment,
 	}
+}
+
+ImageUploadContainer.contextTypes = {
+  router: PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps)(ImageUploadContainer)

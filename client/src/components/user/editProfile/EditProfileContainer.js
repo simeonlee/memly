@@ -9,11 +9,11 @@ class EditProfileContainer extends React.Component {
   static propTypes = {
     userFacebook: PropTypes.object,
     birthday: PropTypes.string,
-  }
+  };
 
-  // constructor(props){
-  //   super(props);
-    
+  constructor(props, context){
+    super(props, context);
+  }
     //in ES6, componentWillMount goes into constructor invocation!
     //just put whatever you want componentWillMount within this method
     
@@ -147,6 +147,7 @@ class EditProfileContainer extends React.Component {
 
         console.log('ClientSide updated profile info successfully');
         // context.props.updateUserData(res.data);
+        this.context.router.push('likedmemlys')
       })
   }
 
@@ -164,6 +165,10 @@ function mapStateToProps(state) {
     userFacebook: state.userReducer.userFacebook,
     birthday: state.userReducer.birthday
   }
+}
+
+EditProfileContainer.contextTypes = {
+  router: PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps)(EditProfileContainer)
