@@ -31087,6 +31087,16 @@
 
 	var _reactRedux = __webpack_require__(263);
 
+	var _axios = __webpack_require__(241);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _userReducer = __webpack_require__(285);
+
+	var userActions = _interopRequireWildcard(_userReducer);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -31101,21 +31111,52 @@
 	  function MyMemlysContainer(props) {
 	    _classCallCheck(this, MyMemlysContainer);
 
-	    return _possibleConstructorReturn(this, (MyMemlysContainer.__proto__ || Object.getPrototypeOf(MyMemlysContainer)).call(this, props));
-	    // this.state = {
-	    //   user: {name: 'John Doe', bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", photo: 'https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-9/12573749_10154006811453254_341075965445440422_n.jpg?oh=b02c70e4bf73bf3249ce0ac3e043728e&oe=5838B687', myMemlys: [{url: 'https://scontent.fsnc1-1.fna.fbcdn.net/t31.0-8/12513863_10153994331308254_5263164911566385787_o.jpg' , location: 'New York'},{url: 'https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-9/12573749_10154006811453254_341075965445440422_n.jpg?oh=b02c70e4bf73bf3249ce0ac3e043728e&oe=5838B687' , location: 'New York'},{url: 'https://scontent.fsnc1-1.fna.fbcdn.net/t31.0-8/10519185_10152587430858254_7205025064661326895_o.jpg' , location: 'New York'},{url: 'https://scontent.fsnc1-3.fna.fbcdn.net/t31.0-8/10265664_10152863685678254_2720788227246186432_o.jpg' , location: 'New York'}, {url: 'https://scontent.fsnc1-1.fna.fbcdn.net/t31.0-8/13323656_10154379664888254_6700518311860962886_o.jpg', location: 'San Francisco'}], likedMemlys: [{url: 'https://scontent.fsnc1-3.fna.fbcdn.net/t31.0-8/13938311_1131762946908530_6242907422971776062_o.jpg', location: 'San Jose'}, {url: 'https://scontent.fsnc1-3.fna.fbcdn.net/v/t1.0-9/14225455_1107962689239467_1782382838638034127_n.jpg?oh=f36a23bd6873261d9569822fc59db40e&oe=58541FE4', location: 'Napa'}]}
-	    // }
+	    var _this = _possibleConstructorReturn(this, (MyMemlysContainer.__proto__ || Object.getPrototypeOf(MyMemlysContainer)).call(this, props));
+
+	    _this.state = {
+
+	      userFacebookMyMemlys: []
+	      // user: {name: 'John Doe', bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", photo: 'https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-9/12573749_10154006811453254_341075965445440422_n.jpg?oh=b02c70e4bf73bf3249ce0ac3e043728e&oe=5838B687', myMemlys: [{url: 'https://scontent.fsnc1-1.fna.fbcdn.net/t31.0-8/12513863_10153994331308254_5263164911566385787_o.jpg' , location: 'New York'},{url: 'https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-9/12573749_10154006811453254_341075965445440422_n.jpg?oh=b02c70e4bf73bf3249ce0ac3e043728e&oe=5838B687' , location: 'New York'},{url: 'https://scontent.fsnc1-1.fna.fbcdn.net/t31.0-8/10519185_10152587430858254_7205025064661326895_o.jpg' , location: 'New York'},{url: 'https://scontent.fsnc1-3.fna.fbcdn.net/t31.0-8/10265664_10152863685678254_2720788227246186432_o.jpg' , location: 'New York'}, {url: 'https://scontent.fsnc1-1.fna.fbcdn.net/t31.0-8/13323656_10154379664888254_6700518311860962886_o.jpg', location: 'San Francisco'}], likedMemlys: [{url: 'https://scontent.fsnc1-3.fna.fbcdn.net/t31.0-8/13938311_1131762946908530_6242907422971776062_o.jpg', location: 'San Jose'}, {url: 'https://scontent.fsnc1-3.fna.fbcdn.net/v/t1.0-9/14225455_1107962689239467_1782382838638034127_n.jpg?oh=f36a23bd6873261d9569822fc59db40e&oe=58541FE4', location: 'Napa'}]}
+	    };
+
+	    return _this;
 	  }
 
 	  _createClass(MyMemlysContainer, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      var context = this;
+	      console.log(this.props, 'profileComponentWillMount');
+	      // var context = this;
+	      // this.props.dispatch(userActions.userAuth());
+
+	      //turn isLogged in as true so nav bar shows logged in buttons
+	      _axios2.default.get('/user/retrieve/profileinfo/').then(function (res) {
+	        console.log('what is this response on client side', res.data);
+
+	        context.setState({
+	          userFacebookMyMemlys: res.data.memlys
+	        });
+
+	        return res;
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+
 	      console.log(this.props, 'MyMemlysContainer props');
 
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'ProfileBoxes' },
-	        _react2.default.createElement('div', { className: 'MemlysContainer' })
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'MemlysContainer' },
+	          this.state.userFacebookMyMemlys.map(function (item, index) {
+	            return _react2.default.createElement(_MyMemlys2.default, { key: index, item: item });
+	          })
+	        )
 	      );
 	    }
 	  }]);
@@ -31123,18 +31164,24 @@
 	  return MyMemlysContainer;
 	}(_react2.default.Component);
 
+	// function mapStateToProps (state) {
+	//   return {
+	//     userFacebook: state.userReducer.userFacebook
+	//   }
+	// }
+
+	// export default connect(mapStateToProps)(MyMemlysContainer);
+
+
 	MyMemlysContainer.propTypes = {
 	  userFacebook: _react.PropTypes.object
 	};
+	MyMemlysContainer.propTypes = {
 
+	  userFacebook: _react.PropTypes.object
 
-	function mapStateToProps(state) {
-	  return {
-	    userFacebook: state.userReducer.userFacebook
-	  };
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyMemlysContainer);
+	};
+	exports.default = MyMemlysContainer;
 
 /***/ },
 /* 289 */
@@ -31157,7 +31204,7 @@
 	var MyMemlys = function MyMemlys(props) {
 	  //inline CSS style. fills the entire oneMemly div with photo
 	  var divStyle = {
-	    backgroundImage: 'url(' + props.item.url + ')',
+	    backgroundImage: 'url(' + props.item + ')',
 	    backgroundPosition: 'center',
 	    backgroundSize: 'cover',
 	    backgroundRepeat: 'no-repeat'

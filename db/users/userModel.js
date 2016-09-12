@@ -15,16 +15,7 @@ userSchema = new Schema({
   profilePhotoUrl: String,
   email: String,
   newUser: Boolean,
-  memlys: [
-    {
-      mediaUrl: String,
-      date: Date,
-      location: {
-        lat: Number,
-        lng: Number
-      }
-    }
-  ],
+  memlys: Array,
   likedMemlys: [
     {
       memlyId: String,

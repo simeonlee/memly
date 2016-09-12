@@ -1,12 +1,13 @@
 var AWS = require('aws-sdk');
 var fs = require('fs');
+var User = require('../users/userModel');
 var env = require('./config/environment');
 if (process.env.NODE_ENV === 'development') {
   var keys = require('./config/keys');
-};
+}
 
 exports.create = function(req, res) {
-  console.log(req)
+  //console.log(req);
   // Update AWS configuration for access and secret keys
   // http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html
   AWS.config.update({
@@ -56,16 +57,49 @@ exports.create = function(req, res) {
   };
 
   s3.putObject(params, function(err, data) {
+
     if (err) {
       console.log(err);
     } else {
-      console.log('Successfully uploaded data to '+ env.bucket + '/' + folder + '/' + filename);
-      return res.json({
-        name: filename,
-        url: mediaUrl,
-        bucket: env.bucket,
-        key: folder + '/' + filename
+
+
+      var userID = req.session.passport.user['_id'];
+
+      User.findOne({_id: userID}).exec(function(err, found) {
+        if (err) {
+          res.status(404).send('something went wrong');
+        }
+        if (found) {
+          //console.log('checking found in editProfile', found);
+          console.log('what is found memlys-------------->', found.memlys);
+          found.memlys.unshift(mediaUrl);
+          console.log('checking user memlys', found.memlys);
+
+          found.save((function(err, User) {
+            if (err) {
+              console.log('am i hitting error in edit profile???????');
+              res.status(404).send('something went wrong');
+            } else {
+              console.log('i successfully edited my profile and just saved ----->', found);
+              res.status(202).send(found);
+            }
+          }));
+        } else {
+          console.log('couldnt find the user model ur looking for.');
+          res.status(203).send('didnt work as anticipated');
+        }
       });
+
+
+
+
+      // console.log('Successfully uploaded data to '+ env.bucket + '/' + folder + '/' + filename);
+      // return res.json({
+      //   name: filename,
+      //   url: mediaUrl,
+      //   bucket: env.bucket,
+      //   key: folder + '/' + filename
+      // });
     }
   });
 };

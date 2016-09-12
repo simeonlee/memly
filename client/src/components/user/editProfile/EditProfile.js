@@ -14,6 +14,7 @@ const EditProfile = (props) => {
             <input className ="editProfileInput" id="editName" type="text" placeholder ='Name:' maxLength='40'/>
             <input className ="editProfileInput" id="editEmail" placeholder ='Email:' maxLength='40'/>
             <input className ="editProfileInput" id="editBirthday" type="date" data-date="" data-date-format="DD MMMM YYYY"/>
+            <input className ="editProfileInput" id="editGender" placeholder ='Gender:'/>
             <textarea className="editProfileInput" id="editBio" name="comment" form="usrform" maxLength='50' placeholder='About me:'></textarea>
             <button className="editProfileButton">
             Edit Profile Information
