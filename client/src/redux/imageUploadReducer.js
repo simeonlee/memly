@@ -1,7 +1,7 @@
 // actions to be dispatched to reducer for imageUploadReducer === //
 
 export function updateImageContainerLocation (currentUserLocation) {
-  console.log('udpating User location with action')
+  console.log('updating User location with action')
   return {
     type: 'UPDATE_IMAGE_CONTAINER_LOCATION',
     currentUserLocation,
@@ -11,7 +11,7 @@ export function updateImageContainerLocation (currentUserLocation) {
 export function handlePlaceChange(placeText){
   return {
     type: 'HANDLE_PLACE_CHANGE',
-    palce: placeText,
+    place: placeText,
   }
 }
 

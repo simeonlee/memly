@@ -31,11 +31,18 @@ const memlysInitialState = {
             lat: 37.7836966,
             lng: -122.4089664
           },
+          user: {
+            name: 'Mike Wong',
+            avatarUrl: 'http://www.menshairstyles.net/d/76238-2/Young+Asian+man+hairstyles.PNG'
+          },
+          place: 'Hack Reactor',
+          comment: 'Hey guys!',
           key: 'Hack Reactor',
           defaultAnimation: 2,
           showInfo: false,
           media: {
-            url: "../../styles/hackreactor.jpg"
+            url: "../../images/test-assets/hackreactor.jpg",
+            timestamp: new Date()
           }
         },
         {
@@ -43,13 +50,20 @@ const memlysInitialState = {
             lat: 51.507351,
             lng: -0.125758
           },
-          username: "Michael Wong",
-          userAvatar: "../../styles/userAvatar.jpg",
+          user: {
+            name: 'Mike Wong',
+            avatarUrl: 'http://www.menshairstyles.net/d/76238-2/Young+Asian+man+hairstyles.PNG'
+          },
+          place: 'Hack Reactor',
+          comment: 'Hey guys!',
+          // username: "Michael Wong",
+          // userAvatar: "../../images/test-assets/userAvatar.jpg",
           key: 'timestamp1',
           defaultAnimation: 2,
           showInfo: false,
           media: {
-            url: "../../styles/shutterstock_276995975.jpg"
+            url: "../../images/test-assets/shutterstock_276995975.jpg",
+            timestamp: new Date()
           }
         },
         {
@@ -57,13 +71,20 @@ const memlysInitialState = {
             lat: 51.507351,
             lng: -0.125758
           },
-          username: "Michael Wong",
-          userAvatar: "../../styles/userAvatar.jpg",
+          user: {
+            name: 'Mike Wong',
+            avatarUrl: 'http://www.menshairstyles.net/d/76238-2/Young+Asian+man+hairstyles.PNG'
+          },
+          place: 'Hack Reactor',
+          comment: 'Hey guys!',
+          // username: "Michael Wong",
+          // userAvatar: "../../images/test-assets/userAvatar.jpg",
           key: 'timestamp1',
           defaultAnimation: 2,
           showInfo: false,
           media: {
-            url: "../../styles/shutterstock_276995975.jpg"
+            url: "../../images/test-assets/shutterstock_276995975.jpg",
+            timestamp: new Date()
           }
         },
         {
@@ -71,11 +92,18 @@ const memlysInitialState = {
             lat: 51.507351,
             lng: -0.12958
           },
+          user: {
+            name: 'Mike Wong',
+            avatarUrl: 'http://www.menshairstyles.net/d/76238-2/Young+Asian+man+hairstyles.PNG'
+          },
+          place: 'Hack Reactor',
+          comment: 'Hey guys!',
           key: 'timestamp2',
           defaultAnimation: 2,
           showInfo: false,
           media: {
-            url: "../../styles/M9071-PARENT-2.jpg"
+            url: "../../images/test-assets/M9071-PARENT-2.jpg",
+            timestamp: new Date()
           }
         },
         {
@@ -83,11 +111,18 @@ const memlysInitialState = {
             lat: 51.509351,
             lng: -0.12958
           },
+          user: {
+            name: 'Mike Wong',
+            avatarUrl: 'http://www.menshairstyles.net/d/76238-2/Young+Asian+man+hairstyles.PNG'
+          },
+          place: 'Hack Reactor',
+          comment: 'Hey guys!',
           key: 'timestamp3',
           defaultAnimation: 2,
           showInfo: false,
           media: {
-            url: "../../styles/15759420184_f34af1b4a8.jpg"
+            url: "../../images/test-assets/15759420184_f34af1b4a8.jpg",
+            timestamp: new Date()
           }
         },
         {
@@ -95,11 +130,18 @@ const memlysInitialState = {
             lat: 51.506351,
             lng: -0.12958
           },
+          user: {
+            name: 'Mike Wong',
+            avatarUrl: 'http://www.menshairstyles.net/d/76238-2/Young+Asian+man+hairstyles.PNG'
+          },
+          place: 'Hack Reactor',
+          comment: 'Hey guys!',
           key: 'timestamp4',
           defaultAnimation: 2,
           showInfo: false,
           media: {
-            url: "../../styles/londonstreet.jpeg"
+            url: "../../images/test-assets/londonstreet.jpeg",
+            timestamp: new Date()
           }
         }
       ],

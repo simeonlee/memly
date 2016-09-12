@@ -4,11 +4,13 @@ var util = require('util');
 var session = require('express-session');
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
-var authConfig = require('./authConfig.js');
+var config = require('./config.js');
 var User = require('../users/userModel.js');
-var keys = require('./keys.js');
 
-
+var env = new config.env();
+console.log(env.FACEBOOK_APP_ID);
+console.log(env.FACEBOOK_APP_SECRET);
+console.log(env.callbackURL);
 
 module.exports = function(app) {
   
@@ -21,10 +23,10 @@ module.exports = function(app) {
   app.use(passport.session());
 
   passport.use(new FacebookStrategy({
-    clientID: keys.FACEBOOK_APP_ID, // TODO: set process.env.FACEBOOK_APP_ID config vars in heroku
-    clientSecret: keys.FACEBOOK_APP_SECRET, // TODO: set  process.env.FACEBOOK_APP_SECRET config vars in heroku
-    callbackURL: "http://localhost:3000/auth/facebook/callback", // TODO: put website url here
-    profileFields: authConfig.profileFields
+    clientID: env.FACEBOOK_APP_ID, // TODO: set process.env.FACEBOOK_APP_ID config vars in heroku
+    clientSecret: env.FACEBOOK_APP_SECRET, // TODO: set  process.env.FACEBOOK_APP_SECRET config vars in heroku
+    callbackURL: env.callbackURL, // TODO: put website url here
+    profileFields: config.profileFields
   }, function(accessToken, refreshToken, profile, done) {
     console.log('chekcing profile in auth.js', profile);
     User.findOrCreate(profile, function(err, user) {

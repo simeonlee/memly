@@ -4,7 +4,9 @@
   "description": "HR47 2016-07 Green-Field Project",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/server.js"
+    "start": "NODE_ENV=development nodemon server/server.js",
+    "build-css": "node-sass --include-path scss client/styles/scss/main.scss client/styles/css/main.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
   },
   "repository": {
     "type": "git",
@@ -53,5 +55,9 @@
     "react-router": "^2.7.0",
     "redux": "^3.6.0",
     "webpack": "^1.13.2"
+  },
+  "devDependencies": {
+    "node-sass": "^3.9.3",
+    "nodemon": "^1.10.2"
   }
 }
