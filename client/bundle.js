@@ -50786,12 +50786,19 @@
 		}, {
 			key: 'handlePlaceChange',
 			value: function handlePlaceChange(e) {
+				var cachePlace = e.target.value;
 				this.props.dispatch(imageUploadActions.handlePlaceChange(e.target.value));
 			}
 		}, {
 			key: 'handleCommentChange',
 			value: function handleCommentChange(e) {
+				var cacheComment = e.target.vlaue;
 				this.props.dispatch(imageUploadActions.handleCommentChange(e.target.value));
+			}
+		}, {
+			key: 'componentWillReceiveProps',
+			value: function componentWillReceiveProps(nextprops) {
+				console.log('mike', nextprops);
 			}
 
 			// This allows us to preview images before file post
@@ -50835,7 +50842,8 @@
 				// Create virtual form to send multipart form data with image file
 				// https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects
 				var formData = new FormData();
-
+				console.log(this.props.place, 'place place place');
+				console.log(this.props.comment, 'comment comment comment');
 				formData.append('place', this.props.place);
 				formData.append('comment', this.props.comment);
 				formData.append('lat', this.props.location.lat);
@@ -51050,6 +51058,7 @@
 	}
 
 	function handlePlaceChange(placeText) {
+	  console.log('place test', placeText);
 	  return {
 	    type: 'HANDLE_PLACE_CHANGE',
 	    place: placeText
@@ -51059,7 +51068,7 @@
 	function handleCommentChange(commentText) {
 	  return {
 	    type: 'HANDLE_COMMENT_CHANGE',
-	    place: commentText
+	    comment: commentText
 	  };
 	}
 
@@ -51103,14 +51112,14 @@
 	    case 'HANDLE_PLACE_CHANGE':
 	      {
 	        return _extends({}, state, {
-	          place: action.placeText
+	          place: action.place
 	        });
 	      }
 
 	    case 'HANDLE_COMMENT_CHANGE':
 	      {
 	        return _extends({}, state, {
-	          comment: action.commentText
+	          comment: action.comment
 	        });
 	      }
 

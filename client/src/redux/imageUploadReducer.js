@@ -9,6 +9,7 @@ export function updateImageContainerLocation (currentUserLocation) {
 }
 
 export function handlePlaceChange(placeText){
+  console.log('place test', placeText)
   return {
     type: 'HANDLE_PLACE_CHANGE',
     place: placeText,
@@ -18,7 +19,7 @@ export function handlePlaceChange(placeText){
 export function handleCommentChange(commentText){
   return {
     type: 'HANDLE_COMMENT_CHANGE',
-    place: commentText,
+    comment: commentText,
   }
 }
 
@@ -59,14 +60,14 @@ export default function imageUploadReducer(state = imageUploadInitialState, acti
     case 'HANDLE_PLACE_CHANGE' : {
       return {
         ...state,
-        place: action.placeText,
+        place: action.place,
       }
     }
 
     case 'HANDLE_COMMENT_CHANGE' : {
       return {
         ...state,
-        comment: action.commentText,
+        comment: action.comment,
       }
     }
 
