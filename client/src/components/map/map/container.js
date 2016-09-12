@@ -116,10 +116,13 @@ class MapContainer extends Component {
   handleLike(e) {
     e.preventDefault();
     var memlyId = e.target.getAttribute('value');
-    this.props.dispatch(userActions.likeMemly(memlyId));
-    axios.put('/user/like-new-memly', {
-        id: memlyId
-      })
+    var mediaUrl = e.target.getAttribute('alt');
+    var meta = {
+      memlyId: memlyId,
+      mediaUrl: mediaUrl
+    };
+    this.props.dispatch(userActions.likeMemly(meta));
+    axios.put('/user/like-memly', meta)
       .then((response) => {
         console.log(response);
       })
@@ -131,10 +134,13 @@ class MapContainer extends Component {
   handleDislike(e) {
     e.preventDefault();
     var memlyId = e.target.getAttribute('value');
-    this.props.dispatch(userActions.dislikeMemly(memlyId));
-    axios.put('/user/dislike-new-memly', {
-        id: memlyId
-      })
+    var mediaUrl = e.target.getAttribute('alt');
+    var meta = {
+      memlyId: memlyId,
+      mediaUrl: mediaUrl
+    };
+    this.props.dispatch(userActions.dislikeMemly(meta));
+    axios.put('/user/dislike-memly', meta)
       .then((response) => {
         console.log(response);
       })

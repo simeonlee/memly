@@ -22,10 +22,10 @@ export default (props) => {
         <div className="iw-footer">
           <div className="iw-pane">
             <div className="iw-like-button" onClick={(e)=>props.handleLike(e)}>
-              <img className="iw-like-image" value={props.id} src="../../../../images/icons/heart/heart@2x.png" />
+              <img className="iw-like-image" value={props.id} alt={props.media.url} src="../../../../images/icons/heart/heart@2x.png" />
             </div>
             <div className="iw-dislike-button" onClick={(e)=>props.handleDislike(e)}>
-              <img className="iw-dislike-image" value={props.id} src="../../../../images/icons/dislike/dislike@2x.png" />
+              <img className="iw-dislike-image" value={props.id} alt={props.media.url} src="../../../../images/icons/dislike/dislike@2x.png" />
             </div>
           </div>
           <div className="iw-time">{calculateSince(props.media.timestamp)}</div>

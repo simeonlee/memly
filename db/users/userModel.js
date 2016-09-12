@@ -25,8 +25,18 @@ userSchema = new Schema({
       }
     }
   ],
-  likedMemlys: [String],
-  dislikedMemlys: [String],
+  likedMemlys: [
+    {
+      memlyId: String,
+      mediaUrl: String
+    }
+  ],
+  dislikedMemlys: [
+    {
+      memlyId: String,
+      mediaUrl: String
+    }
+  ],
   savedMemlys: [
     {
       mediaUrl: String,
