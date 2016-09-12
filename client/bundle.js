@@ -51160,6 +51160,7 @@
 	var _mapStyle = __webpack_require__(605);
 
 	var _mapStyle2 = _interopRequireDefault(_mapStyle);
+<<<<<<< HEAD
 
 	var _presentation = __webpack_require__(606);
 
@@ -51225,6 +51226,73 @@
 	    value: function geolocate() {
 	      var _this2 = this;
 
+=======
+
+	var _presentation = __webpack_require__(606);
+
+	var _presentation2 = _interopRequireDefault(_presentation);
+
+	var _reactAddonsUpdate = __webpack_require__(612);
+
+	var _reactAddonsUpdate2 = _interopRequireDefault(_reactAddonsUpdate);
+
+	var _axios = __webpack_require__(241);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _reactRedux = __webpack_require__(263);
+
+	var _memlysReducer = __webpack_require__(614);
+
+	var memlysActions = _interopRequireWildcard(_memlysReducer);
+
+	var _mapReducer = __webpack_require__(615);
+
+	var mapActions = _interopRequireWildcard(_mapReducer);
+
+	var _userReducer = __webpack_require__(285);
+
+	var userActions = _interopRequireWildcard(_userReducer);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } //need to look into use for this... allows you to control prop types somehow...
+
+
+	var MapContainer = function (_Component) {
+	  _inherits(MapContainer, _Component);
+
+	  function MapContainer(props) {
+	    _classCallCheck(this, MapContainer);
+
+	    var _this = _possibleConstructorReturn(this, (MapContainer.__proto__ || Object.getPrototypeOf(MapContainer)).call(this, props));
+
+	    _this.geolocate();
+	    _this.updateMemlys();
+	    return _this;
+	  }
+
+	  // If user is in the same location, this lifecycle method will 'shallow equality check'
+	  // the currentUserLocation state.
+	  // If User is still in same place, the method will return false and prevent unnecessary re-render
+
+	  // shouldComponentUpdate(nextProps, nextState) {
+	  //   // console.log("should component update", this.state.currentUserLocation.lat != nextState.currentUserLocation.lat || this.state.currentUserLocation.lng != nextState.currentUserLocation.lng);
+	  //   // return this.state.currentUserLocation.lat != nextState.currentUserLocation.lat || this.state.currentUserLocation.lng != nextState.currentUserLocation.lng;
+	  // }
+
+	  _createClass(MapContainer, [{
+	    key: 'geolocate',
+	    value: function geolocate() {
+	      var _this2 = this;
+
+>>>>>>> e81e1c7b05cf5a10b72709d18c3b8fc22dd76418
 	      if (navigator.geolocation) {
 	        // Assign interval to "window.geolocator" so we can clear the interval later if needed
 	        window.geolocator = window.setInterval(function () {
