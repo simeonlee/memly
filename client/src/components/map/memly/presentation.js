@@ -6,8 +6,8 @@ import { memlyStyle, memlyStyleHover } from '../../../../styles/memlyStyles'
 export const UserLocation = (props) => {
   return(
     <div>
-      <div className="marker pin bounce" />
-      <div className="pulse" />
+      <div className="pin marker bounce" />
+      <div className="fuchsia pulse" />
     </div>
   )
 }
@@ -26,8 +26,8 @@ export const MapMemly = (props) => {
         {...props}
       />
       <div className="hover">
-        <div className="marker memly-marker" />
-        <div className="memly-pulse" />
+        <div className="ring marker" />
+        <div className="teal pulse" />
       </div>
     </div>
   )

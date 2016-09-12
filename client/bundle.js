@@ -58638,8 +58638,8 @@
 	  return _react2.default.createElement(
 	    'div',
 	    null,
-	    _react2.default.createElement('div', { className: 'marker pin bounce' }),
-	    _react2.default.createElement('div', { className: 'pulse' })
+	    _react2.default.createElement('div', { className: 'pin marker bounce' }),
+	    _react2.default.createElement('div', { className: 'fuchsia pulse' })
 	  );
 	};
 
@@ -58658,8 +58658,8 @@
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'hover' },
-	      _react2.default.createElement('div', { className: 'marker memly-marker' }),
-	      _react2.default.createElement('div', { className: 'memly-pulse' })
+	      _react2.default.createElement('div', { className: 'ring marker' }),
+	      _react2.default.createElement('div', { className: 'teal pulse' })
 	    )
 	  );
 	};
