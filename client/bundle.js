@@ -51053,6 +51053,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactBootstrap = __webpack_require__(299);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var ImageUpload = function ImageUpload(_ref) {
@@ -51065,7 +51067,7 @@
 	  // let {imagePreviewUrl} = this.state;
 	  var $imagePreview = null;
 	  if (imagePreviewUrl !== '') {
-	    $imagePreview = _react2.default.createElement('img', { src: imagePreviewUrl });
+	    $imagePreview = _react2.default.createElement('img', { style: { marginTop: '2%' }, className: 'img-rounded', height: '30%', width: '30%', src: imagePreviewUrl });
 	  } else {
 	    $imagePreview = _react2.default.createElement(
 	      'div',
@@ -51076,51 +51078,79 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'previewComponent' },
-	    _react2.default.createElement(
-	      'form',
-	      { onSubmit: function onSubmit(e) {
-	          return handleSubmit(e);
-	        } },
-	      _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement('input', { className: 'fileInput', type: 'file', name: 'photo', onChange: function onChange(e) {
-	            return handleImageChange(e);
-	          } })
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        null,
-	        'Tag place: ',
-	        _react2.default.createElement('input', { className: 'placeInput', type: 'text', name: 'place', onChange: function onChange(e) {
-	            return handlePlaceChange(e);
-	          } })
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        null,
-	        'Your comment: ',
-	        _react2.default.createElement('input', { className: 'commentInput', type: 'text', name: 'comment', onChange: function onChange(e) {
-	            return handleCommentChange(e);
-	          } })
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'button',
-	          { className: 'submitButton', type: 'submit', onClick: function onClick(e) {
-	              return handleSubmit(e);
-	            } },
-	          'Upload Image'
-	        )
-	      )
-	    ),
+	    { className: 'imageuploadcontain' },
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'imagePreview' },
-	      $imagePreview
+	      { className: 'innerimageupload' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'innerinnerimageupload' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'innerinnerimageuploadh3' },
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            'New Memly'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'innerinnerimageuploadform' },
+	          _react2.default.createElement(
+	            'form',
+	            { onSubmit: function onSubmit(e) {
+	                return handleSubmit(e);
+	              } },
+	            _react2.default.createElement(
+	              _reactBootstrap.FormGroup,
+	              { id: 'formControlsText', onChange: function onChange(e) {
+	                  return handlePlaceChange(e);
+	                } },
+	              _react2.default.createElement(
+	                _reactBootstrap.ControlLabel,
+	                null,
+	                'Tag Place:'
+	              ),
+	              _react2.default.createElement(_reactBootstrap.FormControl, { type: 'text' })
+	            ),
+	            _react2.default.createElement(
+	              _reactBootstrap.FormGroup,
+	              { id: 'formControlsText', onChange: function onChange(e) {
+	                  return handleCommentChange(e);
+	                } },
+	              _react2.default.createElement(
+	                _reactBootstrap.ControlLabel,
+	                null,
+	                'Comment:'
+	              ),
+	              _react2.default.createElement(_reactBootstrap.FormControl, { type: 'text' })
+	            ),
+	            _react2.default.createElement(
+	              _reactBootstrap.FormGroup,
+	              { controlId: 'formControlsFile', onChange: function onChange(e) {
+	                  return handleImageChange(e);
+	                } },
+	              _react2.default.createElement(
+	                _reactBootstrap.ControlLabel,
+	                null,
+	                'Upload Photo:'
+	              ),
+	              _react2.default.createElement(_reactBootstrap.FormControl, { type: 'file' })
+	            ),
+	            _react2.default.createElement(
+	              _reactBootstrap.Button,
+	              { type: 'submit' },
+	              'Submit'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'imagePreview ' },
+	          $imagePreview
+	        )
+	      )
 	    )
 	  );
 	};
