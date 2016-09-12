@@ -161,7 +161,7 @@ which is where index.html points to
   width: 100%;
   z-index: -9999999; }
 
-.iw-comment {
+.iw-comment:hover {
   position: absolute;
   left: 8px;
   bottom: 12px;
@@ -565,3 +565,48 @@ ul {
   background-image: -o-linear-gradient(top, #1ab0ec, #3f9feb);
   background-image: linear-gradient(to bottom, #1ab0ec, #3f9feb);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#1ab0ec, endColorstr=#3f9feb); }
+
+
+    /* ===== style for uploadphoto ====== */
+.imageuploadcontain {
+  height: 100%;
+  width: 100%;
+}
+
+.innerimageupload {
+  height: 100%;
+  width: 80%;
+  background-color: #f6f6f6;
+  margin-left: 10%;
+  margin-top: 10%;
+}
+
+.innerinnerimageupload {
+  margin: 3% 3% 3% 3%;
+}
+
+.innerinnerimageuploadh3 {
+  padding-top: 3%;
+}
+
+.loadingscreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #f6f6f6;
+  flex-direction: row;
+}
+
+.ringloading {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 4px solid #50E3C2;
+  transform: rotate(-45deg);
+  z-index: 999999; 
+  box-shadow: 0 0px 4px rgba(120, 120, 120, 0.6);
+}
+
