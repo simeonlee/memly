@@ -532,8 +532,9 @@ ul {
 .memlyInfo {
   display: none; }
 
-#editProfileButton {
+.editProfileButton {
   margin-left: 6%;
+  margin-bottom: 2%;
   border: 1px solid #15aeec;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -555,7 +556,7 @@ ul {
   background-image: linear-gradient(to bottom, #3d9de9, #0674cc);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#49c0f0, endColorstr=#0674cc); }
 
-#editProfileButton:hover {
+.editProfileButton:hover {
   border: 1px solid #1090c3;
   background-color: #1ab0ec;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#1ab0ec), to(#1a92c2));
