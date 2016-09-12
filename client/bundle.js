@@ -31510,6 +31510,30 @@
 	    aboutMe = undefined;
 	  }
 
+	  var divStyle = {
+	    backgroundImage: 'url(' + props.userFacebook.profilePhotoUrl + ')',
+	    backgroundPosition: 'center',
+	    backgroundSize: 'cover',
+	    backgroundRepeat: 'no-repeat'
+	  };
+
+	  // return (
+
+	  //   <div id="myProfile">
+	  //     <div id="profilePhotoContainer" style={divStyle}>
+	  //       <div id="profilePhotoWrapper">
+	  //       </div>
+	  //     </div>
+	  //     <div id="profileBioContainer">
+	  //       <span id= "profileName">{props.userFacebook.name}</span>
+	  //     </div>
+
+	  //   </div>
+
+
+	  // )
+
+
 	  return _react2.default.createElement(
 	    _reactBootstrap.Grid,
 	    null,
@@ -31518,10 +31542,10 @@
 	      { className: 'show-grid', id: 'userProfileContainer' },
 	      _react2.default.createElement(
 	        'div',
-	        { id: 'profilePhotoContainer' },
+	        null,
 	        _react2.default.createElement(
 	          _reactBootstrap.Col,
-	          { sm: 4, id: 'profilePhotoWrapper' },
+	          { sm: 4 },
 	          _react2.default.createElement('img', { id: 'profilePhoto', src: props.userFacebook.profilePhotoUrl })
 	        )
 	      ),
@@ -50849,13 +50873,13 @@
 	          _react2.default.createElement('textarea', { className: 'editProfileInput', id: 'editBio', name: 'comment', form: 'usrform', maxLength: '50', placeholder: 'About me:' }),
 	          _react2.default.createElement(
 	            'button',
-	            { id: 'editProfileButton' },
-	            'Edit Profile'
+	            { className: 'editProfileButton' },
+	            'Edit Profile Information'
 	          )
 	        ),
 	        _react2.default.createElement(
 	          'form',
-	          { onSubmit: function onSubmit(event) {
+	          { id: 'ProfilePhotoUpload', onSubmit: function onSubmit(event) {
 	              event.preventDefault();props.changeProfilePhoto(event);
 	            } },
 	          _react2.default.createElement('input', { className: 'editProfileInput', id: 'uploadedPhoto', type: 'file', name: 'photo', onChange: function onChange(e) {
@@ -50863,7 +50887,7 @@
 	            } }),
 	          _react2.default.createElement(
 	            'button',
-	            null,
+	            { className: 'editProfileButton' },
 	            'Change Profile Photo'
 	          )
 	        )

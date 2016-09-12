@@ -15,12 +15,38 @@ const Profile = (props) => {
     aboutMe = undefined;
   }
 
+  const divStyle = {
+    backgroundImage: 'url(' +props.userFacebook.profilePhotoUrl+ ')',
+    backgroundPosition:'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
+  }
+
+
+
+  // return (
+
+  //   <div id="myProfile">
+  //     <div id="profilePhotoContainer" style={divStyle}>
+  //       <div id="profilePhotoWrapper">
+  //       </div>
+  //     </div>
+  //     <div id="profileBioContainer">
+  //       <span id= "profileName">{props.userFacebook.name}</span>
+  //     </div>
+
+  //   </div>
+
+
+  // )
+
+
   return (
 
     <Grid>
       <Row className = "show-grid" id ="userProfileContainer">
-        <div id="profilePhotoContainer">
-          <Col sm={4} id="profilePhotoWrapper"><img id = "profilePhoto" src={props.userFacebook.profilePhotoUrl}/></Col>
+        <div>
+          <Col sm={4}><img id = "profilePhoto" src={props.userFacebook.profilePhotoUrl}/></Col>
         </div>
         <Col sm={8}>
           <Row className ="show-grid profileName">

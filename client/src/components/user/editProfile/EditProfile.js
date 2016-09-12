@@ -16,13 +16,13 @@ const EditProfile = (props) => {
             <input className ="editProfileInput" id="editBirthday" type="date" data-date="" data-date-format="DD MMMM YYYY"/>
             <input className ="editProfileInput" id="editGender" placeholder ='Gender:'/>
             <textarea className="editProfileInput" id="editBio" name="comment" form="usrform" maxLength='50' placeholder='About me:'></textarea>
-            <button id="editProfileButton">
-            Edit Profile
+            <button className="editProfileButton">
+            Edit Profile Information
             </button>
           </form>
-          <form onSubmit={(event) =>{event.preventDefault(); props.changeProfilePhoto(event);}}>
+          <form id="ProfilePhotoUpload" onSubmit={(event) =>{event.preventDefault(); props.changeProfilePhoto(event);}}>
           <input className="editProfileInput" id="uploadedPhoto" type="file" name="photo" onChange={(e) =>props.handleImageChange(e)} />
-          <button>
+          <button className="editProfileButton">
           Change Profile Photo
           </button>
           </form>
