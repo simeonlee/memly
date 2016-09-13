@@ -21,7 +21,7 @@ var app = express();
 if (process.env.NODE_ENV === 'development') {
   var url = 'http://localhost:3000';
 } else {
-  var url = 'https://thawing-fortress-62578.herokuapp.com';
+  var url = 'https://memly.herokuapp.com';
 };
 
 app.use(cors());

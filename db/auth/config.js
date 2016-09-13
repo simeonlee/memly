@@ -14,7 +14,7 @@ exports.env = function() {
       return {
         FACEBOOK_APP_ID: process.env.FACEBOOK_APP_ID,
         FACEBOOK_APP_SECRET: process.env.FACEBOOK_APP_SECRET,
-        callbackURL: 'https://thawing-fortress-62578.herokuapp.com/auth/facebook/callback'
+        callbackURL: 'https://memly.herokuapp.com/auth/facebook/callback'
       };
     default:
       return {
