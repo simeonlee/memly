@@ -1,5 +1,5 @@
-# Memly
-HR47 2016-07 Green-Field Project
+## Memly
+Deployed [here](https://memly.herokuapp.com/#/?_k=n02bl7)
 
 ## Required Configuration
 * Add FB keys in db/auth/keys.js (see keys.example.js)
