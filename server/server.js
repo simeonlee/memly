@@ -18,6 +18,11 @@ var helper = require('./helperFunctions.js');
 //------ instantiate app. connect middleware. -----//
 var app = express();
 
+if (process.env.NODE_ENV === 'development') {
+  var url = 'http://localhost:3000';
+} else {
+  var url = 'https://thawing-fortress-62578.herokuapp.com';
+};
 
 app.use(cors());
 app.use(express.static(path.join(__dirname, '../client')));
@@ -62,11 +67,11 @@ app.get('/', function(req, res) {
 
 
 app.get('/auth/facebook/callback', 
-  passport.authenticate('facebook', { failureRedirect: 'http://localhost:3000/#' }),
+  passport.authenticate('facebook', { failureRedirect: url + '/#' }),
   function(req, res) {
     //console.log('LOGIN SUCCESS NOW SHOW ME THE USER---------------------->', req.user);
     //console.log('SHOW ME WHAT THIS SESSION IS------------>', req.session.passport.user);
-    res.redirect('http://localhost:3000/#/user/profile/');
+    res.redirect(url + '/#/user/profile/');
   });
 
 
@@ -106,11 +111,11 @@ app.get('/user/retrieve/profileinfo/', helper.isLoggedIn, function(req, res) {
         //console.log('what is found????????????', found);
         res.status(200).send(found);
       } else {
-        res.redirect('http://localhost:3000/#');
+        res.redirect(url + '/#');
       }
     });
   } else {
-    res.redirect('http://localhost:3000/#');
+    res.redirect(url + '/#');
   }
 
 
@@ -174,7 +179,7 @@ app.post('/user/edit/profileinfo/', helper.isLoggedIn, function(req, res) {
         res.status(200).send(found);
       }));
     } else {
-      res.redirect('http://localhost:3000/#');
+      res.redirect(url + '/#');
     }
   });
 
