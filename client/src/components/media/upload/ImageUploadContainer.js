@@ -79,11 +79,6 @@ class ImageUploadContainer extends React.Component {
 
 		reader.onloadend = () => {
 			this.props.dispatch(imageUploadActions.handleImageChange(file, reader.result));
-		  
-		  // this.setState({
-		  //   file: file,
-		  //   imagePreviewUrl: reader.result
-		  // });
 		}
 
 		reader.readAsDataURL(file);
@@ -108,13 +103,14 @@ class ImageUploadContainer extends React.Component {
 	  formData.append('lng', this.props.location.lng);
 
 	  var userPhoto = new Blob([this.props.file], { type: 'image/png'});
+	  console.log('=====>',this.props.file);
+	  console.log('=====>',userPhoto);
 	  formData.append('photo', userPhoto);
 
 	  // Use axios to send formData to server
 		axios.post('/api/photo', formData)
 		  .then((response) => {
 		    console.log(response);
-
 		  })
 		  .catch((error) => {
 		    console.log(error);

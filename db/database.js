@@ -38,8 +38,8 @@ var upload = multer({ storage: storage });
 // Call the below on app to enable it to upload images to database
 module.exports = function(app) {
 
-	// app.post('/api/photo', upload.single('photo'), function(req, res) {
-	app.post('/api/photo', function(req, res) {
+	app.post('/api/photo', upload.single('photo'), function(req, res) {
+	// app.post('/api/photo', function(req, res) {
 		console.log('--> Request File --> ',req.file);
 		console.log('--> Request Body --> ',req.body);
 
